@@ -1098,7 +1098,7 @@ test = ["asn1tools (>=0.146.2)", "eth-hash[pysha3]", "factory-boy (>=3.0.1)", "h
 
 [[package]]
 name = "eth-portfolio"
-version = "0.0.1.dev746"
+version = "0.0.1.dev751"
 description = "eth-portfolio makes it easy to analyze your portfolio."
 optional = false
 python-versions = "*"
@@ -1122,7 +1122,7 @@ ypricemagic = ">=4.5.4,<5"
 type = "git"
 url = "https://github.com/BobTheBuidler/eth-portfolio"
 reference = "master"
-resolved_reference = "27347fe1fa5324c7759039113a54b95c229f75a3"
+resolved_reference = "395e3ca26d20dbae770115803f601cfe77a97e56"
 
 [[package]]
 name = "eth-retry"

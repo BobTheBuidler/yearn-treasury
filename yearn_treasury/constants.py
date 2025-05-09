@@ -1,5 +1,6 @@
-from typing import Final
+from typing import Final, Set
 
+from eth_typing import BlockNumber, ChecksumAddress
 from y import Network, convert
 from y.constants import CHAINID
 
@@ -47,3 +48,9 @@ _TREASURY_WALLETS: Final = {
 TREASURY_WALLETS: Final = {
     convert.to_address(address) for address in _TREASURY_WALLETS.get(CHAINID, set())
 }
+
+
+class Args:
+    wallet: Final[Set[ChecksumAddress]] = TREASURY_WALLETS
+    label: Final[str] = "Yearn"
+    first_tx_block: Final[BlockNumber] = {Network.Mainnet: 10_502_337}.get(CHAINID, 0)
