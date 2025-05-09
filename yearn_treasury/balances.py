@@ -51,13 +51,22 @@ def export():
 def main():
     brownie.network.connect(BROWNIE_NETWORK)
 
+    from y import Network
+    from y.constants import CHAINID
+    
     from . import constants
 
+    start_block = {
+        Network.Mainnet: ,
+    }.get(CHAINID, 0)
+    
     @final
     class Args:
         wallet: Final[Set[ChecksumAddress]] = constants.TREASURY_WALLETS
         network: Final[str] = args.network
         interval: Final[str] = args.interval
+        # TODO implement in eth-portfolio
+        #start_block: Final[BlockNumber] = start_block.get
         label: Final[str] = "Yearn"
         grafana_port: Final[int] = 3003 # args.grafana_port
         renderer_port: Final[int] = 8080 # args.renderer_port
