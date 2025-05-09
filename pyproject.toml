@@ -1,0 +1,31 @@
+[tool.poetry]
+name = "yearn-treasury"
+version = "0.0.1"
+description = ""
+authors = ["Bob The Buidler <you@example.com>"]
+packages = [{ include = "yearn_treasury/*" }]
+
+[tool.poetry.scripts]
+balances = "yearn_treasury.balances:export"
+
+[tool.poetry.dependencies]
+python = ">=3.10,<3.13"
+eth-portfolio = { git = "https://github.com/BobTheBuidler/eth-portfolio", branch = "master" }
+
+
+[tool.black]
+line-length = 100
+target-version = ['py310']
+include = '\.pyi?$'
+exclude = '''
+/(
+    \.git
+  | \.hypothesis
+  | \.mypy_cache
+  | \.pytest_cache
+  | \.venv
+  | cache
+  | dist
+  | env
+)/
+'''
