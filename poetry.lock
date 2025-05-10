@@ -792,14 +792,14 @@ cython = ["cython"]
 
 [[package]]
 name = "dank-mids"
-version = "4.20.144"
+version = "4.20.145"
 description = "Multicall batching middleware for asynchronous scripts using web3.py"
 optional = false
 python-versions = "<3.13,>=3.8"
 groups = ["main"]
 files = [
-    {file = "dank_mids-4.20.144-py3-none-any.whl", hash = "sha256:83f6f4d057cb4076e6d730401c6a1806e7b612205c4b56cb70b35352df45af0d"},
-    {file = "dank_mids-4.20.144.tar.gz", hash = "sha256:82e2a1774cf675a175780f989804990583f5da66a21fe1632ae48583f9fc7a3e"},
+    {file = "dank_mids-4.20.145-py3-none-any.whl", hash = "sha256:ef8bebc1c2b9398ee42e8c6598dc9e484ca3ef87eeab13e4126fed7500a331ac"},
+    {file = "dank_mids-4.20.145.tar.gz", hash = "sha256:5370e31374e902159d6b0a6e766da8784fdc34bb38cac1e9367e08058e2ae4db"},
 ]
 
 [package.dependencies]
@@ -807,7 +807,7 @@ aiofiles = "*"
 aiolimiter = ">=1.2,<1.3"
 cchecksum = ">=0.0.3,<1"
 eth-retry = ">=0.3.1,<1"
-evmspec = ">=0.2.8,<1"
+evmspec = ">=0.3.2,<1"
 ez-a-sync = ">=0.28,<1"
 multicall = ">=0.6.2,<1"
 typed-envs = ">=0.1.3,<0.2"
@@ -1098,7 +1098,7 @@ test = ["asn1tools (>=0.146.2)", "eth-hash[pysha3]", "factory-boy (>=3.0.1)", "h
 
 [[package]]
 name = "eth-portfolio"
-version = "0.0.1.dev751"
+version = "0.0.1.dev752"
 description = "eth-portfolio makes it easy to analyze your portfolio."
 optional = false
 python-versions = "*"
@@ -1122,7 +1122,7 @@ ypricemagic = ">=4.5.4,<5"
 type = "git"
 url = "https://github.com/BobTheBuidler/eth-portfolio"
 reference = "master"
-resolved_reference = "395e3ca26d20dbae770115803f601cfe77a97e56"
+resolved_reference = "98cacfe8b4f9098bc8b8943446e4f589e2fdfe82"
 
 [[package]]
 name = "eth-retry"
@@ -1209,13 +1209,13 @@ test = ["hypothesis (>=4.43.0)", "mypy (==0.971)", "pytest (>=7.0.0)", "pytest-x
 
 [[package]]
 name = "evmspec"
-version = "0.3.1"
+version = "0.3.2"
 description = "A collection of msgspec.Struct definitions for use with the Ethereum Virtual Machine"
 optional = false
 python-versions = "<3.13,>=3.8"
 groups = ["main"]
 files = [
-    {file = "evmspec-0.3.1.tar.gz", hash = "sha256:e98fc2cb5212c0dba821e1d3c2b4fa07302d5137027e944d6f8cb882c8c2a062"},
+    {file = "evmspec-0.3.2.tar.gz", hash = "sha256:52f3f99e53731bb9ad847c8086b91756e442a95f000f3c58e8a0e380aff37ae6"},
 ]
 
 [package.dependencies]
@@ -3270,48 +3270,48 @@ multidict = ">=4.0"
 
 [[package]]
 name = "ypricemagic"
-version = "4.5.5"
+version = "4.5.6"
 description = "Use this tool to extract historical on-chain price data from an archive node. Shoutout to @bantg and @nymmrx for their awesome work on yearn-exporter that made this library possible."
 optional = false
 python-versions = "*"
 groups = ["main"]
 files = [
-    {file = "ypricemagic-4.5.5-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:0960a4518c1acd1bb2014a3e076c9cd5e78a95a95f713326403b3a75cdb5f38a"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9b643c38a65d98a49e2055ef78859bfa25c90d8f418939e334e3f43f09ecb05d"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:3855f77f3d12777be2bf23a1bf5004442829914b2878ace246f463c1aa44ea3f"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:78d00dcdaaf61dda068272e4da266df98a1b85db776091057338627a88f665c6"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:a4c0484e1ec35202cdac64ae082aefda56257123cb6d155f28549315c2946e94"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-win32.whl", hash = "sha256:4a3692712e2e2048b4070942f8e2bebc56a88a3d9f30b67c21d3dfa8b1329583"},
-    {file = "ypricemagic-4.5.5-cp310-cp310-win_amd64.whl", hash = "sha256:94f72635222baa67e59116388e1575d8ad2beace1dcb848ec4dc46b5ab009980"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:1ad340e7bd8dba039d55613873f2570fd5d551f0ecd0df88d66e7c21acc2b6ce"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:27afeac85926bc077908a03287c1b8aa10bdd6b8b06599dd63e14b89748ea8c0"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:39e5e059e5fe3764e456f211aea82d7b27123a6c6927a6ef97dc3f46de3a1e73"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:81dadc3431ea369ffb51b98616c8a823ece1b776cdad5f0cb8c5855ffbc2300e"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:166d6c757c9ce12f7f676553ab1477daebf85344c20ef277fe0eb0f7fc165827"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-win32.whl", hash = "sha256:c685417cc0aecc228c14f6fd8b9eb7dc4e5494bb01ef9dd72908ca0e6ee5c20d"},
-    {file = "ypricemagic-4.5.5-cp311-cp311-win_amd64.whl", hash = "sha256:48cacce182be9d908ed3c07fc2d475ae7a71508b6845ae2c89c1729f19f27cfa"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:24699ad5cb8adf67e36ba06b515d52677631b6ab81107df2dc0132a77a8ddd93"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9d67aedb77f14b432816a269d6e15473ccbdeeeea866d42ee314880eb7073722"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:3950fd002734253312c80e3dc523584c8bd2d322c7294184485fd0b00f3e9923"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:e7b07d3cea26dd2b07c9abea61aef21273b750746be0b77b9573092e0ca40259"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:d41390e5471069ba0f2467dc312513b9a621da80433c67c2cc7ff3c1b29145cb"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-win32.whl", hash = "sha256:1c165abc2098124eacea06853678aa5d6920a6411e1657ae83ff4c3b1b4a57d3"},
-    {file = "ypricemagic-4.5.5-cp312-cp312-win_amd64.whl", hash = "sha256:d076172382c1f34e3b87fca04a712d99e71b465e717cc71b171b669e15d7757c"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:d51ea216d84c3a5c78e03b7708efe8f24953fa82a95c350238999a8139172e65"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:448c87de34b82af1333fb4e24dc00e598263edca8d6bf6c16abfda2796292478"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:81cf77eb3740be51cb6c747ed6e1cff463c4e9835ce53d13da738e37a7e7af46"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:b9403a0db1d546c11b9aaa2c095a6a218d3079da17a71ce4fa69f54d72d96ebe"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:642ba95d4a8de7f0c20dee3a5eb2600239788592ae7507e9190241940809b612"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-win32.whl", hash = "sha256:d0f5ab6061bf7d65656b51080413b8cf339f1bc01cf05239706c9c9a99a70c2c"},
-    {file = "ypricemagic-4.5.5-cp38-cp38-win_amd64.whl", hash = "sha256:030b8a06d522d86d03cf55b24b538a3e0f0ac825b46019a603066a910a13adcc"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:2255a8296539d17b75ff4dd8bfe70cc3dbeaef479fd3c0c8cc05ea2c1fc1d16f"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:78d7e95b8acbb36a3ef6d58e470faf6a3b7dbaa47aada9d2e40940d44950a77d"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0fd43f04ccc8d5c76b2b63addffd69c7c743e96b71808c4efb30a976da519673"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:c7cf2fc6fefce048e918c2da9c385ccbe41d52b0c2352d123bb2df8c4cc97baa"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:293df3b177d5b76424aed12cdf20629b82dba2b41d8bd0396134957dd49b8ff5"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-win32.whl", hash = "sha256:cce00e81184cf655bbd942d23992b910f289b564cb9be27f1639ee1f79300930"},
-    {file = "ypricemagic-4.5.5-cp39-cp39-win_amd64.whl", hash = "sha256:e0a0d710dffa477544951c5b58de8a020d394896a42419c31c62e5d53dfc5173"},
-    {file = "ypricemagic-4.5.5.tar.gz", hash = "sha256:17af7461479edb496499edbf217ec9eb5540586e64ef149ac960220b81613dce"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:4b327ddde3eefa7589b600ad57b5fe0cf85e6bb71802d9d5c85547bc61db09b9"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:44d59630e3d2799cfff1b67f928bddd44b0219f49cce486f50802567c7e11184"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:c46b103751907480a81e3459198c066990c700e01c8d24a32f0a4078ce1d52cc"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:08ce64f74993937f7891e687042fb01e995cd84d088780b5b2445cb5c0108d79"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:e3d7e81398bbbb9a9ae58ed1607be15b4d033ccf26cbca6431a11e85428c89ea"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-win32.whl", hash = "sha256:33b5501848db0f2336113f26c4b2ffe413b56b5c77354550f3419426e6bbfb1a"},
+    {file = "ypricemagic-4.5.6-cp310-cp310-win_amd64.whl", hash = "sha256:0d87ce39a4dc36396006d1ef825a30e9b8f9c3e7a719258443e9572e7ea30c74"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:43e81310e4836d4494736daec363815604352cad1659f55d75f44390d71f6914"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:1749343acdf018915add326f3a69b02ac0f4c63504237be74cb588747e468732"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:2a2add06e74f44940e2268af02a9e1b0cf68fd45890df7c13db416b0afff7b10"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:a5d65e0db411d8410e309b55e38716896ecb05e15d008bac3ed523bb5b218378"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:39e932a293eaf8733b5d894165a0ee4365d76392b8820e8812b39211750bbd36"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-win32.whl", hash = "sha256:78931ecaa631e10c229c3d296a1dcce26c4162281e7e4f275e37da546cef62cc"},
+    {file = "ypricemagic-4.5.6-cp311-cp311-win_amd64.whl", hash = "sha256:ad15eaaa1996741ca53229fef04aaa070ca5d8e5959b5c110709e737f7d38826"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:10a34cd8b4751875674e55ca4b04d4475503fa2aa06427542e0ccc709ad45063"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:4b1bd7e101c7745ece1c6b940943e0af5af516ecf1148343ca23e67b9175f48b"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:9c15ac34dcc52c0bad81925c5ffb803658057d5260864836fa6d52c1b88d900a"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:360685193eddbb4349804a0dafe0e6d291bebaa90745df748d7c2f20dd050046"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:43248f6f9a0db927eb2848076b15f00b37322a6fcacfbc5c9ae3d49fe82374bc"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-win32.whl", hash = "sha256:39b4367909d224782714d9632cddc82c54f7af5fb212fd76ad01becbbfa48bc7"},
+    {file = "ypricemagic-4.5.6-cp312-cp312-win_amd64.whl", hash = "sha256:81a449e99a46c9deb9f4d39d037d45cf28697b3988939462b9fb2f7da987e47c"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-macosx_11_0_arm64.whl", hash = "sha256:4c809d5faf78d5b13bf8076e9ca4442a9da01c4c8f705d838811667f547abb7e"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:344acb4da453de37aa0e02be5871a03bd6dc9e5a22f2c7e6bd6227a18793fffe"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:bdaaf8c390b78272f2a5179060217f297c2b287542061011b7a43c91b86dc70f"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-musllinux_1_2_i686.whl", hash = "sha256:64c98df98120beeb813c7ce6309368646dcb80efc4fb1ddd605a2d15a49eb7ac"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-musllinux_1_2_x86_64.whl", hash = "sha256:744df744a084c3560cd6cb031106e0c4d60cc08062500ed6187fa4cf7cfdcd40"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-win32.whl", hash = "sha256:b99e9f56020a938c206a87e5d75ec65df4a90afa5630e00f5da0c5777c4a3ab1"},
+    {file = "ypricemagic-4.5.6-cp38-cp38-win_amd64.whl", hash = "sha256:8cd518cd082e765cbe38ab53fbe7055bced278bd071caf35e58fc6d6cbf90fa5"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-macosx_11_0_arm64.whl", hash = "sha256:a877f8cb7d663837bc9f33a8e31f07ba7d8840c8583690476e0b6e0420f3b61d"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:9999feae892aa19e36520d1fdb88ed8977ed37c68630164913b96c13e0cd7645"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:04f054345eed91b5472ef43c0165ddc017d593b6b682144c6ebe84c9a10dbdb6"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-musllinux_1_2_i686.whl", hash = "sha256:6c7ccedaa4a13a8d21b4fc2a9a960efb76c10539d68309850af701da28a094ca"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-musllinux_1_2_x86_64.whl", hash = "sha256:3c0c188a07939491c3cff90b25ab6338b06558798969422ff7fa6a2fe3f87d62"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-win32.whl", hash = "sha256:665f259c2d624835b3364ca69870ccc0fba409c55167ee5e543b06fcc367c0f5"},
+    {file = "ypricemagic-4.5.6-cp39-cp39-win_amd64.whl", hash = "sha256:d52ec9f9ade41c0dabc3c2dcf5ce5270b78aff79e37b005ba92744da98f4d93a"},
+    {file = "ypricemagic-4.5.6.tar.gz", hash = "sha256:520bde7355cb0c0e5536c1fd21d5a08c951975b2d431dfefab4b5cfffd283dab"},
 ]
 
 [package.dependencies]
