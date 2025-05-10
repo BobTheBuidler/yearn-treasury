@@ -52,15 +52,14 @@ def export():
 # TODO: run forever arg
 def main():
     brownie.network.connect(BROWNIE_NETWORK)
-
-    from y import Network
-    from y.constants import CHAINID
     
-    from . import constants
+    import eth_portfolio
 
-    start_block = {
-        Network.Mainnet: ,
-    }.get(CHAINID, 0)
+    from . import constants, shitcoins
+
+
+    eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)
+    
     
     @final
     class Args(constants.Args):
