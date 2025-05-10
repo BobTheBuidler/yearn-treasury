@@ -792,14 +792,14 @@ cython = ["cython"]
 
 [[package]]
 name = "dank-mids"
-version = "4.20.145"
+version = "4.20.146"
 description = "Multicall batching middleware for asynchronous scripts using web3.py"
 optional = false
 python-versions = "<3.13,>=3.8"
 groups = ["main"]
 files = [
-    {file = "dank_mids-4.20.145-py3-none-any.whl", hash = "sha256:ef8bebc1c2b9398ee42e8c6598dc9e484ca3ef87eeab13e4126fed7500a331ac"},
-    {file = "dank_mids-4.20.145.tar.gz", hash = "sha256:5370e31374e902159d6b0a6e766da8784fdc34bb38cac1e9367e08058e2ae4db"},
+    {file = "dank_mids-4.20.146-py3-none-any.whl", hash = "sha256:15354cb35b2c974b940dd574232a8fd1047f522e59f31189d8155b756c005c3a"},
+    {file = "dank_mids-4.20.146.tar.gz", hash = "sha256:fe6ddb6cc66f613b56ce266715929c3ac011f4f865c2cc272a7e174fa9dc4d5f"},
 ]
 
 [package.dependencies]
