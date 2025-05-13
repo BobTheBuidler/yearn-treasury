@@ -32,7 +32,7 @@ parser.add_argument(
     "--interval",
     type=str,
     help="The time interval between datapoints. default: 1d",
-    default="5m",  # TODO: put this back for prod
+    default="12h",
 )
 
 parser.add_argument(
