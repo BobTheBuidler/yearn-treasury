@@ -54,3 +54,4 @@ class Args:
     wallet: Final[Set[ChecksumAddress]] = TREASURY_WALLETS
     label: Final[str] = "Yearn"
     first_tx_block: Final[BlockNumber] = {Network.Mainnet: 10_502_337}.get(CHAINID, 0)
+    export_start_block: Final = first_tx_block
