@@ -33,6 +33,7 @@ _SHITCOINS = {
         "0x01234567bac6fF94d7E4f0EE23119CF848F93245",
 
         # these arent shitcoins per se but we can't price them and dont expect to in the future, lets save cpu cycles
+        "0x9d45DAb69f1309F1F55A7280b1f6a2699ec918E8", # yFamily NFT <3
         "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85", # ENS
         "0xD057B63f5E69CF1B929b356b579Cba08D7688048", # vCOW
         "0x4c1317326fD8EFDeBdBE5e1cd052010D97723bd6", # deprecated yCRV
