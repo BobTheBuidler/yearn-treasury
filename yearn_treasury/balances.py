@@ -1,7 +1,7 @@
 import asyncio
 import os
 from argparse import ArgumentParser
-from typing import Final, Set, final
+from typing import Final, final
 
 import brownie
 import brownie.network
