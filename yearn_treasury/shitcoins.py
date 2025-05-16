@@ -41,6 +41,8 @@ _SHITCOINS = {
 
         # test token?
         "0x372d5d02c6b4075bd58892f80300cA590e92d29E", # tOUSG
+        # dETH? don't think this is needed 
+        "0x3d1E5Cf16077F349e999d6b21A4f646e83Cd90c5",
     ),
 }
 
