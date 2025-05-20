@@ -16,6 +16,14 @@ balances = "yearn_treasury.balances:export"
 python = ">=3.10,<3.13"
 eth-portfolio-temp = ">=0.0.1,<0.1"
 
+[tool.poetry.group.dev.dependencies]
+mypy = "*"
+types-requests = "*"
+
+[tool.mypy]
+exclude = ["build/","cache/","env/", "tests/", "setup.py"]
+ignore_missing_imports = true
+check_untyped_defs = true
 
 [tool.black]
 line-length = 100

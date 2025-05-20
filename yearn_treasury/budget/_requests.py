@@ -19,9 +19,9 @@ def fetch_brs() -> List[BudgetRequest]:
 
     brs = []
     while True:
-        response = get(api_url, headers=_HEADERS, params=params)
+        response = get(api_url, headers=_HEADERS, params=params)  # type: ignore [arg-type]
         if response.status_code != 200:
-            raise Exception(f"Failed to fetch issues: {response.status_code} {response.text}")
+            raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
 
         data: List[dict] = response.json()
         if not data:  # If the current page is empty, we are done.
@@ -41,21 +41,21 @@ def fetch_brs() -> List[BudgetRequest]:
                 continue
 
             br = BudgetRequest(
-                id=item.get("id"),
-                number=item.get("number"),
-                title=item.get("title"),
-                state=item.get("state"),
-                url=item.get("html_url"),
-                created_at=item.get("created_at"),
-                updated_at=item.get("updated_at"),
-                closed_at=item.get("closed_at"),
-                body=item.get("body"),
-                labels=labels,
+                id=item.get("id"),  # type: ignore [arg-type]
+                number=item.get("number"),  # type: ignore [arg-type]
+                title=item.get("title"),  # type: ignore [arg-type]
+                state=item.get("state"),  # type: ignore [arg-type]
+                url=item.get("html_url"),  # type: ignore [arg-type]
+                created_at=item.get("created_at"),  # type: ignore [arg-type]
+                updated_at=item.get("updated_at"),  # type: ignore [arg-type]
+                closed_at=item.get("closed_at"),  # type: ignore [arg-type]
+                body=item.get("body"),  # type: ignore [arg-type]
+                labels=labels,  # type: ignore [arg-type]
             )
             brs.append(br)
 
         # Move on to the next page.
-        params["page"] += 1
+        params["page"] += 1  # type: ignore [operator]
 
     return brs
 

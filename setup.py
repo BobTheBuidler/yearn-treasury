@@ -105,11 +105,7 @@ def format_version_part(version_spec):
     If version_spec starts with an operator, prepend a space
     so it looks like "mypkg >=1.0.0" instead of "mypkg>=1.0.0".
     """
-    if not version_spec:
-        return ""
-    if version_spec[0] in "<>!~=":
-        return f" {version_spec}"
-    return f" {version_spec}"
+    return f" {version_spec}" if version_spec else ""
 
 
 def convert_python_spec_to_marker(python_spec):

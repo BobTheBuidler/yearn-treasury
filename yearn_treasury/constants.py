@@ -27,9 +27,9 @@ if CHAINID not in TREASURY_MULTISIGS or CHAINID not in YCHAD_MULTISIGS:
     raise RuntimeError(f"{Network(CHAINID)} is not supported")
 
 
-TREASURY_MULTISIG: Final = convert.to_address(TREASURY_MULTISIGS[CHAINID])
+TREASURY_MULTISIG: Final = convert.to_address(TREASURY_MULTISIGS[CHAINID])  # type: ignore [index]
 
-YCHAD_MULTISIG: Final = convert.to_address(YCHAD_MULTISIGS[CHAINID])
+YCHAD_MULTISIG: Final = convert.to_address(YCHAD_MULTISIGS[CHAINID])  # type: ignore [index]
 
 
 _TREASURY_WALLETS: Final = {
@@ -47,7 +47,7 @@ _TREASURY_WALLETS: Final = {
 }
 
 TREASURY_WALLETS: Final = {
-    convert.to_address(address) for address in _TREASURY_WALLETS.get(CHAINID, set())
+    convert.to_address(address) for address in _TREASURY_WALLETS.get(CHAINID, set())  # type: ignore [call-overload]
 }
 
 
@@ -56,5 +56,5 @@ class Args:
     # TODO: update dashboard def to use this label
     # label: Final[str] = "Yearn"
     label: Final[str] = "My Portfolio"
-    first_tx_block: Final[BlockNumber] = {Network.Mainnet: 10_502_337}.get(CHAINID, 0)
+    first_tx_block: Final = BlockNumber({Network.Mainnet: 10_502_337}.get(CHAINID, 0))  # type: ignore [call-overload]
     export_start_block: Final = first_tx_block
