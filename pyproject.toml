@@ -16,6 +16,8 @@ balances = "yearn_treasury.balances:export"
 python = ">=3.10,<3.13"
 eth-portfolio-temp = ">=0.0.1,<0.1"
 
+[tool.poetry.group.dev.dependencies]
+mypy = "*"
 
 [tool.black]
 line-length = 100
