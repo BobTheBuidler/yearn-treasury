@@ -48,4 +48,4 @@ _SHITCOINS = {
 }
 
 
-SHITCOINS = {convert.to_address(shitcoin) for shitcoin in _SHITCOINS.get(CHAINID, ())}
+SHITCOINS = {convert.to_address(shitcoin) for shitcoin in _SHITCOINS.get(CHAINID, ())}  # type: ignore [call-overload]
