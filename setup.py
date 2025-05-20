@@ -79,9 +79,7 @@ def poetry_dep_dict_to_pep508_string(spec, package_name):
         version_part = ""
 
         # Turn extras into a "pkg[extra1,extra2]" form if there are any
-    pkg_with_extras = (
-        f"{package_name}[{','.join(extras)}]" if extras else package_name
-    )
+    pkg_with_extras = f"{package_name}[{','.join(extras)}]" if extras else package_name
     # Build up a Python-version marker if "python" is given
     # e.g., python=">=3.7,<3.9" => "python_version >= '3.7' and python_version < '3.9'"
     py_marker = convert_python_spec_to_marker(python_part) if python_part else ""
@@ -144,14 +142,13 @@ def combine_markers(a, b):
     return f"({a}) and ({b})" if a and b else a or b
 
 
-setup(name=poetry_config["name"],
+setup(
+    name=poetry_config["name"],
     version=poetry_config["version"],
     packages=find_packages(),
     package_data={"evmspec": ["py.typed"]},
     include_package_data=True,
-    install_requires=poetry_dependencies_to_install_requires(
-        poetry_config["dependencies"]
-    ),
+    install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
     ext_modules=mypycify(
         [
             "evmspec/_new.py",
