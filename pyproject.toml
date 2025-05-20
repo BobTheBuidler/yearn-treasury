@@ -18,6 +18,12 @@ eth-portfolio-temp = ">=0.0.1,<0.1"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "*"
+types-setuptools = "*"
+
+[tool.mypy]
+exclude = ["build/","cache/","env/"]
+ignore_missing_imports = true
+check_untyped_defs = true
 
 [tool.black]
 line-length = 100
