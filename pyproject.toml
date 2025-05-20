@@ -10,7 +10,7 @@ balances = "yearn_treasury.balances:export"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-eth-portfolio-temp = "0.0.1"
+eth-portfolio-temp = ">=0.0.1,<0.1"
 
 
 [tool.black]
