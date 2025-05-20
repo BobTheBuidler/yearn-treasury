@@ -18,6 +18,7 @@ eth-portfolio-temp = ">=0.0.1,<0.1"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "*"
+sphinx = "*"
 types-requests = "*"
 
 [tool.mypy]
