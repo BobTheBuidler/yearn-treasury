@@ -6,3 +6,6 @@ docs:
 	rm -r ./docs/_templates -f
 	rm -r ./docs/_build -f
 	sphinx-apidoc -o ./docs/source ./yearn_treasury
+
+mypy:
+	mypy .
