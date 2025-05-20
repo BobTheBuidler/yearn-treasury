@@ -8,4 +8,4 @@ docs:
 	sphinx-apidoc -o ./docs/source ./yearn_treasury
 
 mypy:
-	mypy .
+	poetry run mypy .
