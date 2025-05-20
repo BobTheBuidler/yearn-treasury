@@ -5,6 +5,10 @@ description = ""
 authors = ["Bob The Buidler <you@example.com>"]
 packages = [{ include = "yearn_treasury/*" }]
 
+[build-system]
+requires = ["setuptools", "wheel", "mypy[mypyc]", "tomli>=2.0.0; python_version < '3.11'"]
+build-backend = "setuptools.build_meta"
+
 [tool.poetry.scripts]
 balances = "yearn_treasury.balances:export"
 
