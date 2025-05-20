@@ -54,7 +54,7 @@ TREASURY_WALLETS: Final = {
 class Args:
     wallet: Final[Set[ChecksumAddress]] = TREASURY_WALLETS
     # TODO: update dashboard def to use this label
-    #label: Final[str] = "Yearn"
+    # label: Final[str] = "Yearn"
     label: Final[str] = "My Portfolio"
     first_tx_block: Final[BlockNumber] = {Network.Mainnet: 10_502_337}.get(CHAINID, 0)
     export_start_block: Final = first_tx_block
