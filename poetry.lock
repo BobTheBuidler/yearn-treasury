@@ -2864,17 +2864,6 @@ files = [
 urllib3 = ">=2"
 
 [[package]]
-name = "types-setuptools"
-version = "80.7.0.20250516"
-description = "Typing stubs for setuptools"
-optional = false
-python-versions = ">=3.9"
-files = [
-    {file = "types_setuptools-80.7.0.20250516-py3-none-any.whl", hash = "sha256:c1da6c11698139c8307c6df5987592df940e956912c204e42d844ba821dd2741"},
-    {file = "types_setuptools-80.7.0.20250516.tar.gz", hash = "sha256:57274b58e05434de42088a86074c9e630e5786f759cf9cc1e3015e886297ca21"},
-]
-
-[[package]]
 name = "typing-extensions"
 version = "4.9.0"
 description = "Backported and Experimental Type Hints for Python 3.8+"
@@ -3344,4 +3333,4 @@ testing = ["big-O", "jaraco.functools", "jaraco.itertools", "more-itertools", "p
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "a167ad3031c99221f7c20830d353be1abc053d0303c9f58f769956a956afb8d4"
+content-hash = "09197d7e9c5b35aa995ddb609a18be4fea2194c2ba6414dd9d93f3bd7710558f"

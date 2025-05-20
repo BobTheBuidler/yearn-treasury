@@ -10,11 +10,12 @@ from eth_portfolio_scripts.balances import export_balances
 from eth_typing import ChecksumAddress
 
 
-BROWNIE_NETWORK = os.environ.get("BROWNIE_NETWORK_ID")
-if not BROWNIE_NETWORK:
+try:
+    BROWNIE_NETWORK = os.environ["BROWNIE_NETWORK_ID"]
+except KeyError:
     raise RuntimeError(
         "You must set env BROWNIE_NETWORK_ID with the id for the brownie network you wish to use"
-    )
+    ) from None
 
 
 parser = ArgumentParser(description="add me")
@@ -57,7 +58,7 @@ def main():
 
     from . import constants, shitcoins
 
-    eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)
+    eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)  # type: ignore [index]
 
     @final
     class Args(constants.Args):

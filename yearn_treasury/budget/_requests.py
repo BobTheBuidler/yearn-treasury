@@ -19,9 +19,9 @@ def fetch_brs() -> List[BudgetRequest]:
 
     brs = []
     while True:
-        response = get(api_url, headers=_HEADERS, params=params)
+        response = get(api_url, headers=_HEADERS, params=params)  # type: ignore [arg-type]
         if response.status_code != 200:
-            raise Exception(f"Failed to fetch issues: {response.status_code} {response.text}")
+            raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
 
         data: List[dict] = response.json()
         if not data:  # If the current page is empty, we are done.
@@ -55,7 +55,7 @@ def fetch_brs() -> List[BudgetRequest]:
             brs.append(br)
 
         # Move on to the next page.
-        params["page"] += 1
+        params["page"] += 1  # type: ignore [operator]
 
     return brs
 
