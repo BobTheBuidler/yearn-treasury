@@ -21,6 +21,7 @@ mypy = "*"
 sphinx = "*"
 sphinx-rtd-theme = "*"
 types-requests = "*"
+myst-parser = "*"
 
 [tool.mypy]
 exclude = ["build/","cache/","env/", "tests/", "setup.py"]
