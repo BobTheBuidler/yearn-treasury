@@ -29,7 +29,7 @@ jobs:
       - name: Run Mypyc (3.12)
         env:
           MYPYC_STRICT_DUNDER_TYPING: 1
-        run: make mypyc
+        run: make build
 
       - name: Check for changes
         run: |
