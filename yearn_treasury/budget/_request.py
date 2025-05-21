@@ -1,6 +1,6 @@
 from dataclasses import dataclass
 from logging import getLogger
-from typing import Final, List, Optional, final
+from typing import Final, Optional, Set, final
 
 
 logger: Final = getLogger(__name__)
@@ -18,7 +18,7 @@ class BudgetRequest:
     updated_at: str
     closed_at: Optional[str]
     body: Optional[str]
-    labels: List[str]
+    labels: Set[str]
 
     def __post_init__(self) -> None:
         if self.is_approved() and not self.is_paid():

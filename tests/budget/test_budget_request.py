@@ -10,23 +10,77 @@ from yearn_treasury.budget._request import BudgetRequest
 @pytest.mark.parametrize(
     "labels,expected_approved,expected_rejected,expected_stream,expected_vesting,expected_paid",
     [
-        (["approved", "paid"], True, False, False, False, True),  # approved and paid
-        (["approved"], True, False, False, False, False),  # approved only
-        (["rejected"], False, True, False, False, False),  # rejected only
-        (["stream"], False, False, True, False, False),  # stream only
-        (["vesting"], False, False, False, True, False),  # vesting only
-        (["paid"], False, False, False, False, True),  # paid only
+        ({"approved", "paid"}, True, False, False, False, True),  # approved and paid
         (
-            ["approved", "rejected", "stream", "vesting", "paid"],
+            {
+                "approved",
+            },
+            True,
+            False,
+            False,
+            False,
+            False,
+        ),  # approved only
+        (
+            {
+                "rejected",
+            },
+            False,
+            True,
+            False,
+            False,
+            False,
+        ),  # rejected only
+        (
+            {
+                "stream",
+            },
+            False,
+            False,
+            True,
+            False,
+            False,
+        ),  # stream only
+        (
+            {
+                "vesting",
+            },
+            False,
+            False,
+            False,
+            True,
+            False,
+        ),  # vesting only
+        (
+            {
+                "paid",
+            },
+            False,
+            False,
+            False,
+            False,
+            True,
+        ),  # paid only
+        (
+            {"approved", "rejected", "stream", "vesting", "paid"},
             True,
             True,
             True,
             True,
             True,
         ),  # all labels
-        ([], False, False, False, False, False),  # no labels
-        (["APPROVED"], False, False, False, False, False),  # case-sensitive
-        (["approved", "rejected"], True, True, False, False, False),  # approved and rejected
+        (set(), False, False, False, False, False),  # no labels
+        (
+            {
+                "APPROVED",
+            },
+            False,
+            False,
+            False,
+            False,
+            False,
+        ),  # case-sensitive
+        ({"approved", "rejected"}, True, True, False, False, False),  # approved and rejected
     ],
     ids=[
         "approved-paid",
@@ -69,11 +123,32 @@ def test_budget_request_label_methods(
 @pytest.mark.parametrize(
     "labels,should_warn",
     [
-        (["approved"], True),  # approved but not paid
-        (["approved", "paid"], False),  # approved and paid
-        (["paid"], False),  # paid but not approved
-        ([], False),  # neither approved nor paid
-        (["rejected"], False),  # rejected only
+        (
+            {
+                "approved",
+            },
+            True,
+        ),  # approved but not paid
+        (
+            {
+                "approved",
+                "paid",
+            },
+            False,
+        ),  # approved and paid
+        (
+            {
+                "paid",
+            },
+            False,
+        ),  # paid but not approved
+        (set(), False),  # neither approved nor paid
+        (
+            {
+                "rejected",
+            },
+            False,
+        ),  # rejected only
     ],
     ids=[
         "approved-not-paid",
@@ -148,7 +223,9 @@ def test_budget_request_frozen_fields(field, value):
         updated_at="u",
         closed_at=None,
         body=None,
-        labels=["approved"],
+        labels={
+            "approved",
+        },
     )
 
     # Act & Assert
@@ -160,10 +237,12 @@ def test_budget_request_frozen_fields(field, value):
     "labels,expect_exception,expected_results",
     [
         (None, True, None),  # labels is None -> should error due to None not iterable
-        ("approved", False, (True, False, False, False, False)),  # string: check substring behavior
+        ("approved", True, (True, False, False, False, False)),  # string: check substring behavior
         (123, True, None),  # labels is int -> should error
         (
-            {"approved"},
+            {
+                "approved",
+            },
             False,
             (True, False, False, False, False),
         ),  # set: works if 'approved' in set returns True
