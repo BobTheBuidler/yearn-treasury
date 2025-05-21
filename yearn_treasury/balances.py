@@ -1,3 +1,19 @@
+"""
+Command-line interface for the Yearn Treasury exporter.
+
+This module provides the `yearn-treasury` CLI, which connects to a Brownie network
+based on the `--network` option (or the `BROWNIE_NETWORK_ID` environment variable),
+periodically snapshots treasury balances via :func:`export_balances`, and
+pushes metrics to Victoria Metrics.
+
+Example:
+    Run export every 12 hours on mainnet:
+
+    .. code-block:: bash
+
+        yearn-treasury run --network mainnet --interval 12h
+"""
+
 import asyncio
 import os
 from argparse import ArgumentParser
@@ -9,14 +25,6 @@ from eth_portfolio_scripts.balances import export_balances
 from eth_typing import ChecksumAddress
 
 
-try:
-    BROWNIE_NETWORK = os.environ["BROWNIE_NETWORK_ID"]
-except KeyError:
-    raise RuntimeError(
-        "You must set env BROWNIE_NETWORK_ID with the id for the brownie network you wish to use"
-    ) from None
-
-
 parser = ArgumentParser(description="Treasury CLI")
 subparsers = parser.add_subparsers(dest="command", required=True)
 
@@ -24,10 +32,9 @@ run_parser = subparsers.add_parser("run", help="Run the treasury export tool")
 run_parser.add_argument(
     "--network",
     type=str,
-    help="The brownie network identifier for the rpc you wish to use. Default: mainnet",
+    help="The brownie network identifier for the RPC to use. Overrides BROWNIE_NETWORK_ID env var if unset.",
     default="mainnet",
 )
-
 run_parser.add_argument(
     "--interval",
     type=str,
@@ -36,56 +43,99 @@ run_parser.add_argument(
 )
 run_parser.add_argument(
     "--daemon",
-    type=bool,
-    help="If True, starts a daemon process instead of running in your terminal. Not currently supported.",
-    default=False,
+    action="store_true",
+    help="Run as a background daemon (currently unsupported).",
 )
 run_parser.add_argument(
     "--grafana-port",
     type=int,
-    help="Set the port for the Grafana dashboard where you can view your data (default: 3003)",
+    help="Port for the Grafana dashboard where you can view your data. Default: 3003",
     default=3003,
 )
 run_parser.add_argument(
     "--renderer-port",
     type=int,
-    help="Set the port for the service that renders visual reports (default: 8080)",
+    help="Port for the service that renders visual reports. Default: 8080",
     default=8080,
 )
 run_parser.add_argument(
     "--victoria-port",
     type=int,
-    help="Set the port for the Victoria metrics reporting endpoint (default: 8430)",
+    help="Port for the Victoria metrics reporting endpoint. Default: 8430",
     default=8430,
 )
 args = parser.parse_args()
 
+# Set BROWNIE_NETWORK_ID from --network flag if not already set
+os.environ.setdefault("BROWNIE_NETWORK_ID", args.network)
+BROWNIE_NETWORK = os.environ["BROWNIE_NETWORK_ID"]
+
 
 def export():
+    """
+    Brownie entrypoint for the treasury exporter script.
+
+    This function is registered as a console script entrypoint under
+    ``yearn-treasury`` and delegates execution to Brownie's script runner.
+    """
     brownie.project.run(__file__)
 
 
 # TODO: run forever arg
 def main():
+    """
+    Connect to the configured Brownie network and start the export loop.
+
+    Steps:
+        1. Reads the ``BROWNIE_NETWORK_ID`` environment variable (populated from
+           the ``--network`` option or existing env var).
+        2. Connects to that Brownie network.
+        3. Patches the global SHITCOINS mapping with local tokens.
+        4. Constructs a frozen Args subclass to pass CLI parameters to
+           :func:`export_balances`.
+        5. Exports ports for external services into environment variables.
+        6. Runs :func:`eth_portfolio_scripts.balances.export_balances` under asyncio.
+
+    Raises:
+        RuntimeError: If the Brownie network cannot be determined.
+    """
     brownie.network.connect(BROWNIE_NETWORK)
 
     import eth_portfolio
 
     from . import constants, shitcoins
 
+    # Merge local SHITCOINS into eth_portfolio's config to skip tokens we don't care about
     eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)  # type: ignore [index]
 
     @final
     class Args(constants.Args):
-        network: Final[str] = args.network
-        interval: Final[str] = args.interval
-        grafana_port: Final[int] = args.grafana_port
-        renderer_port: Final[int] = args.renderer_port
-        victoria_port: Final[int] = args.victoria_port
-        daemon: Final[bool] = args.daemon
+        """
+        Immutable container of CLI arguments for :func:`~export_balances`.
+        """
 
+        network: Final[str] = args.network
+        """Brownie network to connect to."""
+
+        interval: Final[str] = args.interval
+        """Time interval between snapshots."""
+
+        grafana_port: Final[int] = args.grafana_port
+        """Grafana port."""
+
+        renderer_port: Final[int] = args.renderer_port
+        """Report renderer port."""
+
+        victoria_port: Final[int] = args.victoria_port
+        """Victoria metrics port."""
+
+        daemon: Final[bool] = args.daemon
+        """Whether to run in daemon mode."""
+
+    # Export ports for external services
     os.environ["GRAFANA_PORT"] = str(Args.grafana_port)
     os.environ["RENDERER_PORT"] = str(Args.renderer_port)
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
 
+    # Start the balance export routine
     asyncio.run(export_balances(Args))
