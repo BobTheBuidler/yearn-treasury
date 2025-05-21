@@ -42,6 +42,24 @@ run_parser.add_argument(
     help="If True, starts a daemon process instead of running in your terminal. Not currently supported.",
     default=False,
 )
+run_parser.add_argument(
+    "--grafana-port",
+    type=int,
+    help="Set the port for the Grafana dashboard where you can view your data (default: 3003)",
+    default=3003,
+)
+run_parser.add_argument(
+    "--renderer-port",
+    type=int,
+    help="Set the port for the service that renders visual reports (default: 8080)",
+    default=8080,
+)
+run_parser.add_argument(
+    "--victoria-port",
+    type=int,
+    help="Set the port for the Victoria metrics reporting endpoint (default: 8430)",
+    default=8430,
+)
 args = parser.parse_args()
 
 
@@ -63,9 +81,9 @@ def main():
     class Args(constants.Args):
         network: Final[str] = args.network
         interval: Final[str] = args.interval
-        grafana_port: Final[int] = 3003  # args.grafana_port
-        renderer_port: Final[int] = 8080  # args.renderer_port
-        victoria_port: Final[int] = 8430  # args.victoria_port
+        grafana_port: Final[int] = args.grafana_port
+        renderer_port: Final[int] = args.renderer_port
+        victoria_port: Final[int] = args.victoria_port
         daemon: Final[bool] = args.daemon
 
     os.environ["GRAFANA_PORT"] = str(Args.grafana_port)
