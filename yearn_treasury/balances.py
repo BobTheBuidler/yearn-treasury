@@ -5,7 +5,6 @@ from typing import Final, final
 
 import brownie
 import brownie.network
-from eth_portfolio_scripts._args import add_infra_port_args
 from eth_portfolio_scripts.balances import export_balances
 from eth_typing import ChecksumAddress
 
@@ -22,7 +21,6 @@ parser = ArgumentParser(description="Treasury CLI")
 subparsers = parser.add_subparsers(dest="command", required=True)
 
 run_parser = subparsers.add_parser("run", help="Run the treasury export tool")
-add_infra_port_args(run_parser)
 run_parser.add_argument(
     "--network",
     type=str,
