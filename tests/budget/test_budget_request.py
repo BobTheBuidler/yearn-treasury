@@ -11,11 +11,56 @@ from yearn_treasury.budget._request import BudgetRequest
     "labels,expected_approved,expected_rejected,expected_stream,expected_vesting,expected_paid",
     [
         ({"approved", "paid"}, True, False, False, False, True),  # approved and paid
-        ({"approved",}, True, False, False, False, False),  # approved only
-        ({"rejected",}, False, True, False, False, False),  # rejected only
-        ({"stream",}, False, False, True, False, False),  # stream only
-        ({"vesting",}, False, False, False, True, False),  # vesting only
-        ({"paid",}, False, False, False, False, True),  # paid only
+        (
+            {
+                "approved",
+            },
+            True,
+            False,
+            False,
+            False,
+            False,
+        ),  # approved only
+        (
+            {
+                "rejected",
+            },
+            False,
+            True,
+            False,
+            False,
+            False,
+        ),  # rejected only
+        (
+            {
+                "stream",
+            },
+            False,
+            False,
+            True,
+            False,
+            False,
+        ),  # stream only
+        (
+            {
+                "vesting",
+            },
+            False,
+            False,
+            False,
+            True,
+            False,
+        ),  # vesting only
+        (
+            {
+                "paid",
+            },
+            False,
+            False,
+            False,
+            False,
+            True,
+        ),  # paid only
         (
             {"approved", "rejected", "stream", "vesting", "paid"},
             True,
@@ -25,7 +70,16 @@ from yearn_treasury.budget._request import BudgetRequest
             True,
         ),  # all labels
         (set(), False, False, False, False, False),  # no labels
-        ({"APPROVED", }, False, False, False, False, False),  # case-sensitive
+        (
+            {
+                "APPROVED",
+            },
+            False,
+            False,
+            False,
+            False,
+            False,
+        ),  # case-sensitive
         ({"approved", "rejected"}, True, True, False, False, False),  # approved and rejected
     ],
     ids=[
