@@ -6,3 +6,4 @@ cache/
 *.so
 *.pyd
 ops.txt
+build/setup.py
