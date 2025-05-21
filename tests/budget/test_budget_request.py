@@ -123,11 +123,32 @@ def test_budget_request_label_methods(
 @pytest.mark.parametrize(
     "labels,should_warn",
     [
-        ({"approved",}, True),  # approved but not paid
-        ({"approved", "paid",}, False),  # approved and paid
-        ({"paid",}, False),  # paid but not approved
+        (
+            {
+                "approved",
+            },
+            True,
+        ),  # approved but not paid
+        (
+            {
+                "approved",
+                "paid",
+            },
+            False,
+        ),  # approved and paid
+        (
+            {
+                "paid",
+            },
+            False,
+        ),  # paid but not approved
         (set(), False),  # neither approved nor paid
-        ({"rejected",}, False),  # rejected only
+        (
+            {
+                "rejected",
+            },
+            False,
+        ),  # rejected only
     ],
     ids=[
         "approved-not-paid",
