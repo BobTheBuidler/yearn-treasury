@@ -149,15 +149,6 @@ setup(
     package_data={"evmspec": ["py.typed"]},
     include_package_data=True,
     install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
-    ext_modules=mypycify(
-        [
-            "evmspec/_new.py",
-            "evmspec/_utils.py",
-            "--pretty",
-            "--install-types",
-            "--non-interactive",
-            "--disable-error-code=unused-ignore",
-        ]
-    ),
+    ext_modules=ext_modules,
     zip_safe=False,
 )
