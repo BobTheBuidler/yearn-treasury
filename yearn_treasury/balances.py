@@ -42,9 +42,24 @@ run_parser.add_argument(
     help="If True, starts a daemon process instead of running in your terminal. Not currently supported.",
     default=False,
 )
-run_parser.add_argument("--grafana-port", type=int, help="Set the port for the Grafana dashboard where you can view your data (default: 3003)", default=3003)
-run_parser.add_argument("--renderer-port", type=int, help="Set the port for the service that renders visual reports (default: 8080)", default=8080)
-run_parser.add_argument("--victoria-port", type=int, help="Set the port for the Victoria metrics reporting endpoint (default: 8430)", default=8430)
+run_parser.add_argument(
+    "--grafana-port",
+    type=int,
+    help="Set the port for the Grafana dashboard where you can view your data (default: 3003)",
+    default=3003,
+)
+run_parser.add_argument(
+    "--renderer-port",
+    type=int,
+    help="Set the port for the service that renders visual reports (default: 8080)",
+    default=8080,
+)
+run_parser.add_argument(
+    "--victoria-port",
+    type=int,
+    help="Set the port for the Victoria metrics reporting endpoint (default: 8430)",
+    default=8430,
+)
 args = parser.parse_args()
 
 

@@ -6,19 +6,27 @@ from unittest.mock import patch
 # Import the BudgetRequest class from the correct module
 from yearn_treasury.budget._request import BudgetRequest
 
+
 @pytest.mark.parametrize(
     "labels,expected_approved,expected_rejected,expected_stream,expected_vesting,expected_paid",
     [
-        (["approved", "paid"], True, False, False, False, True),         # approved and paid
-        (["approved"], True, False, False, False, False),                # approved only
-        (["rejected"], False, True, False, False, False),                # rejected only
-        (["stream"], False, False, True, False, False),                  # stream only
-        (["vesting"], False, False, False, True, False),                 # vesting only
-        (["paid"], False, False, False, False, True),                    # paid only
-        (["approved", "rejected", "stream", "vesting", "paid"], True, True, True, True, True),  # all labels
-        ([], False, False, False, False, False),                         # no labels
-        (["APPROVED"], False, False, False, False, False),               # case-sensitive
-        (["approved", "rejected"], True, True, False, False, False),     # approved and rejected
+        (["approved", "paid"], True, False, False, False, True),  # approved and paid
+        (["approved"], True, False, False, False, False),  # approved only
+        (["rejected"], False, True, False, False, False),  # rejected only
+        (["stream"], False, False, True, False, False),  # stream only
+        (["vesting"], False, False, False, True, False),  # vesting only
+        (["paid"], False, False, False, False, True),  # paid only
+        (
+            ["approved", "rejected", "stream", "vesting", "paid"],
+            True,
+            True,
+            True,
+            True,
+            True,
+        ),  # all labels
+        ([], False, False, False, False, False),  # no labels
+        (["APPROVED"], False, False, False, False, False),  # case-sensitive
+        (["approved", "rejected"], True, True, False, False, False),  # approved and rejected
     ],
     ids=[
         "approved-paid",
@@ -30,8 +38,8 @@ from yearn_treasury.budget._request import BudgetRequest
         "all-labels",
         "no-labels",
         "case-sensitive",
-        "approved-rejected"
-    ]
+        "approved-rejected",
+    ],
 )
 def test_budget_request_label_methods(
     labels, expected_approved, expected_rejected, expected_stream, expected_vesting, expected_paid
@@ -47,7 +55,7 @@ def test_budget_request_label_methods(
         updated_at="2023-01-02T00:00:00Z",
         closed_at=None,
         body="body",
-        labels=labels
+        labels=labels,
     )
 
     # Act & Assert
@@ -57,22 +65,23 @@ def test_budget_request_label_methods(
     assert req.is_vesting() is expected_vesting
     assert req.is_paid() is expected_paid
 
+
 @pytest.mark.parametrize(
     "labels,should_warn",
     [
-        (["approved"], True),           # approved but not paid
+        (["approved"], True),  # approved but not paid
         (["approved", "paid"], False),  # approved and paid
-        (["paid"], False),              # paid but not approved
-        ([], False),                    # neither approved nor paid
-        (["rejected"], False),          # rejected only
+        (["paid"], False),  # paid but not approved
+        ([], False),  # neither approved nor paid
+        (["rejected"], False),  # rejected only
     ],
     ids=[
         "approved-not-paid",
         "approved-and-paid",
         "paid-not-approved",
         "neither-approved-nor-paid",
-        "rejected-only"
-    ]
+        "rejected-only",
+    ],
 )
 def test_budget_request_post_init_warning(labels, should_warn):
     # Arrange
@@ -88,7 +97,7 @@ def test_budget_request_post_init_warning(labels, should_warn):
             updated_at="u",
             closed_at=None,
             body=None,
-            labels=labels
+            labels=labels,
         )
         # Assert
         if should_warn:
@@ -98,6 +107,7 @@ def test_budget_request_post_init_warning(labels, should_warn):
             assert args[1] == req
         else:
             mock_logger.warning.assert_not_called()
+
 
 @pytest.mark.parametrize(
     "field,value",
@@ -123,8 +133,8 @@ def test_budget_request_post_init_warning(labels, should_warn):
         "updated_at-frozen",
         "closed_at-frozen",
         "body-frozen",
-        "labels-frozen"
-    ]
+        "labels-frozen",
+    ],
 )
 def test_budget_request_frozen_fields(field, value):
     # Arrange
@@ -138,27 +148,27 @@ def test_budget_request_frozen_fields(field, value):
         updated_at="u",
         closed_at=None,
         body=None,
-        labels=["approved"]
+        labels=["approved"],
     )
 
     # Act & Assert
     with pytest.raises(FrozenInstanceError):
         setattr(req, field, value)
 
+
 @pytest.mark.parametrize(
     "labels,expect_exception,expected_results",
     [
-        (None, True, None),                        # labels is None -> should error due to None not iterable
+        (None, True, None),  # labels is None -> should error due to None not iterable
         ("approved", False, (True, False, False, False, False)),  # string: check substring behavior
-        (123, True, None),                         # labels is int -> should error
-        ({"approved"}, False, (True, False, False, False, False)), # set: works if 'approved' in set returns True
+        (123, True, None),  # labels is int -> should error
+        (
+            {"approved"},
+            False,
+            (True, False, False, False, False),
+        ),  # set: works if 'approved' in set returns True
     ],
-    ids=[
-        "labels-is-None",
-        "labels-is-str",
-        "labels-is-int",
-        "labels-is-set"
-    ]
+    ids=["labels-is-None", "labels-is-str", "labels-is-int", "labels-is-set"],
 )
 def test_budget_request_invalid_labels_type(labels, expect_exception, expected_results):
     kwargs = {
@@ -171,7 +181,7 @@ def test_budget_request_invalid_labels_type(labels, expect_exception, expected_r
         "updated_at": "u",
         "closed_at": None,
         "body": None,
-        "labels": labels
+        "labels": labels,
     }
     if expect_exception:
         with pytest.raises(TypeError):
