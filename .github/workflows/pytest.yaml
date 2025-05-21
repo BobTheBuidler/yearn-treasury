@@ -64,9 +64,9 @@ jobs:
         uses: snok/install-poetry@v1
 
       - name: Install Pytest
-        run: poetry run python -m pip install pytest
+        run: poetry install
 
-      - name: Install Evmspec
+      - name: Install Yearn Treasury
         run: poetry run python -m pip install .
 
       - name: Run test suite
