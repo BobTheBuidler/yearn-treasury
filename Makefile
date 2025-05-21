@@ -1,6 +1,9 @@
 run:
 	poetry run balances
 
+build:
+	mypyc yearn_treasury/budget
+
 docs:
 	rm -r ./docs/source -f
 	rm -r ./docs/_templates -f
