@@ -156,4 +156,18 @@ setup(
     install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
     ext_modules=ext_modules,
     zip_safe=False,
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: End Users/Desktop",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Operating System :: OS Independent",
+        "Topic :: Software Development :: Libraries",
+    ],
 )
