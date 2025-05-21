@@ -6,7 +6,7 @@
   <meta charset="utf-8" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Welcome to yearn-treasury’s documentation! &mdash; yearn-treasury  documentation</title>
+  <title>Installation &mdash; yearn-treasury  documentation</title>
       <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=80d5e7a1" />
       <link rel="stylesheet" type="text/css" href="_static/css/theme.css?v=e59714d7" />
 
@@ -42,7 +42,9 @@
         </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
               <!-- Local TOC -->
               <div class="local-toc"><ul>
-<li><a class="reference internal" href="#">Welcome to yearn-treasury’s documentation!</a></li>
+<li><a class="reference internal" href="#">Installation</a></li>
+<li><a class="reference internal" href="#usage">Usage</a></li>
+<li><a class="reference internal" href="#welcome-to-yearn-treasury-s-documentation">Welcome to yearn-treasury’s documentation!</a></li>
 <li><a class="reference internal" href="#indices-and-tables">Indices and tables</a></li>
 </ul>
 </div>
@@ -60,7 +62,7 @@
           <div role="navigation" aria-label="Page navigation">
   <ul class="wy-breadcrumbs">
       <li><a href="#" class="icon icon-home" aria-label="Home"></a></li>
-      <li class="breadcrumb-item active">Welcome to yearn-treasury’s documentation!</li>
+      <li class="breadcrumb-item active">Installation</li>
       <li class="wy-breadcrumbs-aside">
             <a href="_sources/index.rst.txt" rel="nofollow"> View page source</a>
       </li>
@@ -70,7 +72,48 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <section id="welcome-to-yearn-treasury-s-documentation">
+  <section id="installation">
+<h1>Installation<a class="headerlink" href="#installation" title="Link to this heading"></a></h1>
+<ul>
+<li><p><strong>pip:</strong> (soon will be on pypi)</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="w"> </span>pip<span class="w"> </span>install<span class="w"> </span>git+https://github.com/BobTheBuidler/yearn-treasury<span class="sb">`</span>
+</pre></div>
+</div>
+</li>
+<li><p><strong>From Source:</strong></p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>git<span class="w"> </span>clone<span class="w"> </span>https://github.com/BobTheBuidler/yearn-treasury
+<span class="nb">cd</span><span class="w"> </span>yearn-treasury
+poetry<span class="w"> </span>install
+</pre></div>
+</div>
+</li>
+</ul>
+</section>
+<section id="usage">
+<h1>Usage<a class="headerlink" href="#usage" title="Link to this heading"></a></h1>
+<p>Run the treasury export tool:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span><span class="c1"># For pip installations:</span>
+yearn-treasury<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>mainnet<span class="w"> </span>--interval<span class="w"> </span>12h
+</pre></div>
+</div>
+<p>For local development (from source installation), use:</p>
+<div class="highlight-bash notranslate"><div class="highlight"><pre><span></span>poetry<span class="w"> </span>run<span class="w"> </span>yearn-treasury<span class="w"> </span>run<span class="w"> </span>--network<span class="w"> </span>mainnet<span class="w"> </span>--interval<span class="w"> </span>12h
+</pre></div>
+</div>
+<p><strong>CLI Options:</strong></p>
+<ul class="simple">
+<li><p><code class="docutils literal notranslate"><span class="pre">--network</span></code>: The id of the brownie network the exporter will connect to (default: mainnet)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--interval</span></code>: The time interval between each data snapshot (default: 12h)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--daemon</span></code>: Run the export process in the background (default: False) (NOTE: currently unsupported)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--grafana-port</span></code>: Set the port for the Grafana dashboard where you can view data (default: 3003)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--renderer-port</span></code>: Set the port for the report rendering service (default: 8080)</p></li>
+<li><p><code class="docutils literal notranslate"><span class="pre">--victoria-port</span></code>: Set the port for the Victoria metrics reporting endpoint (default: 8430)</p></li>
+</ul>
+<p>After running the command, the export script will run continuously until you close your terminal.
+To access the dashboard, open your browser and navigate to http://localhost:3003</p>
+<p>Enjoy!</p>
+</section>
+<section id="welcome-to-yearn-treasury-s-documentation">
 <h1>Welcome to yearn-treasury’s documentation!<a class="headerlink" href="#welcome-to-yearn-treasury-s-documentation" title="Link to this heading"></a></h1>
 <div class="toctree-wrapper compound">
 </div>
