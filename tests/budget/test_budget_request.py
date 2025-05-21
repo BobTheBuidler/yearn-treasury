@@ -69,11 +69,11 @@ def test_budget_request_label_methods(
 @pytest.mark.parametrize(
     "labels,should_warn",
     [
-        (["approved"], True),  # approved but not paid
-        (["approved", "paid"], False),  # approved and paid
-        (["paid"], False),  # paid but not approved
-        ([], False),  # neither approved nor paid
-        (["rejected"], False),  # rejected only
+        ({"approved",}, True),  # approved but not paid
+        ({"approved", "paid",}, False),  # approved and paid
+        ({"paid",}, False),  # paid but not approved
+        (set(), False),  # neither approved nor paid
+        ({"rejected",}, False),  # rejected only
     ],
     ids=[
         "approved-not-paid",
@@ -160,7 +160,7 @@ def test_budget_request_frozen_fields(field, value):
     "labels,expect_exception,expected_results",
     [
         (None, True, None),  # labels is None -> should error due to None not iterable
-        ("approved", False, (True, False, False, False, False)),  # string: check substring behavior
+        ("approved", True, (True, False, False, False, False)),  # string: check substring behavior
         (123, True, None),  # labels is int -> should error
         (
             {"approved"},
