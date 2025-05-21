@@ -223,7 +223,9 @@ def test_budget_request_frozen_fields(field, value):
         updated_at="u",
         closed_at=None,
         body=None,
-        labels={"approved",},
+        labels={
+            "approved",
+        },
     )
 
     # Act & Assert
@@ -238,7 +240,9 @@ def test_budget_request_frozen_fields(field, value):
         ("approved", True, (True, False, False, False, False)),  # string: check substring behavior
         (123, True, None),  # labels is int -> should error
         (
-            {"approved",},
+            {
+                "approved",
+            },
             False,
             (True, False, False, False, False),
         ),  # set: works if 'approved' in set returns True
