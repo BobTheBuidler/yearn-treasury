@@ -143,15 +143,13 @@ def combine_markers(a, b):
 
 
 setup(
-    name=poetry_config["name"],
+    name=poetry_config["name"].replace("-", "_"),
     version=poetry_config["version"],
     packages=find_packages(),
-    package_data={"evmspec": ["py.typed"]},
+    package_data={"yearn_treasury": ["py.typed"]},
     include_package_data=True,
     entry_points={
-         "console_scripts": [
-              "yearn-treasury=yearn_treasury.balances:export"
-         ]
+         "console_scripts": ["yearn-treasury=yearn_treasury.balances:export"],
     },
     install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
     ext_modules=ext_modules,
