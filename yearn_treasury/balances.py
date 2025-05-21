@@ -5,7 +5,6 @@ from typing import Final, final
 
 import brownie
 import brownie.network
-from eth_portfolio_scripts._args import add_infra_port_args
 from eth_portfolio_scripts.balances import export_balances
 from eth_typing import ChecksumAddress
 
