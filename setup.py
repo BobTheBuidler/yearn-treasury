@@ -143,13 +143,27 @@ def combine_markers(a, b):
 
 
 setup(
-    name=poetry_config["name"],
+    name=poetry_config["name"].replace("-", "_"),
     version=poetry_config["version"],
     packages=find_packages(),
-    package_data={"evmspec": ["py.typed"]},
+    package_data={"yearn_treasury": ["py.typed"]},
     include_package_data=True,
     entry_points={"console_scripts": ["yearn-treasury=yearn_treasury.balances:export"]},
     install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
     ext_modules=ext_modules,
     zip_safe=False,
+    classifiers=[
+        "Development Status :: 3 - Alpha",
+        "Intended Audience :: Developers",
+        "Intended Audience :: Science/Research",
+        "Intended Audience :: End Users/Desktop",
+        "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
+        "Programming Language :: Python :: Implementation :: CPython",
+        "Operating System :: OS Independent",
+        "Topic :: Software Development :: Libraries",
+    ],
 )
