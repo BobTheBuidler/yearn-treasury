@@ -10,7 +10,7 @@ requires = ["setuptools", "wheel", "mypy[mypyc]", "tomli>=2.0.0; python_version 
 build-backend = "setuptools.build_meta"
 
 [tool.poetry.scripts]
-balances = "yearn_treasury.balances:export"
+yearn-treasury = "yearn_treasury.balances:export"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"

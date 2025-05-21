@@ -18,31 +18,30 @@ except KeyError:
     ) from None
 
 
-parser = ArgumentParser(description="add me")
+parser = ArgumentParser(description="Treasury CLI")
+subparsers = parser.add_subparsers(dest="command", required=True)
 
-add_infra_port_args(parser)
-
-parser.add_argument(
+run_parser = subparsers.add_parser("run", help="Run the treasury export tool")
+add_infra_port_args(run_parser)
+run_parser.add_argument(
     "--network",
     type=str,
-    help="The brownie network identifier for the rpc you wish to use. default: mainnet",
+    help="The brownie network identifier for the rpc you wish to use. Default: mainnet",
     default="mainnet",
 )
 
-parser.add_argument(
+run_parser.add_argument(
     "--interval",
     type=str,
-    help="The time interval between datapoints. default: 1d",
+    help="The time interval between datapoints. Default: 12h",
     default="12h",
 )
-
-parser.add_argument(
+run_parser.add_argument(
     "--daemon",
     type=bool,
-    help="TODO: If True, starts a daemon process instead of running in your terminal. Not currently supported.",
+    help="If True, starts a daemon process instead of running in your terminal. Not currently supported.",
     default=False,
 )
-
 args = parser.parse_args()
 
 
