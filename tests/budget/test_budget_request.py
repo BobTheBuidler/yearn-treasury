@@ -3,7 +3,6 @@ from dataclasses import FrozenInstanceError
 from typing import Optional, List
 from unittest.mock import patch
 
-# Import the BudgetRequest class from the correct module
 from yearn_treasury.budget._request import BudgetRequest
 
 
@@ -98,7 +97,6 @@ from yearn_treasury.budget._request import BudgetRequest
 def test_budget_request_label_methods(
     labels, expected_approved, expected_rejected, expected_stream, expected_vesting, expected_paid
 ):
-    # Arrange
     req = BudgetRequest(
         id=1,
         number=42,
@@ -112,7 +110,6 @@ def test_budget_request_label_methods(
         labels=labels,
     )
 
-    # Act & Assert
     assert req.is_approved() is expected_approved
     assert req.is_rejected() is expected_rejected
     assert req.is_stream() is expected_stream
@@ -159,9 +156,7 @@ def test_budget_request_label_methods(
     ],
 )
 def test_budget_request_post_init_warning(labels, should_warn):
-    # Arrange
     with patch("yearn_treasury.budget._request.logger") as mock_logger:
-        # Act
         req = BudgetRequest(
             id=1,
             number=1,
@@ -174,7 +169,6 @@ def test_budget_request_post_init_warning(labels, should_warn):
             body=None,
             labels=labels,
         )
-        # Assert
         if should_warn:
             mock_logger.warning.assert_called_once()
             args, kwargs = mock_logger.warning.call_args
@@ -212,7 +206,6 @@ def test_budget_request_post_init_warning(labels, should_warn):
     ],
 )
 def test_budget_request_frozen_fields(field, value):
-    # Arrange
     req = BudgetRequest(
         id=1,
         number=1,
@@ -228,7 +221,6 @@ def test_budget_request_frozen_fields(field, value):
         },
     )
 
-    # Act & Assert
     with pytest.raises(FrozenInstanceError):
         setattr(req, field, value)
 
@@ -236,16 +228,16 @@ def test_budget_request_frozen_fields(field, value):
 @pytest.mark.parametrize(
     "labels,expect_exception,expected_results",
     [
-        (None, True, None),  # labels is None -> should error due to None not iterable
-        ("approved", True, (True, False, False, False, False)),  # string: check substring behavior
-        (123, True, None),  # labels is int -> should error
+        (None, True, None),  # labels is None → TypeError
+        ("approved", True, (True, False, False, False, False)),  # labels is str → TypeError
+        (123, True, None),  # labels is int → TypeError
         (
             {
                 "approved",
             },
             False,
             (True, False, False, False, False),
-        ),  # set: works if 'approved' in set returns True
+        ),  # labels as set → valid membership
     ],
     ids=["labels-is-None", "labels-is-str", "labels-is-int", "labels-is-set"],
 )
