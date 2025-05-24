@@ -143,6 +143,7 @@ def main() -> None:
     # Start the balance export routine
     asyncio.run(_main(Args))
 
+
 async def _main(args) -> None:
     import dao_treasury.main
 
