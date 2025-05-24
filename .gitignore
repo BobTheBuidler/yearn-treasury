@@ -1,6 +1,7 @@
 .hypothesis/
 __pycache__/
 cache/
+dist/
 .env
 *.o
 *.so
