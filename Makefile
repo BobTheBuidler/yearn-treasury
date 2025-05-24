@@ -1,5 +1,5 @@
 run:
-	poetry run balances
+	poetry run main
 
 build:
 	mypyc yearn_treasury/budget

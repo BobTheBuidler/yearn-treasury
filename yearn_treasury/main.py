@@ -17,12 +17,12 @@ Example:
 import asyncio
 import os
 from argparse import ArgumentParser
+from pathlib import Path
 from typing import Final, final
 
 import brownie
 import brownie.network
 from eth_portfolio_scripts.balances import export_balances
-from eth_typing import ChecksumAddress
 
 
 parser = ArgumentParser(description="Treasury CLI")
@@ -64,7 +64,7 @@ run_parser.add_argument(
     help="Port for the Victoria metrics reporting endpoint. Default: 8430",
     default=8430,
 )
-args = parser.parse_args()
+args = run_parser.parse_args()
 
 # Set BROWNIE_NETWORK_ID from --network flag if not already set
 os.environ.setdefault("BROWNIE_NETWORK_ID", args.network)
@@ -82,7 +82,7 @@ def export():
 
 
 # TODO: run forever arg
-def main():
+def main() -> None:
     """
     Connect to the configured Brownie network and start the export loop.
 
@@ -132,10 +132,19 @@ def main():
         daemon: Final[bool] = args.daemon
         """Whether to run in daemon mode."""
 
+        sort_rules: Final[Path] = Path(__file__).parent / "rules"
+        """The path where the sort rules for dao-treasury are defined."""
+
     # Export ports for external services
     os.environ["GRAFANA_PORT"] = str(Args.grafana_port)
     os.environ["RENDERER_PORT"] = str(Args.renderer_port)
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
 
     # Start the balance export routine
-    asyncio.run(export_balances(Args))
+    asyncio.run(_main(Args))
+
+async def _main(args) -> None:
+    import dao_treasury.main
+
+    # TODO: move this gather into dao-treasury
+    await asyncio.gather(export_balances(args), dao_treasury.main.export(args))
