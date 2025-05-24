@@ -7,3 +7,4 @@ cache/
 *.pyd
 ops.txt
 build/setup.py
+yearn_treasury.egg-info/
