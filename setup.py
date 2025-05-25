@@ -153,6 +153,7 @@ setup(
     packages=find_packages(),
     package_data={"yearn_treasury": ["py.typed"]},
     include_package_data=True,
+    description=poetry_config["description"],
     long_description=long_description,
     long_description_content_type="text/markdown",
     entry_points={"console_scripts": ["yearn-treasury=yearn_treasury.main:main"]},
