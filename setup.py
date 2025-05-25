@@ -155,7 +155,7 @@ setup(
     include_package_data=True,
     long_description=long_description,
     long_description_content_type="text/markdown",
-    entry_points={"console_scripts": ["yearn-treasury=yearn_treasury.main:export"]},
+    entry_points={"console_scripts": ["yearn-treasury=yearn_treasury.main:main"]},
     install_requires=poetry_dependencies_to_install_requires(poetry_config["dependencies"]),
     ext_modules=ext_modules,
     zip_safe=False,
