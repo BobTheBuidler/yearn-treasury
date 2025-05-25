@@ -20,8 +20,6 @@ from argparse import ArgumentParser
 from pathlib import Path
 from typing import Final, final
 
-import brownie
-import brownie.network
 from eth_portfolio_scripts.balances import export_balances
 
 
@@ -71,20 +69,13 @@ os.environ.setdefault("BROWNIE_NETWORK_ID", args.network)
 BROWNIE_NETWORK = os.environ["BROWNIE_NETWORK_ID"]
 
 
-def export():
-    """
-    Brownie entrypoint for the treasury exporter script.
-
-    This function is registered as a console script entrypoint under
-    ``yearn-treasury`` and delegates execution to Brownie's script runner.
-    """
-    brownie.project.run(__file__)
-
-
 # TODO: run forever arg
 def main() -> None:
     """
     Connect to the configured Brownie network and start the export loop.
+
+    This function is registered as a console script entrypoint under
+    ``yearn-treasury`` and delegates execution to Brownie's script runner.
 
     Steps:
         1. Reads the ``BROWNIE_NETWORK_ID`` environment variable (populated from
@@ -99,8 +90,6 @@ def main() -> None:
     Raises:
         RuntimeError: If the Brownie network cannot be determined.
     """
-    brownie.network.connect(BROWNIE_NETWORK)
-
     import eth_portfolio
 
     from . import constants, shitcoins
