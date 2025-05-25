@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "yearn-treasury"
-version = "0.0.4"
+version = "0.0.5"
 description = ""
 authors = ["Bob The Buidler <you@example.com>"]
 packages = [{ include = "yearn_treasury/*" }]
