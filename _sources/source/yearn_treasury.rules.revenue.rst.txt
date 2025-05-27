@@ -1,0 +1,45 @@
+yearn\_treasury.rules.revenue package
+=====================================
+
+Submodules
+----------
+
+yearn\_treasury.rules.revenue.bribes module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.bribes
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.revenue.keepcoins module
+----------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.keepcoins
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.revenue.seasolver module
+----------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.seasolver
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.revenue.vaults module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.vaults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules.revenue
+   :members:
+   :undoc-members:
+   :show-inheritance:

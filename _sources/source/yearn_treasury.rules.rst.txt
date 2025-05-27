@@ -1,0 +1,20 @@
+yearn\_treasury.rules package
+=============================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   yearn_treasury.rules.cost_of_revenue
+   yearn_treasury.rules.other_income
+   yearn_treasury.rules.revenue
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules
+   :members:
+   :undoc-members:
+   :show-inheritance:

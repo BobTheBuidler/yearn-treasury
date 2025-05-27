@@ -1,0 +1,10 @@
+yearn\_treasury.budget package
+==============================
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.budget
+   :members:
+   :undoc-members:
+   :show-inheritance:

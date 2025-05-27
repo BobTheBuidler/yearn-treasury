@@ -1,0 +1,7 @@
+yearn_treasury
+==============
+
+.. toctree::
+   :maxdepth: 4
+
+   yearn_treasury

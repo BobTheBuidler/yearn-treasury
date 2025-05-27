@@ -1,0 +1,10 @@
+yearn\_treasury.rules.other\_income package
+===========================================
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules.other_income
+   :members:
+   :undoc-members:
+   :show-inheritance:
