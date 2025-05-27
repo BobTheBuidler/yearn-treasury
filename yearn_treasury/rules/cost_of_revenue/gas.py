@@ -40,7 +40,7 @@ _RETURNED_GAS_HASHES: Final[Set[HexStr]] = {
         "0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731",
         "0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5",
     },
-}.get(CHAINID, ())
+}.get(CHAINID, set())
 
 
 @cost_of_revenue("Gas:Strategist Gas")
