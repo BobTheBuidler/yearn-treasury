@@ -1,8 +1,8 @@
 ## Installation
 
-- **pip:** (soon will be on pypi)
+- **pip:**
   ```bash
-   pip install git+https://github.com/BobTheBuidler/yearn-treasury`
+   pip install yearn-treasury
   ```
 
 - **From Source:**  
