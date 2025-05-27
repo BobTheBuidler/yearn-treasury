@@ -21,7 +21,7 @@ if chain.id == Network.Mainnet:
     now = chain.height
 
     v2_registries = [
-        Contract(event["newAddress"].hex())
+        Contract(event["newAddress"].hex())  # type: ignore [attr-defined]
         for event in Events(  # type: ignore [attr-defined]
             addresses=resolver, topics=topics
         ).events(now)
