@@ -12,6 +12,11 @@
   poetry install
   ```
 
+## Prerequisites
+
+You must have a [brownie network](https://eth-brownie.readthedocs.io/en/stable/network-management.html) configured to use your RPC.
+You will also need [Docker](https://www.docker.com/get-started/) installed on your system.
+
 ## Usage
 
 Run the treasury export tool:
