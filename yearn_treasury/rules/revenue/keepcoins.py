@@ -23,12 +23,15 @@ def is_keep_angle(tx: TreasuryTx) -> bool:
         tx.from_nickname == "Contract: StrategyAngleUSDC"
         or tx.from_address in angle_strats_with_non_specific_names
     )
-    
+
 
 @keepcoins("KeepBAL")
 def is_keep_bal(tx: TreasuryTx) -> bool:
     # This particular tx is pass-thru
-    if tx.symbol != "BAL" or tx.hash == "0xf4677cce1a08ecd54272cdc1b23bc64693450f8bb5d6de59b8e58e288ec3b2a7":
+    if (
+        tx.symbol != "BAL"
+        or tx.hash == "0xf4677cce1a08ecd54272cdc1b23bc64693450f8bb5d6de59b8e58e288ec3b2a7"
+    ):
         return False
 
     return tx.from_nickname in [
@@ -46,9 +49,14 @@ def is_keep_bal(tx: TreasuryTx) -> bool:
         "0xe614f717b3e8273f38Ed7e0536DfBA60AD021c85",
     ]
 
+
 @keepcoins("KeepBEETS")
 def is_keep_beets(tx: TreasuryTx) -> bool:
-    return tx.symbol == "BEETS" and tx.hash != "0x1e997aa8c79ece76face8deb8fe7df4cea4f6a1ef7cd28501013ed30dfbe238f"
+    return (
+        tx.symbol == "BEETS"
+        and tx.hash != "0x1e997aa8c79ece76face8deb8fe7df4cea4f6a1ef7cd28501013ed30dfbe238f"
+    )
+
 
 @keepcoins("KeepPOOL")
 def is_keep_pool(tx: TreasuryTx) -> bool:

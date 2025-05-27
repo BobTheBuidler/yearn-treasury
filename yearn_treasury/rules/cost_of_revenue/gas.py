@@ -30,15 +30,15 @@ _STRATEGIST_GAS_HASHES: Final[Set[HexStr]] = {}.get(CHAINID, set())
 
 _RETURNED_GAS_HASHES: Final[Set[HexStr]] = {
     Network.Mainnet: {
-        '0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299',
-        '0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981',
-        '0xac2253f1d8f78680411b353d65135d58bc880cdf9507ea7848daf05925e1443f',
-        '0xd27d4a732dd1a9ac93c7db1695a6d2aff40e007627d710da91f328b246be44bc',
-        '0x5a828e5bde96cd8745223fe32daefaa9140a09acc69202c33f6f789228c8134b',
-        '0x110ef82ec16eb53bf71b073aca4a37d4fbfaa74166c687a726211392a02f0059',
-        '0xaad012505975dd13a57599a28d33c979f72084ae56ccba76997f05822a5497f5',
-        '0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731',
-        '0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5',
+        "0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299",
+        "0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981",
+        "0xac2253f1d8f78680411b353d65135d58bc880cdf9507ea7848daf05925e1443f",
+        "0xd27d4a732dd1a9ac93c7db1695a6d2aff40e007627d710da91f328b246be44bc",
+        "0x5a828e5bde96cd8745223fe32daefaa9140a09acc69202c33f6f789228c8134b",
+        "0x110ef82ec16eb53bf71b073aca4a37d4fbfaa74166c687a726211392a02f0059",
+        "0xaad012505975dd13a57599a28d33c979f72084ae56ccba76997f05822a5497f5",
+        "0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731",
+        "0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5",
     },
 }.get(CHAINID, ())
 
@@ -48,7 +48,7 @@ def is_strategist_gas(tx: TreasuryTx) -> bool:
     if tx.symbol == "ETH":
         if tx.from_nickname == "Disperse.app":
             return tx.hash in _STRATEGIST_GAS_HASHES
-        
+
         # Returned gas
         if tx.hash in _RETURNED_GAS_HASHES:
             tx.amount *= -1

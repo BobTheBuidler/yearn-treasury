@@ -13,5 +13,5 @@ def is_seasolver_slippage_revenue(tx: TreasuryTx) -> bool:
 
 @seasolver("CowSwap Incentives")
 def is_cowswap_incentive(tx: TreasuryTx) -> bool:
-    """ Incentives for swapping on CowSwap """
+    """Incentives for swapping on CowSwap"""
     return tx.symbol == "COW" and tx.from_address == "0xA03be496e67Ec29bC62F01a428683D7F9c204930"

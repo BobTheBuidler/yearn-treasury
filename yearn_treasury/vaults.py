@@ -17,20 +17,21 @@ if chain.id == Network.Mainnet:
         vault: vault.token()  # type: ignore [misc]
         for vault in map(Contract, _addresses_generator_v1_vaults.assetsAddresses())
     }
-    
+
     now = chain.height
 
     v2_registries = [
-        Contract(event['newAddress'].hex()) for event in  # type: ignore [attr-defined]
-        Events(addresses=resolver, topics=topics).events(now)
+        Contract(event["newAddress"].hex())
+        for event in Events(  # type: ignore [attr-defined]
+            addresses=resolver, topics=topics
+        ).events(now)
     ]
 
     v2: List[Contract] = [
         Contract(vault)
         for vault in {
             event["vault"]
-            for event in 
-            Events(addresses=list(map(str, v2_registries))).events(now)
+            for event in Events(addresses=list(map(str, v2_registries))).events(now)
             if event.name == "NewVault"
         }
     ]

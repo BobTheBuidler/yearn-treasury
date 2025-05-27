@@ -24,42 +24,53 @@ async def is_robovault_share(tx: TreasuryTx) -> bool:
     """
     After Yearn devs helped robovault with a vulnerability, robovault committed to sending Yearn a portion of their fees.
     """
-    if not tx.symbol.startswith('rv') and tx.from_address.is_contract:
+    if not tx.symbol.startswith("rv") and tx.from_address.is_contract:
         return False
-    
+
     try:
         strat = await Contract.coroutine(tx.from_address.address)
     except ContractNotVerified:
         return False
-    
-    if not hasattr(strat,'vault'):
+
+    if not hasattr(strat, "vault"):
         return False
-    
+
     if await strat.vault.coroutine(block_identifier=tx.block) == tx.token:
         return True
 
     return (
         tx.from_nickname == "Contract: Strategy"
-        and tx.symbol == 'rv3USDCc'
+        and tx.symbol == "rv3USDCc"
         and await ERC20(  # type: ignore [call-overload]
-            await strat.vault.coroutine(block_identifier = tx.block),
+            await strat.vault.coroutine(block_identifier=tx.block),
             asynchronous=True,
-        ).symbol == 'rv3USDCb'
+        ).symbol
+        == "rv3USDCb"
     )
 
 
 @other_income("Cowswap Gas Reimbursement", Network.Mainnet)
 def is_cowswap_gas_reimbursement(tx: TreasuryTx) -> bool:
-    return tx.symbol == "ETH" and tx.from_nickname == "Cowswap Multisig" and tx.to_nickname == "yMechs Multisig"
+    return (
+        tx.symbol == "ETH"
+        and tx.from_nickname == "Cowswap Multisig"
+        and tx.to_nickname == "yMechs Multisig"
+    )
+
 
 @other_income("USDS Referral Code", Network.Mainnet)
 def is_usds_referral_code(tx: TreasuryTx) -> bool:
     """Yearn earns some USDS for referring deposits to Maker"""
-    return tx.symbol == "USDS" and tx.from_address.address == "0x3C5142F28567E6a0F172fd0BaaF1f2847f49D02F"
+    return (
+        tx.symbol == "USDS"
+        and tx.from_address.address == "0x3C5142F28567E6a0F172fd0BaaF1f2847f49D02F"
+    )
+
 
 @other_income("yETH Application Fee", Network.Mainnet)
 def is_yeth_application_fee(tx: TreasuryTx) -> bool:
     return tx.symbol == "yETH" and tx.to_nickname == "Yearn Treasury" and tx.amount == _POINT_ONE
+
 
 @other_income("yPRISMA Fees", Network.Mainnet)
 def is_yprisma_fees(tx: TreasuryTx) -> bool:
