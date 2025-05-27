@@ -1,3 +1,5 @@
+.PHONY: build docs
+
 run:
 	poetry run main
 
