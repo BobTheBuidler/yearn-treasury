@@ -92,7 +92,7 @@ def main() -> None:
     """
     import eth_portfolio
 
-    from . import constants, shitcoins
+    from . import constants, rules, shitcoins
 
     # Merge local SHITCOINS into eth_portfolio's config to skip tokens we don't care about
     eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)  # type: ignore [index]
@@ -130,7 +130,9 @@ def main() -> None:
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
 
     # Start the balance export routine
-    asyncio.run(_main(Args))
+    asyncio.get_event_loop().run_until_complete(_main(Args))
+
+    rules  # I just put this here so the import isn't flagged as unused
 
 
 async def _main(args) -> None:
