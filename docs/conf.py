@@ -57,7 +57,7 @@ autodoc_default_options = {
     "undoc-members": True,
     "member-order": "groupwise",
     # hide private methods that aren't relevant to us here
-    #"exclude-members": ",".join([]),
+    # "exclude-members": ",".join([]),
 }
 autodoc_typehints = "description"
 # Don't show class signature with the class' name.

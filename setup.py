@@ -10,6 +10,7 @@ else:
         [
             "yearn_treasury/budget",
             "yearn_treasury/rules/cost_of_revenue/gas.py",
+            "yearn_treasury/rules/expense",
             "yearn_treasury/rules/other_income",
             "yearn_treasury/rules/revenue/bribes.py",
             "yearn_treasury/rules/revenue/keepcoins.py",

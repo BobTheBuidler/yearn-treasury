@@ -5,11 +5,19 @@
     - "0x53fbd564acf39e0694773b5228d31d32623aa249b73a9989a2a43d8b7b8484af"
   Coordinape:
     - "0xfd83d667c278a74f0ad9507b8d159e43f893c5067dbd47c05c80e229ec6c3cd4"
-  Docs Grant:
-    # https://github.com/yearn/budget/issues/105
-    - "0x99f8e351a15e7ce7f0acbae2dea52c56cd93ef97b0a5981f79a68180ff777f00"
-  yCRV Dev Grant:
-    - "0x116a44242ffafd12a8e40a7a2dbc9f6a98580ca4d72e626ddb60d09417cab15d"
+  Grants:
+    Brand Identity:
+      - "0xd7188e4e6e0191e599bcb479991c8a8df228b725795e437e4c23728819bde82e"
+    Design:
+      - "0x31ea090cc6b7acc25be6881a9daa82bd7b120a219c9f53f340a1ab166c1f4f9f"
+    Vault Management Dashboard:
+      # These is also a stream for these guys TODO figure out how to account for streams as they stream
+      - "0xc59b692bff01c3a364d9a1fc629dfd743c1e421f7eaee7efdca86f23d0a8a7ad"
+    Docs Grant:
+      # https://github.com/yearn/budget/issues/105
+      - "0x99f8e351a15e7ce7f0acbae2dea52c56cd93ef97b0a5981f79a68180ff777f00"
+    yCRV Dev Grant:
+      - "0x116a44242ffafd12a8e40a7a2dbc9f6a98580ca4d72e626ddb60d09417cab15d"
   Travel Reimbursements:
     - "0xb11d1f505bcdba152c25c80d2c8268a437b50c86fe0cde2f26d3e952aca4e2b3"
     - "0x628b9973ed22a5ea300dc79abcaf0d390e2941f28bc804886801ae9f82544f49"
