@@ -6,6 +6,7 @@ dist/
 *.o
 *.so
 *.pyd
+build/**/*.py
 ops.txt
 build/setup.py
 yearn_treasury.egg-info/
