@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[300];
+extern PyObject *CPyStatics[298];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -65,8 +65,6 @@ extern char CPyDef_budget_____top_level__(void);
 extern PyObject *CPyStatic__request___logger;
 extern PyTypeObject *CPyType__request___BudgetRequest;
 extern PyObject *CPyDef__request___BudgetRequest(PyObject *cpy_r_args, PyObject *cpy_r_kwargs);
-extern char CPyDef__request___BudgetRequest_____post_init__(PyObject *cpy_r_self);
-extern PyObject *CPyPy__request___BudgetRequest_____post_init__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__request___BudgetRequest___is_approved(PyObject *cpy_r_self);
 extern PyObject *CPyPy__request___BudgetRequest___is_approved(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__request___BudgetRequest___is_rejected(PyObject *cpy_r_self);

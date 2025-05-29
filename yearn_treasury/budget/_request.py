@@ -20,10 +20,6 @@ class BudgetRequest:
     body: Optional[str]
     labels: Set[str]
 
-    def __post_init__(self) -> None:
-        if self.is_approved() and not self.is_paid():
-            logger.warning("%s must be paid", self)
-
     def is_approved(self) -> bool:
         return "approved" in self.labels
 
