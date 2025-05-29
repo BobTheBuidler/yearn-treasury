@@ -98,7 +98,7 @@ char CPyDef_budget_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[259]; /* ('BudgetRequest',) */
+    cpy_r_r5 = CPyStatics[257]; /* ('BudgetRequest',) */
     cpy_r_r6 = CPyStatics[5]; /* 'yearn_treasury.budget._request' */
     cpy_r_r7 = CPyStatic_budget___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
@@ -109,7 +109,7 @@ CPyL3: ;
     CPyModule_yearn_treasury___budget____request = cpy_r_r8;
     CPy_INCREF(CPyModule_yearn_treasury___budget____request);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[260]; /* ('approved_requests', 'rejected_requests', 'requests') */
+    cpy_r_r9 = CPyStatics[258]; /* ('approved_requests', 'rejected_requests', 'requests') */
     cpy_r_r10 = CPyStatics[9]; /* 'yearn_treasury.budget._requests' */
     cpy_r_r11 = CPyStatic_budget___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
@@ -145,7 +145,7 @@ CPyL3: ;
     cpy_r_r23 = CPyStatic_budget___globals;
     cpy_r_r24 = CPyStatics[10]; /* '__all__' */
     cpy_r_r25 = CPyDict_SetItem(cpy_r_r23, cpy_r_r24, cpy_r_r17);
-    CPy_DECREF(cpy_r_r17);
+    CPy_DECREF_NO_IMM(cpy_r_r17);
     cpy_r_r26 = cpy_r_r25 >= 0;
     if (unlikely(!cpy_r_r26)) {
         CPy_AddTraceback("yearn_treasury/budget/__init__.py", "<module>", 6, CPyStatic_budget___globals);
@@ -224,12 +224,11 @@ _request___BudgetRequest_dealloc(yearn_treasury___budget____request___BudgetRequ
     CPy_TRASHCAN_END(self)
 }
 
-static CPyVTableItem _request___BudgetRequest_vtable[6];
+static CPyVTableItem _request___BudgetRequest_vtable[5];
 static bool
 CPyDef__request___BudgetRequest_trait_vtable_setup(void)
 {
     CPyVTableItem _request___BudgetRequest_vtable_scratch[] = {
-        (CPyVTableItem)CPyDef__request___BudgetRequest_____post_init__,
         (CPyVTableItem)CPyDef__request___BudgetRequest___is_approved,
         (CPyVTableItem)CPyDef__request___BudgetRequest___is_rejected,
         (CPyVTableItem)CPyDef__request___BudgetRequest___is_stream,
@@ -316,9 +315,6 @@ static PyGetSetDef _request___BudgetRequest_getseters[] = {
 };
 
 static PyMethodDef _request___BudgetRequest_methods[] = {
-    {"__post_init__",
-     (PyCFunction)CPyPy__request___BudgetRequest_____post_init__,
-     METH_FASTCALL | METH_KEYWORDS, NULL},
     {"is_approved",
      (PyCFunction)CPyPy__request___BudgetRequest___is_approved,
      METH_FASTCALL | METH_KEYWORDS, NULL},
@@ -813,84 +809,6 @@ PyObject *CPyInit_yearn_treasury___budget____request(void)
     return NULL;
 }
 
-char CPyDef__request___BudgetRequest_____post_init__(PyObject *cpy_r_self) {
-    char cpy_r_r0;
-    char cpy_r_r1;
-    PyObject *cpy_r_r2;
-    char cpy_r_r3;
-    PyObject *cpy_r_r4;
-    PyObject *cpy_r_r5;
-    PyObject **cpy_r_r7;
-    PyObject *cpy_r_r8;
-    char cpy_r_r9;
-    cpy_r_r0 = CPyDef__request___BudgetRequest___is_approved(cpy_r_self);
-    if (unlikely(cpy_r_r0 == 2)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "__post_init__", 24, CPyStatic__request___globals);
-        goto CPyL9;
-    }
-    if (!cpy_r_r0) goto CPyL8;
-    cpy_r_r1 = CPyDef__request___BudgetRequest___is_paid(cpy_r_self);
-    if (unlikely(cpy_r_r1 == 2)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "__post_init__", 24, CPyStatic__request___globals);
-        goto CPyL9;
-    }
-    if (cpy_r_r1) goto CPyL8;
-    cpy_r_r2 = CPyStatic__request___logger;
-    if (likely(cpy_r_r2 != NULL)) goto CPyL7;
-    PyErr_SetString(PyExc_NameError, "value for final name \"logger\" was not set");
-    cpy_r_r3 = 0;
-    if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "__post_init__", 25, CPyStatic__request___globals);
-        goto CPyL9;
-    }
-    CPy_Unreachable();
-CPyL7: ;
-    cpy_r_r4 = CPyStatics[11]; /* '%s must be paid' */
-    cpy_r_r5 = CPyStatics[12]; /* 'warning' */
-    PyObject *cpy_r_r6[3] = {cpy_r_r2, cpy_r_r4, cpy_r_self};
-    cpy_r_r7 = (PyObject **)&cpy_r_r6;
-    cpy_r_r8 = PyObject_VectorcallMethod(cpy_r_r5, cpy_r_r7, 9223372036854775811ULL, 0);
-    if (unlikely(cpy_r_r8 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "__post_init__", 25, CPyStatic__request___globals);
-        goto CPyL9;
-    } else
-        goto CPyL10;
-CPyL8: ;
-    return 1;
-CPyL9: ;
-    cpy_r_r9 = 2;
-    return cpy_r_r9;
-CPyL10: ;
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL8;
-}
-
-PyObject *CPyPy__request___BudgetRequest_____post_init__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames) {
-    PyObject *obj_self = self;
-    static const char * const kwlist[] = {0};
-    static CPyArg_Parser parser = {":__post_init__", kwlist, 0};
-    if (!CPyArg_ParseStackAndKeywordsNoArgs(args, nargs, kwnames, &parser)) {
-        return NULL;
-    }
-    PyObject *arg_self;
-    if (likely(Py_TYPE(obj_self) == CPyType__request___BudgetRequest))
-        arg_self = obj_self;
-    else {
-        CPy_TypeError("yearn_treasury.budget._request.BudgetRequest", obj_self); 
-        goto fail;
-    }
-    char retval = CPyDef__request___BudgetRequest_____post_init__(arg_self);
-    if (retval == 2) {
-        return NULL;
-    }
-    PyObject *retbox = Py_None;
-    CPy_INCREF(retbox);
-    return retbox;
-fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "__post_init__", 23, CPyStatic__request___globals);
-    return NULL;
-}
-
 char CPyDef__request___BudgetRequest___is_approved(PyObject *cpy_r_self) {
     PyObject *cpy_r_r0;
     PyObject *cpy_r_r1;
@@ -898,10 +816,10 @@ char CPyDef__request___BudgetRequest___is_approved(PyObject *cpy_r_self) {
     char cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[13]; /* 'approved' */
+    cpy_r_r0 = CPyStatics[11]; /* 'approved' */
     cpy_r_r1 = ((yearn_treasury___budget____request___BudgetRequestObject *)cpy_r_self)->_labels;
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_approved", "BudgetRequest", "labels", 28, CPyStatic__request___globals);
+        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_approved", "BudgetRequest", "labels", 24, CPyStatic__request___globals);
         goto CPyL3;
     }
     CPy_INCREF(cpy_r_r1);
@@ -910,7 +828,7 @@ CPyL1: ;
     CPy_DECREF(cpy_r_r1);
     cpy_r_r3 = cpy_r_r2 >= 0;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_approved", 28, CPyStatic__request___globals);
+        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_approved", 24, CPyStatic__request___globals);
         goto CPyL3;
     }
     cpy_r_r4 = cpy_r_r2;
@@ -942,7 +860,7 @@ PyObject *CPyPy__request___BudgetRequest___is_approved(PyObject *self, PyObject 
     CPy_INCREF(retbox);
     return retbox;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_approved", 27, CPyStatic__request___globals);
+    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_approved", 23, CPyStatic__request___globals);
     return NULL;
 }
 
@@ -953,10 +871,10 @@ char CPyDef__request___BudgetRequest___is_rejected(PyObject *cpy_r_self) {
     char cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[14]; /* 'rejected' */
+    cpy_r_r0 = CPyStatics[12]; /* 'rejected' */
     cpy_r_r1 = ((yearn_treasury___budget____request___BudgetRequestObject *)cpy_r_self)->_labels;
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_rejected", "BudgetRequest", "labels", 31, CPyStatic__request___globals);
+        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_rejected", "BudgetRequest", "labels", 27, CPyStatic__request___globals);
         goto CPyL3;
     }
     CPy_INCREF(cpy_r_r1);
@@ -965,7 +883,7 @@ CPyL1: ;
     CPy_DECREF(cpy_r_r1);
     cpy_r_r3 = cpy_r_r2 >= 0;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_rejected", 31, CPyStatic__request___globals);
+        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_rejected", 27, CPyStatic__request___globals);
         goto CPyL3;
     }
     cpy_r_r4 = cpy_r_r2;
@@ -997,7 +915,7 @@ PyObject *CPyPy__request___BudgetRequest___is_rejected(PyObject *self, PyObject 
     CPy_INCREF(retbox);
     return retbox;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_rejected", 30, CPyStatic__request___globals);
+    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_rejected", 26, CPyStatic__request___globals);
     return NULL;
 }
 
@@ -1008,10 +926,10 @@ char CPyDef__request___BudgetRequest___is_stream(PyObject *cpy_r_self) {
     char cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[15]; /* 'stream' */
+    cpy_r_r0 = CPyStatics[13]; /* 'stream' */
     cpy_r_r1 = ((yearn_treasury___budget____request___BudgetRequestObject *)cpy_r_self)->_labels;
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_stream", "BudgetRequest", "labels", 34, CPyStatic__request___globals);
+        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_stream", "BudgetRequest", "labels", 30, CPyStatic__request___globals);
         goto CPyL3;
     }
     CPy_INCREF(cpy_r_r1);
@@ -1020,7 +938,7 @@ CPyL1: ;
     CPy_DECREF(cpy_r_r1);
     cpy_r_r3 = cpy_r_r2 >= 0;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_stream", 34, CPyStatic__request___globals);
+        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_stream", 30, CPyStatic__request___globals);
         goto CPyL3;
     }
     cpy_r_r4 = cpy_r_r2;
@@ -1052,7 +970,7 @@ PyObject *CPyPy__request___BudgetRequest___is_stream(PyObject *self, PyObject *c
     CPy_INCREF(retbox);
     return retbox;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_stream", 33, CPyStatic__request___globals);
+    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_stream", 29, CPyStatic__request___globals);
     return NULL;
 }
 
@@ -1063,10 +981,10 @@ char CPyDef__request___BudgetRequest___is_vesting(PyObject *cpy_r_self) {
     char cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[16]; /* 'vesting' */
+    cpy_r_r0 = CPyStatics[14]; /* 'vesting' */
     cpy_r_r1 = ((yearn_treasury___budget____request___BudgetRequestObject *)cpy_r_self)->_labels;
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_vesting", "BudgetRequest", "labels", 37, CPyStatic__request___globals);
+        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_vesting", "BudgetRequest", "labels", 33, CPyStatic__request___globals);
         goto CPyL3;
     }
     CPy_INCREF(cpy_r_r1);
@@ -1075,7 +993,7 @@ CPyL1: ;
     CPy_DECREF(cpy_r_r1);
     cpy_r_r3 = cpy_r_r2 >= 0;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_vesting", 37, CPyStatic__request___globals);
+        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_vesting", 33, CPyStatic__request___globals);
         goto CPyL3;
     }
     cpy_r_r4 = cpy_r_r2;
@@ -1107,7 +1025,7 @@ PyObject *CPyPy__request___BudgetRequest___is_vesting(PyObject *self, PyObject *
     CPy_INCREF(retbox);
     return retbox;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_vesting", 36, CPyStatic__request___globals);
+    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_vesting", 32, CPyStatic__request___globals);
     return NULL;
 }
 
@@ -1118,10 +1036,10 @@ char CPyDef__request___BudgetRequest___is_paid(PyObject *cpy_r_self) {
     char cpy_r_r3;
     char cpy_r_r4;
     char cpy_r_r5;
-    cpy_r_r0 = CPyStatics[17]; /* 'paid' */
+    cpy_r_r0 = CPyStatics[15]; /* 'paid' */
     cpy_r_r1 = ((yearn_treasury___budget____request___BudgetRequestObject *)cpy_r_self)->_labels;
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_paid", "BudgetRequest", "labels", 40, CPyStatic__request___globals);
+        CPy_AttributeError("yearn_treasury/budget/_request.py", "is_paid", "BudgetRequest", "labels", 36, CPyStatic__request___globals);
         goto CPyL3;
     }
     CPy_INCREF(cpy_r_r1);
@@ -1130,7 +1048,7 @@ CPyL1: ;
     CPy_DECREF(cpy_r_r1);
     cpy_r_r3 = cpy_r_r2 >= 0;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_paid", 40, CPyStatic__request___globals);
+        CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_paid", 36, CPyStatic__request___globals);
         goto CPyL3;
     }
     cpy_r_r4 = cpy_r_r2;
@@ -1162,7 +1080,7 @@ PyObject *CPyPy__request___BudgetRequest___is_paid(PyObject *self, PyObject *con
     CPy_INCREF(retbox);
     return retbox;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_paid", 39, CPyStatic__request___globals);
+    CPy_AddTraceback("yearn_treasury/budget/_request.py", "is_paid", 35, CPyStatic__request___globals);
     return NULL;
 }
 
@@ -1299,8 +1217,8 @@ char CPyDef__request_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[261]; /* ('dataclass',) */
-    cpy_r_r6 = CPyStatics[19]; /* 'dataclasses' */
+    cpy_r_r5 = CPyStatics[259]; /* ('dataclass',) */
+    cpy_r_r6 = CPyStatics[17]; /* 'dataclasses' */
     cpy_r_r7 = CPyStatic__request___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -1310,8 +1228,8 @@ CPyL3: ;
     CPyModule_dataclasses = cpy_r_r8;
     CPy_INCREF(CPyModule_dataclasses);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[262]; /* ('getLogger',) */
-    cpy_r_r10 = CPyStatics[21]; /* 'logging' */
+    cpy_r_r9 = CPyStatics[260]; /* ('getLogger',) */
+    cpy_r_r10 = CPyStatics[19]; /* 'logging' */
     cpy_r_r11 = CPyStatic__request___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -1321,8 +1239,8 @@ CPyL3: ;
     CPyModule_logging = cpy_r_r12;
     CPy_INCREF(CPyModule_logging);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[263]; /* ('Final', 'Optional', 'Set', 'final') */
-    cpy_r_r14 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r13 = CPyStatics[261]; /* ('Final', 'Optional', 'Set', 'final') */
+    cpy_r_r14 = CPyStatics[24]; /* 'typing' */
     cpy_r_r15 = CPyStatic__request___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -1333,7 +1251,7 @@ CPyL3: ;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r16);
     cpy_r_r17 = CPyStatic__request___globals;
-    cpy_r_r18 = CPyStatics[27]; /* '__name__' */
+    cpy_r_r18 = CPyStatics[25]; /* '__name__' */
     cpy_r_r19 = CPyDict_GetItem(cpy_r_r17, cpy_r_r18);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 6, CPyStatic__request___globals);
@@ -1346,7 +1264,7 @@ CPyL3: ;
         goto CPyL35;
     }
     cpy_r_r21 = CPyStatic__request___globals;
-    cpy_r_r22 = CPyStatics[20]; /* 'getLogger' */
+    cpy_r_r22 = CPyStatics[18]; /* 'getLogger' */
     cpy_r_r23 = CPyDict_GetItem(cpy_r_r21, cpy_r_r22);
     if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 6, CPyStatic__request___globals);
@@ -1354,7 +1272,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r24[1] = {cpy_r_r20};
     cpy_r_r25 = (PyObject **)&cpy_r_r24;
-    cpy_r_r26 = _PyObject_Vectorcall(cpy_r_r23, cpy_r_r25, 1, 0);
+    cpy_r_r26 = PyObject_Vectorcall(cpy_r_r23, cpy_r_r25, 1, 0);
     CPy_DECREF(cpy_r_r23);
     if (unlikely(cpy_r_r26 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 6, CPyStatic__request___globals);
@@ -1364,7 +1282,7 @@ CPyL3: ;
     CPyStatic__request___logger = cpy_r_r26;
     CPy_INCREF(CPyStatic__request___logger);
     cpy_r_r27 = CPyStatic__request___globals;
-    cpy_r_r28 = CPyStatics[28]; /* 'logger' */
+    cpy_r_r28 = CPyStatics[26]; /* 'logger' */
     cpy_r_r29 = CPyDict_SetItem(cpy_r_r27, cpy_r_r28, cpy_r_r26);
     CPy_DECREF(cpy_r_r26);
     cpy_r_r30 = cpy_r_r29 >= 0;
@@ -1385,17 +1303,17 @@ CPyL3: ;
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", -1, CPyStatic__request___globals);
         goto CPyL37;
     }
-    cpy_r_r36 = CPyStatics[29]; /* '__mypyc_attrs__' */
-    cpy_r_r37 = CPyStatics[30]; /* 'id' */
-    cpy_r_r38 = CPyStatics[31]; /* 'number' */
-    cpy_r_r39 = CPyStatics[32]; /* 'title' */
-    cpy_r_r40 = CPyStatics[33]; /* 'state' */
-    cpy_r_r41 = CPyStatics[34]; /* 'url' */
-    cpy_r_r42 = CPyStatics[35]; /* 'created_at' */
-    cpy_r_r43 = CPyStatics[36]; /* 'updated_at' */
-    cpy_r_r44 = CPyStatics[37]; /* 'closed_at' */
-    cpy_r_r45 = CPyStatics[38]; /* 'body' */
-    cpy_r_r46 = CPyStatics[39]; /* 'labels' */
+    cpy_r_r36 = CPyStatics[27]; /* '__mypyc_attrs__' */
+    cpy_r_r37 = CPyStatics[28]; /* 'id' */
+    cpy_r_r38 = CPyStatics[29]; /* 'number' */
+    cpy_r_r39 = CPyStatics[30]; /* 'title' */
+    cpy_r_r40 = CPyStatics[31]; /* 'state' */
+    cpy_r_r41 = CPyStatics[32]; /* 'url' */
+    cpy_r_r42 = CPyStatics[33]; /* 'created_at' */
+    cpy_r_r43 = CPyStatics[34]; /* 'updated_at' */
+    cpy_r_r44 = CPyStatics[35]; /* 'closed_at' */
+    cpy_r_r45 = CPyStatics[36]; /* 'body' */
+    cpy_r_r46 = CPyStatics[37]; /* 'labels' */
     cpy_r_r47 = PyTuple_Pack(10, cpy_r_r37, cpy_r_r38, cpy_r_r39, cpy_r_r40, cpy_r_r41, cpy_r_r42, cpy_r_r43, cpy_r_r44, cpy_r_r45, cpy_r_r46);
     if (unlikely(cpy_r_r47 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 11, CPyStatic__request___globals);
@@ -1431,7 +1349,7 @@ CPyL3: ;
     }
     cpy_r_r57 = (PyObject *)&PyType_Type;
     cpy_r_r58 = (PyObject *)&PyLong_Type;
-    cpy_r_r59 = CPyStatics[30]; /* 'id' */
+    cpy_r_r59 = CPyStatics[28]; /* 'id' */
     cpy_r_r60 = CPyDict_SetItem(cpy_r_r56, cpy_r_r59, cpy_r_r58);
     cpy_r_r61 = cpy_r_r60 >= 0;
     if (unlikely(!cpy_r_r61)) {
@@ -1439,7 +1357,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r62 = (PyObject *)&PyLong_Type;
-    cpy_r_r63 = CPyStatics[31]; /* 'number' */
+    cpy_r_r63 = CPyStatics[29]; /* 'number' */
     cpy_r_r64 = CPyDict_SetItem(cpy_r_r56, cpy_r_r63, cpy_r_r62);
     cpy_r_r65 = cpy_r_r64 >= 0;
     if (unlikely(!cpy_r_r65)) {
@@ -1447,7 +1365,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r66 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r67 = CPyStatics[32]; /* 'title' */
+    cpy_r_r67 = CPyStatics[30]; /* 'title' */
     cpy_r_r68 = CPyDict_SetItem(cpy_r_r56, cpy_r_r67, cpy_r_r66);
     cpy_r_r69 = cpy_r_r68 >= 0;
     if (unlikely(!cpy_r_r69)) {
@@ -1455,7 +1373,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r70 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r71 = CPyStatics[33]; /* 'state' */
+    cpy_r_r71 = CPyStatics[31]; /* 'state' */
     cpy_r_r72 = CPyDict_SetItem(cpy_r_r56, cpy_r_r71, cpy_r_r70);
     cpy_r_r73 = cpy_r_r72 >= 0;
     if (unlikely(!cpy_r_r73)) {
@@ -1463,7 +1381,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r74 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r75 = CPyStatics[34]; /* 'url' */
+    cpy_r_r75 = CPyStatics[32]; /* 'url' */
     cpy_r_r76 = CPyDict_SetItem(cpy_r_r56, cpy_r_r75, cpy_r_r74);
     cpy_r_r77 = cpy_r_r76 >= 0;
     if (unlikely(!cpy_r_r77)) {
@@ -1471,7 +1389,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r78 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r79 = CPyStatics[35]; /* 'created_at' */
+    cpy_r_r79 = CPyStatics[33]; /* 'created_at' */
     cpy_r_r80 = CPyDict_SetItem(cpy_r_r56, cpy_r_r79, cpy_r_r78);
     cpy_r_r81 = cpy_r_r80 >= 0;
     if (unlikely(!cpy_r_r81)) {
@@ -1479,7 +1397,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r82 = (PyObject *)&PyUnicode_Type;
-    cpy_r_r83 = CPyStatics[36]; /* 'updated_at' */
+    cpy_r_r83 = CPyStatics[34]; /* 'updated_at' */
     cpy_r_r84 = CPyDict_SetItem(cpy_r_r56, cpy_r_r83, cpy_r_r82);
     cpy_r_r85 = cpy_r_r84 >= 0;
     if (unlikely(!cpy_r_r85)) {
@@ -1487,7 +1405,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r86 = (PyObject *)&PyType_Type;
-    cpy_r_r87 = CPyStatics[37]; /* 'closed_at' */
+    cpy_r_r87 = CPyStatics[35]; /* 'closed_at' */
     cpy_r_r88 = CPyDict_SetItem(cpy_r_r56, cpy_r_r87, cpy_r_r86);
     cpy_r_r89 = cpy_r_r88 >= 0;
     if (unlikely(!cpy_r_r89)) {
@@ -1495,7 +1413,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r90 = (PyObject *)&PyType_Type;
-    cpy_r_r91 = CPyStatics[38]; /* 'body' */
+    cpy_r_r91 = CPyStatics[36]; /* 'body' */
     cpy_r_r92 = CPyDict_SetItem(cpy_r_r56, cpy_r_r91, cpy_r_r90);
     cpy_r_r93 = cpy_r_r92 >= 0;
     if (unlikely(!cpy_r_r93)) {
@@ -1503,22 +1421,22 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r94 = (PyObject *)&PySet_Type;
-    cpy_r_r95 = CPyStatics[39]; /* 'labels' */
+    cpy_r_r95 = CPyStatics[37]; /* 'labels' */
     cpy_r_r96 = CPyDict_SetItem(cpy_r_r56, cpy_r_r95, cpy_r_r94);
     cpy_r_r97 = cpy_r_r96 >= 0;
     if (unlikely(!cpy_r_r97)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 21, CPyStatic__request___globals);
         goto CPyL39;
     }
-    cpy_r_r98 = CPyStatics[40]; /* '__annotations__' */
+    cpy_r_r98 = CPyStatics[38]; /* '__annotations__' */
     cpy_r_r99 = CPyDict_SetItem(cpy_r_r54, cpy_r_r98, cpy_r_r56);
     cpy_r_r100 = cpy_r_r99 >= 0;
     if (unlikely(!cpy_r_r100)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 11, CPyStatic__request___globals);
         goto CPyL39;
     }
-    cpy_r_r101 = CPyStatics[41]; /* 'mypyc filler docstring' */
-    cpy_r_r102 = CPyStatics[42]; /* '__doc__' */
+    cpy_r_r101 = CPyStatics[39]; /* 'mypyc filler docstring' */
+    cpy_r_r102 = CPyStatics[40]; /* '__doc__' */
     cpy_r_r103 = CPyDict_SetItem(cpy_r_r54, cpy_r_r102, cpy_r_r101);
     cpy_r_r104 = cpy_r_r103 >= 0;
     if (unlikely(!cpy_r_r104)) {
@@ -1526,7 +1444,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r105 = CPyStatics[5]; /* 'yearn_treasury.budget._request' */
-    cpy_r_r106 = CPyStatics[43]; /* '__module__' */
+    cpy_r_r106 = CPyStatics[41]; /* '__module__' */
     cpy_r_r107 = CPyDict_SetItem(cpy_r_r54, cpy_r_r106, cpy_r_r105);
     cpy_r_r108 = cpy_r_r107 >= 0;
     if (unlikely(!cpy_r_r108)) {
@@ -1534,7 +1452,7 @@ CPyL3: ;
         goto CPyL39;
     }
     cpy_r_r109 = CPyStatic__request___globals;
-    cpy_r_r110 = CPyStatics[18]; /* 'dataclass' */
+    cpy_r_r110 = CPyStatics[16]; /* 'dataclass' */
     cpy_r_r111 = CPyDict_GetItem(cpy_r_r109, cpy_r_r110);
     if (unlikely(cpy_r_r111 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 10, CPyStatic__request___globals);
@@ -1543,14 +1461,14 @@ CPyL3: ;
     cpy_r_r112 = 1 ? Py_True : Py_False;
     PyObject *cpy_r_r113[1] = {cpy_r_r112};
     cpy_r_r114 = (PyObject **)&cpy_r_r113;
-    cpy_r_r115 = CPyStatics[264]; /* ('frozen',) */
-    cpy_r_r116 = _PyObject_Vectorcall(cpy_r_r111, cpy_r_r114, 0, cpy_r_r115);
+    cpy_r_r115 = CPyStatics[262]; /* ('frozen',) */
+    cpy_r_r116 = PyObject_Vectorcall(cpy_r_r111, cpy_r_r114, 0, cpy_r_r115);
     CPy_DECREF(cpy_r_r111);
     if (unlikely(cpy_r_r116 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_request.py", "<module>", 10, CPyStatic__request___globals);
         goto CPyL39;
     }
-    cpy_r_r117 = CPyStatics[19]; /* 'dataclasses' */
+    cpy_r_r117 = CPyStatics[17]; /* 'dataclasses' */
     cpy_r_r118 = CPyDataclass_SleightOfHand(cpy_r_r116, cpy_r_r34, cpy_r_r54, cpy_r_r56, cpy_r_r117);
     CPy_DECREF(cpy_r_r116);
     CPy_DECREF(cpy_r_r34);
@@ -1754,14 +1672,14 @@ PyObject *CPyDef__requests___fetch_brs(void) {
     int32_t cpy_r_r128;
     char cpy_r_r129;
     PyObject *cpy_r_r130;
-    cpy_r_r0 = CPyStatics[45]; /* 'https://api.github.com/repos/yearn/budget/issues' */
+    cpy_r_r0 = CPyStatics[43]; /* 'https://api.github.com/repos/yearn/budget/issues' */
     CPy_INCREF(cpy_r_r0);
-    cpy_r_r1 = CPyStatics[33]; /* 'state' */
-    cpy_r_r2 = CPyStatics[46]; /* 'all' */
-    cpy_r_r3 = CPyStatics[47]; /* 'per_page' */
-    cpy_r_r4 = CPyStatics[48]; /* 'page' */
-    cpy_r_r5 = CPyStatics[256]; /* 100 */
-    cpy_r_r6 = CPyStatics[257]; /* 1 */
+    cpy_r_r1 = CPyStatics[31]; /* 'state' */
+    cpy_r_r2 = CPyStatics[44]; /* 'all' */
+    cpy_r_r3 = CPyStatics[45]; /* 'per_page' */
+    cpy_r_r4 = CPyStatics[46]; /* 'page' */
+    cpy_r_r5 = CPyStatics[254]; /* 100 */
+    cpy_r_r6 = CPyStatics[255]; /* 1 */
     cpy_r_r7 = CPyDict_Build(3, cpy_r_r1, cpy_r_r2, cpy_r_r3, cpy_r_r5, cpy_r_r4, cpy_r_r6);
     if (unlikely(cpy_r_r7 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 18, CPyStatic__requests___globals);
@@ -1789,7 +1707,7 @@ CPyL5: ;
     CPy_Unreachable();
 CPyL7: ;
     cpy_r_r11 = CPyStatic__requests___globals;
-    cpy_r_r12 = CPyStatics[49]; /* 'get' */
+    cpy_r_r12 = CPyStatics[47]; /* 'get' */
     cpy_r_r13 = CPyDict_GetItem(cpy_r_r11, cpy_r_r12);
     if (unlikely(cpy_r_r13 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 22, CPyStatic__requests___globals);
@@ -1797,14 +1715,14 @@ CPyL7: ;
     }
     PyObject *cpy_r_r14[3] = {cpy_r_r0, cpy_r_r9, cpy_r_r7};
     cpy_r_r15 = (PyObject **)&cpy_r_r14;
-    cpy_r_r16 = CPyStatics[265]; /* ('headers', 'params') */
-    cpy_r_r17 = _PyObject_Vectorcall(cpy_r_r13, cpy_r_r15, 1, cpy_r_r16);
+    cpy_r_r16 = CPyStatics[263]; /* ('headers', 'params') */
+    cpy_r_r17 = PyObject_Vectorcall(cpy_r_r13, cpy_r_r15, 1, cpy_r_r16);
     CPy_DECREF(cpy_r_r13);
     if (unlikely(cpy_r_r17 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 22, CPyStatic__requests___globals);
         goto CPyL65;
     }
-    cpy_r_r18 = CPyStatics[52]; /* 'status_code' */
+    cpy_r_r18 = CPyStatics[50]; /* 'status_code' */
     cpy_r_r19 = CPyObject_GetAttr(cpy_r_r17, cpy_r_r18);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 23, CPyStatic__requests___globals);
@@ -1827,8 +1745,8 @@ CPyL7: ;
     } else
         goto CPyL22;
 CPyL12: ;
-    cpy_r_r22 = CPyStatics[53]; /* 'Failed to fetch issues: ' */
-    cpy_r_r23 = CPyStatics[52]; /* 'status_code' */
+    cpy_r_r22 = CPyStatics[51]; /* 'Failed to fetch issues: ' */
+    cpy_r_r23 = CPyStatics[50]; /* 'status_code' */
     cpy_r_r24 = CPyObject_GetAttr(cpy_r_r17, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 24, CPyStatic__requests___globals);
@@ -1850,8 +1768,8 @@ CPyL12: ;
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 24, CPyStatic__requests___globals);
         goto CPyL68;
     }
-    cpy_r_r27 = CPyStatics[54]; /* ' ' */
-    cpy_r_r28 = CPyStatics[55]; /* 'text' */
+    cpy_r_r27 = CPyStatics[52]; /* ' ' */
+    cpy_r_r28 = CPyStatics[53]; /* 'text' */
     cpy_r_r29 = CPyObject_GetAttr(cpy_r_r17, cpy_r_r28);
     CPy_DECREF(cpy_r_r17);
     if (unlikely(cpy_r_r29 == NULL)) {
@@ -1872,7 +1790,7 @@ CPyL12: ;
         goto CPyL60;
     }
     cpy_r_r32 = CPyModule_builtins;
-    cpy_r_r33 = CPyStatics[56]; /* 'ConnectionError' */
+    cpy_r_r33 = CPyStatics[54]; /* 'ConnectionError' */
     cpy_r_r34 = CPyObject_GetAttr(cpy_r_r32, cpy_r_r33);
     if (unlikely(cpy_r_r34 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 24, CPyStatic__requests___globals);
@@ -1880,7 +1798,7 @@ CPyL12: ;
     }
     PyObject *cpy_r_r35[1] = {cpy_r_r31};
     cpy_r_r36 = (PyObject **)&cpy_r_r35;
-    cpy_r_r37 = _PyObject_Vectorcall(cpy_r_r34, cpy_r_r36, 1, 0);
+    cpy_r_r37 = PyObject_Vectorcall(cpy_r_r34, cpy_r_r36, 1, 0);
     CPy_DECREF(cpy_r_r34);
     if (unlikely(cpy_r_r37 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 24, CPyStatic__requests___globals);
@@ -1895,7 +1813,7 @@ CPyL12: ;
     }
     CPy_Unreachable();
 CPyL22: ;
-    cpy_r_r38 = CPyStatics[57]; /* 'json' */
+    cpy_r_r38 = CPyStatics[55]; /* 'json' */
     PyObject *cpy_r_r39[1] = {cpy_r_r17};
     cpy_r_r40 = (PyObject **)&cpy_r_r39;
     cpy_r_r41 = PyObject_VectorcallMethod(cpy_r_r38, cpy_r_r40, 9223372036854775809ULL, 0);
@@ -1935,7 +1853,7 @@ CPyL26: ;
         CPy_TypeErrorTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 30, CPyStatic__requests___globals, "dict", cpy_r_r57);
         goto CPyL73;
     }
-    cpy_r_r59 = CPyStatics[58]; /* 'pull_request' */
+    cpy_r_r59 = CPyStatics[56]; /* 'pull_request' */
     cpy_r_r60 = PyDict_Contains(cpy_r_r58, cpy_r_r59);
     cpy_r_r61 = cpy_r_r60 >= 0;
     if (unlikely(!cpy_r_r61)) {
@@ -1944,14 +1862,14 @@ CPyL26: ;
     }
     cpy_r_r62 = cpy_r_r60;
     if (cpy_r_r62) goto CPyL75;
-    cpy_r_r63 = CPyStatics[39]; /* 'labels' */
+    cpy_r_r63 = CPyStatics[37]; /* 'labels' */
     cpy_r_r64 = PyList_New(0);
     if (unlikely(cpy_r_r64 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 37, CPyStatic__requests___globals);
         goto CPyL74;
     }
     cpy_r_r65 = CPyDict_Get(cpy_r_r58, cpy_r_r63, cpy_r_r64);
-    CPy_DECREF(cpy_r_r64);
+    CPy_DECREF_NO_IMM(cpy_r_r64);
     if (unlikely(cpy_r_r65 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 37, CPyStatic__requests___globals);
         goto CPyL74;
@@ -1987,7 +1905,7 @@ CPyL35: ;
         CPy_TypeErrorTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 38, CPyStatic__requests___globals, "dict", cpy_r_r78);
         goto CPyL78;
     }
-    cpy_r_r80 = CPyStatics[59]; /* 'name' */
+    cpy_r_r80 = CPyStatics[57]; /* 'name' */
     cpy_r_r81 = CPyDict_GetWithNone(cpy_r_r79, cpy_r_r80);
     CPy_DECREF(cpy_r_r79);
     if (unlikely(cpy_r_r81 == NULL)) {
@@ -2005,7 +1923,7 @@ CPyL35: ;
     cpy_r_r68 = cpy_r_r84;
     goto CPyL35;
 CPyL40: ;
-    cpy_r_r85 = CPyStatics[60]; /* 'budget request' */
+    cpy_r_r85 = CPyStatics[58]; /* 'budget request' */
     cpy_r_r86 = PySet_Contains(cpy_r_r67, cpy_r_r85);
     cpy_r_r87 = cpy_r_r86 >= 0;
     if (unlikely(!cpy_r_r87)) {
@@ -2015,71 +1933,71 @@ CPyL40: ;
     cpy_r_r88 = cpy_r_r86;
     cpy_r_r89 = cpy_r_r88 ^ 1;
     if (cpy_r_r89) goto CPyL80;
-    cpy_r_r90 = CPyStatics[30]; /* 'id' */
+    cpy_r_r90 = CPyStatics[28]; /* 'id' */
     cpy_r_r91 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r90);
     if (unlikely(cpy_r_r91 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 44, CPyStatic__requests___globals);
         goto CPyL79;
     }
-    cpy_r_r92 = CPyStatics[31]; /* 'number' */
+    cpy_r_r92 = CPyStatics[29]; /* 'number' */
     cpy_r_r93 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r92);
     if (unlikely(cpy_r_r93 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 45, CPyStatic__requests___globals);
         goto CPyL81;
     }
-    cpy_r_r94 = CPyStatics[32]; /* 'title' */
+    cpy_r_r94 = CPyStatics[30]; /* 'title' */
     cpy_r_r95 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r94);
     if (unlikely(cpy_r_r95 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 46, CPyStatic__requests___globals);
         goto CPyL82;
     }
-    cpy_r_r96 = CPyStatics[33]; /* 'state' */
+    cpy_r_r96 = CPyStatics[31]; /* 'state' */
     cpy_r_r97 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r96);
     if (unlikely(cpy_r_r97 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 47, CPyStatic__requests___globals);
         goto CPyL83;
     }
-    cpy_r_r98 = CPyStatics[61]; /* 'html_url' */
+    cpy_r_r98 = CPyStatics[59]; /* 'html_url' */
     cpy_r_r99 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r98);
     if (unlikely(cpy_r_r99 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 48, CPyStatic__requests___globals);
         goto CPyL84;
     }
-    cpy_r_r100 = CPyStatics[35]; /* 'created_at' */
+    cpy_r_r100 = CPyStatics[33]; /* 'created_at' */
     cpy_r_r101 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r100);
     if (unlikely(cpy_r_r101 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 49, CPyStatic__requests___globals);
         goto CPyL85;
     }
-    cpy_r_r102 = CPyStatics[36]; /* 'updated_at' */
+    cpy_r_r102 = CPyStatics[34]; /* 'updated_at' */
     cpy_r_r103 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r102);
     if (unlikely(cpy_r_r103 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 50, CPyStatic__requests___globals);
         goto CPyL86;
     }
-    cpy_r_r104 = CPyStatics[37]; /* 'closed_at' */
+    cpy_r_r104 = CPyStatics[35]; /* 'closed_at' */
     cpy_r_r105 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r104);
     if (unlikely(cpy_r_r105 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 51, CPyStatic__requests___globals);
         goto CPyL87;
     }
-    cpy_r_r106 = CPyStatics[38]; /* 'body' */
+    cpy_r_r106 = CPyStatics[36]; /* 'body' */
     cpy_r_r107 = CPyDict_GetWithNone(cpy_r_r58, cpy_r_r106);
     CPy_DECREF(cpy_r_r58);
     if (unlikely(cpy_r_r107 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 52, CPyStatic__requests___globals);
         goto CPyL88;
     }
-    cpy_r_r108 = CPyStatics[30]; /* 'id' */
-    cpy_r_r109 = CPyStatics[31]; /* 'number' */
-    cpy_r_r110 = CPyStatics[32]; /* 'title' */
-    cpy_r_r111 = CPyStatics[33]; /* 'state' */
-    cpy_r_r112 = CPyStatics[34]; /* 'url' */
-    cpy_r_r113 = CPyStatics[35]; /* 'created_at' */
-    cpy_r_r114 = CPyStatics[36]; /* 'updated_at' */
-    cpy_r_r115 = CPyStatics[37]; /* 'closed_at' */
-    cpy_r_r116 = CPyStatics[38]; /* 'body' */
-    cpy_r_r117 = CPyStatics[39]; /* 'labels' */
+    cpy_r_r108 = CPyStatics[28]; /* 'id' */
+    cpy_r_r109 = CPyStatics[29]; /* 'number' */
+    cpy_r_r110 = CPyStatics[30]; /* 'title' */
+    cpy_r_r111 = CPyStatics[31]; /* 'state' */
+    cpy_r_r112 = CPyStatics[32]; /* 'url' */
+    cpy_r_r113 = CPyStatics[33]; /* 'created_at' */
+    cpy_r_r114 = CPyStatics[34]; /* 'updated_at' */
+    cpy_r_r115 = CPyStatics[35]; /* 'closed_at' */
+    cpy_r_r116 = CPyStatics[36]; /* 'body' */
+    cpy_r_r117 = CPyStatics[37]; /* 'labels' */
     cpy_r_r118 = PyTuple_Pack(0);
     if (unlikely(cpy_r_r118 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 43, CPyStatic__requests___globals);
@@ -2108,7 +2026,7 @@ CPyL40: ;
         goto CPyL73;
     }
     cpy_r_r121 = PyList_Append(cpy_r_r8, cpy_r_r120);
-    CPy_DECREF(cpy_r_r120);
+    CPy_DECREF_NO_IMM(cpy_r_r120);
     cpy_r_r122 = cpy_r_r121 >= 0;
     if (unlikely(!cpy_r_r122)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 55, CPyStatic__requests___globals);
@@ -2119,13 +2037,13 @@ CPyL55: ;
     cpy_r_r47 = cpy_r_r123;
     goto CPyL26;
 CPyL56: ;
-    cpy_r_r124 = CPyStatics[48]; /* 'page' */
+    cpy_r_r124 = CPyStatics[46]; /* 'page' */
     cpy_r_r125 = CPyDict_GetItem(cpy_r_r7, cpy_r_r124);
     if (unlikely(cpy_r_r125 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "fetch_brs", 58, CPyStatic__requests___globals);
         goto CPyL65;
     }
-    cpy_r_r126 = CPyStatics[257]; /* 1 */
+    cpy_r_r126 = CPyStatics[255]; /* 1 */
     cpy_r_r127 = PyNumber_InPlaceAdd(cpy_r_r125, cpy_r_r126);
     CPy_DECREF(cpy_r_r125);
     if (unlikely(cpy_r_r127 == NULL)) {
@@ -2175,7 +2093,7 @@ CPyL66: ;
 CPyL67: ;
     CPy_DECREF(cpy_r_r0);
     CPy_DECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
     goto CPyL12;
 CPyL68: ;
     CPy_DecRef(cpy_r_r17);
@@ -2189,10 +2107,10 @@ CPyL70: ;
 CPyL71: ;
     CPy_DECREF(cpy_r_r0);
     CPy_DECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r42);
+    CPy_DECREF_NO_IMM(cpy_r_r42);
     goto CPyL59;
 CPyL72: ;
-    CPy_DECREF(cpy_r_r42);
+    CPy_DECREF_NO_IMM(cpy_r_r42);
     goto CPyL56;
 CPyL73: ;
     CPy_DecRef(cpy_r_r0);
@@ -2219,7 +2137,7 @@ CPyL76: ;
     CPy_DecRef(cpy_r_r66);
     goto CPyL60;
 CPyL77: ;
-    CPy_DECREF(cpy_r_r66);
+    CPy_DECREF_NO_IMM(cpy_r_r66);
     goto CPyL40;
 CPyL78: ;
     CPy_DecRef(cpy_r_r0);
@@ -2510,13 +2428,13 @@ CPyL3: ;
     cpy_r_r7 = (void *)&cpy_r_r6;
     int64_t cpy_r_r8[1] = {1};
     cpy_r_r9 = (void *)&cpy_r_r8;
-    cpy_r_r10 = CPyStatics[267]; /* (('os', 'os', 'os'),) */
+    cpy_r_r10 = CPyStatics[265]; /* (('os', 'os', 'os'),) */
     cpy_r_r11 = CPyStatic__requests___globals;
-    cpy_r_r12 = CPyStatics[63]; /* 'yearn_treasury/budget/_requests.py' */
-    cpy_r_r13 = CPyStatics[64]; /* '<module>' */
+    cpy_r_r12 = CPyStatics[61]; /* 'yearn_treasury/budget/_requests.py' */
+    cpy_r_r13 = CPyStatics[62]; /* '<module>' */
     cpy_r_r14 = CPyImport_ImportMany(cpy_r_r10, cpy_r_r7, cpy_r_r11, cpy_r_r12, cpy_r_r13, cpy_r_r9);
     if (!cpy_r_r14) goto CPyL51;
-    cpy_r_r15 = CPyStatics[268]; /* ('get',) */
+    cpy_r_r15 = CPyStatics[266]; /* ('get',) */
     cpy_r_r16 = CPyStatics[8]; /* 'requests' */
     cpy_r_r17 = CPyStatic__requests___globals;
     cpy_r_r18 = CPyImport_ImportFromMany(cpy_r_r16, cpy_r_r15, cpy_r_r15, cpy_r_r17);
@@ -2527,8 +2445,8 @@ CPyL3: ;
     CPyModule_requests = cpy_r_r18;
     CPy_INCREF(CPyModule_requests);
     CPy_DECREF(cpy_r_r18);
-    cpy_r_r19 = CPyStatics[269]; /* ('Final', 'List') */
-    cpy_r_r20 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r19 = CPyStatics[267]; /* ('Final', 'List') */
+    cpy_r_r20 = CPyStatics[24]; /* 'typing' */
     cpy_r_r21 = CPyStatic__requests___globals;
     cpy_r_r22 = CPyImport_ImportFromMany(cpy_r_r20, cpy_r_r19, cpy_r_r19, cpy_r_r21);
     if (unlikely(cpy_r_r22 == NULL)) {
@@ -2538,7 +2456,7 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r22;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r22);
-    cpy_r_r23 = CPyStatics[259]; /* ('BudgetRequest',) */
+    cpy_r_r23 = CPyStatics[257]; /* ('BudgetRequest',) */
     cpy_r_r24 = CPyStatics[5]; /* 'yearn_treasury.budget._request' */
     cpy_r_r25 = CPyStatic__requests___globals;
     cpy_r_r26 = CPyImport_ImportFromMany(cpy_r_r24, cpy_r_r23, cpy_r_r23, cpy_r_r25);
@@ -2550,14 +2468,14 @@ CPyL3: ;
     CPy_INCREF(CPyModule_yearn_treasury___budget____request);
     CPy_DECREF(cpy_r_r26);
     cpy_r_r27 = CPyModule_os;
-    cpy_r_r28 = CPyStatics[66]; /* 'environ' */
+    cpy_r_r28 = CPyStatics[64]; /* 'environ' */
     cpy_r_r29 = CPyObject_GetAttr(cpy_r_r27, cpy_r_r28);
     if (unlikely(cpy_r_r29 == NULL)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 10, CPyStatic__requests___globals);
         goto CPyL51;
     }
-    cpy_r_r30 = CPyStatics[67]; /* 'GITHUB_TOKEN' */
-    cpy_r_r31 = CPyStatics[49]; /* 'get' */
+    cpy_r_r30 = CPyStatics[65]; /* 'GITHUB_TOKEN' */
+    cpy_r_r31 = CPyStatics[47]; /* 'get' */
     PyObject *cpy_r_r32[2] = {cpy_r_r29, cpy_r_r30};
     cpy_r_r33 = (PyObject **)&cpy_r_r32;
     cpy_r_r34 = PyObject_VectorcallMethod(cpy_r_r31, cpy_r_r33, 9223372036854775810ULL, 0);
@@ -2584,7 +2502,7 @@ __LL3: ;
     CPyStatic__requests____TOKEN = cpy_r_r35;
     CPy_INCREF(CPyStatic__requests____TOKEN);
     cpy_r_r36 = CPyStatic__requests___globals;
-    cpy_r_r37 = CPyStatics[68]; /* '_TOKEN' */
+    cpy_r_r37 = CPyStatics[66]; /* '_TOKEN' */
     cpy_r_r38 = CPyDict_SetItem(cpy_r_r36, cpy_r_r37, cpy_r_r35);
     CPy_DECREF(cpy_r_r35);
     cpy_r_r39 = cpy_r_r38 >= 0;
@@ -2615,8 +2533,8 @@ CPyL14: ;
     cpy_r_r45 = CPyStr_IsTrue(cpy_r_r44);
     CPy_DECREF(cpy_r_r44);
     if (!cpy_r_r45) goto CPyL23;
-    cpy_r_r46 = CPyStatics[69]; /* 'Authorization' */
-    cpy_r_r47 = CPyStatics[70]; /* 'token ' */
+    cpy_r_r46 = CPyStatics[67]; /* 'Authorization' */
+    cpy_r_r47 = CPyStatics[68]; /* 'token ' */
     cpy_r_r48 = CPyStatic__requests____TOKEN;
     if (likely(cpy_r_r48 != NULL)) goto CPyL20;
     PyErr_SetString(PyExc_NameError, "value for final name \"_TOKEN\" was not set");
@@ -2651,7 +2569,7 @@ CPyL25: ;
     CPyStatic__requests____HEADERS = cpy_r_r52;
     CPy_INCREF(CPyStatic__requests____HEADERS);
     cpy_r_r54 = CPyStatic__requests___globals;
-    cpy_r_r55 = CPyStatics[71]; /* '_HEADERS' */
+    cpy_r_r55 = CPyStatics[69]; /* '_HEADERS' */
     cpy_r_r56 = CPyDict_SetItem(cpy_r_r54, cpy_r_r55, cpy_r_r52);
     CPy_DECREF(cpy_r_r52);
     cpy_r_r57 = cpy_r_r56 >= 0;
@@ -2667,7 +2585,7 @@ CPyL25: ;
     cpy_r_r59 = CPyStatic__requests___globals;
     cpy_r_r60 = CPyStatics[8]; /* 'requests' */
     cpy_r_r61 = CPyDict_SetItem(cpy_r_r59, cpy_r_r60, cpy_r_r58);
-    CPy_DECREF(cpy_r_r58);
+    CPy_DECREF_NO_IMM(cpy_r_r58);
     cpy_r_r62 = cpy_r_r61 >= 0;
     if (unlikely(!cpy_r_r62)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 63, CPyStatic__requests___globals);
@@ -2718,7 +2636,7 @@ CPyL32: ;
     }
     if (!cpy_r_r80) goto CPyL57;
     cpy_r_r81 = PyList_Append(cpy_r_r63, cpy_r_r79);
-    CPy_DECREF(cpy_r_r79);
+    CPy_DECREF_NO_IMM(cpy_r_r79);
     cpy_r_r82 = cpy_r_r81 >= 0;
     if (unlikely(!cpy_r_r82)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 64, CPyStatic__requests___globals);
@@ -2732,7 +2650,7 @@ CPyL38: ;
     cpy_r_r84 = CPyStatic__requests___globals;
     cpy_r_r85 = CPyStatics[6]; /* 'approved_requests' */
     cpy_r_r86 = CPyDict_SetItem(cpy_r_r84, cpy_r_r85, cpy_r_r63);
-    CPy_DECREF(cpy_r_r63);
+    CPy_DECREF_NO_IMM(cpy_r_r63);
     cpy_r_r87 = cpy_r_r86 >= 0;
     if (unlikely(!cpy_r_r87)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 64, CPyStatic__requests___globals);
@@ -2783,7 +2701,7 @@ CPyL43: ;
     }
     if (!cpy_r_r105) goto CPyL62;
     cpy_r_r106 = PyList_Append(cpy_r_r88, cpy_r_r104);
-    CPy_DECREF(cpy_r_r104);
+    CPy_DECREF_NO_IMM(cpy_r_r104);
     cpy_r_r107 = cpy_r_r106 >= 0;
     if (unlikely(!cpy_r_r107)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 65, CPyStatic__requests___globals);
@@ -2797,7 +2715,7 @@ CPyL49: ;
     cpy_r_r109 = CPyStatic__requests___globals;
     cpy_r_r110 = CPyStatics[7]; /* 'rejected_requests' */
     cpy_r_r111 = CPyDict_SetItem(cpy_r_r109, cpy_r_r110, cpy_r_r88);
-    CPy_DECREF(cpy_r_r88);
+    CPy_DECREF_NO_IMM(cpy_r_r88);
     cpy_r_r112 = cpy_r_r111 >= 0;
     if (unlikely(!cpy_r_r112)) {
         CPy_AddTraceback("yearn_treasury/budget/_requests.py", "<module>", 65, CPyStatic__requests___globals);
@@ -2814,7 +2732,7 @@ CPyL53: ;
     CPy_DecRef(cpy_r_r63);
     goto CPyL51;
 CPyL54: ;
-    CPy_DECREF(cpy_r_r67);
+    CPy_DECREF_NO_IMM(cpy_r_r67);
     goto CPyL38;
 CPyL55: ;
     CPy_DecRef(cpy_r_r63);
@@ -2826,13 +2744,13 @@ CPyL56: ;
     CPy_DecRef(cpy_r_r79);
     goto CPyL51;
 CPyL57: ;
-    CPy_DECREF(cpy_r_r79);
+    CPy_DECREF_NO_IMM(cpy_r_r79);
     goto CPyL37;
 CPyL58: ;
     CPy_DecRef(cpy_r_r88);
     goto CPyL51;
 CPyL59: ;
-    CPy_DECREF(cpy_r_r92);
+    CPy_DECREF_NO_IMM(cpy_r_r92);
     goto CPyL49;
 CPyL60: ;
     CPy_DecRef(cpy_r_r88);
@@ -2844,7 +2762,7 @@ CPyL61: ;
     CPy_DecRef(cpy_r_r104);
     goto CPyL51;
 CPyL62: ;
-    CPy_DECREF(cpy_r_r104);
+    CPy_DECREF_NO_IMM(cpy_r_r104);
     goto CPyL48;
 }
 static PyMethodDef gasmodule_methods[] = {
@@ -2949,7 +2867,7 @@ char CPyDef_gas___is_strategist_gas(PyObject *cpy_r_tx) {
     char cpy_r_r51;
     PyObject *cpy_r_r52;
     char cpy_r_r53;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 48, CPyStatic_gas___globals);
@@ -2961,7 +2879,7 @@ char CPyDef_gas___is_strategist_gas(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 48, CPyStatic_gas___globals, "str", cpy_r_r1);
         goto CPyL38;
     }
-    cpy_r_r3 = CPyStatics[73]; /* 'ETH' */
+    cpy_r_r3 = CPyStatics[71]; /* 'ETH' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -2977,7 +2895,7 @@ char CPyDef_gas___is_strategist_gas(PyObject *cpy_r_tx) {
 CPyL5: ;
     cpy_r_r9 = cpy_r_r4 == 0;
     if (!cpy_r_r9) goto CPyL37;
-    cpy_r_r10 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r10 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r11 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r10);
     if (unlikely(cpy_r_r11 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 49, CPyStatic_gas___globals);
@@ -2989,7 +2907,7 @@ CPyL5: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 49, CPyStatic_gas___globals, "str", cpy_r_r11);
         goto CPyL38;
     }
-    cpy_r_r13 = CPyStatics[75]; /* 'Disperse.app' */
+    cpy_r_r13 = CPyStatics[73]; /* 'Disperse.app' */
     cpy_r_r14 = PyUnicode_Compare(cpy_r_r12, cpy_r_r13);
     CPy_DECREF(cpy_r_r12);
     cpy_r_r15 = cpy_r_r14 == -1;
@@ -3005,7 +2923,7 @@ CPyL5: ;
 CPyL11: ;
     cpy_r_r19 = cpy_r_r14 == 0;
     if (!cpy_r_r19) goto CPyL19;
-    cpy_r_r20 = CPyStatics[76]; /* 'hash' */
+    cpy_r_r20 = CPyStatics[74]; /* 'hash' */
     cpy_r_r21 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r20);
     if (unlikely(cpy_r_r21 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 50, CPyStatic_gas___globals);
@@ -3041,7 +2959,7 @@ CPyL17: ;
     cpy_r_r27 = cpy_r_r25;
     return cpy_r_r27;
 CPyL19: ;
-    cpy_r_r28 = CPyStatics[76]; /* 'hash' */
+    cpy_r_r28 = CPyStatics[74]; /* 'hash' */
     cpy_r_r29 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r28);
     if (unlikely(cpy_r_r29 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 53, CPyStatic_gas___globals);
@@ -3076,20 +2994,20 @@ CPyL24: ;
     }
     cpy_r_r35 = cpy_r_r33;
     if (!cpy_r_r35) goto CPyL37;
-    cpy_r_r36 = CPyStatics[77]; /* 'amount' */
+    cpy_r_r36 = CPyStatics[75]; /* 'amount' */
     cpy_r_r37 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r36);
     if (unlikely(cpy_r_r37 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 54, CPyStatic_gas___globals);
         goto CPyL38;
     }
-    cpy_r_r38 = CPyStatics[258]; /* -1 */
+    cpy_r_r38 = CPyStatics[256]; /* -1 */
     cpy_r_r39 = PyNumber_InPlaceMultiply(cpy_r_r37, cpy_r_r38);
     CPy_DECREF(cpy_r_r37);
     if (unlikely(cpy_r_r39 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 54, CPyStatic_gas___globals);
         goto CPyL38;
     }
-    cpy_r_r40 = CPyStatics[77]; /* 'amount' */
+    cpy_r_r40 = CPyStatics[75]; /* 'amount' */
     cpy_r_r41 = PyObject_SetAttr(cpy_r_tx, cpy_r_r40, cpy_r_r39);
     CPy_DECREF(cpy_r_r39);
     cpy_r_r42 = cpy_r_r41 >= 0;
@@ -3097,20 +3015,20 @@ CPyL24: ;
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 54, CPyStatic_gas___globals);
         goto CPyL38;
     }
-    cpy_r_r43 = CPyStatics[78]; /* 'value_usd' */
+    cpy_r_r43 = CPyStatics[76]; /* 'value_usd' */
     cpy_r_r44 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r43);
     if (unlikely(cpy_r_r44 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 55, CPyStatic_gas___globals);
         goto CPyL38;
     }
-    cpy_r_r45 = CPyStatics[258]; /* -1 */
+    cpy_r_r45 = CPyStatics[256]; /* -1 */
     cpy_r_r46 = PyNumber_InPlaceMultiply(cpy_r_r44, cpy_r_r45);
     CPy_DECREF(cpy_r_r44);
     if (unlikely(cpy_r_r46 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 55, CPyStatic_gas___globals);
         goto CPyL38;
     }
-    cpy_r_r47 = CPyStatics[78]; /* 'value_usd' */
+    cpy_r_r47 = CPyStatics[76]; /* 'value_usd' */
     cpy_r_r48 = PyObject_SetAttr(cpy_r_tx, cpy_r_r47, cpy_r_r46);
     CPy_DECREF(cpy_r_r46);
     cpy_r_r49 = cpy_r_r48 >= 0;
@@ -3128,7 +3046,7 @@ CPyL24: ;
     }
     CPy_Unreachable();
 CPyL35: ;
-    cpy_r_r52 = _PyObject_Vectorcall(cpy_r_r50, 0, 0, 0);
+    cpy_r_r52 = PyObject_Vectorcall(cpy_r_r50, 0, 0, 0);
     if (unlikely(cpy_r_r52 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "is_strategist_gas", 56, CPyStatic_gas___globals);
         goto CPyL38;
@@ -3324,8 +3242,8 @@ char CPyDef_gas_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[270]; /* ('Final', 'Set') */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[268]; /* ('Final', 'Set') */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic_gas___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -3340,14 +3258,14 @@ CPyL3: ;
     cpy_r_r11 = (void *)&cpy_r_r10;
     int64_t cpy_r_r12[1] = {4};
     cpy_r_r13 = (void *)&cpy_r_r12;
-    cpy_r_r14 = CPyStatics[272]; /* (('pony.orm', 'pony', 'pony'),) */
+    cpy_r_r14 = CPyStatics[270]; /* (('pony.orm', 'pony', 'pony'),) */
     cpy_r_r15 = CPyStatic_gas___globals;
-    cpy_r_r16 = CPyStatics[81]; /* 'yearn_treasury/rules/cost_of_revenue/gas.py' */
-    cpy_r_r17 = CPyStatics[64]; /* '<module>' */
+    cpy_r_r16 = CPyStatics[79]; /* 'yearn_treasury/rules/cost_of_revenue/gas.py' */
+    cpy_r_r17 = CPyStatics[62]; /* '<module>' */
     cpy_r_r18 = CPyImport_ImportMany(cpy_r_r14, cpy_r_r11, cpy_r_r15, cpy_r_r16, cpy_r_r17, cpy_r_r13);
     if (!cpy_r_r18) goto CPyL48;
-    cpy_r_r19 = CPyStatics[273]; /* ('TreasuryTx',) */
-    cpy_r_r20 = CPyStatics[83]; /* 'dao_treasury.db' */
+    cpy_r_r19 = CPyStatics[271]; /* ('TreasuryTx',) */
+    cpy_r_r20 = CPyStatics[81]; /* 'dao_treasury.db' */
     cpy_r_r21 = CPyStatic_gas___globals;
     cpy_r_r22 = CPyImport_ImportFromMany(cpy_r_r20, cpy_r_r19, cpy_r_r19, cpy_r_r21);
     if (unlikely(cpy_r_r22 == NULL)) {
@@ -3357,8 +3275,8 @@ CPyL3: ;
     CPyModule_dao_treasury___db = cpy_r_r22;
     CPy_INCREF(CPyModule_dao_treasury___db);
     CPy_DECREF(cpy_r_r22);
-    cpy_r_r23 = CPyStatics[274]; /* ('CostOfRevenueSortRule', 'cost_of_revenue') */
-    cpy_r_r24 = CPyStatics[86]; /* 'dao_treasury.sorting' */
+    cpy_r_r23 = CPyStatics[272]; /* ('CostOfRevenueSortRule', 'cost_of_revenue') */
+    cpy_r_r24 = CPyStatics[84]; /* 'dao_treasury.sorting' */
     cpy_r_r25 = CPyStatic_gas___globals;
     cpy_r_r26 = CPyImport_ImportFromMany(cpy_r_r24, cpy_r_r23, cpy_r_r23, cpy_r_r25);
     if (unlikely(cpy_r_r26 == NULL)) {
@@ -3368,8 +3286,8 @@ CPyL3: ;
     CPyModule_dao_treasury___sorting = cpy_r_r26;
     CPy_INCREF(CPyModule_dao_treasury___sorting);
     CPy_DECREF(cpy_r_r26);
-    cpy_r_r27 = CPyStatics[275]; /* ('HexStr',) */
-    cpy_r_r28 = CPyStatics[88]; /* 'eth_typing' */
+    cpy_r_r27 = CPyStatics[273]; /* ('HexStr',) */
+    cpy_r_r28 = CPyStatics[86]; /* 'eth_typing' */
     cpy_r_r29 = CPyStatic_gas___globals;
     cpy_r_r30 = CPyImport_ImportFromMany(cpy_r_r28, cpy_r_r27, cpy_r_r27, cpy_r_r29);
     if (unlikely(cpy_r_r30 == NULL)) {
@@ -3379,8 +3297,8 @@ CPyL3: ;
     CPyModule_eth_typing = cpy_r_r30;
     CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r30);
-    cpy_r_r31 = CPyStatics[276]; /* ('Network',) */
-    cpy_r_r32 = CPyStatics[90]; /* 'y' */
+    cpy_r_r31 = CPyStatics[274]; /* ('Network',) */
+    cpy_r_r32 = CPyStatics[88]; /* 'y' */
     cpy_r_r33 = CPyStatic_gas___globals;
     cpy_r_r34 = CPyImport_ImportFromMany(cpy_r_r32, cpy_r_r31, cpy_r_r31, cpy_r_r33);
     if (unlikely(cpy_r_r34 == NULL)) {
@@ -3390,8 +3308,8 @@ CPyL3: ;
     CPyModule_y = cpy_r_r34;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r34);
-    cpy_r_r35 = CPyStatics[277]; /* ('CHAINID',) */
-    cpy_r_r36 = CPyStatics[92]; /* 'y.constants' */
+    cpy_r_r35 = CPyStatics[275]; /* ('CHAINID',) */
+    cpy_r_r36 = CPyStatics[90]; /* 'y.constants' */
     cpy_r_r37 = CPyStatic_gas___globals;
     cpy_r_r38 = CPyImport_ImportFromMany(cpy_r_r36, cpy_r_r35, cpy_r_r35, cpy_r_r37);
     if (unlikely(cpy_r_r38 == NULL)) {
@@ -3402,7 +3320,7 @@ CPyL3: ;
     CPy_INCREF(CPyModule_y___constants);
     CPy_DECREF(cpy_r_r38);
     cpy_r_r39 = CPyModule_pony___orm;
-    cpy_r_r40 = CPyStatics[93]; /* 'commit' */
+    cpy_r_r40 = CPyStatics[91]; /* 'commit' */
     cpy_r_r41 = CPyObject_GetAttr(cpy_r_r39, cpy_r_r40);
     if (unlikely(cpy_r_r41 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 12, CPyStatic_gas___globals);
@@ -3411,7 +3329,7 @@ CPyL3: ;
     CPyStatic_gas___commit = cpy_r_r41;
     CPy_INCREF(CPyStatic_gas___commit);
     cpy_r_r42 = CPyStatic_gas___globals;
-    cpy_r_r43 = CPyStatics[93]; /* 'commit' */
+    cpy_r_r43 = CPyStatics[91]; /* 'commit' */
     cpy_r_r44 = CPyDict_SetItem(cpy_r_r42, cpy_r_r43, cpy_r_r41);
     CPy_DECREF(cpy_r_r41);
     cpy_r_r45 = cpy_r_r44 >= 0;
@@ -3419,11 +3337,11 @@ CPyL3: ;
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 12, CPyStatic_gas___globals);
         goto CPyL48;
     }
-    cpy_r_r46 = CPyStatics[94]; /* 'Gas:Multisig Reimbursement' */
-    cpy_r_r47 = CPyStatics[95]; /* '0x19bcb28cd113896fb06f17b2e5efa86bb8bf78c26e75c633d8f1a0e48b238a86' */
-    cpy_r_r48 = CPyStatics[96]; /* 'Yearn yChad Multisig' */
+    cpy_r_r46 = CPyStatics[92]; /* 'Gas:Multisig Reimbursement' */
+    cpy_r_r47 = CPyStatics[93]; /* '0x19bcb28cd113896fb06f17b2e5efa86bb8bf78c26e75c633d8f1a0e48b238a86' */
+    cpy_r_r48 = CPyStatics[94]; /* 'Yearn yChad Multisig' */
     cpy_r_r49 = CPyStatic_gas___globals;
-    cpy_r_r50 = CPyStatics[84]; /* 'CostOfRevenueSortRule' */
+    cpy_r_r50 = CPyStatics[82]; /* 'CostOfRevenueSortRule' */
     cpy_r_r51 = CPyDict_GetItem(cpy_r_r49, cpy_r_r50);
     if (unlikely(cpy_r_r51 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 15, CPyStatic_gas___globals);
@@ -3431,8 +3349,8 @@ CPyL3: ;
     }
     PyObject *cpy_r_r52[3] = {cpy_r_r46, cpy_r_r47, cpy_r_r48};
     cpy_r_r53 = (PyObject **)&cpy_r_r52;
-    cpy_r_r54 = CPyStatics[278]; /* ('txgroup', 'hash', 'from_nickname') */
-    cpy_r_r55 = _PyObject_Vectorcall(cpy_r_r51, cpy_r_r53, 0, cpy_r_r54);
+    cpy_r_r54 = CPyStatics[276]; /* ('txgroup', 'hash', 'from_nickname') */
+    cpy_r_r55 = PyObject_Vectorcall(cpy_r_r51, cpy_r_r53, 0, cpy_r_r54);
     CPy_DECREF(cpy_r_r51);
     if (unlikely(cpy_r_r55 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 15, CPyStatic_gas___globals);
@@ -3440,11 +3358,11 @@ CPyL3: ;
     } else
         goto CPyL49;
 CPyL14: ;
-    cpy_r_r56 = CPyStatics[98]; /* 'Gas:Other Gas' */
-    cpy_r_r57 = CPyStatics[99]; /* '0x57bc99f6007989606bdd9d1adf91c99d198de51f61d29689ee13ccf440b244df' */
-    cpy_r_r58 = CPyStatics[100]; /* '0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc' */
+    cpy_r_r56 = CPyStatics[96]; /* 'Gas:Other Gas' */
+    cpy_r_r57 = CPyStatics[97]; /* '0x57bc99f6007989606bdd9d1adf91c99d198de51f61d29689ee13ccf440b244df' */
+    cpy_r_r58 = CPyStatics[98]; /* '0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc' */
     cpy_r_r59 = CPyStatic_gas___globals;
-    cpy_r_r60 = CPyStatics[84]; /* 'CostOfRevenueSortRule' */
+    cpy_r_r60 = CPyStatics[82]; /* 'CostOfRevenueSortRule' */
     cpy_r_r61 = CPyDict_GetItem(cpy_r_r59, cpy_r_r60);
     if (unlikely(cpy_r_r61 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 22, CPyStatic_gas___globals);
@@ -3452,8 +3370,8 @@ CPyL14: ;
     }
     PyObject *cpy_r_r62[3] = {cpy_r_r56, cpy_r_r57, cpy_r_r58};
     cpy_r_r63 = (PyObject **)&cpy_r_r62;
-    cpy_r_r64 = CPyStatics[279]; /* ('txgroup', 'hash', 'to_address') */
-    cpy_r_r65 = _PyObject_Vectorcall(cpy_r_r61, cpy_r_r63, 0, cpy_r_r64);
+    cpy_r_r64 = CPyStatics[277]; /* ('txgroup', 'hash', 'to_address') */
+    cpy_r_r65 = PyObject_Vectorcall(cpy_r_r61, cpy_r_r63, 0, cpy_r_r64);
     CPy_DECREF(cpy_r_r61);
     if (unlikely(cpy_r_r65 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 22, CPyStatic_gas___globals);
@@ -3467,7 +3385,7 @@ CPyL16: ;
         goto CPyL48;
     }
     cpy_r_r67 = CPyStatic_gas___globals;
-    cpy_r_r68 = CPyStatics[91]; /* 'CHAINID' */
+    cpy_r_r68 = CPyStatics[89]; /* 'CHAINID' */
     cpy_r_r69 = CPyDict_GetItem(cpy_r_r67, cpy_r_r68);
     if (unlikely(cpy_r_r69 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 29, CPyStatic_gas___globals);
@@ -3508,7 +3426,7 @@ CPyL16: ;
     CPy_INCREF(CPyStatic_gas____STRATEGIST_GAS_HASHES);
     CPy_DECREF(cpy_r_r74);
     cpy_r_r75 = CPyStatic_gas___globals;
-    cpy_r_r76 = CPyStatics[102]; /* '_STRATEGIST_GAS_HASHES' */
+    cpy_r_r76 = CPyStatics[100]; /* '_STRATEGIST_GAS_HASHES' */
     cpy_r_r77 = CPyDict_SetItem(cpy_r_r75, cpy_r_r76, cpy_r_r73);
     CPy_DECREF(cpy_r_r73);
     cpy_r_r78 = cpy_r_r77 >= 0;
@@ -3517,28 +3435,28 @@ CPyL16: ;
         goto CPyL48;
     }
     cpy_r_r79 = CPyStatic_gas___globals;
-    cpy_r_r80 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r80 = CPyStatics[87]; /* 'Network' */
     cpy_r_r81 = CPyDict_GetItem(cpy_r_r79, cpy_r_r80);
     if (unlikely(cpy_r_r81 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 32, CPyStatic_gas___globals);
         goto CPyL48;
     }
-    cpy_r_r82 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r82 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r83 = CPyObject_GetAttr(cpy_r_r81, cpy_r_r82);
     CPy_DECREF(cpy_r_r81);
     if (unlikely(cpy_r_r83 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 32, CPyStatic_gas___globals);
         goto CPyL48;
     }
-    cpy_r_r84 = CPyStatics[104]; /* '0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299' */
-    cpy_r_r85 = CPyStatics[105]; /* '0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981' */
-    cpy_r_r86 = CPyStatics[106]; /* '0xac2253f1d8f78680411b353d65135d58bc880cdf9507ea7848daf05925e1443f' */
-    cpy_r_r87 = CPyStatics[107]; /* '0xd27d4a732dd1a9ac93c7db1695a6d2aff40e007627d710da91f328b246be44bc' */
-    cpy_r_r88 = CPyStatics[108]; /* '0x5a828e5bde96cd8745223fe32daefaa9140a09acc69202c33f6f789228c8134b' */
-    cpy_r_r89 = CPyStatics[109]; /* '0x110ef82ec16eb53bf71b073aca4a37d4fbfaa74166c687a726211392a02f0059' */
-    cpy_r_r90 = CPyStatics[110]; /* '0xaad012505975dd13a57599a28d33c979f72084ae56ccba76997f05822a5497f5' */
-    cpy_r_r91 = CPyStatics[111]; /* '0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731' */
-    cpy_r_r92 = CPyStatics[112]; /* '0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5' */
+    cpy_r_r84 = CPyStatics[102]; /* '0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299' */
+    cpy_r_r85 = CPyStatics[103]; /* '0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981' */
+    cpy_r_r86 = CPyStatics[104]; /* '0xac2253f1d8f78680411b353d65135d58bc880cdf9507ea7848daf05925e1443f' */
+    cpy_r_r87 = CPyStatics[105]; /* '0xd27d4a732dd1a9ac93c7db1695a6d2aff40e007627d710da91f328b246be44bc' */
+    cpy_r_r88 = CPyStatics[106]; /* '0x5a828e5bde96cd8745223fe32daefaa9140a09acc69202c33f6f789228c8134b' */
+    cpy_r_r89 = CPyStatics[107]; /* '0x110ef82ec16eb53bf71b073aca4a37d4fbfaa74166c687a726211392a02f0059' */
+    cpy_r_r90 = CPyStatics[108]; /* '0xaad012505975dd13a57599a28d33c979f72084ae56ccba76997f05822a5497f5' */
+    cpy_r_r91 = CPyStatics[109]; /* '0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731' */
+    cpy_r_r92 = CPyStatics[110]; /* '0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5' */
     cpy_r_r93 = PySet_New(NULL);
     if (unlikely(cpy_r_r93 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 32, CPyStatic_gas___globals);
@@ -3606,7 +3524,7 @@ CPyL16: ;
         goto CPyL48;
     }
     cpy_r_r113 = CPyStatic_gas___globals;
-    cpy_r_r114 = CPyStatics[91]; /* 'CHAINID' */
+    cpy_r_r114 = CPyStatics[89]; /* 'CHAINID' */
     cpy_r_r115 = CPyDict_GetItem(cpy_r_r113, cpy_r_r114);
     if (unlikely(cpy_r_r115 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 43, CPyStatic_gas___globals);
@@ -3647,7 +3565,7 @@ CPyL16: ;
     CPy_INCREF(CPyStatic_gas____RETURNED_GAS_HASHES);
     CPy_DECREF(cpy_r_r120);
     cpy_r_r121 = CPyStatic_gas___globals;
-    cpy_r_r122 = CPyStatics[113]; /* '_RETURNED_GAS_HASHES' */
+    cpy_r_r122 = CPyStatics[111]; /* '_RETURNED_GAS_HASHES' */
     cpy_r_r123 = CPyDict_SetItem(cpy_r_r121, cpy_r_r122, cpy_r_r119);
     CPy_DECREF(cpy_r_r119);
     cpy_r_r124 = cpy_r_r123 >= 0;
@@ -3656,15 +3574,15 @@ CPyL16: ;
         goto CPyL48;
     }
     cpy_r_r125 = CPyStatic_gas___globals;
-    cpy_r_r126 = CPyStatics[114]; /* 'is_strategist_gas' */
+    cpy_r_r126 = CPyStatics[112]; /* 'is_strategist_gas' */
     cpy_r_r127 = CPyDict_GetItem(cpy_r_r125, cpy_r_r126);
     if (unlikely(cpy_r_r127 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 46, CPyStatic_gas___globals);
         goto CPyL48;
     }
-    cpy_r_r128 = CPyStatics[115]; /* 'Gas:Strategist Gas' */
+    cpy_r_r128 = CPyStatics[113]; /* 'Gas:Strategist Gas' */
     cpy_r_r129 = CPyStatic_gas___globals;
-    cpy_r_r130 = CPyStatics[85]; /* 'cost_of_revenue' */
+    cpy_r_r130 = CPyStatics[83]; /* 'cost_of_revenue' */
     cpy_r_r131 = CPyDict_GetItem(cpy_r_r129, cpy_r_r130);
     if (unlikely(cpy_r_r131 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 46, CPyStatic_gas___globals);
@@ -3672,7 +3590,7 @@ CPyL16: ;
     }
     PyObject *cpy_r_r132[1] = {cpy_r_r128};
     cpy_r_r133 = (PyObject **)&cpy_r_r132;
-    cpy_r_r134 = _PyObject_Vectorcall(cpy_r_r131, cpy_r_r133, 1, 0);
+    cpy_r_r134 = PyObject_Vectorcall(cpy_r_r131, cpy_r_r133, 1, 0);
     CPy_DECREF(cpy_r_r131);
     if (unlikely(cpy_r_r134 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 46, CPyStatic_gas___globals);
@@ -3680,7 +3598,7 @@ CPyL16: ;
     }
     PyObject *cpy_r_r135[1] = {cpy_r_r127};
     cpy_r_r136 = (PyObject **)&cpy_r_r135;
-    cpy_r_r137 = _PyObject_Vectorcall(cpy_r_r134, cpy_r_r136, 1, 0);
+    cpy_r_r137 = PyObject_Vectorcall(cpy_r_r134, cpy_r_r136, 1, 0);
     CPy_DECREF(cpy_r_r134);
     if (unlikely(cpy_r_r137 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/cost_of_revenue/gas.py", "<module>", 46, CPyStatic_gas___globals);
@@ -3688,7 +3606,7 @@ CPyL16: ;
     }
     CPy_DECREF(cpy_r_r127);
     cpy_r_r138 = CPyStatic_gas___globals;
-    cpy_r_r139 = CPyStatics[114]; /* 'is_strategist_gas' */
+    cpy_r_r139 = CPyStatics[112]; /* 'is_strategist_gas' */
     cpy_r_r140 = CPyDict_SetItem(cpy_r_r138, cpy_r_r139, cpy_r_r137);
     CPy_DECREF(cpy_r_r137);
     cpy_r_r141 = cpy_r_r140 >= 0;
@@ -4117,7 +4035,7 @@ char CPyDef_other_income___is_atoken_yield(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r49;
     char cpy_r_r50;
     char cpy_r_r51;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 16, CPyStatic_other_income___globals);
@@ -4129,7 +4047,7 @@ char CPyDef_other_income___is_atoken_yield(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 16, CPyStatic_other_income___globals, "str", cpy_r_r1);
         goto CPyL38;
     }
-    cpy_r_r3 = CPyStatics[116]; /* 'aLEND' */
+    cpy_r_r3 = CPyStatics[114]; /* 'aLEND' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -4148,7 +4066,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL13;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r11 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 16, CPyStatic_other_income___globals);
@@ -4160,7 +4078,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 16, CPyStatic_other_income___globals, "str", cpy_r_r12);
         goto CPyL38;
     }
-    cpy_r_r14 = CPyStatics[117]; /* 'aLINK' */
+    cpy_r_r14 = CPyStatics[115]; /* 'aLINK' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -4179,17 +4097,16 @@ CPyL12: ;
 CPyL13: ;
     if (cpy_r_r10) goto CPyL15;
     cpy_r_r21 = cpy_r_r10 ? Py_True : Py_False;
-    CPy_INCREF(cpy_r_r21);
     cpy_r_r22 = cpy_r_r21;
     goto CPyL36;
 CPyL15: ;
-    cpy_r_r23 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r23 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r24 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 17, CPyStatic_other_income___globals);
         goto CPyL38;
     }
-    cpy_r_r25 = CPyStatics[119]; /* 'address' */
+    cpy_r_r25 = CPyStatics[117]; /* 'address' */
     cpy_r_r26 = CPyObject_GetAttr(cpy_r_r24, cpy_r_r25);
     CPy_DECREF(cpy_r_r24);
     if (unlikely(cpy_r_r26 == NULL)) {
@@ -4197,7 +4114,7 @@ CPyL15: ;
         goto CPyL38;
     }
     cpy_r_r27 = CPyStatic_other_income___globals;
-    cpy_r_r28 = CPyStatics[120]; /* 'ZERO_ADDRESS' */
+    cpy_r_r28 = CPyStatics[118]; /* 'ZERO_ADDRESS' */
     cpy_r_r29 = CPyDict_GetItem(cpy_r_r27, cpy_r_r28);
     if (unlikely(cpy_r_r29 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 17, CPyStatic_other_income___globals);
@@ -4227,7 +4144,7 @@ CPyL15: ;
     cpy_r_r35 = cpy_r_r31;
     goto CPyL35;
 CPyL23: ;
-    cpy_r_r36 = CPyStatics[121]; /* 'to_nickname' */
+    cpy_r_r36 = CPyStatics[119]; /* 'to_nickname' */
     cpy_r_r37 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r36);
     if (unlikely(cpy_r_r37 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 18, CPyStatic_other_income___globals);
@@ -4248,7 +4165,7 @@ CPyL23: ;
     CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 18, CPyStatic_other_income___globals, "str or None", cpy_r_r37);
     goto CPyL38;
 __LL4: ;
-    cpy_r_r39 = CPyStatics[122]; /* 'Yearn Treasury' */
+    cpy_r_r39 = CPyStatics[120]; /* 'Yearn Treasury' */
     cpy_r_r40 = PyObject_RichCompare(cpy_r_r38, cpy_r_r39, 2);
     CPy_DECREF(cpy_r_r38);
     if (unlikely(cpy_r_r40 == NULL)) {
@@ -4268,7 +4185,7 @@ __LL4: ;
     cpy_r_r42 = cpy_r_r41;
     goto CPyL34;
 CPyL29: ;
-    cpy_r_r43 = CPyStatics[121]; /* 'to_nickname' */
+    cpy_r_r43 = CPyStatics[119]; /* 'to_nickname' */
     cpy_r_r44 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r43);
     if (unlikely(cpy_r_r44 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 18, CPyStatic_other_income___globals);
@@ -4289,7 +4206,7 @@ CPyL29: ;
     CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_atoken_yield", 18, CPyStatic_other_income___globals, "str or None", cpy_r_r44);
     goto CPyL38;
 __LL5: ;
-    cpy_r_r46 = CPyStatics[123]; /* 'Yearn Treasury V1' */
+    cpy_r_r46 = CPyStatics[121]; /* 'Yearn Treasury V1' */
     cpy_r_r47 = PyObject_RichCompare(cpy_r_r45, cpy_r_r46, 2);
     CPy_DECREF(cpy_r_r45);
     if (unlikely(cpy_r_r47 == NULL)) {
@@ -4308,7 +4225,6 @@ __LL5: ;
     cpy_r_r42 = cpy_r_r48;
 CPyL34: ;
     cpy_r_r49 = cpy_r_r42 ? Py_True : Py_False;
-    CPy_INCREF(cpy_r_r49);
     cpy_r_r35 = cpy_r_r49;
 CPyL35: ;
     cpy_r_r22 = cpy_r_r35;
@@ -4375,18 +4291,18 @@ PyObject *CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helpe
     PyObject *cpy_r_r14;
     PyObject *cpy_r_r15;
     PyObject *cpy_r_r16;
-    char cpy_r_r17;
-    PyObject *cpy_r_r18;
+    int32_t cpy_r_r17;
+    char cpy_r_r18;
     PyObject *cpy_r_r19;
     PyObject *cpy_r_r20;
     PyObject *cpy_r_r21;
     PyObject *cpy_r_r22;
-    int32_t cpy_r_r23;
-    char cpy_r_r24;
+    PyObject *cpy_r_r23;
+    int32_t cpy_r_r24;
     char cpy_r_r25;
-    PyObject *cpy_r_r26;
-    char cpy_r_r27;
-    PyObject *cpy_r_r28;
+    char cpy_r_r26;
+    PyObject *cpy_r_r27;
+    char cpy_r_r28;
     PyObject *cpy_r_r29;
     PyObject *cpy_r_r30;
     PyObject *cpy_r_r31;
@@ -4395,200 +4311,193 @@ PyObject *CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helpe
     PyObject *cpy_r_r34;
     PyObject *cpy_r_r35;
     PyObject *cpy_r_r36;
-    PyObject **cpy_r_r38;
-    PyObject *cpy_r_r39;
+    PyObject *cpy_r_r37;
+    PyObject **cpy_r_r39;
     PyObject *cpy_r_r40;
-    char cpy_r_r41;
-    PyObject *cpy_r_r42;
+    PyObject *cpy_r_r41;
+    char cpy_r_r42;
     PyObject *cpy_r_r43;
     PyObject *cpy_r_r44;
     PyObject *cpy_r_r45;
     PyObject *cpy_r_r46;
-    char cpy_r_r47;
-    PyObject *cpy_r_r48;
-    char cpy_r_r49;
-    tuple_T3OOO cpy_r_r50;
-    char cpy_r_r51;
-    PyObject **cpy_r_r52;
-    PyObject *cpy_r_r53;
-    char cpy_r_r54;
+    PyObject *cpy_r_r47;
+    char cpy_r_r48;
+    PyObject *cpy_r_r49;
+    char cpy_r_r50;
+    tuple_T3OOO cpy_r_r51;
+    char cpy_r_r52;
+    PyObject **cpy_r_r53;
+    PyObject *cpy_r_r54;
     char cpy_r_r55;
     tuple_T3OOO cpy_r_r56;
-    char cpy_r_r57;
+    tuple_T3OOO cpy_r_r57;
     tuple_T3OOO cpy_r_r58;
-    tuple_T3OOO cpy_r_r59;
-    char cpy_r_r60;
+    char cpy_r_r59;
+    PyObject *cpy_r_r60;
     PyObject *cpy_r_r61;
     PyObject *cpy_r_r62;
     PyObject *cpy_r_r63;
-    PyObject *cpy_r_r64;
-    char cpy_r_r65;
-    tuple_T3OOO cpy_r_r66;
-    char cpy_r_r67;
+    char cpy_r_r64;
+    tuple_T3OOO cpy_r_r65;
+    char cpy_r_r66;
+    PyObject *cpy_r_r67;
     PyObject *cpy_r_r68;
     PyObject *cpy_r_r69;
-    PyObject *cpy_r_r70;
-    char cpy_r_r71;
-    PyObject *cpy_r_r72;
-    tuple_T3OOO cpy_r_r73;
-    char cpy_r_r74;
-    tuple_T3OOO cpy_r_r75;
-    char cpy_r_r76;
+    char cpy_r_r70;
+    PyObject *cpy_r_r71;
+    tuple_T3OOO cpy_r_r72;
+    char cpy_r_r73;
+    tuple_T3OOO cpy_r_r74;
+    char cpy_r_r75;
+    PyObject *cpy_r_r76;
     PyObject *cpy_r_r77;
-    PyObject *cpy_r_r78;
-    char cpy_r_r79;
-    PyObject *cpy_r_r80;
-    char cpy_r_r81;
+    char cpy_r_r78;
+    PyObject *cpy_r_r79;
+    char cpy_r_r80;
+    PyObject *cpy_r_r81;
     PyObject *cpy_r_r82;
     PyObject *cpy_r_r83;
     PyObject *cpy_r_r84;
     PyObject *cpy_r_r85;
     PyObject *cpy_r_r86;
-    PyObject *cpy_r_r87;
-    CPyTagged cpy_r_r88;
+    CPyTagged cpy_r_r87;
+    PyObject *cpy_r_r88;
     PyObject *cpy_r_r89;
-    PyObject *cpy_r_r90;
-    PyObject **cpy_r_r92;
+    PyObject **cpy_r_r91;
+    PyObject *cpy_r_r92;
     PyObject *cpy_r_r93;
     PyObject *cpy_r_r94;
-    PyObject *cpy_r_r95;
-    char cpy_r_r96;
+    char cpy_r_r95;
+    PyObject *cpy_r_r96;
     PyObject *cpy_r_r97;
     PyObject *cpy_r_r98;
     PyObject *cpy_r_r99;
     PyObject *cpy_r_r100;
-    PyObject *cpy_r_r101;
-    char cpy_r_r102;
-    PyObject *cpy_r_r103;
-    char cpy_r_r104;
-    tuple_T3OOO cpy_r_r105;
-    char cpy_r_r106;
-    PyObject **cpy_r_r107;
-    PyObject *cpy_r_r108;
-    char cpy_r_r109;
-    char cpy_r_r110;
+    char cpy_r_r101;
+    PyObject *cpy_r_r102;
+    char cpy_r_r103;
+    tuple_T3OOO cpy_r_r104;
+    char cpy_r_r105;
+    PyObject **cpy_r_r106;
+    PyObject *cpy_r_r107;
+    char cpy_r_r108;
+    tuple_T3OOO cpy_r_r109;
+    tuple_T3OOO cpy_r_r110;
     tuple_T3OOO cpy_r_r111;
     char cpy_r_r112;
-    tuple_T3OOO cpy_r_r113;
-    tuple_T3OOO cpy_r_r114;
-    char cpy_r_r115;
+    PyObject *cpy_r_r113;
+    PyObject *cpy_r_r114;
+    PyObject *cpy_r_r115;
     PyObject *cpy_r_r116;
     PyObject *cpy_r_r117;
     PyObject *cpy_r_r118;
     PyObject *cpy_r_r119;
-    PyObject *cpy_r_r120;
-    PyObject *cpy_r_r121;
-    PyObject *cpy_r_r122;
-    int32_t cpy_r_r123;
+    int32_t cpy_r_r120;
+    char cpy_r_r121;
+    char cpy_r_r122;
+    PyObject *cpy_r_r123;
     char cpy_r_r124;
-    char cpy_r_r125;
+    PyObject *cpy_r_r125;
     PyObject *cpy_r_r126;
-    char cpy_r_r127;
+    PyObject *cpy_r_r127;
     PyObject *cpy_r_r128;
     PyObject *cpy_r_r129;
-    PyObject *cpy_r_r130;
-    PyObject *cpy_r_r131;
+    int32_t cpy_r_r130;
+    char cpy_r_r131;
     PyObject *cpy_r_r132;
-    int32_t cpy_r_r133;
+    char cpy_r_r133;
     char cpy_r_r134;
-    PyObject *cpy_r_r135;
-    char cpy_r_r136;
-    char cpy_r_r137;
-    char cpy_r_r138;
+    char cpy_r_r135;
+    PyObject *cpy_r_r136;
+    PyObject *cpy_r_r137;
+    PyObject *cpy_r_r138;
     PyObject *cpy_r_r139;
     PyObject *cpy_r_r140;
     PyObject *cpy_r_r141;
     PyObject *cpy_r_r142;
-    PyObject *cpy_r_r143;
-    PyObject *cpy_r_r144;
+    int32_t cpy_r_r143;
+    char cpy_r_r144;
     PyObject *cpy_r_r145;
-    int32_t cpy_r_r146;
+    char cpy_r_r146;
     char cpy_r_r147;
-    PyObject *cpy_r_r148;
-    char cpy_r_r149;
-    char cpy_r_r150;
-    char cpy_r_r151;
+    char cpy_r_r148;
+    PyObject *cpy_r_r149;
+    PyObject *cpy_r_r150;
+    PyObject *cpy_r_r151;
     PyObject *cpy_r_r152;
     PyObject *cpy_r_r153;
     PyObject *cpy_r_r154;
     PyObject *cpy_r_r155;
     PyObject *cpy_r_r156;
-    PyObject *cpy_r_r157;
+    CPyTagged cpy_r_r157;
     PyObject *cpy_r_r158;
     PyObject *cpy_r_r159;
-    CPyTagged cpy_r_r160;
-    PyObject *cpy_r_r161;
+    PyObject **cpy_r_r161;
     PyObject *cpy_r_r162;
-    PyObject **cpy_r_r164;
-    PyObject *cpy_r_r165;
+    PyObject *cpy_r_r163;
+    PyObject *cpy_r_r164;
+    char cpy_r_r165;
     PyObject *cpy_r_r166;
     PyObject *cpy_r_r167;
-    char cpy_r_r168;
+    PyObject *cpy_r_r168;
     PyObject *cpy_r_r169;
     PyObject *cpy_r_r170;
-    PyObject *cpy_r_r171;
+    char cpy_r_r171;
     PyObject *cpy_r_r172;
-    PyObject *cpy_r_r173;
-    char cpy_r_r174;
-    PyObject *cpy_r_r175;
-    char cpy_r_r176;
-    tuple_T3OOO cpy_r_r177;
+    char cpy_r_r173;
+    tuple_T3OOO cpy_r_r174;
+    char cpy_r_r175;
+    PyObject **cpy_r_r176;
+    PyObject *cpy_r_r177;
     char cpy_r_r178;
-    PyObject **cpy_r_r179;
-    PyObject *cpy_r_r180;
-    char cpy_r_r181;
+    tuple_T3OOO cpy_r_r179;
+    tuple_T3OOO cpy_r_r180;
+    tuple_T3OOO cpy_r_r181;
     char cpy_r_r182;
-    tuple_T3OOO cpy_r_r183;
-    char cpy_r_r184;
-    tuple_T3OOO cpy_r_r185;
-    tuple_T3OOO cpy_r_r186;
-    char cpy_r_r187;
+    PyObject *cpy_r_r183;
+    PyObject *cpy_r_r184;
+    PyObject *cpy_r_r185;
+    PyObject *cpy_r_r186;
+    PyObject *cpy_r_r187;
     PyObject *cpy_r_r188;
     PyObject *cpy_r_r189;
-    PyObject *cpy_r_r190;
-    PyObject *cpy_r_r191;
+    PyObject **cpy_r_r191;
     PyObject *cpy_r_r192;
     PyObject *cpy_r_r193;
     PyObject *cpy_r_r194;
-    PyObject **cpy_r_r196;
-    PyObject *cpy_r_r197;
+    PyObject *cpy_r_r195;
+    PyObject *cpy_r_r196;
+    char cpy_r_r197;
     PyObject *cpy_r_r198;
     PyObject *cpy_r_r199;
     PyObject *cpy_r_r200;
     PyObject *cpy_r_r201;
-    char cpy_r_r202;
-    PyObject *cpy_r_r203;
+    PyObject *cpy_r_r202;
+    char cpy_r_r203;
     PyObject *cpy_r_r204;
-    PyObject *cpy_r_r205;
-    PyObject *cpy_r_r206;
-    PyObject *cpy_r_r207;
-    char cpy_r_r208;
+    char cpy_r_r205;
+    tuple_T3OOO cpy_r_r206;
+    char cpy_r_r207;
+    PyObject **cpy_r_r208;
     PyObject *cpy_r_r209;
     char cpy_r_r210;
     tuple_T3OOO cpy_r_r211;
-    char cpy_r_r212;
-    PyObject **cpy_r_r213;
-    PyObject *cpy_r_r214;
-    char cpy_r_r215;
-    char cpy_r_r216;
-    tuple_T3OOO cpy_r_r217;
-    char cpy_r_r218;
-    tuple_T3OOO cpy_r_r219;
-    tuple_T3OOO cpy_r_r220;
+    tuple_T3OOO cpy_r_r212;
+    tuple_T3OOO cpy_r_r213;
+    char cpy_r_r214;
+    PyObject *cpy_r_r215;
+    PyObject *cpy_r_r216;
+    PyObject *cpy_r_r217;
+    PyObject *cpy_r_r218;
+    PyObject *cpy_r_r219;
+    char cpy_r_r220;
     char cpy_r_r221;
-    PyObject *cpy_r_r222;
-    PyObject *cpy_r_r223;
-    PyObject *cpy_r_r224;
-    PyObject *cpy_r_r225;
-    PyObject *cpy_r_r226;
-    char cpy_r_r227;
-    char cpy_r_r228;
-    char cpy_r_r229;
-    char cpy_r_r230;
-    char cpy_r_r231;
-    char cpy_r_r232;
-    char cpy_r_r233;
-    PyObject *cpy_r_r234;
+    char cpy_r_r222;
+    char cpy_r_r223;
+    char cpy_r_r224;
+    char cpy_r_r225;
+    char cpy_r_r226;
+    PyObject *cpy_r_r227;
     cpy_r_r0 = NULL;
     cpy_r_r1 = cpy_r_r0;
     cpy_r_r2 = NULL;
@@ -4600,1763 +4509,1604 @@ PyObject *CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helpe
     cpy_r_r8 = ((yearn_treasury___rules___other_income___is_robovault_share_genObject *)cpy_r___mypyc_self__)->___mypyc_env__;
     if (unlikely(cpy_r_r8 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_gen", "__mypyc_env__", 23, CPyStatic_other_income___globals);
-        goto CPyL234;
+        goto CPyL210;
     }
-    CPy_INCREF(cpy_r_r8);
+    CPy_INCREF_NO_IMM(cpy_r_r8);
 CPyL1: ;
     cpy_r_r9 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__;
     if (unlikely(cpy_r_r9 == CPY_INT_TAG)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_next_label__", 23, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
     CPyTagged_INCREF(cpy_r_r9);
-    goto CPyL226;
+    goto CPyL202;
 CPyL2: ;
     cpy_r_r10 = (PyObject *)&_Py_NoneStruct;
     cpy_r_r11 = cpy_r_type != cpy_r_r10;
     if (cpy_r_r11) {
-        goto CPyL236;
+        goto CPyL212;
     } else
         goto CPyL5;
 CPyL3: ;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 23, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
     CPy_Unreachable();
 CPyL5: ;
     cpy_r_r12 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
     CPy_INCREF(cpy_r_r12);
 CPyL6: ;
-    cpy_r_r13 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r13 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r14 = CPyObject_GetAttr(cpy_r_r12, cpy_r_r13);
     CPy_DECREF(cpy_r_r12);
     if (unlikely(cpy_r_r14 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
     if (likely(PyUnicode_Check(cpy_r_r14)))
         cpy_r_r15 = cpy_r_r14;
     else {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 27, CPyStatic_other_income___globals, "str", cpy_r_r14);
-        goto CPyL235;
+        goto CPyL211;
     }
-    cpy_r_r16 = CPyStatics[124]; /* 'rv' */
+    cpy_r_r16 = CPyStatics[122]; /* 'rv' */
     cpy_r_r17 = CPyStr_Startswith(cpy_r_r15, cpy_r_r16);
     CPy_DECREF(cpy_r_r15);
-    if (cpy_r_r17) goto CPyL17;
-    cpy_r_r18 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
-    if (unlikely(cpy_r_r18 == NULL)) {
+    cpy_r_r18 = cpy_r_r17;
+    if (cpy_r_r18) goto CPyL17;
+    cpy_r_r19 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
-    CPy_INCREF(cpy_r_r18);
+    CPy_INCREF(cpy_r_r19);
 CPyL10: ;
-    cpy_r_r19 = CPyStatics[118]; /* 'from_address' */
-    cpy_r_r20 = CPyObject_GetAttr(cpy_r_r18, cpy_r_r19);
-    CPy_DECREF(cpy_r_r18);
-    if (unlikely(cpy_r_r20 == NULL)) {
+    cpy_r_r20 = CPyStatics[116]; /* 'from_address' */
+    cpy_r_r21 = CPyObject_GetAttr(cpy_r_r19, cpy_r_r20);
+    CPy_DECREF(cpy_r_r19);
+    if (unlikely(cpy_r_r21 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
-    cpy_r_r21 = CPyStatics[125]; /* 'is_contract' */
-    cpy_r_r22 = CPyObject_GetAttr(cpy_r_r20, cpy_r_r21);
-    CPy_DECREF(cpy_r_r20);
-    if (unlikely(cpy_r_r22 == NULL)) {
+    cpy_r_r22 = CPyStatics[123]; /* 'is_contract' */
+    cpy_r_r23 = CPyObject_GetAttr(cpy_r_r21, cpy_r_r22);
+    CPy_DECREF(cpy_r_r21);
+    if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
-    cpy_r_r23 = PyObject_IsTrue(cpy_r_r22);
-    CPy_DECREF(cpy_r_r22);
-    cpy_r_r24 = cpy_r_r23 >= 0;
-    if (unlikely(!cpy_r_r24)) {
+    cpy_r_r24 = PyObject_IsTrue(cpy_r_r23);
+    CPy_DECREF(cpy_r_r23);
+    cpy_r_r25 = cpy_r_r24 >= 0;
+    if (unlikely(!cpy_r_r25)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 27, CPyStatic_other_income___globals);
-        goto CPyL235;
+        goto CPyL211;
     }
-    cpy_r_r25 = cpy_r_r23;
-    if (cpy_r_r25) {
-        goto CPyL237;
+    cpy_r_r26 = cpy_r_r24;
+    if (cpy_r_r26) {
+        goto CPyL213;
     } else
         goto CPyL17;
 CPyL14: ;
-    cpy_r_r26 = 0 ? Py_True : Py_False;
+    cpy_r_r27 = 0 ? Py_True : Py_False;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = -2;
-    cpy_r_r27 = 1;
-    CPy_DECREF(cpy_r_r8);
-    if (unlikely(!cpy_r_r27)) {
+    cpy_r_r28 = 1;
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    if (unlikely(!cpy_r_r28)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 28, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
-    CPyGen_SetStopIterationValue(cpy_r_r26);
-    if (!0) goto CPyL233;
+    CPyGen_SetStopIterationValue(cpy_r_r27);
+    if (!0) goto CPyL209;
     CPy_Unreachable();
 CPyL17: ;
-    cpy_r_r28 = CPyStatic_other_income___globals;
-    cpy_r_r29 = CPyStatics[126]; /* 'Contract' */
-    cpy_r_r30 = CPyDict_GetItem(cpy_r_r28, cpy_r_r29);
-    if (unlikely(cpy_r_r30 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL238;
-    }
-    cpy_r_r31 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    cpy_r_r29 = CPyStatic_other_income___globals;
+    cpy_r_r30 = CPyStatics[124]; /* 'Contract' */
+    cpy_r_r31 = CPyDict_GetItem(cpy_r_r29, cpy_r_r30);
     if (unlikely(cpy_r_r31 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
+        goto CPyL214;
+    }
+    cpy_r_r32 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r32 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 31, CPyStatic_other_income___globals);
-        goto CPyL239;
+        goto CPyL215;
     }
-    CPy_INCREF(cpy_r_r31);
+    CPy_INCREF(cpy_r_r32);
 CPyL19: ;
-    cpy_r_r32 = CPyStatics[118]; /* 'from_address' */
-    cpy_r_r33 = CPyObject_GetAttr(cpy_r_r31, cpy_r_r32);
-    CPy_DECREF(cpy_r_r31);
-    if (unlikely(cpy_r_r33 == NULL)) {
+    cpy_r_r33 = CPyStatics[116]; /* 'from_address' */
+    cpy_r_r34 = CPyObject_GetAttr(cpy_r_r32, cpy_r_r33);
+    CPy_DECREF(cpy_r_r32);
+    if (unlikely(cpy_r_r34 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL239;
+        goto CPyL215;
     }
-    cpy_r_r34 = CPyStatics[119]; /* 'address' */
-    cpy_r_r35 = CPyObject_GetAttr(cpy_r_r33, cpy_r_r34);
-    CPy_DECREF(cpy_r_r33);
-    if (unlikely(cpy_r_r35 == NULL)) {
+    cpy_r_r35 = CPyStatics[117]; /* 'address' */
+    cpy_r_r36 = CPyObject_GetAttr(cpy_r_r34, cpy_r_r35);
+    CPy_DECREF(cpy_r_r34);
+    if (unlikely(cpy_r_r36 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL239;
+        goto CPyL215;
     }
-    cpy_r_r36 = CPyStatics[127]; /* 'coroutine' */
-    PyObject *cpy_r_r37[2] = {cpy_r_r30, cpy_r_r35};
-    cpy_r_r38 = (PyObject **)&cpy_r_r37;
-    cpy_r_r39 = PyObject_VectorcallMethod(cpy_r_r36, cpy_r_r38, 9223372036854775810ULL, 0);
-    if (unlikely(cpy_r_r39 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL240;
-    }
-    CPy_DECREF(cpy_r_r30);
-    CPy_DECREF(cpy_r_r35);
-    cpy_r_r40 = CPy_GetCoro(cpy_r_r39);
-    CPy_DECREF(cpy_r_r39);
+    cpy_r_r37 = CPyStatics[125]; /* 'coroutine' */
+    PyObject *cpy_r_r38[2] = {cpy_r_r31, cpy_r_r36};
+    cpy_r_r39 = (PyObject **)&cpy_r_r38;
+    cpy_r_r40 = PyObject_VectorcallMethod(cpy_r_r37, cpy_r_r39, 9223372036854775810ULL, 0);
     if (unlikely(cpy_r_r40 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL238;
+        goto CPyL216;
+    }
+    CPy_DECREF(cpy_r_r31);
+    CPy_DECREF(cpy_r_r36);
+    cpy_r_r41 = CPy_GetCoro(cpy_r_r40);
+    CPy_DECREF(cpy_r_r40);
+    if (unlikely(cpy_r_r41 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
+        goto CPyL214;
     }
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0 = cpy_r_r40;
-    cpy_r_r41 = 1;
-    if (unlikely(!cpy_r_r41)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0 = cpy_r_r41;
+    cpy_r_r42 = 1;
+    if (unlikely(!cpy_r_r42)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL238;
+        goto CPyL214;
     }
-    cpy_r_r42 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
-    if (unlikely(cpy_r_r42 == NULL)) {
+    cpy_r_r43 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
+    if (unlikely(cpy_r_r43 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__0", -1, CPyStatic_other_income___globals);
-        goto CPyL238;
+        goto CPyL214;
     }
-    CPy_INCREF(cpy_r_r42);
+    CPy_INCREF(cpy_r_r43);
 CPyL25: ;
-    cpy_r_r43 = CPyIter_Next(cpy_r_r42);
-    CPy_DECREF(cpy_r_r42);
-    if (cpy_r_r43 == NULL) {
-        goto CPyL241;
+    cpy_r_r44 = CPyIter_Next(cpy_r_r43);
+    CPy_DECREF(cpy_r_r43);
+    if (cpy_r_r44 == NULL) {
+        goto CPyL217;
     } else
         goto CPyL28;
 CPyL26: ;
-    cpy_r_r44 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r44 == NULL)) {
+    cpy_r_r45 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r45 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL242;
+        goto CPyL218;
     }
-    cpy_r_r45 = cpy_r_r44;
-    goto CPyL57;
+    cpy_r_r46 = cpy_r_r45;
+    goto CPyL51;
 CPyL28: ;
-    cpy_r_r46 = cpy_r_r43;
+    cpy_r_r47 = cpy_r_r44;
 CPyL29: ;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = 2;
-    cpy_r_r47 = 1;
-    if (unlikely(!cpy_r_r47)) {
+    cpy_r_r48 = 1;
+    if (unlikely(!cpy_r_r48)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL243;
+        goto CPyL219;
     } else
-        goto CPyL244;
+        goto CPyL220;
 CPyL30: ;
-    return cpy_r_r46;
+    return cpy_r_r47;
 CPyL31: ;
-    cpy_r_r48 = (PyObject *)&_Py_NoneStruct;
-    cpy_r_r49 = cpy_r_type != cpy_r_r48;
-    if (!cpy_r_r49) goto CPyL34;
+    cpy_r_r49 = (PyObject *)&_Py_NoneStruct;
+    cpy_r_r50 = cpy_r_type != cpy_r_r49;
+    if (!cpy_r_r50) goto CPyL34;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
         goto CPyL35;
     } else
-        goto CPyL245;
+        goto CPyL221;
 CPyL33: ;
     CPy_Unreachable();
 CPyL34: ;
     CPy_INCREF(cpy_r_arg);
-    goto CPyL52;
+    goto CPyL46;
 CPyL35: ;
-    cpy_r_r50 = CPy_CatchError();
+    cpy_r_r51 = CPy_CatchError();
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1.f0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1.f0);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1.f1);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1.f2);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1 = cpy_r_r50;
-    cpy_r_r51 = 1;
-    if (unlikely(!cpy_r_r51)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1 = cpy_r_r51;
+    cpy_r_r52 = 1;
+    if (unlikely(!cpy_r_r52)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL246;
+        goto CPyL222;
     }
-    cpy_r_r52 = (PyObject **)&cpy_r_r1;
-    cpy_r_r53 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
-    if (unlikely(cpy_r_r53 == NULL)) {
+    cpy_r_r53 = (PyObject **)&cpy_r_r1;
+    cpy_r_r54 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
+    if (unlikely(cpy_r_r54 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__0", -1, CPyStatic_other_income___globals);
-        goto CPyL246;
+        goto CPyL222;
     }
-    CPy_INCREF(cpy_r_r53);
+    CPy_INCREF(cpy_r_r54);
 CPyL37: ;
-    cpy_r_r54 = CPy_YieldFromErrorHandle(cpy_r_r53, cpy_r_r52);
-    CPy_DecRef(cpy_r_r53);
-    if (unlikely(cpy_r_r54 == 2)) {
+    cpy_r_r55 = CPy_YieldFromErrorHandle(cpy_r_r54, cpy_r_r53);
+    CPy_DecRef(cpy_r_r54);
+    if (unlikely(cpy_r_r55 == 2)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL246;
+        goto CPyL222;
     }
-    if (cpy_r_r54) goto CPyL44;
-    if (cpy_r_r1 == NULL) {
-        goto CPyL247;
-    } else
-        goto CPyL42;
-CPyL40: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r55 = 0;
-    if (unlikely(!cpy_r_r55)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL49;
-    } else
-        goto CPyL248;
-CPyL41: ;
-    CPy_Unreachable();
-CPyL42: ;
+    if (cpy_r_r55) goto CPyL41;
     CPy_INCREF(cpy_r_r1);
-    cpy_r_r46 = cpy_r_r1;
+    cpy_r_r47 = cpy_r_r1;
     cpy_r_r56 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1;
     if (unlikely(cpy_r_r56.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__1", -1, CPyStatic_other_income___globals);
-        goto CPyL249;
+        goto CPyL223;
     }
     CPy_INCREF(cpy_r_r56.f0);
     CPy_INCREF(cpy_r_r56.f1);
     CPy_INCREF(cpy_r_r56.f2);
-CPyL43: ;
+CPyL40: ;
     CPy_RestoreExcInfo(cpy_r_r56);
     CPy_DecRef(cpy_r_r56.f0);
     CPy_DecRef(cpy_r_r56.f1);
     CPy_DecRef(cpy_r_r56.f2);
     goto CPyL29;
-CPyL44: ;
-    if (cpy_r_r1 == NULL) {
-        goto CPyL250;
-    } else
-        goto CPyL47;
-CPyL45: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r57 = 0;
-    if (unlikely(!cpy_r_r57)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL49;
-    } else
-        goto CPyL251;
-CPyL46: ;
-    CPy_Unreachable();
-CPyL47: ;
-    cpy_r_r45 = cpy_r_r1;
+CPyL41: ;
+    cpy_r_r46 = cpy_r_r1;
+    cpy_r_r57 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1;
+    if (unlikely(cpy_r_r57.f0 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__1", -1, CPyStatic_other_income___globals);
+        goto CPyL224;
+    }
+    CPy_INCREF(cpy_r_r57.f0);
+    CPy_INCREF(cpy_r_r57.f1);
+    CPy_INCREF(cpy_r_r57.f2);
+CPyL42: ;
+    CPy_RestoreExcInfo(cpy_r_r57);
+    CPy_DecRef(cpy_r_r57.f0);
+    CPy_DecRef(cpy_r_r57.f1);
+    CPy_DecRef(cpy_r_r57.f2);
+    goto CPyL51;
+CPyL43: ;
     cpy_r_r58 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1;
     if (unlikely(cpy_r_r58.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__1", -1, CPyStatic_other_income___globals);
-        goto CPyL252;
+        goto CPyL53;
     }
     CPy_INCREF(cpy_r_r58.f0);
     CPy_INCREF(cpy_r_r58.f1);
     CPy_INCREF(cpy_r_r58.f2);
-CPyL48: ;
+CPyL44: ;
     CPy_RestoreExcInfo(cpy_r_r58);
     CPy_DecRef(cpy_r_r58.f0);
     CPy_DecRef(cpy_r_r58.f1);
     CPy_DecRef(cpy_r_r58.f2);
-    goto CPyL57;
-CPyL49: ;
-    cpy_r_r59 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__1;
-    if (unlikely(cpy_r_r59.f0 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__1", -1, CPyStatic_other_income___globals);
-        goto CPyL59;
-    }
-    CPy_INCREF(cpy_r_r59.f0);
-    CPy_INCREF(cpy_r_r59.f1);
-    CPy_INCREF(cpy_r_r59.f2);
-CPyL50: ;
-    CPy_RestoreExcInfo(cpy_r_r59);
-    CPy_DecRef(cpy_r_r59.f0);
-    CPy_DecRef(cpy_r_r59.f1);
-    CPy_DecRef(cpy_r_r59.f2);
-    cpy_r_r60 = CPy_KeepPropagating();
-    if (!cpy_r_r60) {
-        goto CPyL59;
+    cpy_r_r59 = CPy_KeepPropagating();
+    if (!cpy_r_r59) {
+        goto CPyL53;
     } else
-        goto CPyL253;
-CPyL51: ;
+        goto CPyL225;
+CPyL45: ;
     CPy_Unreachable();
-CPyL52: ;
-    cpy_r_r61 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
-    if (unlikely(cpy_r_r61 == NULL)) {
+CPyL46: ;
+    cpy_r_r60 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__0;
+    if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__0", -1, CPyStatic_other_income___globals);
-        goto CPyL254;
+        goto CPyL226;
     }
-    CPy_INCREF(cpy_r_r61);
-CPyL53: ;
-    cpy_r_r62 = CPyIter_Send(cpy_r_r61, cpy_r_arg);
-    CPy_DECREF(cpy_r_r61);
+    CPy_INCREF(cpy_r_r60);
+CPyL47: ;
+    cpy_r_r61 = CPyIter_Send(cpy_r_r60, cpy_r_arg);
+    CPy_DECREF(cpy_r_r60);
     CPy_DECREF(cpy_r_arg);
-    if (cpy_r_r62 == NULL) goto CPyL255;
-    cpy_r_r46 = cpy_r_r62;
+    if (cpy_r_r61 == NULL) goto CPyL227;
+    cpy_r_r47 = cpy_r_r61;
     goto CPyL29;
-CPyL55: ;
-    cpy_r_r63 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r63 == NULL)) {
+CPyL49: ;
+    cpy_r_r62 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r62 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL242;
+        goto CPyL218;
     }
-    cpy_r_r45 = cpy_r_r63;
-CPyL57: ;
-    if (likely(PyList_Check(cpy_r_r45)))
-        cpy_r_r64 = cpy_r_r45;
+    cpy_r_r46 = cpy_r_r62;
+CPyL51: ;
+    if (likely(PyList_Check(cpy_r_r46)))
+        cpy_r_r63 = cpy_r_r46;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals, "list", cpy_r_r45);
-        goto CPyL242;
+        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals, "list", cpy_r_r46);
+        goto CPyL218;
     }
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat);
+        CPy_DECREF_NO_IMM(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat = cpy_r_r64;
-    cpy_r_r65 = 1;
-    if (unlikely(!cpy_r_r65)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat = cpy_r_r63;
+    cpy_r_r64 = 1;
+    if (unlikely(!cpy_r_r64)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 31, CPyStatic_other_income___globals);
-        goto CPyL242;
+        goto CPyL218;
     } else
-        goto CPyL71;
-CPyL59: ;
-    cpy_r_r66 = CPy_CatchError();
+        goto CPyL65;
+CPyL53: ;
+    cpy_r_r65 = CPy_CatchError();
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2.f0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2.f0);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2.f1);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2.f2);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2 = cpy_r_r66;
-    cpy_r_r67 = 1;
-    if (unlikely(!cpy_r_r67)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2 = cpy_r_r65;
+    cpy_r_r66 = 1;
+    if (unlikely(!cpy_r_r66)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL68;
+        goto CPyL62;
     }
-    cpy_r_r68 = CPyStatic_other_income___globals;
-    cpy_r_r69 = CPyStatics[128]; /* 'ContractNotVerified' */
-    cpy_r_r70 = CPyDict_GetItem(cpy_r_r68, cpy_r_r69);
-    if (unlikely(cpy_r_r70 == NULL)) {
+    cpy_r_r67 = CPyStatic_other_income___globals;
+    cpy_r_r68 = CPyStatics[126]; /* 'ContractNotVerified' */
+    cpy_r_r69 = CPyDict_GetItem(cpy_r_r67, cpy_r_r68);
+    if (unlikely(cpy_r_r69 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 32, CPyStatic_other_income___globals);
-        goto CPyL68;
+        goto CPyL62;
     }
-    cpy_r_r71 = CPy_ExceptionMatches(cpy_r_r70);
-    CPy_DecRef(cpy_r_r70);
-    if (!cpy_r_r71) goto CPyL66;
-    cpy_r_r72 = 0 ? Py_True : Py_False;
-    cpy_r_r73 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2;
-    if (unlikely(cpy_r_r73.f0 == NULL)) {
+    cpy_r_r70 = CPy_ExceptionMatches(cpy_r_r69);
+    CPy_DecRef(cpy_r_r69);
+    if (!cpy_r_r70) goto CPyL60;
+    cpy_r_r71 = 0 ? Py_True : Py_False;
+    cpy_r_r72 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2;
+    if (unlikely(cpy_r_r72.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__2", -1, CPyStatic_other_income___globals);
-        goto CPyL68;
+        goto CPyL62;
     }
-    CPy_INCREF(cpy_r_r73.f0);
-    CPy_INCREF(cpy_r_r73.f1);
-    CPy_INCREF(cpy_r_r73.f2);
-CPyL63: ;
-    CPy_RestoreExcInfo(cpy_r_r73);
-    CPy_DecRef(cpy_r_r73.f0);
-    CPy_DecRef(cpy_r_r73.f1);
-    CPy_DecRef(cpy_r_r73.f2);
+    CPy_INCREF(cpy_r_r72.f0);
+    CPy_INCREF(cpy_r_r72.f1);
+    CPy_INCREF(cpy_r_r72.f2);
+CPyL57: ;
+    CPy_RestoreExcInfo(cpy_r_r72);
+    CPy_DecRef(cpy_r_r72.f0);
+    CPy_DecRef(cpy_r_r72.f1);
+    CPy_DecRef(cpy_r_r72.f2);
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = -2;
-    cpy_r_r74 = 1;
-    if (unlikely(!cpy_r_r74)) {
+    cpy_r_r73 = 1;
+    if (unlikely(!cpy_r_r73)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 33, CPyStatic_other_income___globals);
-        goto CPyL68;
+        goto CPyL62;
     } else
-        goto CPyL256;
-CPyL64: ;
-    CPyGen_SetStopIterationValue(cpy_r_r72);
-    if (!0) goto CPyL233;
+        goto CPyL228;
+CPyL58: ;
+    CPyGen_SetStopIterationValue(cpy_r_r71);
+    if (!0) goto CPyL209;
     CPy_Unreachable();
-CPyL66: ;
+CPyL60: ;
     CPy_Reraise();
     if (!0) {
-        goto CPyL68;
+        goto CPyL62;
     } else
-        goto CPyL257;
-CPyL67: ;
+        goto CPyL229;
+CPyL61: ;
     CPy_Unreachable();
-CPyL68: ;
-    cpy_r_r75 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2;
-    if (unlikely(cpy_r_r75.f0 == NULL)) {
+CPyL62: ;
+    cpy_r_r74 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__2;
+    if (unlikely(cpy_r_r74.f0 == NULL)) {
         PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2' of 'is_robovault_share_env' undefined");
     } else {
-        CPy_INCREF(cpy_r_r75.f0);
-        CPy_INCREF(cpy_r_r75.f1);
-        CPy_INCREF(cpy_r_r75.f2);
+        CPy_INCREF(cpy_r_r74.f0);
+        CPy_INCREF(cpy_r_r74.f1);
+        CPy_INCREF(cpy_r_r74.f2);
     }
     CPy_DecRef(cpy_r_r8);
-    if (unlikely(cpy_r_r75.f0 == NULL)) {
+    if (unlikely(cpy_r_r74.f0 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
-CPyL69: ;
-    CPy_RestoreExcInfo(cpy_r_r75);
-    CPy_DecRef(cpy_r_r75.f0);
-    CPy_DecRef(cpy_r_r75.f1);
-    CPy_DecRef(cpy_r_r75.f2);
-    cpy_r_r76 = CPy_KeepPropagating();
-    if (!cpy_r_r76) goto CPyL233;
+CPyL63: ;
+    CPy_RestoreExcInfo(cpy_r_r74);
+    CPy_DecRef(cpy_r_r74.f0);
+    CPy_DecRef(cpy_r_r74.f1);
+    CPy_DecRef(cpy_r_r74.f2);
+    cpy_r_r75 = CPy_KeepPropagating();
+    if (!cpy_r_r75) goto CPyL209;
     CPy_Unreachable();
-CPyL71: ;
-    cpy_r_r77 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
-    if (unlikely(cpy_r_r77 == NULL)) {
+CPyL65: ;
+    cpy_r_r76 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
+    if (unlikely(cpy_r_r76 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "strat", 35, CPyStatic_other_income___globals);
-        goto CPyL258;
+        goto CPyL230;
     }
-    CPy_INCREF(cpy_r_r77);
-CPyL72: ;
-    cpy_r_r78 = CPyStatics[129]; /* 'vault' */
-    cpy_r_r79 = PyObject_HasAttr(cpy_r_r77, cpy_r_r78);
-    CPy_DECREF(cpy_r_r77);
-    if (cpy_r_r79) {
-        goto CPyL76;
+    CPy_INCREF_NO_IMM(cpy_r_r76);
+CPyL66: ;
+    cpy_r_r77 = CPyStatics[127]; /* 'vault' */
+    cpy_r_r78 = PyObject_HasAttr(cpy_r_r76, cpy_r_r77);
+    CPy_DECREF_NO_IMM(cpy_r_r76);
+    if (cpy_r_r78) {
+        goto CPyL70;
     } else
-        goto CPyL259;
-CPyL73: ;
-    cpy_r_r80 = 0 ? Py_True : Py_False;
+        goto CPyL231;
+CPyL67: ;
+    cpy_r_r79 = 0 ? Py_True : Py_False;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = -2;
-    cpy_r_r81 = 1;
-    CPy_DECREF(cpy_r_r8);
-    if (unlikely(!cpy_r_r81)) {
+    cpy_r_r80 = 1;
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    if (unlikely(!cpy_r_r80)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 36, CPyStatic_other_income___globals);
+        goto CPyL209;
+    }
+    CPyGen_SetStopIterationValue(cpy_r_r79);
+    if (!0) goto CPyL209;
+    CPy_Unreachable();
+CPyL70: ;
+    cpy_r_r81 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
+    if (unlikely(cpy_r_r81 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "strat", 38, CPyStatic_other_income___globals);
+        goto CPyL230;
+    }
+    CPy_INCREF_NO_IMM(cpy_r_r81);
+CPyL71: ;
+    cpy_r_r82 = CPyStatics[127]; /* 'vault' */
+    cpy_r_r83 = CPyObject_GetAttr(cpy_r_r81, cpy_r_r82);
+    CPy_DECREF_NO_IMM(cpy_r_r81);
+    if (unlikely(cpy_r_r83 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
+        goto CPyL230;
+    }
+    cpy_r_r84 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r84 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 38, CPyStatic_other_income___globals);
+        goto CPyL232;
+    }
+    CPy_INCREF(cpy_r_r84);
+CPyL73: ;
+    cpy_r_r85 = CPyStatics[128]; /* 'block' */
+    cpy_r_r86 = CPyObject_GetAttr(cpy_r_r84, cpy_r_r85);
+    CPy_DECREF(cpy_r_r84);
+    if (unlikely(cpy_r_r86 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
+        goto CPyL232;
+    }
+    if (likely(PyLong_Check(cpy_r_r86)))
+        cpy_r_r87 = CPyTagged_FromObject(cpy_r_r86);
+    else {
+        CPy_TypeError("int", cpy_r_r86); cpy_r_r87 = CPY_INT_TAG;
+    }
+    CPy_DECREF(cpy_r_r86);
+    if (unlikely(cpy_r_r87 == CPY_INT_TAG)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
+        goto CPyL232;
+    }
+    cpy_r_r88 = CPyStatics[125]; /* 'coroutine' */
+    cpy_r_r89 = CPyTagged_StealAsObject(cpy_r_r87);
+    PyObject *cpy_r_r90[2] = {cpy_r_r83, cpy_r_r89};
+    cpy_r_r91 = (PyObject **)&cpy_r_r90;
+    cpy_r_r92 = CPyStatics[278]; /* ('block_identifier',) */
+    cpy_r_r93 = PyObject_VectorcallMethod(cpy_r_r88, cpy_r_r91, 9223372036854775809ULL, cpy_r_r92);
+    if (unlikely(cpy_r_r93 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
         goto CPyL233;
     }
-    CPyGen_SetStopIterationValue(cpy_r_r80);
-    if (!0) goto CPyL233;
-    CPy_Unreachable();
-CPyL76: ;
-    cpy_r_r82 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
-    if (unlikely(cpy_r_r82 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "strat", 38, CPyStatic_other_income___globals);
-        goto CPyL258;
-    }
-    CPy_INCREF(cpy_r_r82);
-CPyL77: ;
-    cpy_r_r83 = CPyStatics[129]; /* 'vault' */
-    cpy_r_r84 = CPyObject_GetAttr(cpy_r_r82, cpy_r_r83);
-    CPy_DECREF(cpy_r_r82);
-    if (unlikely(cpy_r_r84 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL258;
-    }
-    cpy_r_r85 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
-    if (unlikely(cpy_r_r85 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 38, CPyStatic_other_income___globals);
-        goto CPyL260;
-    }
-    CPy_INCREF(cpy_r_r85);
-CPyL79: ;
-    cpy_r_r86 = CPyStatics[130]; /* 'block' */
-    cpy_r_r87 = CPyObject_GetAttr(cpy_r_r85, cpy_r_r86);
-    CPy_DECREF(cpy_r_r85);
-    if (unlikely(cpy_r_r87 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL260;
-    }
-    if (likely(PyLong_Check(cpy_r_r87)))
-        cpy_r_r88 = CPyTagged_FromObject(cpy_r_r87);
-    else {
-        CPy_TypeError("int", cpy_r_r87); cpy_r_r88 = CPY_INT_TAG;
-    }
-    CPy_DECREF(cpy_r_r87);
-    if (unlikely(cpy_r_r88 == CPY_INT_TAG)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL260;
-    }
-    cpy_r_r89 = CPyStatics[127]; /* 'coroutine' */
-    cpy_r_r90 = CPyTagged_StealAsObject(cpy_r_r88);
-    PyObject *cpy_r_r91[2] = {cpy_r_r84, cpy_r_r90};
-    cpy_r_r92 = (PyObject **)&cpy_r_r91;
-    cpy_r_r93 = CPyStatics[280]; /* ('block_identifier',) */
-    cpy_r_r94 = PyObject_VectorcallMethod(cpy_r_r89, cpy_r_r92, 9223372036854775809ULL, cpy_r_r93);
+    CPy_DECREF(cpy_r_r83);
+    CPy_DECREF(cpy_r_r89);
+    cpy_r_r94 = CPy_GetCoro(cpy_r_r93);
+    CPy_DECREF(cpy_r_r93);
     if (unlikely(cpy_r_r94 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL261;
-    }
-    CPy_DECREF(cpy_r_r84);
-    CPy_DECREF(cpy_r_r90);
-    cpy_r_r95 = CPy_GetCoro(cpy_r_r94);
-    CPy_DECREF(cpy_r_r94);
-    if (unlikely(cpy_r_r95 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL258;
+        goto CPyL230;
     }
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3 = cpy_r_r95;
-    cpy_r_r96 = 1;
-    if (unlikely(!cpy_r_r96)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3 = cpy_r_r94;
+    cpy_r_r95 = 1;
+    if (unlikely(!cpy_r_r95)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL258;
+        goto CPyL230;
     }
-    cpy_r_r97 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
-    if (unlikely(cpy_r_r97 == NULL)) {
+    cpy_r_r96 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
+    if (unlikely(cpy_r_r96 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__3", -1, CPyStatic_other_income___globals);
-        goto CPyL258;
+        goto CPyL230;
     }
-    CPy_INCREF(cpy_r_r97);
-CPyL85: ;
-    cpy_r_r98 = CPyIter_Next(cpy_r_r97);
-    CPy_DECREF(cpy_r_r97);
-    if (cpy_r_r98 == NULL) {
-        goto CPyL262;
+    CPy_INCREF(cpy_r_r96);
+CPyL79: ;
+    cpy_r_r97 = CPyIter_Next(cpy_r_r96);
+    CPy_DECREF(cpy_r_r96);
+    if (cpy_r_r97 == NULL) {
+        goto CPyL234;
     } else
-        goto CPyL88;
-CPyL86: ;
-    cpy_r_r99 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r99 == NULL)) {
+        goto CPyL82;
+CPyL80: ;
+    cpy_r_r98 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r98 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    cpy_r_r100 = cpy_r_r99;
-    goto CPyL117;
-CPyL88: ;
-    cpy_r_r101 = cpy_r_r98;
-CPyL89: ;
+    cpy_r_r99 = cpy_r_r98;
+    goto CPyL105;
+CPyL82: ;
+    cpy_r_r100 = cpy_r_r97;
+CPyL83: ;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = 4;
-    cpy_r_r102 = 1;
-    if (unlikely(!cpy_r_r102)) {
+    cpy_r_r101 = 1;
+    if (unlikely(!cpy_r_r101)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL264;
+        goto CPyL236;
     } else
-        goto CPyL265;
-CPyL90: ;
-    return cpy_r_r101;
-CPyL91: ;
-    cpy_r_r103 = (PyObject *)&_Py_NoneStruct;
-    cpy_r_r104 = cpy_r_type != cpy_r_r103;
-    if (!cpy_r_r104) goto CPyL94;
+        goto CPyL237;
+CPyL84: ;
+    return cpy_r_r100;
+CPyL85: ;
+    cpy_r_r102 = (PyObject *)&_Py_NoneStruct;
+    cpy_r_r103 = cpy_r_type != cpy_r_r102;
+    if (!cpy_r_r103) goto CPyL88;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL95;
+        goto CPyL89;
     } else
-        goto CPyL266;
-CPyL93: ;
+        goto CPyL238;
+CPyL87: ;
     CPy_Unreachable();
-CPyL94: ;
+CPyL88: ;
     CPy_INCREF(cpy_r_arg);
-    goto CPyL112;
-CPyL95: ;
-    cpy_r_r105 = CPy_CatchError();
+    goto CPyL100;
+CPyL89: ;
+    cpy_r_r104 = CPy_CatchError();
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4.f0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4.f0);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4.f1);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4.f2);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4 = cpy_r_r105;
-    cpy_r_r106 = 1;
-    if (unlikely(!cpy_r_r106)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4 = cpy_r_r104;
+    cpy_r_r105 = 1;
+    if (unlikely(!cpy_r_r105)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL267;
+        goto CPyL239;
     }
-    cpy_r_r107 = (PyObject **)&cpy_r_r3;
-    cpy_r_r108 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
-    if (unlikely(cpy_r_r108 == NULL)) {
+    cpy_r_r106 = (PyObject **)&cpy_r_r3;
+    cpy_r_r107 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
+    if (unlikely(cpy_r_r107 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__3", -1, CPyStatic_other_income___globals);
-        goto CPyL267;
+        goto CPyL239;
     }
-    CPy_INCREF(cpy_r_r108);
-CPyL97: ;
-    cpy_r_r109 = CPy_YieldFromErrorHandle(cpy_r_r108, cpy_r_r107);
-    CPy_DecRef(cpy_r_r108);
-    if (unlikely(cpy_r_r109 == 2)) {
+    CPy_INCREF(cpy_r_r107);
+CPyL91: ;
+    cpy_r_r108 = CPy_YieldFromErrorHandle(cpy_r_r107, cpy_r_r106);
+    CPy_DecRef(cpy_r_r107);
+    if (unlikely(cpy_r_r108 == 2)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL267;
+        goto CPyL239;
     }
-    if (cpy_r_r109) goto CPyL104;
-    if (cpy_r_r3 == NULL) {
-        goto CPyL268;
-    } else
-        goto CPyL102;
-CPyL100: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r110 = 0;
-    if (unlikely(!cpy_r_r110)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL109;
-    } else
-        goto CPyL269;
-CPyL101: ;
-    CPy_Unreachable();
-CPyL102: ;
+    if (cpy_r_r108) goto CPyL95;
     CPy_INCREF(cpy_r_r3);
-    cpy_r_r101 = cpy_r_r3;
+    cpy_r_r100 = cpy_r_r3;
+    cpy_r_r109 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4;
+    if (unlikely(cpy_r_r109.f0 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__4", -1, CPyStatic_other_income___globals);
+        goto CPyL240;
+    }
+    CPy_INCREF(cpy_r_r109.f0);
+    CPy_INCREF(cpy_r_r109.f1);
+    CPy_INCREF(cpy_r_r109.f2);
+CPyL94: ;
+    CPy_RestoreExcInfo(cpy_r_r109);
+    CPy_DecRef(cpy_r_r109.f0);
+    CPy_DecRef(cpy_r_r109.f1);
+    CPy_DecRef(cpy_r_r109.f2);
+    goto CPyL83;
+CPyL95: ;
+    cpy_r_r99 = cpy_r_r3;
+    cpy_r_r110 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4;
+    if (unlikely(cpy_r_r110.f0 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__4", -1, CPyStatic_other_income___globals);
+        goto CPyL241;
+    }
+    CPy_INCREF(cpy_r_r110.f0);
+    CPy_INCREF(cpy_r_r110.f1);
+    CPy_INCREF(cpy_r_r110.f2);
+CPyL96: ;
+    CPy_RestoreExcInfo(cpy_r_r110);
+    CPy_DecRef(cpy_r_r110.f0);
+    CPy_DecRef(cpy_r_r110.f1);
+    CPy_DecRef(cpy_r_r110.f2);
+    goto CPyL105;
+CPyL97: ;
     cpy_r_r111 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4;
     if (unlikely(cpy_r_r111.f0 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__4", -1, CPyStatic_other_income___globals);
-        goto CPyL270;
+        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__4' of 'is_robovault_share_env' undefined");
+    } else {
+        CPy_INCREF(cpy_r_r111.f0);
+        CPy_INCREF(cpy_r_r111.f1);
+        CPy_INCREF(cpy_r_r111.f2);
     }
-    CPy_INCREF(cpy_r_r111.f0);
-    CPy_INCREF(cpy_r_r111.f1);
-    CPy_INCREF(cpy_r_r111.f2);
-CPyL103: ;
+    CPy_DecRef(cpy_r_r8);
+    if (unlikely(cpy_r_r111.f0 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
+        goto CPyL209;
+    }
+CPyL98: ;
     CPy_RestoreExcInfo(cpy_r_r111);
     CPy_DecRef(cpy_r_r111.f0);
     CPy_DecRef(cpy_r_r111.f1);
     CPy_DecRef(cpy_r_r111.f2);
-    goto CPyL89;
-CPyL104: ;
-    if (cpy_r_r3 == NULL) {
-        goto CPyL271;
-    } else
-        goto CPyL107;
-CPyL105: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r112 = 0;
-    if (unlikely(!cpy_r_r112)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL109;
-    } else
-        goto CPyL272;
-CPyL106: ;
+    cpy_r_r112 = CPy_KeepPropagating();
+    if (!cpy_r_r112) goto CPyL209;
     CPy_Unreachable();
-CPyL107: ;
-    cpy_r_r100 = cpy_r_r3;
-    cpy_r_r113 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4;
-    if (unlikely(cpy_r_r113.f0 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__4", -1, CPyStatic_other_income___globals);
-        goto CPyL273;
-    }
-    CPy_INCREF(cpy_r_r113.f0);
-    CPy_INCREF(cpy_r_r113.f1);
-    CPy_INCREF(cpy_r_r113.f2);
-CPyL108: ;
-    CPy_RestoreExcInfo(cpy_r_r113);
-    CPy_DecRef(cpy_r_r113.f0);
-    CPy_DecRef(cpy_r_r113.f1);
-    CPy_DecRef(cpy_r_r113.f2);
-    goto CPyL117;
-CPyL109: ;
-    cpy_r_r114 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__4;
-    if (unlikely(cpy_r_r114.f0 == NULL)) {
-        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__4' of 'is_robovault_share_env' undefined");
-    } else {
-        CPy_INCREF(cpy_r_r114.f0);
-        CPy_INCREF(cpy_r_r114.f1);
-        CPy_INCREF(cpy_r_r114.f2);
-    }
-    CPy_DecRef(cpy_r_r8);
-    if (unlikely(cpy_r_r114.f0 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL233;
-    }
-CPyL110: ;
-    CPy_RestoreExcInfo(cpy_r_r114);
-    CPy_DecRef(cpy_r_r114.f0);
-    CPy_DecRef(cpy_r_r114.f1);
-    CPy_DecRef(cpy_r_r114.f2);
-    cpy_r_r115 = CPy_KeepPropagating();
-    if (!cpy_r_r115) goto CPyL233;
-    CPy_Unreachable();
-CPyL112: ;
-    cpy_r_r116 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
-    if (unlikely(cpy_r_r116 == NULL)) {
+CPyL100: ;
+    cpy_r_r113 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__3;
+    if (unlikely(cpy_r_r113 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__3", -1, CPyStatic_other_income___globals);
-        goto CPyL274;
+        goto CPyL242;
+    }
+    CPy_INCREF(cpy_r_r113);
+CPyL101: ;
+    cpy_r_r114 = CPyIter_Send(cpy_r_r113, cpy_r_arg);
+    CPy_DECREF(cpy_r_r113);
+    CPy_DECREF(cpy_r_arg);
+    if (cpy_r_r114 == NULL) goto CPyL243;
+    cpy_r_r100 = cpy_r_r114;
+    goto CPyL83;
+CPyL103: ;
+    cpy_r_r115 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r115 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
+        goto CPyL235;
+    }
+    cpy_r_r99 = cpy_r_r115;
+CPyL105: ;
+    cpy_r_r116 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r116 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 38, CPyStatic_other_income___globals);
+        goto CPyL244;
     }
     CPy_INCREF(cpy_r_r116);
-CPyL113: ;
-    cpy_r_r117 = CPyIter_Send(cpy_r_r116, cpy_r_arg);
+CPyL106: ;
+    cpy_r_r117 = CPyStatics[130]; /* 'token' */
+    cpy_r_r118 = CPyObject_GetAttr(cpy_r_r116, cpy_r_r117);
     CPy_DECREF(cpy_r_r116);
-    CPy_DECREF(cpy_r_arg);
-    if (cpy_r_r117 == NULL) goto CPyL275;
-    cpy_r_r101 = cpy_r_r117;
-    goto CPyL89;
-CPyL115: ;
-    cpy_r_r118 = CPy_FetchStopIterationValue();
     if (unlikely(cpy_r_r118 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL244;
     }
-    cpy_r_r100 = cpy_r_r118;
-CPyL117: ;
-    cpy_r_r119 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    cpy_r_r119 = PyObject_RichCompare(cpy_r_r99, cpy_r_r118, 2);
+    CPy_DECREF(cpy_r_r99);
+    CPy_DECREF(cpy_r_r118);
     if (unlikely(cpy_r_r119 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 38, CPyStatic_other_income___globals);
-        goto CPyL276;
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
+        goto CPyL235;
     }
-    CPy_INCREF(cpy_r_r119);
-CPyL118: ;
-    cpy_r_r120 = CPyStatics[132]; /* 'token' */
-    cpy_r_r121 = CPyObject_GetAttr(cpy_r_r119, cpy_r_r120);
+    cpy_r_r120 = PyObject_IsTrue(cpy_r_r119);
     CPy_DECREF(cpy_r_r119);
-    if (unlikely(cpy_r_r121 == NULL)) {
+    cpy_r_r121 = cpy_r_r120 >= 0;
+    if (unlikely(!cpy_r_r121)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL276;
+        goto CPyL235;
     }
-    cpy_r_r122 = PyObject_RichCompare(cpy_r_r100, cpy_r_r121, 2);
-    CPy_DECREF(cpy_r_r100);
-    CPy_DECREF(cpy_r_r121);
-    if (unlikely(cpy_r_r122 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL263;
-    }
-    cpy_r_r123 = PyObject_IsTrue(cpy_r_r122);
-    CPy_DECREF(cpy_r_r122);
-    cpy_r_r124 = cpy_r_r123 >= 0;
-    if (unlikely(!cpy_r_r124)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 38, CPyStatic_other_income___globals);
-        goto CPyL263;
-    }
-    cpy_r_r125 = cpy_r_r123;
-    if (cpy_r_r125) {
-        goto CPyL277;
+    cpy_r_r122 = cpy_r_r120;
+    if (cpy_r_r122) {
+        goto CPyL245;
     } else
-        goto CPyL125;
-CPyL122: ;
-    cpy_r_r126 = 1 ? Py_True : Py_False;
+        goto CPyL113;
+CPyL110: ;
+    cpy_r_r123 = 1 ? Py_True : Py_False;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = -2;
-    cpy_r_r127 = 1;
-    CPy_DECREF(cpy_r_r8);
-    if (unlikely(!cpy_r_r127)) {
+    cpy_r_r124 = 1;
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    if (unlikely(!cpy_r_r124)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 39, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
-    CPyGen_SetStopIterationValue(cpy_r_r126);
-    if (!0) goto CPyL233;
+    CPyGen_SetStopIterationValue(cpy_r_r123);
+    if (!0) goto CPyL209;
     CPy_Unreachable();
-CPyL125: ;
-    cpy_r_r128 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
-    if (unlikely(cpy_r_r128 == NULL)) {
+CPyL113: ;
+    cpy_r_r125 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r125 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 42, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    CPy_INCREF(cpy_r_r128);
-CPyL126: ;
-    cpy_r_r129 = CPyStatics[74]; /* 'from_nickname' */
-    cpy_r_r130 = CPyObject_GetAttr(cpy_r_r128, cpy_r_r129);
+    CPy_INCREF(cpy_r_r125);
+CPyL114: ;
+    cpy_r_r126 = CPyStatics[72]; /* 'from_nickname' */
+    cpy_r_r127 = CPyObject_GetAttr(cpy_r_r125, cpy_r_r126);
+    CPy_DECREF(cpy_r_r125);
+    if (unlikely(cpy_r_r127 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 42, CPyStatic_other_income___globals);
+        goto CPyL235;
+    }
+    if (likely(PyUnicode_Check(cpy_r_r127)))
+        cpy_r_r128 = cpy_r_r127;
+    else {
+        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 42, CPyStatic_other_income___globals, "str", cpy_r_r127);
+        goto CPyL235;
+    }
+    cpy_r_r129 = CPyStatics[131]; /* 'Contract: Strategy' */
+    cpy_r_r130 = PyUnicode_Compare(cpy_r_r128, cpy_r_r129);
     CPy_DECREF(cpy_r_r128);
-    if (unlikely(cpy_r_r130 == NULL)) {
+    cpy_r_r131 = cpy_r_r130 == -1;
+    if (!cpy_r_r131) goto CPyL119;
+    cpy_r_r132 = PyErr_Occurred();
+    cpy_r_r133 = cpy_r_r132 != NULL;
+    if (!cpy_r_r133) goto CPyL119;
+    cpy_r_r134 = CPy_KeepPropagating();
+    if (unlikely(!cpy_r_r134)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 42, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    if (likely(PyUnicode_Check(cpy_r_r130)))
-        cpy_r_r131 = cpy_r_r130;
-    else {
-        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 42, CPyStatic_other_income___globals, "str", cpy_r_r130);
-        goto CPyL263;
-    }
-    cpy_r_r132 = CPyStatics[133]; /* 'Contract: Strategy' */
-    cpy_r_r133 = PyUnicode_Compare(cpy_r_r131, cpy_r_r132);
-    CPy_DECREF(cpy_r_r131);
-    cpy_r_r134 = cpy_r_r133 == -1;
-    if (!cpy_r_r134) goto CPyL131;
-    cpy_r_r135 = PyErr_Occurred();
-    cpy_r_r136 = cpy_r_r135 != NULL;
-    if (!cpy_r_r136) goto CPyL131;
-    cpy_r_r137 = CPy_KeepPropagating();
-    if (unlikely(!cpy_r_r137)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 42, CPyStatic_other_income___globals);
-        goto CPyL263;
-    }
-CPyL131: ;
-    cpy_r_r138 = cpy_r_r133 == 0;
-    if (cpy_r_r138) {
-        goto CPyL133;
+CPyL119: ;
+    cpy_r_r135 = cpy_r_r130 == 0;
+    if (cpy_r_r135) {
+        goto CPyL121;
     } else
-        goto CPyL278;
-CPyL132: ;
-    cpy_r_r139 = cpy_r_r138 ? Py_True : Py_False;
-    CPy_INCREF(cpy_r_r139);
-    cpy_r_r140 = cpy_r_r139;
-    goto CPyL223;
-CPyL133: ;
-    cpy_r_r141 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
-    if (unlikely(cpy_r_r141 == NULL)) {
+        goto CPyL246;
+CPyL120: ;
+    cpy_r_r136 = cpy_r_r135 ? Py_True : Py_False;
+    CPy_INCREF(cpy_r_r136);
+    cpy_r_r137 = cpy_r_r136;
+    goto CPyL199;
+CPyL121: ;
+    cpy_r_r138 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r138 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 43, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    CPy_INCREF(cpy_r_r141);
-CPyL134: ;
-    cpy_r_r142 = CPyStatics[72]; /* 'symbol' */
-    cpy_r_r143 = CPyObject_GetAttr(cpy_r_r141, cpy_r_r142);
-    CPy_DECREF(cpy_r_r141);
-    if (unlikely(cpy_r_r143 == NULL)) {
+    CPy_INCREF(cpy_r_r138);
+CPyL122: ;
+    cpy_r_r139 = CPyStatics[70]; /* 'symbol' */
+    cpy_r_r140 = CPyObject_GetAttr(cpy_r_r138, cpy_r_r139);
+    CPy_DECREF(cpy_r_r138);
+    if (unlikely(cpy_r_r140 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 43, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    if (likely(PyUnicode_Check(cpy_r_r143)))
-        cpy_r_r144 = cpy_r_r143;
+    if (likely(PyUnicode_Check(cpy_r_r140)))
+        cpy_r_r141 = cpy_r_r140;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 43, CPyStatic_other_income___globals, "str", cpy_r_r143);
-        goto CPyL263;
+        CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 43, CPyStatic_other_income___globals, "str", cpy_r_r140);
+        goto CPyL235;
     }
-    cpy_r_r145 = CPyStatics[134]; /* 'rv3USDCc' */
-    cpy_r_r146 = PyUnicode_Compare(cpy_r_r144, cpy_r_r145);
-    CPy_DECREF(cpy_r_r144);
-    cpy_r_r147 = cpy_r_r146 == -1;
-    if (!cpy_r_r147) goto CPyL139;
-    cpy_r_r148 = PyErr_Occurred();
-    cpy_r_r149 = cpy_r_r148 != NULL;
-    if (!cpy_r_r149) goto CPyL139;
-    cpy_r_r150 = CPy_KeepPropagating();
-    if (unlikely(!cpy_r_r150)) {
+    cpy_r_r142 = CPyStatics[132]; /* 'rv3USDCc' */
+    cpy_r_r143 = PyUnicode_Compare(cpy_r_r141, cpy_r_r142);
+    CPy_DECREF(cpy_r_r141);
+    cpy_r_r144 = cpy_r_r143 == -1;
+    if (!cpy_r_r144) goto CPyL127;
+    cpy_r_r145 = PyErr_Occurred();
+    cpy_r_r146 = cpy_r_r145 != NULL;
+    if (!cpy_r_r146) goto CPyL127;
+    cpy_r_r147 = CPy_KeepPropagating();
+    if (unlikely(!cpy_r_r147)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 43, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-CPyL139: ;
-    cpy_r_r151 = cpy_r_r146 == 0;
-    if (cpy_r_r151) {
-        goto CPyL141;
+CPyL127: ;
+    cpy_r_r148 = cpy_r_r143 == 0;
+    if (cpy_r_r148) {
+        goto CPyL129;
     } else
-        goto CPyL279;
-CPyL140: ;
-    cpy_r_r152 = cpy_r_r151 ? Py_True : Py_False;
-    CPy_INCREF(cpy_r_r152);
-    cpy_r_r153 = cpy_r_r152;
-    goto CPyL222;
-CPyL141: ;
-    cpy_r_r154 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
-    if (unlikely(cpy_r_r154 == NULL)) {
+        goto CPyL247;
+CPyL128: ;
+    cpy_r_r149 = cpy_r_r148 ? Py_True : Py_False;
+    CPy_INCREF(cpy_r_r149);
+    cpy_r_r150 = cpy_r_r149;
+    goto CPyL198;
+CPyL129: ;
+    cpy_r_r151 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_strat;
+    if (unlikely(cpy_r_r151 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "strat", 45, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
+    }
+    CPy_INCREF_NO_IMM(cpy_r_r151);
+CPyL130: ;
+    cpy_r_r152 = CPyStatics[127]; /* 'vault' */
+    cpy_r_r153 = CPyObject_GetAttr(cpy_r_r151, cpy_r_r152);
+    CPy_DECREF_NO_IMM(cpy_r_r151);
+    if (unlikely(cpy_r_r153 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
+        goto CPyL235;
+    }
+    cpy_r_r154 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
+    if (unlikely(cpy_r_r154 == NULL)) {
+        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 45, CPyStatic_other_income___globals);
+        goto CPyL248;
     }
     CPy_INCREF(cpy_r_r154);
-CPyL142: ;
-    cpy_r_r155 = CPyStatics[129]; /* 'vault' */
+CPyL132: ;
+    cpy_r_r155 = CPyStatics[128]; /* 'block' */
     cpy_r_r156 = CPyObject_GetAttr(cpy_r_r154, cpy_r_r155);
     CPy_DECREF(cpy_r_r154);
     if (unlikely(cpy_r_r156 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL248;
     }
-    cpy_r_r157 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->_tx;
-    if (unlikely(cpy_r_r157 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "tx", 45, CPyStatic_other_income___globals);
-        goto CPyL280;
-    }
-    CPy_INCREF(cpy_r_r157);
-CPyL144: ;
-    cpy_r_r158 = CPyStatics[130]; /* 'block' */
-    cpy_r_r159 = CPyObject_GetAttr(cpy_r_r157, cpy_r_r158);
-    CPy_DECREF(cpy_r_r157);
-    if (unlikely(cpy_r_r159 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL280;
-    }
-    if (likely(PyLong_Check(cpy_r_r159)))
-        cpy_r_r160 = CPyTagged_FromObject(cpy_r_r159);
+    if (likely(PyLong_Check(cpy_r_r156)))
+        cpy_r_r157 = CPyTagged_FromObject(cpy_r_r156);
     else {
-        CPy_TypeError("int", cpy_r_r159); cpy_r_r160 = CPY_INT_TAG;
-    }
-    CPy_DECREF(cpy_r_r159);
-    if (unlikely(cpy_r_r160 == CPY_INT_TAG)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL280;
-    }
-    cpy_r_r161 = CPyStatics[127]; /* 'coroutine' */
-    cpy_r_r162 = CPyTagged_StealAsObject(cpy_r_r160);
-    PyObject *cpy_r_r163[2] = {cpy_r_r156, cpy_r_r162};
-    cpy_r_r164 = (PyObject **)&cpy_r_r163;
-    cpy_r_r165 = CPyStatics[280]; /* ('block_identifier',) */
-    cpy_r_r166 = PyObject_VectorcallMethod(cpy_r_r161, cpy_r_r164, 9223372036854775809ULL, cpy_r_r165);
-    if (unlikely(cpy_r_r166 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL281;
+        CPy_TypeError("int", cpy_r_r156); cpy_r_r157 = CPY_INT_TAG;
     }
     CPy_DECREF(cpy_r_r156);
-    CPy_DECREF(cpy_r_r162);
-    cpy_r_r167 = CPy_GetCoro(cpy_r_r166);
-    CPy_DECREF(cpy_r_r166);
-    if (unlikely(cpy_r_r167 == NULL)) {
+    if (unlikely(cpy_r_r157 == CPY_INT_TAG)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL248;
+    }
+    cpy_r_r158 = CPyStatics[125]; /* 'coroutine' */
+    cpy_r_r159 = CPyTagged_StealAsObject(cpy_r_r157);
+    PyObject *cpy_r_r160[2] = {cpy_r_r153, cpy_r_r159};
+    cpy_r_r161 = (PyObject **)&cpy_r_r160;
+    cpy_r_r162 = CPyStatics[278]; /* ('block_identifier',) */
+    cpy_r_r163 = PyObject_VectorcallMethod(cpy_r_r158, cpy_r_r161, 9223372036854775809ULL, cpy_r_r162);
+    if (unlikely(cpy_r_r163 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
+        goto CPyL249;
+    }
+    CPy_DECREF(cpy_r_r153);
+    CPy_DECREF(cpy_r_r159);
+    cpy_r_r164 = CPy_GetCoro(cpy_r_r163);
+    CPy_DECREF(cpy_r_r163);
+    if (unlikely(cpy_r_r164 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
+        goto CPyL235;
     }
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5 = cpy_r_r167;
-    cpy_r_r168 = 1;
-    if (unlikely(!cpy_r_r168)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5 = cpy_r_r164;
+    cpy_r_r165 = 1;
+    if (unlikely(!cpy_r_r165)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    cpy_r_r169 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
-    if (unlikely(cpy_r_r169 == NULL)) {
+    cpy_r_r166 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
+    if (unlikely(cpy_r_r166 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__5", -1, CPyStatic_other_income___globals);
-        goto CPyL263;
+        goto CPyL235;
     }
-    CPy_INCREF(cpy_r_r169);
-CPyL150: ;
-    cpy_r_r170 = CPyIter_Next(cpy_r_r169);
-    CPy_DECREF(cpy_r_r169);
-    if (cpy_r_r170 == NULL) {
-        goto CPyL282;
+    CPy_INCREF(cpy_r_r166);
+CPyL138: ;
+    cpy_r_r167 = CPyIter_Next(cpy_r_r166);
+    CPy_DECREF(cpy_r_r166);
+    if (cpy_r_r167 == NULL) {
+        goto CPyL250;
     } else
-        goto CPyL153;
-CPyL151: ;
-    cpy_r_r171 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r171 == NULL)) {
+        goto CPyL141;
+CPyL139: ;
+    cpy_r_r168 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r168 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL283;
+        goto CPyL251;
     }
-    cpy_r_r172 = cpy_r_r171;
-    goto CPyL182;
-CPyL153: ;
-    cpy_r_r173 = cpy_r_r170;
-CPyL154: ;
+    cpy_r_r169 = cpy_r_r168;
+    goto CPyL164;
+CPyL141: ;
+    cpy_r_r170 = cpy_r_r167;
+CPyL142: ;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = 6;
-    cpy_r_r174 = 1;
-    if (unlikely(!cpy_r_r174)) {
+    cpy_r_r171 = 1;
+    if (unlikely(!cpy_r_r171)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL284;
+        goto CPyL252;
     } else
-        goto CPyL285;
-CPyL155: ;
-    return cpy_r_r173;
-CPyL156: ;
-    cpy_r_r175 = (PyObject *)&_Py_NoneStruct;
-    cpy_r_r176 = cpy_r_type != cpy_r_r175;
-    if (!cpy_r_r176) goto CPyL159;
+        goto CPyL253;
+CPyL143: ;
+    return cpy_r_r170;
+CPyL144: ;
+    cpy_r_r172 = (PyObject *)&_Py_NoneStruct;
+    cpy_r_r173 = cpy_r_type != cpy_r_r172;
+    if (!cpy_r_r173) goto CPyL147;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL160;
+        goto CPyL148;
     } else
-        goto CPyL286;
-CPyL158: ;
+        goto CPyL254;
+CPyL146: ;
     CPy_Unreachable();
-CPyL159: ;
+CPyL147: ;
     CPy_INCREF(cpy_r_arg);
-    goto CPyL177;
-CPyL160: ;
-    cpy_r_r177 = CPy_CatchError();
+    goto CPyL159;
+CPyL148: ;
+    cpy_r_r174 = CPy_CatchError();
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6.f0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6.f0);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6.f1);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6.f2);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6 = cpy_r_r177;
-    cpy_r_r178 = 1;
-    if (unlikely(!cpy_r_r178)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6 = cpy_r_r174;
+    cpy_r_r175 = 1;
+    if (unlikely(!cpy_r_r175)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL287;
+        goto CPyL255;
     }
-    cpy_r_r179 = (PyObject **)&cpy_r_r5;
-    cpy_r_r180 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
-    if (unlikely(cpy_r_r180 == NULL)) {
+    cpy_r_r176 = (PyObject **)&cpy_r_r5;
+    cpy_r_r177 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
+    if (unlikely(cpy_r_r177 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__5", -1, CPyStatic_other_income___globals);
-        goto CPyL287;
+        goto CPyL255;
     }
-    CPy_INCREF(cpy_r_r180);
-CPyL162: ;
-    cpy_r_r181 = CPy_YieldFromErrorHandle(cpy_r_r180, cpy_r_r179);
-    CPy_DecRef(cpy_r_r180);
-    if (unlikely(cpy_r_r181 == 2)) {
+    CPy_INCREF(cpy_r_r177);
+CPyL150: ;
+    cpy_r_r178 = CPy_YieldFromErrorHandle(cpy_r_r177, cpy_r_r176);
+    CPy_DecRef(cpy_r_r177);
+    if (unlikely(cpy_r_r178 == 2)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL287;
+        goto CPyL255;
     }
-    if (cpy_r_r181) goto CPyL169;
-    if (cpy_r_r5 == NULL) {
-        goto CPyL288;
-    } else
-        goto CPyL167;
-CPyL165: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r182 = 0;
-    if (unlikely(!cpy_r_r182)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL174;
-    } else
-        goto CPyL289;
-CPyL166: ;
-    CPy_Unreachable();
-CPyL167: ;
+    if (cpy_r_r178) goto CPyL154;
     CPy_INCREF(cpy_r_r5);
-    cpy_r_r173 = cpy_r_r5;
-    cpy_r_r183 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
-    if (unlikely(cpy_r_r183.f0 == NULL)) {
+    cpy_r_r170 = cpy_r_r5;
+    cpy_r_r179 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
+    if (unlikely(cpy_r_r179.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__6", -1, CPyStatic_other_income___globals);
-        goto CPyL290;
+        goto CPyL256;
     }
-    CPy_INCREF(cpy_r_r183.f0);
-    CPy_INCREF(cpy_r_r183.f1);
-    CPy_INCREF(cpy_r_r183.f2);
-CPyL168: ;
-    CPy_RestoreExcInfo(cpy_r_r183);
-    CPy_DecRef(cpy_r_r183.f0);
-    CPy_DecRef(cpy_r_r183.f1);
-    CPy_DecRef(cpy_r_r183.f2);
-    goto CPyL154;
-CPyL169: ;
-    if (cpy_r_r5 == NULL) {
-        goto CPyL291;
-    } else
-        goto CPyL172;
-CPyL170: ;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r184 = 0;
-    if (unlikely(!cpy_r_r184)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL174;
-    } else
-        goto CPyL292;
-CPyL171: ;
-    CPy_Unreachable();
-CPyL172: ;
-    cpy_r_r172 = cpy_r_r5;
-    cpy_r_r185 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
-    if (unlikely(cpy_r_r185.f0 == NULL)) {
+    CPy_INCREF(cpy_r_r179.f0);
+    CPy_INCREF(cpy_r_r179.f1);
+    CPy_INCREF(cpy_r_r179.f2);
+CPyL153: ;
+    CPy_RestoreExcInfo(cpy_r_r179);
+    CPy_DecRef(cpy_r_r179.f0);
+    CPy_DecRef(cpy_r_r179.f1);
+    CPy_DecRef(cpy_r_r179.f2);
+    goto CPyL142;
+CPyL154: ;
+    cpy_r_r169 = cpy_r_r5;
+    cpy_r_r180 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
+    if (unlikely(cpy_r_r180.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__6", -1, CPyStatic_other_income___globals);
-        goto CPyL293;
+        goto CPyL257;
     }
-    CPy_INCREF(cpy_r_r185.f0);
-    CPy_INCREF(cpy_r_r185.f1);
-    CPy_INCREF(cpy_r_r185.f2);
-CPyL173: ;
-    CPy_RestoreExcInfo(cpy_r_r185);
-    CPy_DecRef(cpy_r_r185.f0);
-    CPy_DecRef(cpy_r_r185.f1);
-    CPy_DecRef(cpy_r_r185.f2);
-    goto CPyL182;
-CPyL174: ;
-    cpy_r_r186 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
-    if (unlikely(cpy_r_r186.f0 == NULL)) {
+    CPy_INCREF(cpy_r_r180.f0);
+    CPy_INCREF(cpy_r_r180.f1);
+    CPy_INCREF(cpy_r_r180.f2);
+CPyL155: ;
+    CPy_RestoreExcInfo(cpy_r_r180);
+    CPy_DecRef(cpy_r_r180.f0);
+    CPy_DecRef(cpy_r_r180.f1);
+    CPy_DecRef(cpy_r_r180.f2);
+    goto CPyL164;
+CPyL156: ;
+    cpy_r_r181 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__6;
+    if (unlikely(cpy_r_r181.f0 == NULL)) {
         PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__6' of 'is_robovault_share_env' undefined");
     } else {
-        CPy_INCREF(cpy_r_r186.f0);
-        CPy_INCREF(cpy_r_r186.f1);
-        CPy_INCREF(cpy_r_r186.f2);
+        CPy_INCREF(cpy_r_r181.f0);
+        CPy_INCREF(cpy_r_r181.f1);
+        CPy_INCREF(cpy_r_r181.f2);
     }
     CPy_DecRef(cpy_r_r8);
-    if (unlikely(cpy_r_r186.f0 == NULL)) {
+    if (unlikely(cpy_r_r181.f0 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
-CPyL175: ;
-    CPy_RestoreExcInfo(cpy_r_r186);
-    CPy_DecRef(cpy_r_r186.f0);
-    CPy_DecRef(cpy_r_r186.f1);
-    CPy_DecRef(cpy_r_r186.f2);
-    cpy_r_r187 = CPy_KeepPropagating();
-    if (!cpy_r_r187) goto CPyL233;
+CPyL157: ;
+    CPy_RestoreExcInfo(cpy_r_r181);
+    CPy_DecRef(cpy_r_r181.f0);
+    CPy_DecRef(cpy_r_r181.f1);
+    CPy_DecRef(cpy_r_r181.f2);
+    cpy_r_r182 = CPy_KeepPropagating();
+    if (!cpy_r_r182) goto CPyL209;
     CPy_Unreachable();
-CPyL177: ;
-    cpy_r_r188 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
-    if (unlikely(cpy_r_r188 == NULL)) {
+CPyL159: ;
+    cpy_r_r183 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__5;
+    if (unlikely(cpy_r_r183 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__5", -1, CPyStatic_other_income___globals);
-        goto CPyL294;
+        goto CPyL258;
     }
-    CPy_INCREF(cpy_r_r188);
-CPyL178: ;
-    cpy_r_r189 = CPyIter_Send(cpy_r_r188, cpy_r_arg);
-    CPy_DECREF(cpy_r_r188);
+    CPy_INCREF(cpy_r_r183);
+CPyL160: ;
+    cpy_r_r184 = CPyIter_Send(cpy_r_r183, cpy_r_arg);
+    CPy_DECREF(cpy_r_r183);
     CPy_DECREF(cpy_r_arg);
-    if (cpy_r_r189 == NULL) goto CPyL295;
-    cpy_r_r173 = cpy_r_r189;
-    goto CPyL154;
-CPyL180: ;
-    cpy_r_r190 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r190 == NULL)) {
+    if (cpy_r_r184 == NULL) goto CPyL259;
+    cpy_r_r170 = cpy_r_r184;
+    goto CPyL142;
+CPyL162: ;
+    cpy_r_r185 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r185 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 45, CPyStatic_other_income___globals);
-        goto CPyL283;
+        goto CPyL251;
     }
-    cpy_r_r172 = cpy_r_r190;
-CPyL182: ;
-    cpy_r_r191 = CPyStatic_other_income___globals;
-    cpy_r_r192 = CPyStatics[135]; /* 'ERC20' */
-    cpy_r_r193 = CPyDict_GetItem(cpy_r_r191, cpy_r_r192);
+    cpy_r_r169 = cpy_r_r185;
+CPyL164: ;
+    cpy_r_r186 = CPyStatic_other_income___globals;
+    cpy_r_r187 = CPyStatics[133]; /* 'ERC20' */
+    cpy_r_r188 = CPyDict_GetItem(cpy_r_r186, cpy_r_r187);
+    if (unlikely(cpy_r_r188 == NULL)) {
+        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
+        goto CPyL260;
+    }
+    cpy_r_r189 = 1 ? Py_True : Py_False;
+    PyObject *cpy_r_r190[2] = {cpy_r_r169, cpy_r_r189};
+    cpy_r_r191 = (PyObject **)&cpy_r_r190;
+    cpy_r_r192 = CPyStatics[279]; /* ('asynchronous',) */
+    cpy_r_r193 = PyObject_Vectorcall(cpy_r_r188, cpy_r_r191, 1, cpy_r_r192);
+    CPy_DECREF(cpy_r_r188);
     if (unlikely(cpy_r_r193 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL296;
+        goto CPyL260;
     }
-    cpy_r_r194 = 1 ? Py_True : Py_False;
-    PyObject *cpy_r_r195[2] = {cpy_r_r172, cpy_r_r194};
-    cpy_r_r196 = (PyObject **)&cpy_r_r195;
-    cpy_r_r197 = CPyStatics[281]; /* ('asynchronous',) */
-    cpy_r_r198 = _PyObject_Vectorcall(cpy_r_r193, cpy_r_r196, 1, cpy_r_r197);
+    CPy_DECREF(cpy_r_r169);
+    cpy_r_r194 = CPyStatics[70]; /* 'symbol' */
+    cpy_r_r195 = CPyObject_GetAttr(cpy_r_r193, cpy_r_r194);
     CPy_DECREF(cpy_r_r193);
-    if (unlikely(cpy_r_r198 == NULL)) {
+    if (unlikely(cpy_r_r195 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL296;
+        goto CPyL251;
     }
-    CPy_DECREF(cpy_r_r172);
-    cpy_r_r199 = CPyStatics[72]; /* 'symbol' */
-    cpy_r_r200 = CPyObject_GetAttr(cpy_r_r198, cpy_r_r199);
-    CPy_DECREF(cpy_r_r198);
-    if (unlikely(cpy_r_r200 == NULL)) {
+    cpy_r_r196 = CPy_GetCoro(cpy_r_r195);
+    CPy_DECREF(cpy_r_r195);
+    if (unlikely(cpy_r_r196 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL283;
-    }
-    cpy_r_r201 = CPy_GetCoro(cpy_r_r200);
-    CPy_DECREF(cpy_r_r200);
-    if (unlikely(cpy_r_r201 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL283;
+        goto CPyL251;
     }
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7 = cpy_r_r201;
-    cpy_r_r202 = 1;
-    if (unlikely(!cpy_r_r202)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7 = cpy_r_r196;
+    cpy_r_r197 = 1;
+    if (unlikely(!cpy_r_r197)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL283;
+        goto CPyL251;
     }
-    cpy_r_r203 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
-    if (unlikely(cpy_r_r203 == NULL)) {
+    cpy_r_r198 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
+    if (unlikely(cpy_r_r198 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__7", -1, CPyStatic_other_income___globals);
-        goto CPyL283;
+        goto CPyL251;
     }
-    CPy_INCREF(cpy_r_r203);
-CPyL188: ;
-    cpy_r_r204 = CPyIter_Next(cpy_r_r203);
-    CPy_DECREF(cpy_r_r203);
-    if (cpy_r_r204 == NULL) {
-        goto CPyL297;
+    CPy_INCREF(cpy_r_r198);
+CPyL170: ;
+    cpy_r_r199 = CPyIter_Next(cpy_r_r198);
+    CPy_DECREF(cpy_r_r198);
+    if (cpy_r_r199 == NULL) {
+        goto CPyL261;
     } else
-        goto CPyL191;
-CPyL189: ;
-    cpy_r_r205 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r205 == NULL)) {
+        goto CPyL173;
+CPyL171: ;
+    cpy_r_r200 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r200 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL298;
+        goto CPyL262;
     }
-    cpy_r_r206 = cpy_r_r205;
-    goto CPyL220;
-CPyL191: ;
-    cpy_r_r207 = cpy_r_r204;
-CPyL192: ;
+    cpy_r_r201 = cpy_r_r200;
+    goto CPyL196;
+CPyL173: ;
+    cpy_r_r202 = cpy_r_r199;
+CPyL174: ;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = 8;
-    cpy_r_r208 = 1;
-    if (unlikely(!cpy_r_r208)) {
+    cpy_r_r203 = 1;
+    if (unlikely(!cpy_r_r203)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL299;
+        goto CPyL263;
     } else
-        goto CPyL300;
-CPyL193: ;
-    return cpy_r_r207;
-CPyL194: ;
-    cpy_r_r209 = (PyObject *)&_Py_NoneStruct;
-    cpy_r_r210 = cpy_r_type != cpy_r_r209;
-    if (!cpy_r_r210) goto CPyL197;
+        goto CPyL264;
+CPyL175: ;
+    return cpy_r_r202;
+CPyL176: ;
+    cpy_r_r204 = (PyObject *)&_Py_NoneStruct;
+    cpy_r_r205 = cpy_r_type != cpy_r_r204;
+    if (!cpy_r_r205) goto CPyL179;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL198;
+        goto CPyL180;
     } else
-        goto CPyL301;
-CPyL196: ;
+        goto CPyL265;
+CPyL178: ;
     CPy_Unreachable();
-CPyL197: ;
+CPyL179: ;
     CPy_INCREF(cpy_r_arg);
-    goto CPyL215;
-CPyL198: ;
-    cpy_r_r211 = CPy_CatchError();
+    goto CPyL191;
+CPyL180: ;
+    cpy_r_r206 = CPy_CatchError();
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8.f0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8.f0);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8.f1);
         CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8.f2);
     }
-    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8 = cpy_r_r211;
-    cpy_r_r212 = 1;
-    if (unlikely(!cpy_r_r212)) {
+    ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8 = cpy_r_r206;
+    cpy_r_r207 = 1;
+    if (unlikely(!cpy_r_r207)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL302;
+        goto CPyL266;
     }
-    cpy_r_r213 = (PyObject **)&cpy_r_r7;
-    cpy_r_r214 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
-    if (unlikely(cpy_r_r214 == NULL)) {
+    cpy_r_r208 = (PyObject **)&cpy_r_r7;
+    cpy_r_r209 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
+    if (unlikely(cpy_r_r209 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__7", -1, CPyStatic_other_income___globals);
-        goto CPyL302;
+        goto CPyL266;
     }
-    CPy_INCREF(cpy_r_r214);
-CPyL200: ;
-    cpy_r_r215 = CPy_YieldFromErrorHandle(cpy_r_r214, cpy_r_r213);
-    CPy_DecRef(cpy_r_r214);
-    if (unlikely(cpy_r_r215 == 2)) {
+    CPy_INCREF(cpy_r_r209);
+CPyL182: ;
+    cpy_r_r210 = CPy_YieldFromErrorHandle(cpy_r_r209, cpy_r_r208);
+    CPy_DecRef(cpy_r_r209);
+    if (unlikely(cpy_r_r210 == 2)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL302;
+        goto CPyL266;
     }
-    if (cpy_r_r215) goto CPyL207;
-    if (cpy_r_r7 != NULL) goto CPyL205;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r216 = 0;
-    if (unlikely(!cpy_r_r216)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL212;
-    } else
-        goto CPyL303;
-CPyL204: ;
-    CPy_Unreachable();
-CPyL205: ;
+    if (cpy_r_r210) goto CPyL186;
     CPy_INCREF(cpy_r_r7);
-    cpy_r_r207 = cpy_r_r7;
-    cpy_r_r217 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
-    if (unlikely(cpy_r_r217.f0 == NULL)) {
+    cpy_r_r202 = cpy_r_r7;
+    cpy_r_r211 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
+    if (unlikely(cpy_r_r211.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__8", -1, CPyStatic_other_income___globals);
-        goto CPyL304;
+        goto CPyL267;
     }
-    CPy_INCREF(cpy_r_r217.f0);
-    CPy_INCREF(cpy_r_r217.f1);
-    CPy_INCREF(cpy_r_r217.f2);
-CPyL206: ;
-    CPy_RestoreExcInfo(cpy_r_r217);
-    CPy_DecRef(cpy_r_r217.f0);
-    CPy_DecRef(cpy_r_r217.f1);
-    CPy_DecRef(cpy_r_r217.f2);
-    goto CPyL192;
-CPyL207: ;
-    if (cpy_r_r7 != NULL) goto CPyL210;
-    PyErr_SetString(PyExc_UnboundLocalError, "local variable \"\" referenced before assignment");
-    cpy_r_r218 = 0;
-    if (unlikely(!cpy_r_r218)) {
-        CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL212;
-    } else
-        goto CPyL305;
-CPyL209: ;
-    CPy_Unreachable();
-CPyL210: ;
-    cpy_r_r206 = cpy_r_r7;
-    cpy_r_r219 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
-    if (unlikely(cpy_r_r219.f0 == NULL)) {
+    CPy_INCREF(cpy_r_r211.f0);
+    CPy_INCREF(cpy_r_r211.f1);
+    CPy_INCREF(cpy_r_r211.f2);
+CPyL185: ;
+    CPy_RestoreExcInfo(cpy_r_r211);
+    CPy_DecRef(cpy_r_r211.f0);
+    CPy_DecRef(cpy_r_r211.f1);
+    CPy_DecRef(cpy_r_r211.f2);
+    goto CPyL174;
+CPyL186: ;
+    cpy_r_r201 = cpy_r_r7;
+    cpy_r_r212 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
+    if (unlikely(cpy_r_r212.f0 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__8", -1, CPyStatic_other_income___globals);
-        goto CPyL306;
+        goto CPyL268;
     }
-    CPy_INCREF(cpy_r_r219.f0);
-    CPy_INCREF(cpy_r_r219.f1);
-    CPy_INCREF(cpy_r_r219.f2);
-CPyL211: ;
-    CPy_RestoreExcInfo(cpy_r_r219);
-    CPy_DecRef(cpy_r_r219.f0);
-    CPy_DecRef(cpy_r_r219.f1);
-    CPy_DecRef(cpy_r_r219.f2);
-    goto CPyL220;
-CPyL212: ;
-    cpy_r_r220 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
-    if (unlikely(cpy_r_r220.f0 == NULL)) {
+    CPy_INCREF(cpy_r_r212.f0);
+    CPy_INCREF(cpy_r_r212.f1);
+    CPy_INCREF(cpy_r_r212.f2);
+CPyL187: ;
+    CPy_RestoreExcInfo(cpy_r_r212);
+    CPy_DecRef(cpy_r_r212.f0);
+    CPy_DecRef(cpy_r_r212.f1);
+    CPy_DecRef(cpy_r_r212.f2);
+    goto CPyL196;
+CPyL188: ;
+    cpy_r_r213 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__8;
+    if (unlikely(cpy_r_r213.f0 == NULL)) {
         PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__8' of 'is_robovault_share_env' undefined");
     } else {
-        CPy_INCREF(cpy_r_r220.f0);
-        CPy_INCREF(cpy_r_r220.f1);
-        CPy_INCREF(cpy_r_r220.f2);
+        CPy_INCREF(cpy_r_r213.f0);
+        CPy_INCREF(cpy_r_r213.f1);
+        CPy_INCREF(cpy_r_r213.f2);
     }
     CPy_DecRef(cpy_r_r8);
-    if (unlikely(cpy_r_r220.f0 == NULL)) {
+    if (unlikely(cpy_r_r213.f0 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", -1, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
-CPyL213: ;
-    CPy_RestoreExcInfo(cpy_r_r220);
-    CPy_DecRef(cpy_r_r220.f0);
-    CPy_DecRef(cpy_r_r220.f1);
-    CPy_DecRef(cpy_r_r220.f2);
-    cpy_r_r221 = CPy_KeepPropagating();
-    if (!cpy_r_r221) goto CPyL233;
+CPyL189: ;
+    CPy_RestoreExcInfo(cpy_r_r213);
+    CPy_DecRef(cpy_r_r213.f0);
+    CPy_DecRef(cpy_r_r213.f1);
+    CPy_DecRef(cpy_r_r213.f2);
+    cpy_r_r214 = CPy_KeepPropagating();
+    if (!cpy_r_r214) goto CPyL209;
     CPy_Unreachable();
-CPyL215: ;
-    cpy_r_r222 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
-    if (unlikely(cpy_r_r222 == NULL)) {
+CPyL191: ;
+    cpy_r_r215 = ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_temp__7;
+    if (unlikely(cpy_r_r215 == NULL)) {
         CPy_AttributeError("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", "is_robovault_share_env", "__mypyc_temp__7", -1, CPyStatic_other_income___globals);
-        goto CPyL307;
+        goto CPyL269;
     }
-    CPy_INCREF(cpy_r_r222);
-CPyL216: ;
-    cpy_r_r223 = CPyIter_Send(cpy_r_r222, cpy_r_arg);
-    CPy_DECREF(cpy_r_r222);
+    CPy_INCREF(cpy_r_r215);
+CPyL192: ;
+    cpy_r_r216 = CPyIter_Send(cpy_r_r215, cpy_r_arg);
+    CPy_DECREF(cpy_r_r215);
     CPy_DECREF(cpy_r_arg);
-    if (cpy_r_r223 == NULL) goto CPyL308;
-    cpy_r_r207 = cpy_r_r223;
-    goto CPyL192;
-CPyL218: ;
-    cpy_r_r224 = CPy_FetchStopIterationValue();
-    if (unlikely(cpy_r_r224 == NULL)) {
+    if (cpy_r_r216 == NULL) goto CPyL270;
+    cpy_r_r202 = cpy_r_r216;
+    goto CPyL174;
+CPyL194: ;
+    cpy_r_r217 = CPy_FetchStopIterationValue();
+    if (unlikely(cpy_r_r217 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL298;
+        goto CPyL262;
     }
-    cpy_r_r206 = cpy_r_r224;
-CPyL220: ;
-    cpy_r_r225 = CPyStatics[137]; /* 'rv3USDCb' */
-    cpy_r_r226 = PyObject_RichCompare(cpy_r_r206, cpy_r_r225, 2);
-    CPy_DECREF(cpy_r_r206);
-    if (unlikely(cpy_r_r226 == NULL)) {
+    cpy_r_r201 = cpy_r_r217;
+CPyL196: ;
+    cpy_r_r218 = CPyStatics[135]; /* 'rv3USDCb' */
+    cpy_r_r219 = PyObject_RichCompare(cpy_r_r201, cpy_r_r218, 2);
+    CPy_DECREF(cpy_r_r201);
+    if (unlikely(cpy_r_r219 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 44, CPyStatic_other_income___globals);
-        goto CPyL298;
+        goto CPyL262;
     }
-    cpy_r_r153 = cpy_r_r226;
-CPyL222: ;
-    cpy_r_r140 = cpy_r_r153;
-CPyL223: ;
+    cpy_r_r150 = cpy_r_r219;
+CPyL198: ;
+    cpy_r_r137 = cpy_r_r150;
+CPyL199: ;
     if (((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ != CPY_INT_TAG) {
         CPyTagged_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r8)->___mypyc_next_label__ = -2;
-    cpy_r_r227 = 1;
-    CPy_DECREF(cpy_r_r8);
-    if (unlikely(!cpy_r_r227)) {
+    cpy_r_r220 = 1;
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    if (unlikely(!cpy_r_r220)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 41, CPyStatic_other_income___globals);
-        goto CPyL309;
+        goto CPyL271;
     }
-    CPyGen_SetStopIterationValue(cpy_r_r140);
-    CPy_DECREF(cpy_r_r140);
-    if (!0) goto CPyL233;
+    CPyGen_SetStopIterationValue(cpy_r_r137);
+    CPy_DECREF(cpy_r_r137);
+    if (!0) goto CPyL209;
     CPy_Unreachable();
-CPyL226: ;
-    cpy_r_r228 = cpy_r_r9 == 0;
-    if (cpy_r_r228) goto CPyL310;
-    cpy_r_r229 = cpy_r_r9 == 2;
-    if (cpy_r_r229) {
-        goto CPyL311;
+CPyL202: ;
+    cpy_r_r221 = cpy_r_r9 == 0;
+    if (cpy_r_r221) goto CPyL272;
+    cpy_r_r222 = cpy_r_r9 == 2;
+    if (cpy_r_r222) {
+        goto CPyL273;
     } else
-        goto CPyL312;
-CPyL228: ;
-    cpy_r_r230 = cpy_r_r9 == 4;
-    if (cpy_r_r230) {
-        goto CPyL313;
+        goto CPyL274;
+CPyL204: ;
+    cpy_r_r223 = cpy_r_r9 == 4;
+    if (cpy_r_r223) {
+        goto CPyL275;
     } else
-        goto CPyL314;
-CPyL229: ;
-    cpy_r_r231 = cpy_r_r9 == 6;
-    if (cpy_r_r231) {
-        goto CPyL315;
+        goto CPyL276;
+CPyL205: ;
+    cpy_r_r224 = cpy_r_r9 == 6;
+    if (cpy_r_r224) {
+        goto CPyL277;
     } else
-        goto CPyL316;
-CPyL230: ;
-    cpy_r_r232 = cpy_r_r9 == 8;
+        goto CPyL278;
+CPyL206: ;
+    cpy_r_r225 = cpy_r_r9 == 8;
     CPyTagged_DECREF(cpy_r_r9);
-    if (cpy_r_r232) {
-        goto CPyL194;
+    if (cpy_r_r225) {
+        goto CPyL176;
     } else
-        goto CPyL317;
-CPyL231: ;
+        goto CPyL279;
+CPyL207: ;
     PyErr_SetNone(PyExc_StopIteration);
-    cpy_r_r233 = 0;
-    if (unlikely(!cpy_r_r233)) {
+    cpy_r_r226 = 0;
+    if (unlikely(!cpy_r_r226)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 23, CPyStatic_other_income___globals);
-        goto CPyL233;
+        goto CPyL209;
     }
     CPy_Unreachable();
-CPyL233: ;
-    cpy_r_r234 = NULL;
-    return cpy_r_r234;
-CPyL234: ;
+CPyL209: ;
+    cpy_r_r227 = NULL;
+    return cpy_r_r227;
+CPyL210: ;
     CPy_XDecRef(cpy_r_r1);
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    goto CPyL233;
-CPyL235: ;
+    goto CPyL209;
+CPyL211: ;
     CPy_XDecRef(cpy_r_r1);
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
     CPy_DecRef(cpy_r_r8);
-    goto CPyL233;
-CPyL236: ;
+    goto CPyL209;
+CPyL212: ;
     CPy_XDECREF(cpy_r_r1);
     CPy_XDECREF(cpy_r_r3);
     CPy_XDECREF(cpy_r_r5);
     CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
     goto CPyL3;
-CPyL237: ;
+CPyL213: ;
     CPy_XDECREF(cpy_r_r1);
     CPy_XDECREF(cpy_r_r3);
     CPy_XDECREF(cpy_r_r5);
     CPy_XDECREF(cpy_r_r7);
     goto CPyL14;
-CPyL238: ;
+CPyL214: ;
     CPy_XDecRef(cpy_r_r1);
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    goto CPyL59;
-CPyL239: ;
+    goto CPyL53;
+CPyL215: ;
     CPy_XDecRef(cpy_r_r1);
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r30);
-    goto CPyL59;
-CPyL240: ;
+    CPy_DecRef(cpy_r_r31);
+    goto CPyL53;
+CPyL216: ;
     CPy_XDecRef(cpy_r_r1);
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r30);
-    CPy_DecRef(cpy_r_r35);
-    goto CPyL59;
-CPyL241: ;
+    CPy_DecRef(cpy_r_r31);
+    CPy_DecRef(cpy_r_r36);
+    goto CPyL53;
+CPyL217: ;
     CPy_XDECREF(cpy_r_r1);
     goto CPyL26;
+CPyL218: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    goto CPyL53;
+CPyL219: ;
+    CPy_DecRef(cpy_r_r47);
+    goto CPyL35;
+CPyL220: ;
+    CPy_XDECREF(cpy_r_r1);
+    CPy_XDECREF(cpy_r_r3);
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL30;
+CPyL221: ;
+    CPy_XDECREF(cpy_r_r1);
+    CPy_XDECREF(cpy_r_r3);
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL33;
+CPyL222: ;
+    CPy_XDecRef(cpy_r_r1);
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    goto CPyL43;
+CPyL223: ;
+    CPy_XDecRef(cpy_r_r1);
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r47);
+    goto CPyL43;
+CPyL224: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r46);
+    goto CPyL43;
+CPyL225: ;
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL45;
+CPyL226: ;
+    CPy_XDecRef(cpy_r_r1);
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_arg);
+    goto CPyL53;
+CPyL227: ;
+    CPy_XDECREF(cpy_r_r1);
+    goto CPyL49;
+CPyL228: ;
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL58;
+CPyL229: ;
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL61;
+CPyL230: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL209;
+CPyL231: ;
+    CPy_XDECREF(cpy_r_r3);
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    goto CPyL67;
+CPyL232: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_r83);
+    goto CPyL209;
+CPyL233: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_r83);
+    CPy_DecRef(cpy_r_r89);
+    goto CPyL209;
+CPyL234: ;
+    CPy_XDECREF(cpy_r_r3);
+    goto CPyL80;
+CPyL235: ;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL209;
+CPyL236: ;
+    CPy_DecRef(cpy_r_r100);
+    goto CPyL89;
+CPyL237: ;
+    CPy_XDECREF(cpy_r_r3);
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL84;
+CPyL238: ;
+    CPy_XDECREF(cpy_r_r3);
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL87;
+CPyL239: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    goto CPyL97;
+CPyL240: ;
+    CPy_XDecRef(cpy_r_r3);
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r100);
+    goto CPyL97;
+CPyL241: ;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r99);
+    goto CPyL97;
 CPyL242: ;
     CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    goto CPyL59;
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_arg);
+    goto CPyL209;
 CPyL243: ;
-    CPy_DecRef(cpy_r_r46);
-    goto CPyL35;
+    CPy_XDECREF(cpy_r_r3);
+    goto CPyL103;
 CPyL244: ;
-    CPy_XDECREF(cpy_r_r1);
-    CPy_XDECREF(cpy_r_r3);
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL30;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_r99);
+    goto CPyL209;
 CPyL245: ;
-    CPy_XDECREF(cpy_r_r1);
-    CPy_XDECREF(cpy_r_r3);
     CPy_XDECREF(cpy_r_r5);
     CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL33;
+    goto CPyL110;
 CPyL246: ;
-    CPy_XDecRef(cpy_r_r1);
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL49;
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    goto CPyL120;
 CPyL247: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL40;
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    goto CPyL128;
 CPyL248: ;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
     CPy_DecRef(cpy_r_r8);
-    goto CPyL41;
+    CPy_DecRef(cpy_r_r153);
+    goto CPyL209;
 CPyL249: ;
-    CPy_XDecRef(cpy_r_r1);
-    CPy_XDecRef(cpy_r_r3);
     CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r46);
-    goto CPyL49;
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_r153);
+    CPy_DecRef(cpy_r_r159);
+    goto CPyL209;
 CPyL250: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL45;
+    CPy_XDECREF(cpy_r_r5);
+    goto CPyL139;
 CPyL251: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL46;
-CPyL252: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r45);
-    goto CPyL49;
-CPyL253: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL51;
-CPyL254: ;
-    CPy_XDecRef(cpy_r_r1);
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_arg);
-    goto CPyL59;
-CPyL255: ;
-    CPy_XDECREF(cpy_r_r1);
-    goto CPyL55;
-CPyL256: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL64;
-CPyL257: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL67;
-CPyL258: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL233;
-CPyL259: ;
-    CPy_XDECREF(cpy_r_r3);
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    goto CPyL73;
-CPyL260: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r84);
-    goto CPyL233;
-CPyL261: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r84);
-    CPy_DecRef(cpy_r_r90);
-    goto CPyL233;
-CPyL262: ;
-    CPy_XDECREF(cpy_r_r3);
-    goto CPyL86;
-CPyL263: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL233;
-CPyL264: ;
-    CPy_DecRef(cpy_r_r101);
-    goto CPyL95;
-CPyL265: ;
-    CPy_XDECREF(cpy_r_r3);
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL90;
-CPyL266: ;
-    CPy_XDECREF(cpy_r_r3);
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL93;
-CPyL267: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL109;
-CPyL268: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL100;
-CPyL269: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL101;
-CPyL270: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r101);
-    goto CPyL109;
-CPyL271: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL105;
-CPyL272: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL106;
-CPyL273: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r100);
-    goto CPyL109;
-CPyL274: ;
-    CPy_XDecRef(cpy_r_r3);
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_arg);
-    goto CPyL233;
-CPyL275: ;
-    CPy_XDECREF(cpy_r_r3);
-    goto CPyL115;
-CPyL276: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r100);
-    goto CPyL233;
-CPyL277: ;
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    goto CPyL122;
-CPyL278: ;
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    goto CPyL132;
-CPyL279: ;
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    goto CPyL140;
-CPyL280: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r156);
-    goto CPyL233;
-CPyL281: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r156);
-    CPy_DecRef(cpy_r_r162);
-    goto CPyL233;
-CPyL282: ;
-    CPy_XDECREF(cpy_r_r5);
-    goto CPyL151;
-CPyL283: ;
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL233;
-CPyL284: ;
-    CPy_DecRef(cpy_r_r173);
-    goto CPyL160;
-CPyL285: ;
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL155;
-CPyL286: ;
-    CPy_XDECREF(cpy_r_r5);
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL158;
-CPyL287: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL174;
-CPyL288: ;
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL165;
-CPyL289: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL166;
-CPyL290: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r173);
-    goto CPyL174;
-CPyL291: ;
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL170;
-CPyL292: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL171;
-CPyL293: ;
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r172);
-    goto CPyL174;
-CPyL294: ;
-    CPy_XDecRef(cpy_r_r5);
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_arg);
-    goto CPyL233;
-CPyL295: ;
-    CPy_XDECREF(cpy_r_r5);
-    goto CPyL180;
-CPyL296: ;
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r8);
-    CPy_DecRef(cpy_r_r172);
-    goto CPyL233;
-CPyL297: ;
-    CPy_XDECREF(cpy_r_r7);
-    goto CPyL189;
-CPyL298: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL233;
-CPyL299: ;
-    CPy_DecRef(cpy_r_r207);
-    goto CPyL198;
-CPyL300: ;
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL193;
-CPyL301: ;
-    CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL196;
-CPyL302: ;
-    CPy_XDecRef(cpy_r_r7);
-    goto CPyL212;
-CPyL303: ;
-    CPy_DecRef(cpy_r_r8);
-    goto CPyL204;
-CPyL304: ;
-    CPy_XDecRef(cpy_r_r7);
-    CPy_DecRef(cpy_r_r207);
-    goto CPyL212;
-CPyL305: ;
     CPy_DecRef(cpy_r_r8);
     goto CPyL209;
-CPyL306: ;
-    CPy_DecRef(cpy_r_r206);
-    goto CPyL212;
-CPyL307: ;
+CPyL252: ;
+    CPy_DecRef(cpy_r_r170);
+    goto CPyL148;
+CPyL253: ;
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL143;
+CPyL254: ;
+    CPy_XDECREF(cpy_r_r5);
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL146;
+CPyL255: ;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    goto CPyL156;
+CPyL256: ;
+    CPy_XDecRef(cpy_r_r5);
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r170);
+    goto CPyL156;
+CPyL257: ;
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r169);
+    goto CPyL156;
+CPyL258: ;
+    CPy_XDecRef(cpy_r_r5);
     CPy_XDecRef(cpy_r_r7);
     CPy_DecRef(cpy_r_r8);
     CPy_DecRef(cpy_r_arg);
-    goto CPyL233;
-CPyL308: ;
+    goto CPyL209;
+CPyL259: ;
+    CPy_XDECREF(cpy_r_r5);
+    goto CPyL162;
+CPyL260: ;
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_r169);
+    goto CPyL209;
+CPyL261: ;
     CPy_XDECREF(cpy_r_r7);
-    goto CPyL218;
-CPyL309: ;
-    CPy_DecRef(cpy_r_r140);
-    goto CPyL233;
-CPyL310: ;
+    goto CPyL171;
+CPyL262: ;
+    CPy_DecRef(cpy_r_r8);
+    goto CPyL209;
+CPyL263: ;
+    CPy_DecRef(cpy_r_r202);
+    goto CPyL180;
+CPyL264: ;
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL175;
+CPyL265: ;
+    CPy_XDECREF(cpy_r_r7);
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL178;
+CPyL266: ;
+    CPy_XDecRef(cpy_r_r7);
+    goto CPyL188;
+CPyL267: ;
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r202);
+    goto CPyL188;
+CPyL268: ;
+    CPy_DecRef(cpy_r_r201);
+    goto CPyL188;
+CPyL269: ;
+    CPy_XDecRef(cpy_r_r7);
+    CPy_DecRef(cpy_r_r8);
+    CPy_DecRef(cpy_r_arg);
+    goto CPyL209;
+CPyL270: ;
+    CPy_XDECREF(cpy_r_r7);
+    goto CPyL194;
+CPyL271: ;
+    CPy_DecRef(cpy_r_r137);
+    goto CPyL209;
+CPyL272: ;
     CPyTagged_DECREF(cpy_r_r9);
     goto CPyL2;
-CPyL311: ;
+CPyL273: ;
     CPyTagged_DECREF(cpy_r_r9);
     goto CPyL31;
-CPyL312: ;
+CPyL274: ;
     CPy_XDECREF(cpy_r_r1);
-    goto CPyL228;
-CPyL313: ;
+    goto CPyL204;
+CPyL275: ;
     CPyTagged_DECREF(cpy_r_r9);
-    goto CPyL91;
-CPyL314: ;
+    goto CPyL85;
+CPyL276: ;
     CPy_XDECREF(cpy_r_r3);
-    goto CPyL229;
-CPyL315: ;
+    goto CPyL205;
+CPyL277: ;
     CPyTagged_DECREF(cpy_r_r9);
-    goto CPyL156;
-CPyL316: ;
+    goto CPyL144;
+CPyL278: ;
     CPy_XDECREF(cpy_r_r5);
-    goto CPyL230;
-CPyL317: ;
+    goto CPyL206;
+CPyL279: ;
     CPy_XDECREF(cpy_r_r7);
-    CPy_DECREF(cpy_r_r8);
-    goto CPyL231;
+    CPy_DECREF_NO_IMM(cpy_r_r8);
+    goto CPyL207;
 }
 
 PyObject *CPyPy_other_income___is_robovault_share_gen_____mypyc_generator_helper__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames) {
@@ -6453,7 +6203,7 @@ fail: ;
 }
 
 PyObject *CPyDef_other_income___is_robovault_share_gen_____iter__(PyObject *cpy_r___mypyc_self__) {
-    CPy_INCREF(cpy_r___mypyc_self__);
+    CPy_INCREF_NO_IMM(cpy_r___mypyc_self__);
     return cpy_r___mypyc_self__;
 }
 
@@ -6562,7 +6312,7 @@ PyObject *CPyDef_other_income___is_robovault_share_gen___close(PyObject *cpy_r__
     char cpy_r_r14;
     PyObject *cpy_r_r15;
     cpy_r_r0 = CPyModule_builtins;
-    cpy_r_r1 = CPyStatics[138]; /* 'GeneratorExit' */
+    cpy_r_r1 = CPyStatics[136]; /* 'GeneratorExit' */
     cpy_r_r2 = CPyObject_GetAttr(cpy_r_r0, cpy_r_r1);
     if (cpy_r_r2 == NULL) goto CPyL3;
     cpy_r_r3 = (PyObject *)&_Py_NoneStruct;
@@ -6572,7 +6322,7 @@ PyObject *CPyDef_other_income___is_robovault_share_gen___close(PyObject *cpy_r__
 CPyL3: ;
     cpy_r_r6 = CPy_CatchError();
     cpy_r_r7 = CPyModule_builtins;
-    cpy_r_r8 = CPyStatics[139]; /* 'StopIteration' */
+    cpy_r_r8 = CPyStatics[137]; /* 'StopIteration' */
     cpy_r_r9 = CPyObject_GetAttr(cpy_r_r7, cpy_r_r8);
     if (cpy_r_r9 == NULL) goto CPyL12;
     cpy_r_r10.f0 = cpy_r_r2;
@@ -6645,7 +6395,7 @@ fail: ;
 }
 
 PyObject *CPyDef_other_income___is_robovault_share_gen_____await__(PyObject *cpy_r___mypyc_self__) {
-    CPy_INCREF(cpy_r___mypyc_self__);
+    CPy_INCREF_NO_IMM(cpy_r___mypyc_self__);
     return cpy_r___mypyc_self__;
 }
 
@@ -6697,9 +6447,9 @@ PyObject *CPyDef_other_income___is_robovault_share(PyObject *cpy_r_tx) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 23, CPyStatic_other_income___globals);
         goto CPyL7;
     }
-    CPy_INCREF(cpy_r_r0);
+    CPy_INCREF_NO_IMM(cpy_r_r0);
     if (((yearn_treasury___rules___other_income___is_robovault_share_genObject *)cpy_r_r2)->___mypyc_env__ != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___other_income___is_robovault_share_genObject *)cpy_r_r2)->___mypyc_env__);
+        CPy_DECREF_NO_IMM(((yearn_treasury___rules___other_income___is_robovault_share_genObject *)cpy_r_r2)->___mypyc_env__);
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_genObject *)cpy_r_r2)->___mypyc_env__ = cpy_r_r0;
     cpy_r_r3 = 1;
@@ -6712,7 +6462,7 @@ PyObject *CPyDef_other_income___is_robovault_share(PyObject *cpy_r_tx) {
     }
     ((yearn_treasury___rules___other_income___is_robovault_share_envObject *)cpy_r_r0)->___mypyc_next_label__ = 0;
     cpy_r_r4 = 1;
-    CPy_DECREF(cpy_r_r0);
+    CPy_DECREF_NO_IMM(cpy_r_r0);
     if (unlikely(!cpy_r_r4)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_robovault_share", 23, CPyStatic_other_income___globals);
         goto CPyL9;
@@ -6778,7 +6528,7 @@ char CPyDef_other_income___is_cowswap_gas_reimbursement(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r26;
     char cpy_r_r27;
     char cpy_r_r28;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 55, CPyStatic_other_income___globals);
@@ -6790,7 +6540,7 @@ char CPyDef_other_income___is_cowswap_gas_reimbursement(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 55, CPyStatic_other_income___globals, "str", cpy_r_r1);
         goto CPyL21;
     }
-    cpy_r_r3 = CPyStatics[73]; /* 'ETH' */
+    cpy_r_r3 = CPyStatics[71]; /* 'ETH' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -6809,7 +6559,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL20;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r11 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 56, CPyStatic_other_income___globals);
@@ -6821,7 +6571,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 56, CPyStatic_other_income___globals, "str", cpy_r_r12);
         goto CPyL21;
     }
-    cpy_r_r14 = CPyStatics[140]; /* 'Cowswap Multisig' */
+    cpy_r_r14 = CPyStatics[138]; /* 'Cowswap Multisig' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -6840,7 +6590,7 @@ CPyL12: ;
     cpy_r_r21 = cpy_r_r20;
     goto CPyL19;
 CPyL14: ;
-    cpy_r_r22 = CPyStatics[121]; /* 'to_nickname' */
+    cpy_r_r22 = CPyStatics[119]; /* 'to_nickname' */
     cpy_r_r23 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r22);
     if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 57, CPyStatic_other_income___globals);
@@ -6861,7 +6611,7 @@ CPyL14: ;
     CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_cowswap_gas_reimbursement", 57, CPyStatic_other_income___globals, "str or None", cpy_r_r23);
     goto CPyL21;
 __LL8: ;
-    cpy_r_r25 = CPyStatics[141]; /* 'yMechs Multisig' */
+    cpy_r_r25 = CPyStatics[139]; /* 'yMechs Multisig' */
     cpy_r_r26 = PyObject_RichCompare(cpy_r_r24, cpy_r_r25, 2);
     CPy_DECREF(cpy_r_r24);
     if (unlikely(cpy_r_r26 == NULL)) {
@@ -6928,7 +6678,7 @@ char CPyDef_other_income___is_usds_referral_code(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r17;
     char cpy_r_r18;
     char cpy_r_r19;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_usds_referral_code", 65, CPyStatic_other_income___globals);
@@ -6940,7 +6690,7 @@ char CPyDef_other_income___is_usds_referral_code(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_usds_referral_code", 65, CPyStatic_other_income___globals, "str", cpy_r_r1);
         goto CPyL13;
     }
-    cpy_r_r3 = CPyStatics[142]; /* 'USDS' */
+    cpy_r_r3 = CPyStatics[140]; /* 'USDS' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -6961,20 +6711,20 @@ CPyL5: ;
     cpy_r_r11 = cpy_r_r10;
     goto CPyL11;
 CPyL7: ;
-    cpy_r_r12 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r12 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r13 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r12);
     if (unlikely(cpy_r_r13 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_usds_referral_code", 66, CPyStatic_other_income___globals);
         goto CPyL13;
     }
-    cpy_r_r14 = CPyStatics[119]; /* 'address' */
+    cpy_r_r14 = CPyStatics[117]; /* 'address' */
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     if (unlikely(cpy_r_r15 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_usds_referral_code", 66, CPyStatic_other_income___globals);
         goto CPyL13;
     }
-    cpy_r_r16 = CPyStatics[143]; /* '0x3C5142F28567E6a0F172fd0BaaF1f2847f49D02F' */
+    cpy_r_r16 = CPyStatics[141]; /* '0x3C5142F28567E6a0F172fd0BaaF1f2847f49D02F' */
     cpy_r_r17 = PyObject_RichCompare(cpy_r_r15, cpy_r_r16, 2);
     CPy_DECREF(cpy_r_r15);
     if (unlikely(cpy_r_r17 == NULL)) {
@@ -7044,7 +6794,7 @@ char CPyDef_other_income___is_yeth_application_fee(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r22;
     char cpy_r_r23;
     char cpy_r_r24;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yeth_application_fee", 72, CPyStatic_other_income___globals);
@@ -7056,7 +6806,7 @@ char CPyDef_other_income___is_yeth_application_fee(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yeth_application_fee", 72, CPyStatic_other_income___globals, "str", cpy_r_r1);
         goto CPyL22;
     }
-    cpy_r_r3 = CPyStatics[144]; /* 'yETH' */
+    cpy_r_r3 = CPyStatics[142]; /* 'yETH' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -7075,7 +6825,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL21;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[121]; /* 'to_nickname' */
+    cpy_r_r11 = CPyStatics[119]; /* 'to_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yeth_application_fee", 72, CPyStatic_other_income___globals);
@@ -7096,7 +6846,7 @@ CPyL7: ;
     CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yeth_application_fee", 72, CPyStatic_other_income___globals, "str or None", cpy_r_r12);
     goto CPyL22;
 __LL9: ;
-    cpy_r_r14 = CPyStatics[122]; /* 'Yearn Treasury' */
+    cpy_r_r14 = CPyStatics[120]; /* 'Yearn Treasury' */
     cpy_r_r15 = PyObject_RichCompare(cpy_r_r13, cpy_r_r14, 2);
     CPy_DECREF(cpy_r_r13);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -7116,7 +6866,7 @@ __LL9: ;
     cpy_r_r17 = cpy_r_r16;
     goto CPyL20;
 CPyL13: ;
-    cpy_r_r18 = CPyStatics[77]; /* 'amount' */
+    cpy_r_r18 = CPyStatics[75]; /* 'amount' */
     cpy_r_r19 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r18);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yeth_application_fee", 72, CPyStatic_other_income___globals);
@@ -7207,7 +6957,7 @@ char CPyDef_other_income___is_yprisma_fees(PyObject *cpy_r_tx) {
     char cpy_r_r19;
     char cpy_r_r20;
     char cpy_r_r21;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yprisma_fees", 77, CPyStatic_other_income___globals);
@@ -7219,7 +6969,7 @@ char CPyDef_other_income___is_yprisma_fees(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yprisma_fees", 77, CPyStatic_other_income___globals, "str", cpy_r_r1);
         goto CPyL14;
     }
-    cpy_r_r3 = CPyStatics[145]; /* 'yvmkUSD-A' */
+    cpy_r_r3 = CPyStatics[143]; /* 'yvmkUSD-A' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -7238,7 +6988,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL13;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r11 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yprisma_fees", 77, CPyStatic_other_income___globals);
@@ -7250,7 +7000,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/other_income/__init__.py", "is_yprisma_fees", 77, CPyStatic_other_income___globals, "str", cpy_r_r12);
         goto CPyL14;
     }
-    cpy_r_r14 = CPyStatics[146]; /* 'Contract: YPrismaFeeDistributor' */
+    cpy_r_r14 = CPyStatics[144]; /* 'Contract: YPrismaFeeDistributor' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -7464,8 +7214,8 @@ char CPyDef_other_income_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[282]; /* ('Decimal',) */
-    cpy_r_r6 = CPyStatics[148]; /* 'decimal' */
+    cpy_r_r5 = CPyStatics[280]; /* ('Decimal',) */
+    cpy_r_r6 = CPyStatics[146]; /* 'decimal' */
     cpy_r_r7 = CPyStatic_other_income___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -7475,8 +7225,8 @@ CPyL3: ;
     CPyModule_decimal = cpy_r_r8;
     CPy_INCREF(CPyModule_decimal);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[283]; /* ('Final',) */
-    cpy_r_r10 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r9 = CPyStatics[281]; /* ('Final',) */
+    cpy_r_r10 = CPyStatics[24]; /* 'typing' */
     cpy_r_r11 = CPyStatic_other_income___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -7486,8 +7236,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r12;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[284]; /* ('ZERO_ADDRESS',) */
-    cpy_r_r14 = CPyStatics[149]; /* 'brownie' */
+    cpy_r_r13 = CPyStatics[282]; /* ('ZERO_ADDRESS',) */
+    cpy_r_r14 = CPyStatics[147]; /* 'brownie' */
     cpy_r_r15 = CPyStatic_other_income___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -7497,8 +7247,8 @@ CPyL3: ;
     CPyModule_brownie = cpy_r_r16;
     CPy_INCREF(CPyModule_brownie);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[285]; /* ('Contract', 'ContractNotVerified', 'ERC20', 'Network') */
-    cpy_r_r18 = CPyStatics[90]; /* 'y' */
+    cpy_r_r17 = CPyStatics[283]; /* ('Contract', 'ContractNotVerified', 'ERC20', 'Network') */
+    cpy_r_r18 = CPyStatics[88]; /* 'y' */
     cpy_r_r19 = CPyStatic_other_income___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -7508,8 +7258,8 @@ CPyL3: ;
     CPyModule_y = cpy_r_r20;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[286]; /* ('TreasuryTx', 'other_income') */
-    cpy_r_r22 = CPyStatics[151]; /* 'dao_treasury' */
+    cpy_r_r21 = CPyStatics[284]; /* ('TreasuryTx', 'other_income') */
+    cpy_r_r22 = CPyStatics[149]; /* 'dao_treasury' */
     cpy_r_r23 = CPyStatic_other_income___globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
@@ -7519,9 +7269,9 @@ CPyL3: ;
     CPyModule_dao_treasury = cpy_r_r24;
     CPy_INCREF(CPyModule_dao_treasury);
     CPy_DECREF(cpy_r_r24);
-    cpy_r_r25 = CPyStatics[152]; /* '0.1' */
+    cpy_r_r25 = CPyStatics[150]; /* '0.1' */
     cpy_r_r26 = CPyStatic_other_income___globals;
-    cpy_r_r27 = CPyStatics[147]; /* 'Decimal' */
+    cpy_r_r27 = CPyStatics[145]; /* 'Decimal' */
     cpy_r_r28 = CPyDict_GetItem(cpy_r_r26, cpy_r_r27);
     if (unlikely(cpy_r_r28 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 10, CPyStatic_other_income___globals);
@@ -7529,7 +7279,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r29[1] = {cpy_r_r25};
     cpy_r_r30 = (PyObject **)&cpy_r_r29;
-    cpy_r_r31 = _PyObject_Vectorcall(cpy_r_r28, cpy_r_r30, 1, 0);
+    cpy_r_r31 = PyObject_Vectorcall(cpy_r_r28, cpy_r_r30, 1, 0);
     CPy_DECREF(cpy_r_r28);
     if (unlikely(cpy_r_r31 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 10, CPyStatic_other_income___globals);
@@ -7538,7 +7288,7 @@ CPyL3: ;
     CPyStatic_other_income____POINT_ONE = cpy_r_r31;
     CPy_INCREF(CPyStatic_other_income____POINT_ONE);
     cpy_r_r32 = CPyStatic_other_income___globals;
-    cpy_r_r33 = CPyStatics[153]; /* '_POINT_ONE' */
+    cpy_r_r33 = CPyStatics[151]; /* '_POINT_ONE' */
     cpy_r_r34 = CPyDict_SetItem(cpy_r_r32, cpy_r_r33, cpy_r_r31);
     CPy_DECREF(cpy_r_r31);
     cpy_r_r35 = cpy_r_r34 >= 0;
@@ -7547,21 +7297,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r36 = CPyStatic_other_income___globals;
-    cpy_r_r37 = CPyStatics[154]; /* 'is_atoken_yield' */
+    cpy_r_r37 = CPyStatics[152]; /* 'is_atoken_yield' */
     cpy_r_r38 = CPyDict_GetItem(cpy_r_r36, cpy_r_r37);
     if (unlikely(cpy_r_r38 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 13, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r39 = CPyStatics[155]; /* 'aToken Yield' */
+    cpy_r_r39 = CPyStatics[153]; /* 'aToken Yield' */
     cpy_r_r40 = CPyStatic_other_income___globals;
-    cpy_r_r41 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r41 = CPyStatics[87]; /* 'Network' */
     cpy_r_r42 = CPyDict_GetItem(cpy_r_r40, cpy_r_r41);
     if (unlikely(cpy_r_r42 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 13, CPyStatic_other_income___globals);
         goto CPyL55;
     }
-    cpy_r_r43 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r43 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r44 = CPyObject_GetAttr(cpy_r_r42, cpy_r_r43);
     CPy_DECREF(cpy_r_r42);
     if (unlikely(cpy_r_r44 == NULL)) {
@@ -7569,7 +7319,7 @@ CPyL3: ;
         goto CPyL55;
     }
     cpy_r_r45 = CPyStatic_other_income___globals;
-    cpy_r_r46 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r46 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r47 = CPyDict_GetItem(cpy_r_r45, cpy_r_r46);
     if (unlikely(cpy_r_r47 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 13, CPyStatic_other_income___globals);
@@ -7577,7 +7327,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r48[2] = {cpy_r_r39, cpy_r_r44};
     cpy_r_r49 = (PyObject **)&cpy_r_r48;
-    cpy_r_r50 = _PyObject_Vectorcall(cpy_r_r47, cpy_r_r49, 2, 0);
+    cpy_r_r50 = PyObject_Vectorcall(cpy_r_r47, cpy_r_r49, 2, 0);
     CPy_DECREF(cpy_r_r47);
     if (unlikely(cpy_r_r50 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 13, CPyStatic_other_income___globals);
@@ -7586,7 +7336,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r44);
     PyObject *cpy_r_r51[1] = {cpy_r_r38};
     cpy_r_r52 = (PyObject **)&cpy_r_r51;
-    cpy_r_r53 = _PyObject_Vectorcall(cpy_r_r50, cpy_r_r52, 1, 0);
+    cpy_r_r53 = PyObject_Vectorcall(cpy_r_r50, cpy_r_r52, 1, 0);
     CPy_DECREF(cpy_r_r50);
     if (unlikely(cpy_r_r53 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 13, CPyStatic_other_income___globals);
@@ -7594,7 +7344,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r38);
     cpy_r_r54 = CPyStatic_other_income___globals;
-    cpy_r_r55 = CPyStatics[154]; /* 'is_atoken_yield' */
+    cpy_r_r55 = CPyStatics[152]; /* 'is_atoken_yield' */
     cpy_r_r56 = CPyDict_SetItem(cpy_r_r54, cpy_r_r55, cpy_r_r53);
     CPy_DECREF(cpy_r_r53);
     cpy_r_r57 = cpy_r_r56 >= 0;
@@ -7603,21 +7353,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r58 = CPyStatic_other_income___globals;
-    cpy_r_r59 = CPyStatics[156]; /* 'is_robovault_share' */
+    cpy_r_r59 = CPyStatics[154]; /* 'is_robovault_share' */
     cpy_r_r60 = CPyDict_GetItem(cpy_r_r58, cpy_r_r59);
     if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 22, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r61 = CPyStatics[157]; /* 'RoboVault Thank You' */
+    cpy_r_r61 = CPyStatics[155]; /* 'RoboVault Thank You' */
     cpy_r_r62 = CPyStatic_other_income___globals;
-    cpy_r_r63 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r63 = CPyStatics[87]; /* 'Network' */
     cpy_r_r64 = CPyDict_GetItem(cpy_r_r62, cpy_r_r63);
     if (unlikely(cpy_r_r64 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 22, CPyStatic_other_income___globals);
         goto CPyL57;
     }
-    cpy_r_r65 = CPyStatics[158]; /* 'Fantom' */
+    cpy_r_r65 = CPyStatics[156]; /* 'Fantom' */
     cpy_r_r66 = CPyObject_GetAttr(cpy_r_r64, cpy_r_r65);
     CPy_DECREF(cpy_r_r64);
     if (unlikely(cpy_r_r66 == NULL)) {
@@ -7625,7 +7375,7 @@ CPyL3: ;
         goto CPyL57;
     }
     cpy_r_r67 = CPyStatic_other_income___globals;
-    cpy_r_r68 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r68 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r69 = CPyDict_GetItem(cpy_r_r67, cpy_r_r68);
     if (unlikely(cpy_r_r69 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 22, CPyStatic_other_income___globals);
@@ -7633,7 +7383,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r70[2] = {cpy_r_r61, cpy_r_r66};
     cpy_r_r71 = (PyObject **)&cpy_r_r70;
-    cpy_r_r72 = _PyObject_Vectorcall(cpy_r_r69, cpy_r_r71, 2, 0);
+    cpy_r_r72 = PyObject_Vectorcall(cpy_r_r69, cpy_r_r71, 2, 0);
     CPy_DECREF(cpy_r_r69);
     if (unlikely(cpy_r_r72 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 22, CPyStatic_other_income___globals);
@@ -7642,7 +7392,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r66);
     PyObject *cpy_r_r73[1] = {cpy_r_r60};
     cpy_r_r74 = (PyObject **)&cpy_r_r73;
-    cpy_r_r75 = _PyObject_Vectorcall(cpy_r_r72, cpy_r_r74, 1, 0);
+    cpy_r_r75 = PyObject_Vectorcall(cpy_r_r72, cpy_r_r74, 1, 0);
     CPy_DECREF(cpy_r_r72);
     if (unlikely(cpy_r_r75 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 22, CPyStatic_other_income___globals);
@@ -7650,7 +7400,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r60);
     cpy_r_r76 = CPyStatic_other_income___globals;
-    cpy_r_r77 = CPyStatics[156]; /* 'is_robovault_share' */
+    cpy_r_r77 = CPyStatics[154]; /* 'is_robovault_share' */
     cpy_r_r78 = CPyDict_SetItem(cpy_r_r76, cpy_r_r77, cpy_r_r75);
     CPy_DECREF(cpy_r_r75);
     cpy_r_r79 = cpy_r_r78 >= 0;
@@ -7659,21 +7409,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r80 = CPyStatic_other_income___globals;
-    cpy_r_r81 = CPyStatics[159]; /* 'is_cowswap_gas_reimbursement' */
+    cpy_r_r81 = CPyStatics[157]; /* 'is_cowswap_gas_reimbursement' */
     cpy_r_r82 = CPyDict_GetItem(cpy_r_r80, cpy_r_r81);
     if (unlikely(cpy_r_r82 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 52, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r83 = CPyStatics[160]; /* 'Cowswap Gas Reimbursement' */
+    cpy_r_r83 = CPyStatics[158]; /* 'Cowswap Gas Reimbursement' */
     cpy_r_r84 = CPyStatic_other_income___globals;
-    cpy_r_r85 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r85 = CPyStatics[87]; /* 'Network' */
     cpy_r_r86 = CPyDict_GetItem(cpy_r_r84, cpy_r_r85);
     if (unlikely(cpy_r_r86 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 52, CPyStatic_other_income___globals);
         goto CPyL59;
     }
-    cpy_r_r87 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r87 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r88 = CPyObject_GetAttr(cpy_r_r86, cpy_r_r87);
     CPy_DECREF(cpy_r_r86);
     if (unlikely(cpy_r_r88 == NULL)) {
@@ -7681,7 +7431,7 @@ CPyL3: ;
         goto CPyL59;
     }
     cpy_r_r89 = CPyStatic_other_income___globals;
-    cpy_r_r90 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r90 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r91 = CPyDict_GetItem(cpy_r_r89, cpy_r_r90);
     if (unlikely(cpy_r_r91 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 52, CPyStatic_other_income___globals);
@@ -7689,7 +7439,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r92[2] = {cpy_r_r83, cpy_r_r88};
     cpy_r_r93 = (PyObject **)&cpy_r_r92;
-    cpy_r_r94 = _PyObject_Vectorcall(cpy_r_r91, cpy_r_r93, 2, 0);
+    cpy_r_r94 = PyObject_Vectorcall(cpy_r_r91, cpy_r_r93, 2, 0);
     CPy_DECREF(cpy_r_r91);
     if (unlikely(cpy_r_r94 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 52, CPyStatic_other_income___globals);
@@ -7698,7 +7448,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r88);
     PyObject *cpy_r_r95[1] = {cpy_r_r82};
     cpy_r_r96 = (PyObject **)&cpy_r_r95;
-    cpy_r_r97 = _PyObject_Vectorcall(cpy_r_r94, cpy_r_r96, 1, 0);
+    cpy_r_r97 = PyObject_Vectorcall(cpy_r_r94, cpy_r_r96, 1, 0);
     CPy_DECREF(cpy_r_r94);
     if (unlikely(cpy_r_r97 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 52, CPyStatic_other_income___globals);
@@ -7706,7 +7456,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r82);
     cpy_r_r98 = CPyStatic_other_income___globals;
-    cpy_r_r99 = CPyStatics[159]; /* 'is_cowswap_gas_reimbursement' */
+    cpy_r_r99 = CPyStatics[157]; /* 'is_cowswap_gas_reimbursement' */
     cpy_r_r100 = CPyDict_SetItem(cpy_r_r98, cpy_r_r99, cpy_r_r97);
     CPy_DECREF(cpy_r_r97);
     cpy_r_r101 = cpy_r_r100 >= 0;
@@ -7715,21 +7465,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r102 = CPyStatic_other_income___globals;
-    cpy_r_r103 = CPyStatics[161]; /* 'is_usds_referral_code' */
+    cpy_r_r103 = CPyStatics[159]; /* 'is_usds_referral_code' */
     cpy_r_r104 = CPyDict_GetItem(cpy_r_r102, cpy_r_r103);
     if (unlikely(cpy_r_r104 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 61, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r105 = CPyStatics[162]; /* 'USDS Referral Code' */
+    cpy_r_r105 = CPyStatics[160]; /* 'USDS Referral Code' */
     cpy_r_r106 = CPyStatic_other_income___globals;
-    cpy_r_r107 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r107 = CPyStatics[87]; /* 'Network' */
     cpy_r_r108 = CPyDict_GetItem(cpy_r_r106, cpy_r_r107);
     if (unlikely(cpy_r_r108 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 61, CPyStatic_other_income___globals);
         goto CPyL61;
     }
-    cpy_r_r109 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r109 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r110 = CPyObject_GetAttr(cpy_r_r108, cpy_r_r109);
     CPy_DECREF(cpy_r_r108);
     if (unlikely(cpy_r_r110 == NULL)) {
@@ -7737,7 +7487,7 @@ CPyL3: ;
         goto CPyL61;
     }
     cpy_r_r111 = CPyStatic_other_income___globals;
-    cpy_r_r112 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r112 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r113 = CPyDict_GetItem(cpy_r_r111, cpy_r_r112);
     if (unlikely(cpy_r_r113 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 61, CPyStatic_other_income___globals);
@@ -7745,7 +7495,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r114[2] = {cpy_r_r105, cpy_r_r110};
     cpy_r_r115 = (PyObject **)&cpy_r_r114;
-    cpy_r_r116 = _PyObject_Vectorcall(cpy_r_r113, cpy_r_r115, 2, 0);
+    cpy_r_r116 = PyObject_Vectorcall(cpy_r_r113, cpy_r_r115, 2, 0);
     CPy_DECREF(cpy_r_r113);
     if (unlikely(cpy_r_r116 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 61, CPyStatic_other_income___globals);
@@ -7754,7 +7504,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r110);
     PyObject *cpy_r_r117[1] = {cpy_r_r104};
     cpy_r_r118 = (PyObject **)&cpy_r_r117;
-    cpy_r_r119 = _PyObject_Vectorcall(cpy_r_r116, cpy_r_r118, 1, 0);
+    cpy_r_r119 = PyObject_Vectorcall(cpy_r_r116, cpy_r_r118, 1, 0);
     CPy_DECREF(cpy_r_r116);
     if (unlikely(cpy_r_r119 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 61, CPyStatic_other_income___globals);
@@ -7762,7 +7512,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r104);
     cpy_r_r120 = CPyStatic_other_income___globals;
-    cpy_r_r121 = CPyStatics[161]; /* 'is_usds_referral_code' */
+    cpy_r_r121 = CPyStatics[159]; /* 'is_usds_referral_code' */
     cpy_r_r122 = CPyDict_SetItem(cpy_r_r120, cpy_r_r121, cpy_r_r119);
     CPy_DECREF(cpy_r_r119);
     cpy_r_r123 = cpy_r_r122 >= 0;
@@ -7771,21 +7521,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r124 = CPyStatic_other_income___globals;
-    cpy_r_r125 = CPyStatics[163]; /* 'is_yeth_application_fee' */
+    cpy_r_r125 = CPyStatics[161]; /* 'is_yeth_application_fee' */
     cpy_r_r126 = CPyDict_GetItem(cpy_r_r124, cpy_r_r125);
     if (unlikely(cpy_r_r126 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 70, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r127 = CPyStatics[164]; /* 'yETH Application Fee' */
+    cpy_r_r127 = CPyStatics[162]; /* 'yETH Application Fee' */
     cpy_r_r128 = CPyStatic_other_income___globals;
-    cpy_r_r129 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r129 = CPyStatics[87]; /* 'Network' */
     cpy_r_r130 = CPyDict_GetItem(cpy_r_r128, cpy_r_r129);
     if (unlikely(cpy_r_r130 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 70, CPyStatic_other_income___globals);
         goto CPyL63;
     }
-    cpy_r_r131 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r131 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r132 = CPyObject_GetAttr(cpy_r_r130, cpy_r_r131);
     CPy_DECREF(cpy_r_r130);
     if (unlikely(cpy_r_r132 == NULL)) {
@@ -7793,7 +7543,7 @@ CPyL3: ;
         goto CPyL63;
     }
     cpy_r_r133 = CPyStatic_other_income___globals;
-    cpy_r_r134 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r134 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r135 = CPyDict_GetItem(cpy_r_r133, cpy_r_r134);
     if (unlikely(cpy_r_r135 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 70, CPyStatic_other_income___globals);
@@ -7801,7 +7551,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r136[2] = {cpy_r_r127, cpy_r_r132};
     cpy_r_r137 = (PyObject **)&cpy_r_r136;
-    cpy_r_r138 = _PyObject_Vectorcall(cpy_r_r135, cpy_r_r137, 2, 0);
+    cpy_r_r138 = PyObject_Vectorcall(cpy_r_r135, cpy_r_r137, 2, 0);
     CPy_DECREF(cpy_r_r135);
     if (unlikely(cpy_r_r138 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 70, CPyStatic_other_income___globals);
@@ -7810,7 +7560,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r132);
     PyObject *cpy_r_r139[1] = {cpy_r_r126};
     cpy_r_r140 = (PyObject **)&cpy_r_r139;
-    cpy_r_r141 = _PyObject_Vectorcall(cpy_r_r138, cpy_r_r140, 1, 0);
+    cpy_r_r141 = PyObject_Vectorcall(cpy_r_r138, cpy_r_r140, 1, 0);
     CPy_DECREF(cpy_r_r138);
     if (unlikely(cpy_r_r141 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 70, CPyStatic_other_income___globals);
@@ -7818,7 +7568,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r126);
     cpy_r_r142 = CPyStatic_other_income___globals;
-    cpy_r_r143 = CPyStatics[163]; /* 'is_yeth_application_fee' */
+    cpy_r_r143 = CPyStatics[161]; /* 'is_yeth_application_fee' */
     cpy_r_r144 = CPyDict_SetItem(cpy_r_r142, cpy_r_r143, cpy_r_r141);
     CPy_DECREF(cpy_r_r141);
     cpy_r_r145 = cpy_r_r144 >= 0;
@@ -7827,21 +7577,21 @@ CPyL3: ;
         goto CPyL54;
     }
     cpy_r_r146 = CPyStatic_other_income___globals;
-    cpy_r_r147 = CPyStatics[165]; /* 'is_yprisma_fees' */
+    cpy_r_r147 = CPyStatics[163]; /* 'is_yprisma_fees' */
     cpy_r_r148 = CPyDict_GetItem(cpy_r_r146, cpy_r_r147);
     if (unlikely(cpy_r_r148 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 75, CPyStatic_other_income___globals);
         goto CPyL54;
     }
-    cpy_r_r149 = CPyStatics[166]; /* 'yPRISMA Fees' */
+    cpy_r_r149 = CPyStatics[164]; /* 'yPRISMA Fees' */
     cpy_r_r150 = CPyStatic_other_income___globals;
-    cpy_r_r151 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r151 = CPyStatics[87]; /* 'Network' */
     cpy_r_r152 = CPyDict_GetItem(cpy_r_r150, cpy_r_r151);
     if (unlikely(cpy_r_r152 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 75, CPyStatic_other_income___globals);
         goto CPyL65;
     }
-    cpy_r_r153 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r153 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r154 = CPyObject_GetAttr(cpy_r_r152, cpy_r_r153);
     CPy_DECREF(cpy_r_r152);
     if (unlikely(cpy_r_r154 == NULL)) {
@@ -7849,7 +7599,7 @@ CPyL3: ;
         goto CPyL65;
     }
     cpy_r_r155 = CPyStatic_other_income___globals;
-    cpy_r_r156 = CPyStatics[150]; /* 'other_income' */
+    cpy_r_r156 = CPyStatics[148]; /* 'other_income' */
     cpy_r_r157 = CPyDict_GetItem(cpy_r_r155, cpy_r_r156);
     if (unlikely(cpy_r_r157 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 75, CPyStatic_other_income___globals);
@@ -7857,7 +7607,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r158[2] = {cpy_r_r149, cpy_r_r154};
     cpy_r_r159 = (PyObject **)&cpy_r_r158;
-    cpy_r_r160 = _PyObject_Vectorcall(cpy_r_r157, cpy_r_r159, 2, 0);
+    cpy_r_r160 = PyObject_Vectorcall(cpy_r_r157, cpy_r_r159, 2, 0);
     CPy_DECREF(cpy_r_r157);
     if (unlikely(cpy_r_r160 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 75, CPyStatic_other_income___globals);
@@ -7866,7 +7616,7 @@ CPyL3: ;
     CPy_DECREF(cpy_r_r154);
     PyObject *cpy_r_r161[1] = {cpy_r_r148};
     cpy_r_r162 = (PyObject **)&cpy_r_r161;
-    cpy_r_r163 = _PyObject_Vectorcall(cpy_r_r160, cpy_r_r162, 1, 0);
+    cpy_r_r163 = PyObject_Vectorcall(cpy_r_r160, cpy_r_r162, 1, 0);
     CPy_DECREF(cpy_r_r160);
     if (unlikely(cpy_r_r163 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/other_income/__init__.py", "<module>", 75, CPyStatic_other_income___globals);
@@ -7874,7 +7624,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r148);
     cpy_r_r164 = CPyStatic_other_income___globals;
-    cpy_r_r165 = CPyStatics[165]; /* 'is_yprisma_fees' */
+    cpy_r_r165 = CPyStatics[163]; /* 'is_yprisma_fees' */
     cpy_r_r166 = CPyDict_SetItem(cpy_r_r164, cpy_r_r165, cpy_r_r163);
     CPy_DECREF(cpy_r_r163);
     cpy_r_r167 = cpy_r_r166 >= 0;
@@ -8007,7 +7757,7 @@ char CPyDef_bribes___is_ycrv_bribe(PyObject *cpy_r_tx) {
     char cpy_r_r30;
     char cpy_r_r31;
     char cpy_r_r32;
-    cpy_r_r0 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r0 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 12, CPyStatic_bribes___globals);
@@ -8019,7 +7769,7 @@ char CPyDef_bribes___is_ycrv_bribe(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 12, CPyStatic_bribes___globals, "str", cpy_r_r1);
         goto CPyL22;
     }
-    cpy_r_r3 = CPyStatics[167]; /* 'Contract: BribeSplitter' */
+    cpy_r_r3 = CPyStatics[165]; /* 'Contract: BribeSplitter' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -8038,7 +7788,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL13;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r11 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 12, CPyStatic_bribes___globals);
@@ -8050,7 +7800,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 12, CPyStatic_bribes___globals, "str", cpy_r_r12);
         goto CPyL22;
     }
-    cpy_r_r14 = CPyStatics[168]; /* 'Contract: YCRVSplitter' */
+    cpy_r_r14 = CPyStatics[166]; /* 'Contract: YCRVSplitter' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -8071,7 +7821,7 @@ CPyL13: ;
     cpy_r_r21 = cpy_r_r10;
     goto CPyL21;
 CPyL15: ;
-    cpy_r_r22 = CPyStatics[76]; /* 'hash' */
+    cpy_r_r22 = CPyStatics[74]; /* 'hash' */
     cpy_r_r23 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r22);
     if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 20, CPyStatic_bribes___globals);
@@ -8083,7 +7833,7 @@ CPyL15: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/bribes.py", "is_ycrv_bribe", 20, CPyStatic_bribes___globals, "str", cpy_r_r23);
         goto CPyL22;
     }
-    cpy_r_r25 = CPyStatics[169]; /* '0x3c635388812bed82845c0df3531583399fdf736ccfb95837b362379766955f2d' */
+    cpy_r_r25 = CPyStatics[167]; /* '0x3c635388812bed82845c0df3531583399fdf736ccfb95837b362379766955f2d' */
     cpy_r_r26 = PyUnicode_Compare(cpy_r_r24, cpy_r_r25);
     CPy_DECREF(cpy_r_r24);
     cpy_r_r27 = cpy_r_r26 == -1;
@@ -8217,8 +7967,8 @@ char CPyDef_bribes_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[283]; /* ('Final',) */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[281]; /* ('Final',) */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic_bribes___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -8228,8 +7978,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[287]; /* ('TreasuryTx', 'revenue') */
-    cpy_r_r10 = CPyStatics[151]; /* 'dao_treasury' */
+    cpy_r_r9 = CPyStatics[285]; /* ('TreasuryTx', 'revenue') */
+    cpy_r_r10 = CPyStatics[149]; /* 'dao_treasury' */
     cpy_r_r11 = CPyStatic_bribes___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -8239,9 +7989,9 @@ CPyL3: ;
     CPyModule_dao_treasury = cpy_r_r12;
     CPy_INCREF(CPyModule_dao_treasury);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[171]; /* 'Bribes' */
+    cpy_r_r13 = CPyStatics[169]; /* 'Bribes' */
     cpy_r_r14 = CPyStatic_bribes___globals;
-    cpy_r_r15 = CPyStatics[170]; /* 'revenue' */
+    cpy_r_r15 = CPyStatics[168]; /* 'revenue' */
     cpy_r_r16 = CPyDict_GetItem(cpy_r_r14, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 6, CPyStatic_bribes___globals);
@@ -8249,7 +7999,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r17[1] = {cpy_r_r13};
     cpy_r_r18 = (PyObject **)&cpy_r_r17;
-    cpy_r_r19 = _PyObject_Vectorcall(cpy_r_r16, cpy_r_r18, 1, 0);
+    cpy_r_r19 = PyObject_Vectorcall(cpy_r_r16, cpy_r_r18, 1, 0);
     CPy_DECREF(cpy_r_r16);
     if (unlikely(cpy_r_r19 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 6, CPyStatic_bribes___globals);
@@ -8258,7 +8008,7 @@ CPyL3: ;
     CPyStatic_bribes___bribes = cpy_r_r19;
     CPy_INCREF(CPyStatic_bribes___bribes);
     cpy_r_r20 = CPyStatic_bribes___globals;
-    cpy_r_r21 = CPyStatics[172]; /* 'bribes' */
+    cpy_r_r21 = CPyStatics[170]; /* 'bribes' */
     cpy_r_r22 = CPyDict_SetItem(cpy_r_r20, cpy_r_r21, cpy_r_r19);
     CPy_DECREF(cpy_r_r19);
     cpy_r_r23 = cpy_r_r22 >= 0;
@@ -8267,13 +8017,13 @@ CPyL3: ;
         goto CPyL23;
     }
     cpy_r_r24 = CPyStatic_bribes___globals;
-    cpy_r_r25 = CPyStatics[173]; /* 'is_ycrv_bribe' */
+    cpy_r_r25 = CPyStatics[171]; /* 'is_ycrv_bribe' */
     cpy_r_r26 = CPyDict_GetItem(cpy_r_r24, cpy_r_r25);
     if (unlikely(cpy_r_r26 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 9, CPyStatic_bribes___globals);
         goto CPyL23;
     }
-    cpy_r_r27 = CPyStatics[174]; /* 'yCRV Bribes' */
+    cpy_r_r27 = CPyStatics[172]; /* 'yCRV Bribes' */
     cpy_r_r28 = CPyStatic_bribes___bribes;
     if (unlikely(cpy_r_r28 == NULL)) {
         goto CPyL24;
@@ -8290,14 +8040,14 @@ CPyL10: ;
 CPyL12: ;
     PyObject *cpy_r_r30[1] = {cpy_r_r27};
     cpy_r_r31 = (PyObject **)&cpy_r_r30;
-    cpy_r_r32 = _PyObject_Vectorcall(cpy_r_r28, cpy_r_r31, 1, 0);
+    cpy_r_r32 = PyObject_Vectorcall(cpy_r_r28, cpy_r_r31, 1, 0);
     if (unlikely(cpy_r_r32 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 9, CPyStatic_bribes___globals);
         goto CPyL25;
     }
     PyObject *cpy_r_r33[1] = {cpy_r_r26};
     cpy_r_r34 = (PyObject **)&cpy_r_r33;
-    cpy_r_r35 = _PyObject_Vectorcall(cpy_r_r32, cpy_r_r34, 1, 0);
+    cpy_r_r35 = PyObject_Vectorcall(cpy_r_r32, cpy_r_r34, 1, 0);
     CPy_DECREF(cpy_r_r32);
     if (unlikely(cpy_r_r35 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 9, CPyStatic_bribes___globals);
@@ -8305,7 +8055,7 @@ CPyL12: ;
     }
     CPy_DECREF(cpy_r_r26);
     cpy_r_r36 = CPyStatic_bribes___globals;
-    cpy_r_r37 = CPyStatics[173]; /* 'is_ycrv_bribe' */
+    cpy_r_r37 = CPyStatics[171]; /* 'is_ycrv_bribe' */
     cpy_r_r38 = CPyDict_SetItem(cpy_r_r36, cpy_r_r37, cpy_r_r35);
     CPy_DECREF(cpy_r_r35);
     cpy_r_r39 = cpy_r_r38 >= 0;
@@ -8314,13 +8064,13 @@ CPyL12: ;
         goto CPyL23;
     }
     cpy_r_r40 = CPyStatic_bribes___globals;
-    cpy_r_r41 = CPyStatics[175]; /* 'is_ybribe_fees' */
+    cpy_r_r41 = CPyStatics[173]; /* 'is_ybribe_fees' */
     cpy_r_r42 = CPyDict_GetItem(cpy_r_r40, cpy_r_r41);
     if (unlikely(cpy_r_r42 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 24, CPyStatic_bribes___globals);
         goto CPyL23;
     }
-    cpy_r_r43 = CPyStatics[176]; /* 'yBribe Fees' */
+    cpy_r_r43 = CPyStatics[174]; /* 'yBribe Fees' */
     cpy_r_r44 = CPyStatic_bribes___bribes;
     if (unlikely(cpy_r_r44 == NULL)) {
         goto CPyL26;
@@ -8337,14 +8087,14 @@ CPyL17: ;
 CPyL19: ;
     PyObject *cpy_r_r46[1] = {cpy_r_r43};
     cpy_r_r47 = (PyObject **)&cpy_r_r46;
-    cpy_r_r48 = _PyObject_Vectorcall(cpy_r_r44, cpy_r_r47, 1, 0);
+    cpy_r_r48 = PyObject_Vectorcall(cpy_r_r44, cpy_r_r47, 1, 0);
     if (unlikely(cpy_r_r48 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 24, CPyStatic_bribes___globals);
         goto CPyL27;
     }
     PyObject *cpy_r_r49[1] = {cpy_r_r42};
     cpy_r_r50 = (PyObject **)&cpy_r_r49;
-    cpy_r_r51 = _PyObject_Vectorcall(cpy_r_r48, cpy_r_r50, 1, 0);
+    cpy_r_r51 = PyObject_Vectorcall(cpy_r_r48, cpy_r_r50, 1, 0);
     CPy_DECREF(cpy_r_r48);
     if (unlikely(cpy_r_r51 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/bribes.py", "<module>", 24, CPyStatic_bribes___globals);
@@ -8352,7 +8102,7 @@ CPyL19: ;
     }
     CPy_DECREF(cpy_r_r42);
     cpy_r_r52 = CPyStatic_bribes___globals;
-    cpy_r_r53 = CPyStatics[175]; /* 'is_ybribe_fees' */
+    cpy_r_r53 = CPyStatics[173]; /* 'is_ybribe_fees' */
     cpy_r_r54 = CPyDict_SetItem(cpy_r_r52, cpy_r_r53, cpy_r_r51);
     CPy_DECREF(cpy_r_r51);
     cpy_r_r55 = cpy_r_r54 >= 0;
@@ -8456,7 +8206,7 @@ char CPyDef_keepcoins___is_keep_angle(PyObject *cpy_r_tx) {
     char cpy_r_r27;
     char cpy_r_r28;
     char cpy_r_r29;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_angle", 22, CPyStatic_keepcoins___globals);
@@ -8468,7 +8218,7 @@ char CPyDef_keepcoins___is_keep_angle(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_angle", 22, CPyStatic_keepcoins___globals, "str", cpy_r_r1);
         goto CPyL22;
     }
-    cpy_r_r3 = CPyStatics[177]; /* 'ANGLE' */
+    cpy_r_r3 = CPyStatics[175]; /* 'ANGLE' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -8487,7 +8237,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL21;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r11 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_angle", 23, CPyStatic_keepcoins___globals);
@@ -8499,7 +8249,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_angle", 23, CPyStatic_keepcoins___globals, "str", cpy_r_r12);
         goto CPyL22;
     }
-    cpy_r_r14 = CPyStatics[178]; /* 'Contract: StrategyAngleUSDC' */
+    cpy_r_r14 = CPyStatics[176]; /* 'Contract: StrategyAngleUSDC' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -8518,7 +8268,7 @@ CPyL12: ;
     cpy_r_r21 = cpy_r_r20;
     goto CPyL20;
 CPyL14: ;
-    cpy_r_r22 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r22 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r23 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r22);
     if (unlikely(cpy_r_r23 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_angle", 24, CPyStatic_keepcoins___globals);
@@ -8685,7 +8435,7 @@ char CPyDef_keepcoins___is_keep_bal(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r102;
     char cpy_r_r103;
     char cpy_r_r104;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 32, CPyStatic_keepcoins___globals);
@@ -8697,7 +8447,7 @@ char CPyDef_keepcoins___is_keep_bal(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 32, CPyStatic_keepcoins___globals, "str", cpy_r_r1);
         goto CPyL81;
     }
-    cpy_r_r3 = CPyStatics[179]; /* 'BAL' */
+    cpy_r_r3 = CPyStatics[177]; /* 'BAL' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -8713,7 +8463,7 @@ char CPyDef_keepcoins___is_keep_bal(PyObject *cpy_r_tx) {
 CPyL5: ;
     cpy_r_r9 = cpy_r_r4 != 0;
     if (cpy_r_r9) goto CPyL12;
-    cpy_r_r10 = CPyStatics[76]; /* 'hash' */
+    cpy_r_r10 = CPyStatics[74]; /* 'hash' */
     cpy_r_r11 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r10);
     if (unlikely(cpy_r_r11 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 33, CPyStatic_keepcoins___globals);
@@ -8725,7 +8475,7 @@ CPyL5: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 33, CPyStatic_keepcoins___globals, "str", cpy_r_r11);
         goto CPyL81;
     }
-    cpy_r_r13 = CPyStatics[180]; /* '0xf4677cce1a08ecd54272cdc1b23bc64693450f8bb5d6de59b8e58e288ec3b2a7' */
+    cpy_r_r13 = CPyStatics[178]; /* '0xf4677cce1a08ecd54272cdc1b23bc64693450f8bb5d6de59b8e58e288ec3b2a7' */
     cpy_r_r14 = PyUnicode_Compare(cpy_r_r12, cpy_r_r13);
     CPy_DECREF(cpy_r_r12);
     cpy_r_r15 = cpy_r_r14 == -1;
@@ -8744,7 +8494,7 @@ CPyL11: ;
 CPyL12: ;
     return 0;
 CPyL13: ;
-    cpy_r_r20 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r20 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r21 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r20);
     if (unlikely(cpy_r_r21 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals);
@@ -8756,7 +8506,7 @@ CPyL13: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals, "str", cpy_r_r21);
         goto CPyL81;
     }
-    cpy_r_r23 = CPyStatics[181]; /* 'Contract: SSBv3 DAI staBAL3' */
+    cpy_r_r23 = CPyStatics[179]; /* 'Contract: SSBv3 DAI staBAL3' */
     cpy_r_r24 = PyUnicode_Compare(cpy_r_r22, cpy_r_r23);
     CPy_DECREF(cpy_r_r22);
     cpy_r_r25 = cpy_r_r24 == -1;
@@ -8775,7 +8525,7 @@ CPyL18: ;
     cpy_r_r30 = cpy_r_r29;
     goto CPyL26;
 CPyL20: ;
-    cpy_r_r31 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r31 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r32 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r31);
     if (unlikely(cpy_r_r32 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals);
@@ -8787,7 +8537,7 @@ CPyL20: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals, "str", cpy_r_r32);
         goto CPyL81;
     }
-    cpy_r_r34 = CPyStatics[182]; /* 'Contract: SSBv3 USDC staBAL3' */
+    cpy_r_r34 = CPyStatics[180]; /* 'Contract: SSBv3 USDC staBAL3' */
     cpy_r_r35 = PyUnicode_Compare(cpy_r_r33, cpy_r_r34);
     CPy_DECREF(cpy_r_r33);
     cpy_r_r36 = cpy_r_r35 == -1;
@@ -8808,7 +8558,7 @@ CPyL26: ;
     cpy_r_r41 = cpy_r_r30;
     goto CPyL34;
 CPyL28: ;
-    cpy_r_r42 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r42 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r43 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r42);
     if (unlikely(cpy_r_r43 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals);
@@ -8820,7 +8570,7 @@ CPyL28: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals, "str", cpy_r_r43);
         goto CPyL81;
     }
-    cpy_r_r45 = CPyStatics[183]; /* 'Contract: SSBv3 USDT staBAL3' */
+    cpy_r_r45 = CPyStatics[181]; /* 'Contract: SSBv3 USDT staBAL3' */
     cpy_r_r46 = PyUnicode_Compare(cpy_r_r44, cpy_r_r45);
     CPy_DECREF(cpy_r_r44);
     cpy_r_r47 = cpy_r_r46 == -1;
@@ -8841,7 +8591,7 @@ CPyL34: ;
     cpy_r_r52 = cpy_r_r41;
     goto CPyL42;
 CPyL36: ;
-    cpy_r_r53 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r53 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r54 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r53);
     if (unlikely(cpy_r_r54 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals);
@@ -8853,7 +8603,7 @@ CPyL36: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals, "str", cpy_r_r54);
         goto CPyL81;
     }
-    cpy_r_r56 = CPyStatics[184]; /* 'Contract: SSBv3 WETH B-stETH-STABLE' */
+    cpy_r_r56 = CPyStatics[182]; /* 'Contract: SSBv3 WETH B-stETH-STABLE' */
     cpy_r_r57 = PyUnicode_Compare(cpy_r_r55, cpy_r_r56);
     CPy_DECREF(cpy_r_r55);
     cpy_r_r58 = cpy_r_r57 == -1;
@@ -8874,7 +8624,7 @@ CPyL42: ;
     cpy_r_r63 = cpy_r_r52;
     goto CPyL50;
 CPyL44: ;
-    cpy_r_r64 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r64 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r65 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r64);
     if (unlikely(cpy_r_r65 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals);
@@ -8886,7 +8636,7 @@ CPyL44: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 37, CPyStatic_keepcoins___globals, "str", cpy_r_r65);
         goto CPyL81;
     }
-    cpy_r_r67 = CPyStatics[185]; /* 'Contract: SSBv3 WBTC staBAL3-BTC' */
+    cpy_r_r67 = CPyStatics[183]; /* 'Contract: SSBv3 WBTC staBAL3-BTC' */
     cpy_r_r68 = PyUnicode_Compare(cpy_r_r66, cpy_r_r67);
     CPy_DECREF(cpy_r_r66);
     cpy_r_r69 = cpy_r_r68 == -1;
@@ -8907,13 +8657,13 @@ CPyL50: ;
     cpy_r_r74 = cpy_r_r63;
     goto CPyL80;
 CPyL52: ;
-    cpy_r_r75 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r75 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r76 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r75);
     if (unlikely(cpy_r_r76 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 43, CPyStatic_keepcoins___globals);
         goto CPyL81;
     }
-    cpy_r_r77 = CPyStatics[186]; /* '0x960818b3F08dADca90b840298721FE7B419fBE12' */
+    cpy_r_r77 = CPyStatics[184]; /* '0x960818b3F08dADca90b840298721FE7B419fBE12' */
     cpy_r_r78 = PyObject_RichCompare(cpy_r_r76, cpy_r_r77, 2);
     CPy_DECREF(cpy_r_r76);
     if (unlikely(cpy_r_r78 == NULL)) {
@@ -8933,13 +8683,13 @@ CPyL52: ;
     cpy_r_r80 = cpy_r_r79;
     goto CPyL61;
 CPyL57: ;
-    cpy_r_r81 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r81 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r82 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r81);
     if (unlikely(cpy_r_r82 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 43, CPyStatic_keepcoins___globals);
         goto CPyL81;
     }
-    cpy_r_r83 = CPyStatics[187]; /* '0x074620e389B5715f7ba51Fc062D8fFaf973c7E02' */
+    cpy_r_r83 = CPyStatics[185]; /* '0x074620e389B5715f7ba51Fc062D8fFaf973c7E02' */
     cpy_r_r84 = PyObject_RichCompare(cpy_r_r82, cpy_r_r83, 2);
     CPy_DECREF(cpy_r_r82);
     if (unlikely(cpy_r_r84 == NULL)) {
@@ -8961,13 +8711,13 @@ CPyL61: ;
     cpy_r_r86 = cpy_r_r80;
     goto CPyL67;
 CPyL63: ;
-    cpy_r_r87 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r87 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r88 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r87);
     if (unlikely(cpy_r_r88 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 43, CPyStatic_keepcoins___globals);
         goto CPyL81;
     }
-    cpy_r_r89 = CPyStatics[188]; /* '0xB0F8b341951233BF08A5F15a838A1a85B016aEf9' */
+    cpy_r_r89 = CPyStatics[186]; /* '0xB0F8b341951233BF08A5F15a838A1a85B016aEf9' */
     cpy_r_r90 = PyObject_RichCompare(cpy_r_r88, cpy_r_r89, 2);
     CPy_DECREF(cpy_r_r88);
     if (unlikely(cpy_r_r90 == NULL)) {
@@ -8989,13 +8739,13 @@ CPyL67: ;
     cpy_r_r92 = cpy_r_r86;
     goto CPyL73;
 CPyL69: ;
-    cpy_r_r93 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r93 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r94 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r93);
     if (unlikely(cpy_r_r94 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 43, CPyStatic_keepcoins___globals);
         goto CPyL81;
     }
-    cpy_r_r95 = CPyStatics[189]; /* '0x034d775615d50D870D742caA1e539fC8d97955c2' */
+    cpy_r_r95 = CPyStatics[187]; /* '0x034d775615d50D870D742caA1e539fC8d97955c2' */
     cpy_r_r96 = PyObject_RichCompare(cpy_r_r94, cpy_r_r95, 2);
     CPy_DECREF(cpy_r_r94);
     if (unlikely(cpy_r_r96 == NULL)) {
@@ -9017,13 +8767,13 @@ CPyL73: ;
     cpy_r_r98 = cpy_r_r92;
     goto CPyL79;
 CPyL75: ;
-    cpy_r_r99 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r99 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r100 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r99);
     if (unlikely(cpy_r_r100 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_bal", 43, CPyStatic_keepcoins___globals);
         goto CPyL81;
     }
-    cpy_r_r101 = CPyStatics[190]; /* '0xe614f717b3e8273f38Ed7e0536DfBA60AD021c85' */
+    cpy_r_r101 = CPyStatics[188]; /* '0xe614f717b3e8273f38Ed7e0536DfBA60AD021c85' */
     cpy_r_r102 = PyObject_RichCompare(cpy_r_r100, cpy_r_r101, 2);
     CPy_DECREF(cpy_r_r100);
     if (unlikely(cpy_r_r102 == NULL)) {
@@ -9092,7 +8842,7 @@ char CPyDef_keepcoins___is_keep_beets(PyObject *cpy_r_tx) {
     char cpy_r_r19;
     char cpy_r_r20;
     char cpy_r_r21;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_beets", 56, CPyStatic_keepcoins___globals);
@@ -9104,7 +8854,7 @@ char CPyDef_keepcoins___is_keep_beets(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_beets", 56, CPyStatic_keepcoins___globals, "str", cpy_r_r1);
         goto CPyL14;
     }
-    cpy_r_r3 = CPyStatics[191]; /* 'BEETS' */
+    cpy_r_r3 = CPyStatics[189]; /* 'BEETS' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -9123,7 +8873,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL13;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[76]; /* 'hash' */
+    cpy_r_r11 = CPyStatics[74]; /* 'hash' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_beets", 57, CPyStatic_keepcoins___globals);
@@ -9135,7 +8885,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_beets", 57, CPyStatic_keepcoins___globals, "str", cpy_r_r12);
         goto CPyL14;
     }
-    cpy_r_r14 = CPyStatics[192]; /* '0x1e997aa8c79ece76face8deb8fe7df4cea4f6a1ef7cd28501013ed30dfbe238f' */
+    cpy_r_r14 = CPyStatics[190]; /* '0x1e997aa8c79ece76face8deb8fe7df4cea4f6a1ef7cd28501013ed30dfbe238f' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -9201,7 +8951,7 @@ char CPyDef_keepcoins___is_keep_pool(PyObject *cpy_r_tx) {
     char cpy_r_r19;
     char cpy_r_r20;
     char cpy_r_r21;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_pool", 63, CPyStatic_keepcoins___globals);
@@ -9213,7 +8963,7 @@ char CPyDef_keepcoins___is_keep_pool(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_pool", 63, CPyStatic_keepcoins___globals, "str", cpy_r_r1);
         goto CPyL14;
     }
-    cpy_r_r3 = CPyStatics[193]; /* 'POOL' */
+    cpy_r_r3 = CPyStatics[191]; /* 'POOL' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -9232,7 +8982,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL13;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r11 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_pool", 63, CPyStatic_keepcoins___globals);
@@ -9244,7 +8994,7 @@ CPyL7: ;
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/keepcoins.py", "is_keep_pool", 63, CPyStatic_keepcoins___globals, "str", cpy_r_r12);
         goto CPyL14;
     }
-    cpy_r_r14 = CPyStatics[194]; /* 'Contract: StrategyPoolTogether' */
+    cpy_r_r14 = CPyStatics[192]; /* 'Contract: StrategyPoolTogether' */
     cpy_r_r15 = PyUnicode_Compare(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     cpy_r_r16 = cpy_r_r15 == -1;
@@ -9413,8 +9163,8 @@ char CPyDef_keepcoins_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[288]; /* ('Final', 'Tuple') */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[286]; /* ('Final', 'Tuple') */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic_keepcoins___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -9424,8 +9174,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[276]; /* ('Network',) */
-    cpy_r_r10 = CPyStatics[90]; /* 'y' */
+    cpy_r_r9 = CPyStatics[274]; /* ('Network',) */
+    cpy_r_r10 = CPyStatics[88]; /* 'y' */
     cpy_r_r11 = CPyStatic_keepcoins___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -9435,8 +9185,8 @@ CPyL3: ;
     CPyModule_y = cpy_r_r12;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[277]; /* ('CHAINID',) */
-    cpy_r_r14 = CPyStatics[92]; /* 'y.constants' */
+    cpy_r_r13 = CPyStatics[275]; /* ('CHAINID',) */
+    cpy_r_r14 = CPyStatics[90]; /* 'y.constants' */
     cpy_r_r15 = CPyStatic_keepcoins___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -9446,8 +9196,8 @@ CPyL3: ;
     CPyModule_y___constants = cpy_r_r16;
     CPy_INCREF(CPyModule_y___constants);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[287]; /* ('TreasuryTx', 'revenue') */
-    cpy_r_r18 = CPyStatics[151]; /* 'dao_treasury' */
+    cpy_r_r17 = CPyStatics[285]; /* ('TreasuryTx', 'revenue') */
+    cpy_r_r18 = CPyStatics[149]; /* 'dao_treasury' */
     cpy_r_r19 = CPyStatic_keepcoins___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -9457,9 +9207,9 @@ CPyL3: ;
     CPyModule_dao_treasury = cpy_r_r20;
     CPy_INCREF(CPyModule_dao_treasury);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[196]; /* 'keepCOINS' */
+    cpy_r_r21 = CPyStatics[194]; /* 'keepCOINS' */
     cpy_r_r22 = CPyStatic_keepcoins___globals;
-    cpy_r_r23 = CPyStatics[170]; /* 'revenue' */
+    cpy_r_r23 = CPyStatics[168]; /* 'revenue' */
     cpy_r_r24 = CPyDict_GetItem(cpy_r_r22, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 10, CPyStatic_keepcoins___globals);
@@ -9467,7 +9217,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r25[1] = {cpy_r_r21};
     cpy_r_r26 = (PyObject **)&cpy_r_r25;
-    cpy_r_r27 = _PyObject_Vectorcall(cpy_r_r24, cpy_r_r26, 1, 0);
+    cpy_r_r27 = PyObject_Vectorcall(cpy_r_r24, cpy_r_r26, 1, 0);
     CPy_DECREF(cpy_r_r24);
     if (unlikely(cpy_r_r27 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 10, CPyStatic_keepcoins___globals);
@@ -9476,7 +9226,7 @@ CPyL3: ;
     CPyStatic_keepcoins___keepcoins = cpy_r_r27;
     CPy_INCREF(CPyStatic_keepcoins___keepcoins);
     cpy_r_r28 = CPyStatic_keepcoins___globals;
-    cpy_r_r29 = CPyStatics[197]; /* 'keepcoins' */
+    cpy_r_r29 = CPyStatics[195]; /* 'keepcoins' */
     cpy_r_r30 = CPyDict_SetItem(cpy_r_r28, cpy_r_r29, cpy_r_r27);
     CPy_DECREF(cpy_r_r27);
     cpy_r_r31 = cpy_r_r30 >= 0;
@@ -9485,21 +9235,21 @@ CPyL3: ;
         goto CPyL47;
     }
     cpy_r_r32 = CPyStatic_keepcoins___globals;
-    cpy_r_r33 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r33 = CPyStatics[87]; /* 'Network' */
     cpy_r_r34 = CPyDict_GetItem(cpy_r_r32, cpy_r_r33);
     if (unlikely(cpy_r_r34 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 13, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r35 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r35 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r36 = CPyObject_GetAttr(cpy_r_r34, cpy_r_r35);
     CPy_DECREF(cpy_r_r34);
     if (unlikely(cpy_r_r36 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 13, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r37 = CPyStatics[198]; /* '0x2CB390212b0e5091a3c0D0331669c1419165CF80' */
-    cpy_r_r38 = CPyStatics[199]; /* '0x7C2b9DB2Ae5aCC6fAC2Fd6cE9b01A5EB4bDD1309' */
+    cpy_r_r37 = CPyStatics[196]; /* '0x2CB390212b0e5091a3c0D0331669c1419165CF80' */
+    cpy_r_r38 = CPyStatics[197]; /* '0x7C2b9DB2Ae5aCC6fAC2Fd6cE9b01A5EB4bDD1309' */
     CPy_INCREF(cpy_r_r37);
     CPy_INCREF(cpy_r_r38);
     cpy_r_r39.f0 = cpy_r_r37;
@@ -9519,7 +9269,7 @@ CPyL3: ;
         goto CPyL47;
     }
     cpy_r_r42 = CPyStatic_keepcoins___globals;
-    cpy_r_r43 = CPyStatics[91]; /* 'CHAINID' */
+    cpy_r_r43 = CPyStatics[89]; /* 'CHAINID' */
     cpy_r_r44 = CPyDict_GetItem(cpy_r_r42, cpy_r_r43);
     if (unlikely(cpy_r_r44 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 17, CPyStatic_keepcoins___globals);
@@ -9559,7 +9309,7 @@ CPyL3: ;
     CPy_INCREF(CPyStatic_keepcoins___angle_strats_with_non_specific_names);
     CPy_DECREF(cpy_r_r50);
     cpy_r_r51 = CPyStatic_keepcoins___globals;
-    cpy_r_r52 = CPyStatics[200]; /* 'angle_strats_with_non_specific_names' */
+    cpy_r_r52 = CPyStatics[198]; /* 'angle_strats_with_non_specific_names' */
     cpy_r_r53 = CPyDict_SetItem(cpy_r_r51, cpy_r_r52, cpy_r_r49);
     CPy_DECREF(cpy_r_r49);
     cpy_r_r54 = cpy_r_r53 >= 0;
@@ -9568,13 +9318,13 @@ CPyL3: ;
         goto CPyL47;
     }
     cpy_r_r55 = CPyStatic_keepcoins___globals;
-    cpy_r_r56 = CPyStatics[201]; /* 'is_keep_angle' */
+    cpy_r_r56 = CPyStatics[199]; /* 'is_keep_angle' */
     cpy_r_r57 = CPyDict_GetItem(cpy_r_r55, cpy_r_r56);
     if (unlikely(cpy_r_r57 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 20, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r58 = CPyStatics[202]; /* 'KeepANGLE' */
+    cpy_r_r58 = CPyStatics[200]; /* 'KeepANGLE' */
     cpy_r_r59 = CPyStatic_keepcoins___keepcoins;
     if (unlikely(cpy_r_r59 == NULL)) {
         goto CPyL50;
@@ -9591,14 +9341,14 @@ CPyL20: ;
 CPyL22: ;
     PyObject *cpy_r_r61[1] = {cpy_r_r58};
     cpy_r_r62 = (PyObject **)&cpy_r_r61;
-    cpy_r_r63 = _PyObject_Vectorcall(cpy_r_r59, cpy_r_r62, 1, 0);
+    cpy_r_r63 = PyObject_Vectorcall(cpy_r_r59, cpy_r_r62, 1, 0);
     if (unlikely(cpy_r_r63 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 20, CPyStatic_keepcoins___globals);
         goto CPyL51;
     }
     PyObject *cpy_r_r64[1] = {cpy_r_r57};
     cpy_r_r65 = (PyObject **)&cpy_r_r64;
-    cpy_r_r66 = _PyObject_Vectorcall(cpy_r_r63, cpy_r_r65, 1, 0);
+    cpy_r_r66 = PyObject_Vectorcall(cpy_r_r63, cpy_r_r65, 1, 0);
     CPy_DECREF(cpy_r_r63);
     if (unlikely(cpy_r_r66 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 20, CPyStatic_keepcoins___globals);
@@ -9606,7 +9356,7 @@ CPyL22: ;
     }
     CPy_DECREF(cpy_r_r57);
     cpy_r_r67 = CPyStatic_keepcoins___globals;
-    cpy_r_r68 = CPyStatics[201]; /* 'is_keep_angle' */
+    cpy_r_r68 = CPyStatics[199]; /* 'is_keep_angle' */
     cpy_r_r69 = CPyDict_SetItem(cpy_r_r67, cpy_r_r68, cpy_r_r66);
     CPy_DECREF(cpy_r_r66);
     cpy_r_r70 = cpy_r_r69 >= 0;
@@ -9615,13 +9365,13 @@ CPyL22: ;
         goto CPyL47;
     }
     cpy_r_r71 = CPyStatic_keepcoins___globals;
-    cpy_r_r72 = CPyStatics[203]; /* 'is_keep_bal' */
+    cpy_r_r72 = CPyStatics[201]; /* 'is_keep_bal' */
     cpy_r_r73 = CPyDict_GetItem(cpy_r_r71, cpy_r_r72);
     if (unlikely(cpy_r_r73 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 28, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r74 = CPyStatics[204]; /* 'KeepBAL' */
+    cpy_r_r74 = CPyStatics[202]; /* 'KeepBAL' */
     cpy_r_r75 = CPyStatic_keepcoins___keepcoins;
     if (unlikely(cpy_r_r75 == NULL)) {
         goto CPyL52;
@@ -9638,14 +9388,14 @@ CPyL27: ;
 CPyL29: ;
     PyObject *cpy_r_r77[1] = {cpy_r_r74};
     cpy_r_r78 = (PyObject **)&cpy_r_r77;
-    cpy_r_r79 = _PyObject_Vectorcall(cpy_r_r75, cpy_r_r78, 1, 0);
+    cpy_r_r79 = PyObject_Vectorcall(cpy_r_r75, cpy_r_r78, 1, 0);
     if (unlikely(cpy_r_r79 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 28, CPyStatic_keepcoins___globals);
         goto CPyL53;
     }
     PyObject *cpy_r_r80[1] = {cpy_r_r73};
     cpy_r_r81 = (PyObject **)&cpy_r_r80;
-    cpy_r_r82 = _PyObject_Vectorcall(cpy_r_r79, cpy_r_r81, 1, 0);
+    cpy_r_r82 = PyObject_Vectorcall(cpy_r_r79, cpy_r_r81, 1, 0);
     CPy_DECREF(cpy_r_r79);
     if (unlikely(cpy_r_r82 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 28, CPyStatic_keepcoins___globals);
@@ -9653,7 +9403,7 @@ CPyL29: ;
     }
     CPy_DECREF(cpy_r_r73);
     cpy_r_r83 = CPyStatic_keepcoins___globals;
-    cpy_r_r84 = CPyStatics[203]; /* 'is_keep_bal' */
+    cpy_r_r84 = CPyStatics[201]; /* 'is_keep_bal' */
     cpy_r_r85 = CPyDict_SetItem(cpy_r_r83, cpy_r_r84, cpy_r_r82);
     CPy_DECREF(cpy_r_r82);
     cpy_r_r86 = cpy_r_r85 >= 0;
@@ -9662,13 +9412,13 @@ CPyL29: ;
         goto CPyL47;
     }
     cpy_r_r87 = CPyStatic_keepcoins___globals;
-    cpy_r_r88 = CPyStatics[205]; /* 'is_keep_beets' */
+    cpy_r_r88 = CPyStatics[203]; /* 'is_keep_beets' */
     cpy_r_r89 = CPyDict_GetItem(cpy_r_r87, cpy_r_r88);
     if (unlikely(cpy_r_r89 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 53, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r90 = CPyStatics[206]; /* 'KeepBEETS' */
+    cpy_r_r90 = CPyStatics[204]; /* 'KeepBEETS' */
     cpy_r_r91 = CPyStatic_keepcoins___keepcoins;
     if (unlikely(cpy_r_r91 == NULL)) {
         goto CPyL54;
@@ -9685,14 +9435,14 @@ CPyL34: ;
 CPyL36: ;
     PyObject *cpy_r_r93[1] = {cpy_r_r90};
     cpy_r_r94 = (PyObject **)&cpy_r_r93;
-    cpy_r_r95 = _PyObject_Vectorcall(cpy_r_r91, cpy_r_r94, 1, 0);
+    cpy_r_r95 = PyObject_Vectorcall(cpy_r_r91, cpy_r_r94, 1, 0);
     if (unlikely(cpy_r_r95 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 53, CPyStatic_keepcoins___globals);
         goto CPyL55;
     }
     PyObject *cpy_r_r96[1] = {cpy_r_r89};
     cpy_r_r97 = (PyObject **)&cpy_r_r96;
-    cpy_r_r98 = _PyObject_Vectorcall(cpy_r_r95, cpy_r_r97, 1, 0);
+    cpy_r_r98 = PyObject_Vectorcall(cpy_r_r95, cpy_r_r97, 1, 0);
     CPy_DECREF(cpy_r_r95);
     if (unlikely(cpy_r_r98 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 53, CPyStatic_keepcoins___globals);
@@ -9700,7 +9450,7 @@ CPyL36: ;
     }
     CPy_DECREF(cpy_r_r89);
     cpy_r_r99 = CPyStatic_keepcoins___globals;
-    cpy_r_r100 = CPyStatics[205]; /* 'is_keep_beets' */
+    cpy_r_r100 = CPyStatics[203]; /* 'is_keep_beets' */
     cpy_r_r101 = CPyDict_SetItem(cpy_r_r99, cpy_r_r100, cpy_r_r98);
     CPy_DECREF(cpy_r_r98);
     cpy_r_r102 = cpy_r_r101 >= 0;
@@ -9709,13 +9459,13 @@ CPyL36: ;
         goto CPyL47;
     }
     cpy_r_r103 = CPyStatic_keepcoins___globals;
-    cpy_r_r104 = CPyStatics[207]; /* 'is_keep_pool' */
+    cpy_r_r104 = CPyStatics[205]; /* 'is_keep_pool' */
     cpy_r_r105 = CPyDict_GetItem(cpy_r_r103, cpy_r_r104);
     if (unlikely(cpy_r_r105 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 61, CPyStatic_keepcoins___globals);
         goto CPyL47;
     }
-    cpy_r_r106 = CPyStatics[208]; /* 'KeepPOOL' */
+    cpy_r_r106 = CPyStatics[206]; /* 'KeepPOOL' */
     cpy_r_r107 = CPyStatic_keepcoins___keepcoins;
     if (unlikely(cpy_r_r107 == NULL)) {
         goto CPyL56;
@@ -9732,14 +9482,14 @@ CPyL41: ;
 CPyL43: ;
     PyObject *cpy_r_r109[1] = {cpy_r_r106};
     cpy_r_r110 = (PyObject **)&cpy_r_r109;
-    cpy_r_r111 = _PyObject_Vectorcall(cpy_r_r107, cpy_r_r110, 1, 0);
+    cpy_r_r111 = PyObject_Vectorcall(cpy_r_r107, cpy_r_r110, 1, 0);
     if (unlikely(cpy_r_r111 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 61, CPyStatic_keepcoins___globals);
         goto CPyL57;
     }
     PyObject *cpy_r_r112[1] = {cpy_r_r105};
     cpy_r_r113 = (PyObject **)&cpy_r_r112;
-    cpy_r_r114 = _PyObject_Vectorcall(cpy_r_r111, cpy_r_r113, 1, 0);
+    cpy_r_r114 = PyObject_Vectorcall(cpy_r_r111, cpy_r_r113, 1, 0);
     CPy_DECREF(cpy_r_r111);
     if (unlikely(cpy_r_r114 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/keepcoins.py", "<module>", 61, CPyStatic_keepcoins___globals);
@@ -9747,7 +9497,7 @@ CPyL43: ;
     }
     CPy_DECREF(cpy_r_r105);
     cpy_r_r115 = CPyStatic_keepcoins___globals;
-    cpy_r_r116 = CPyStatics[207]; /* 'is_keep_pool' */
+    cpy_r_r116 = CPyStatics[205]; /* 'is_keep_pool' */
     cpy_r_r117 = CPyDict_SetItem(cpy_r_r115, cpy_r_r116, cpy_r_r114);
     CPy_DECREF(cpy_r_r114);
     cpy_r_r118 = cpy_r_r117 >= 0;
@@ -9853,7 +9603,7 @@ char CPyDef_seasolver___is_seasolver_slippage_revenue(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r15;
     char cpy_r_r16;
     char cpy_r_r17;
-    cpy_r_r0 = CPyStatics[74]; /* 'from_nickname' */
+    cpy_r_r0 = CPyStatics[72]; /* 'from_nickname' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_seasolver_slippage_revenue", 11, CPyStatic_seasolver___globals);
@@ -9865,7 +9615,7 @@ char CPyDef_seasolver___is_seasolver_slippage_revenue(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_seasolver_slippage_revenue", 11, CPyStatic_seasolver___globals, "str", cpy_r_r1);
         goto CPyL13;
     }
-    cpy_r_r3 = CPyStatics[209]; /* 'Contract: TradeHandler' */
+    cpy_r_r3 = CPyStatics[207]; /* 'Contract: TradeHandler' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -9884,7 +9634,7 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL12;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[121]; /* 'to_nickname' */
+    cpy_r_r11 = CPyStatics[119]; /* 'to_nickname' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_seasolver_slippage_revenue", 11, CPyStatic_seasolver___globals);
@@ -9905,7 +9655,7 @@ CPyL7: ;
     CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_seasolver_slippage_revenue", 11, CPyStatic_seasolver___globals, "str or None", cpy_r_r12);
     goto CPyL13;
 __LL12: ;
-    cpy_r_r14 = CPyStatics[141]; /* 'yMechs Multisig' */
+    cpy_r_r14 = CPyStatics[139]; /* 'yMechs Multisig' */
     cpy_r_r15 = PyObject_RichCompare(cpy_r_r13, cpy_r_r14, 2);
     CPy_DECREF(cpy_r_r13);
     if (unlikely(cpy_r_r15 == NULL)) {
@@ -9967,7 +9717,7 @@ char CPyDef_seasolver___is_cowswap_incentive(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r14;
     char cpy_r_r15;
     char cpy_r_r16;
-    cpy_r_r0 = CPyStatics[72]; /* 'symbol' */
+    cpy_r_r0 = CPyStatics[70]; /* 'symbol' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_cowswap_incentive", 17, CPyStatic_seasolver___globals);
@@ -9979,7 +9729,7 @@ char CPyDef_seasolver___is_cowswap_incentive(PyObject *cpy_r_tx) {
         CPy_TypeErrorTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_cowswap_incentive", 17, CPyStatic_seasolver___globals, "str", cpy_r_r1);
         goto CPyL12;
     }
-    cpy_r_r3 = CPyStatics[210]; /* 'COW' */
+    cpy_r_r3 = CPyStatics[208]; /* 'COW' */
     cpy_r_r4 = PyUnicode_Compare(cpy_r_r2, cpy_r_r3);
     CPy_DECREF(cpy_r_r2);
     cpy_r_r5 = cpy_r_r4 == -1;
@@ -9998,13 +9748,13 @@ CPyL5: ;
     cpy_r_r10 = cpy_r_r9;
     goto CPyL11;
 CPyL7: ;
-    cpy_r_r11 = CPyStatics[118]; /* 'from_address' */
+    cpy_r_r11 = CPyStatics[116]; /* 'from_address' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "is_cowswap_incentive", 17, CPyStatic_seasolver___globals);
         goto CPyL12;
     }
-    cpy_r_r13 = CPyStatics[211]; /* '0xA03be496e67Ec29bC62F01a428683D7F9c204930' */
+    cpy_r_r13 = CPyStatics[209]; /* '0xA03be496e67Ec29bC62F01a428683D7F9c204930' */
     cpy_r_r14 = PyObject_RichCompare(cpy_r_r12, cpy_r_r13, 2);
     CPy_DECREF(cpy_r_r12);
     if (unlikely(cpy_r_r14 == NULL)) {
@@ -10124,8 +9874,8 @@ char CPyDef_seasolver_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[283]; /* ('Final',) */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[281]; /* ('Final',) */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic_seasolver___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -10135,8 +9885,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[287]; /* ('TreasuryTx', 'revenue') */
-    cpy_r_r10 = CPyStatics[151]; /* 'dao_treasury' */
+    cpy_r_r9 = CPyStatics[285]; /* ('TreasuryTx', 'revenue') */
+    cpy_r_r10 = CPyStatics[149]; /* 'dao_treasury' */
     cpy_r_r11 = CPyStatic_seasolver___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -10146,8 +9896,8 @@ CPyL3: ;
     CPyModule_dao_treasury = cpy_r_r12;
     CPy_INCREF(CPyModule_dao_treasury);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[276]; /* ('Network',) */
-    cpy_r_r14 = CPyStatics[90]; /* 'y' */
+    cpy_r_r13 = CPyStatics[274]; /* ('Network',) */
+    cpy_r_r14 = CPyStatics[88]; /* 'y' */
     cpy_r_r15 = CPyStatic_seasolver___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -10157,15 +9907,15 @@ CPyL3: ;
     CPyModule_y = cpy_r_r16;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[212]; /* 'Seasolver' */
+    cpy_r_r17 = CPyStatics[210]; /* 'Seasolver' */
     cpy_r_r18 = CPyStatic_seasolver___globals;
-    cpy_r_r19 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r19 = CPyStatics[87]; /* 'Network' */
     cpy_r_r20 = CPyDict_GetItem(cpy_r_r18, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 6, CPyStatic_seasolver___globals);
         goto CPyL26;
     }
-    cpy_r_r21 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r21 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r22 = CPyObject_GetAttr(cpy_r_r20, cpy_r_r21);
     CPy_DECREF(cpy_r_r20);
     if (unlikely(cpy_r_r22 == NULL)) {
@@ -10173,7 +9923,7 @@ CPyL3: ;
         goto CPyL26;
     }
     cpy_r_r23 = CPyStatic_seasolver___globals;
-    cpy_r_r24 = CPyStatics[170]; /* 'revenue' */
+    cpy_r_r24 = CPyStatics[168]; /* 'revenue' */
     cpy_r_r25 = CPyDict_GetItem(cpy_r_r23, cpy_r_r24);
     if (unlikely(cpy_r_r25 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 6, CPyStatic_seasolver___globals);
@@ -10181,7 +9931,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r26[2] = {cpy_r_r17, cpy_r_r22};
     cpy_r_r27 = (PyObject **)&cpy_r_r26;
-    cpy_r_r28 = _PyObject_Vectorcall(cpy_r_r25, cpy_r_r27, 2, 0);
+    cpy_r_r28 = PyObject_Vectorcall(cpy_r_r25, cpy_r_r27, 2, 0);
     CPy_DECREF(cpy_r_r25);
     if (unlikely(cpy_r_r28 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 6, CPyStatic_seasolver___globals);
@@ -10191,7 +9941,7 @@ CPyL3: ;
     CPyStatic_seasolver___seasolver = cpy_r_r28;
     CPy_INCREF(CPyStatic_seasolver___seasolver);
     cpy_r_r29 = CPyStatic_seasolver___globals;
-    cpy_r_r30 = CPyStatics[213]; /* 'seasolver' */
+    cpy_r_r30 = CPyStatics[211]; /* 'seasolver' */
     cpy_r_r31 = CPyDict_SetItem(cpy_r_r29, cpy_r_r30, cpy_r_r28);
     CPy_DECREF(cpy_r_r28);
     cpy_r_r32 = cpy_r_r31 >= 0;
@@ -10200,13 +9950,13 @@ CPyL3: ;
         goto CPyL26;
     }
     cpy_r_r33 = CPyStatic_seasolver___globals;
-    cpy_r_r34 = CPyStatics[214]; /* 'is_seasolver_slippage_revenue' */
+    cpy_r_r34 = CPyStatics[212]; /* 'is_seasolver_slippage_revenue' */
     cpy_r_r35 = CPyDict_GetItem(cpy_r_r33, cpy_r_r34);
     if (unlikely(cpy_r_r35 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 9, CPyStatic_seasolver___globals);
         goto CPyL26;
     }
-    cpy_r_r36 = CPyStatics[215]; /* 'Positive Slippage' */
+    cpy_r_r36 = CPyStatics[213]; /* 'Positive Slippage' */
     cpy_r_r37 = CPyStatic_seasolver___seasolver;
     if (unlikely(cpy_r_r37 == NULL)) {
         goto CPyL28;
@@ -10223,14 +9973,14 @@ CPyL13: ;
 CPyL15: ;
     PyObject *cpy_r_r39[1] = {cpy_r_r36};
     cpy_r_r40 = (PyObject **)&cpy_r_r39;
-    cpy_r_r41 = _PyObject_Vectorcall(cpy_r_r37, cpy_r_r40, 1, 0);
+    cpy_r_r41 = PyObject_Vectorcall(cpy_r_r37, cpy_r_r40, 1, 0);
     if (unlikely(cpy_r_r41 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 9, CPyStatic_seasolver___globals);
         goto CPyL29;
     }
     PyObject *cpy_r_r42[1] = {cpy_r_r35};
     cpy_r_r43 = (PyObject **)&cpy_r_r42;
-    cpy_r_r44 = _PyObject_Vectorcall(cpy_r_r41, cpy_r_r43, 1, 0);
+    cpy_r_r44 = PyObject_Vectorcall(cpy_r_r41, cpy_r_r43, 1, 0);
     CPy_DECREF(cpy_r_r41);
     if (unlikely(cpy_r_r44 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 9, CPyStatic_seasolver___globals);
@@ -10238,7 +9988,7 @@ CPyL15: ;
     }
     CPy_DECREF(cpy_r_r35);
     cpy_r_r45 = CPyStatic_seasolver___globals;
-    cpy_r_r46 = CPyStatics[214]; /* 'is_seasolver_slippage_revenue' */
+    cpy_r_r46 = CPyStatics[212]; /* 'is_seasolver_slippage_revenue' */
     cpy_r_r47 = CPyDict_SetItem(cpy_r_r45, cpy_r_r46, cpy_r_r44);
     CPy_DECREF(cpy_r_r44);
     cpy_r_r48 = cpy_r_r47 >= 0;
@@ -10247,13 +9997,13 @@ CPyL15: ;
         goto CPyL26;
     }
     cpy_r_r49 = CPyStatic_seasolver___globals;
-    cpy_r_r50 = CPyStatics[216]; /* 'is_cowswap_incentive' */
+    cpy_r_r50 = CPyStatics[214]; /* 'is_cowswap_incentive' */
     cpy_r_r51 = CPyDict_GetItem(cpy_r_r49, cpy_r_r50);
     if (unlikely(cpy_r_r51 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 14, CPyStatic_seasolver___globals);
         goto CPyL26;
     }
-    cpy_r_r52 = CPyStatics[217]; /* 'CowSwap Incentives' */
+    cpy_r_r52 = CPyStatics[215]; /* 'CowSwap Incentives' */
     cpy_r_r53 = CPyStatic_seasolver___seasolver;
     if (unlikely(cpy_r_r53 == NULL)) {
         goto CPyL30;
@@ -10270,14 +10020,14 @@ CPyL20: ;
 CPyL22: ;
     PyObject *cpy_r_r55[1] = {cpy_r_r52};
     cpy_r_r56 = (PyObject **)&cpy_r_r55;
-    cpy_r_r57 = _PyObject_Vectorcall(cpy_r_r53, cpy_r_r56, 1, 0);
+    cpy_r_r57 = PyObject_Vectorcall(cpy_r_r53, cpy_r_r56, 1, 0);
     if (unlikely(cpy_r_r57 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 14, CPyStatic_seasolver___globals);
         goto CPyL31;
     }
     PyObject *cpy_r_r58[1] = {cpy_r_r51};
     cpy_r_r59 = (PyObject **)&cpy_r_r58;
-    cpy_r_r60 = _PyObject_Vectorcall(cpy_r_r57, cpy_r_r59, 1, 0);
+    cpy_r_r60 = PyObject_Vectorcall(cpy_r_r57, cpy_r_r59, 1, 0);
     CPy_DECREF(cpy_r_r57);
     if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/revenue/seasolver.py", "<module>", 14, CPyStatic_seasolver___globals);
@@ -10285,7 +10035,7 @@ CPyL22: ;
     }
     CPy_DECREF(cpy_r_r51);
     cpy_r_r61 = CPyStatic_seasolver___globals;
-    cpy_r_r62 = CPyStatics[216]; /* 'is_cowswap_incentive' */
+    cpy_r_r62 = CPyStatics[214]; /* 'is_cowswap_incentive' */
     cpy_r_r63 = CPyDict_SetItem(cpy_r_r61, cpy_r_r62, cpy_r_r60);
     CPy_DECREF(cpy_r_r60);
     cpy_r_r64 = cpy_r_r63 >= 0;
@@ -10352,7 +10102,7 @@ PyObject *CPyInit_yearn_treasury____ens(void)
     Py_CLEAR(modname);
     CPy_XDECREF(CPyStatic__ens___resolver);
     CPyStatic__ens___resolver = NULL;
-    CPy_XDECREF(CPyStatic__ens___topics);
+    CPy_XDECREF_NO_IMM(CPyStatic__ens___topics);
     CPyStatic__ens___topics = NULL;
     return NULL;
 }
@@ -10457,8 +10207,8 @@ char CPyDef__ens_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[283]; /* ('Final',) */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[281]; /* ('Final',) */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic__ens___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -10468,8 +10218,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[289]; /* ('web3',) */
-    cpy_r_r10 = CPyStatics[149]; /* 'brownie' */
+    cpy_r_r9 = CPyStatics[287]; /* ('web3',) */
+    cpy_r_r10 = CPyStatics[147]; /* 'brownie' */
     cpy_r_r11 = CPyStatic__ens___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -10479,8 +10229,8 @@ CPyL3: ;
     CPyModule_brownie = cpy_r_r12;
     CPy_INCREF(CPyModule_brownie);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[290]; /* ('filter_by_name',) */
-    cpy_r_r14 = CPyStatics[220]; /* 'web3._utils.abi' */
+    cpy_r_r13 = CPyStatics[288]; /* ('filter_by_name',) */
+    cpy_r_r14 = CPyStatics[218]; /* 'web3._utils.abi' */
     cpy_r_r15 = CPyStatic__ens___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -10490,8 +10240,8 @@ CPyL3: ;
     CPyModule_web3____utils___abi = cpy_r_r16;
     CPy_INCREF(CPyModule_web3____utils___abi);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[291]; /* ('construct_event_topic_set',) */
-    cpy_r_r18 = CPyStatics[222]; /* 'web3._utils.events' */
+    cpy_r_r17 = CPyStatics[289]; /* ('construct_event_topic_set',) */
+    cpy_r_r18 = CPyStatics[220]; /* 'web3._utils.events' */
     cpy_r_r19 = CPyStatic__ens___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -10501,8 +10251,8 @@ CPyL3: ;
     CPyModule_web3____utils___events = cpy_r_r20;
     CPy_INCREF(CPyModule_web3____utils___events);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[292]; /* ('Contract',) */
-    cpy_r_r22 = CPyStatics[90]; /* 'y' */
+    cpy_r_r21 = CPyStatics[290]; /* ('Contract',) */
+    cpy_r_r22 = CPyStatics[88]; /* 'y' */
     cpy_r_r23 = CPyStatic__ens___globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
@@ -10512,9 +10262,9 @@ CPyL3: ;
     CPyModule_y = cpy_r_r24;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r24);
-    cpy_r_r25 = CPyStatics[223]; /* '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41' */
+    cpy_r_r25 = CPyStatics[221]; /* '0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41' */
     cpy_r_r26 = CPyStatic__ens___globals;
-    cpy_r_r27 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r27 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r28 = CPyDict_GetItem(cpy_r_r26, cpy_r_r27);
     if (unlikely(cpy_r_r28 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 9, CPyStatic__ens___globals);
@@ -10522,7 +10272,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r29[1] = {cpy_r_r25};
     cpy_r_r30 = (PyObject **)&cpy_r_r29;
-    cpy_r_r31 = _PyObject_Vectorcall(cpy_r_r28, cpy_r_r30, 1, 0);
+    cpy_r_r31 = PyObject_Vectorcall(cpy_r_r28, cpy_r_r30, 1, 0);
     CPy_DECREF(cpy_r_r28);
     if (unlikely(cpy_r_r31 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 9, CPyStatic__ens___globals);
@@ -10531,7 +10281,7 @@ CPyL3: ;
     CPyStatic__ens___resolver = cpy_r_r31;
     CPy_INCREF(CPyStatic__ens___resolver);
     cpy_r_r32 = CPyStatic__ens___globals;
-    cpy_r_r33 = CPyStatics[224]; /* 'resolver' */
+    cpy_r_r33 = CPyStatics[222]; /* 'resolver' */
     cpy_r_r34 = CPyDict_SetItem(cpy_r_r32, cpy_r_r33, cpy_r_r31);
     CPy_DECREF(cpy_r_r31);
     cpy_r_r35 = cpy_r_r34 >= 0;
@@ -10539,7 +10289,7 @@ CPyL3: ;
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 9, CPyStatic__ens___globals);
         goto CPyL33;
     }
-    cpy_r_r36 = CPyStatics[225]; /* 'AddressChanged' */
+    cpy_r_r36 = CPyStatics[223]; /* 'AddressChanged' */
     cpy_r_r37 = CPyStatic__ens___resolver;
     if (likely(cpy_r_r37 != NULL)) goto CPyL14;
     PyErr_SetString(PyExc_NameError, "value for final name \"resolver\" was not set");
@@ -10550,14 +10300,14 @@ CPyL3: ;
     }
     CPy_Unreachable();
 CPyL14: ;
-    cpy_r_r39 = CPyStatics[226]; /* 'abi' */
+    cpy_r_r39 = CPyStatics[224]; /* 'abi' */
     cpy_r_r40 = CPyObject_GetAttr(cpy_r_r37, cpy_r_r39);
     if (unlikely(cpy_r_r40 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 12, CPyStatic__ens___globals);
         goto CPyL33;
     }
     cpy_r_r41 = CPyStatic__ens___globals;
-    cpy_r_r42 = CPyStatics[219]; /* 'filter_by_name' */
+    cpy_r_r42 = CPyStatics[217]; /* 'filter_by_name' */
     cpy_r_r43 = CPyDict_GetItem(cpy_r_r41, cpy_r_r42);
     if (unlikely(cpy_r_r43 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 12, CPyStatic__ens___globals);
@@ -10565,7 +10315,7 @@ CPyL14: ;
     }
     PyObject *cpy_r_r44[2] = {cpy_r_r36, cpy_r_r40};
     cpy_r_r45 = (PyObject **)&cpy_r_r44;
-    cpy_r_r46 = _PyObject_Vectorcall(cpy_r_r43, cpy_r_r45, 2, 0);
+    cpy_r_r46 = PyObject_Vectorcall(cpy_r_r43, cpy_r_r45, 2, 0);
     CPy_DECREF(cpy_r_r43);
     if (unlikely(cpy_r_r46 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 12, CPyStatic__ens___globals);
@@ -10591,36 +10341,36 @@ CPyL14: ;
     }
     CPy_DECREF(cpy_r_r46);
     cpy_r_r50 = CPyStatic__ens___globals;
-    cpy_r_r51 = CPyStatics[218]; /* 'web3' */
+    cpy_r_r51 = CPyStatics[216]; /* 'web3' */
     cpy_r_r52 = CPyDict_GetItem(cpy_r_r50, cpy_r_r51);
     if (unlikely(cpy_r_r52 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 13, CPyStatic__ens___globals);
         goto CPyL36;
     }
-    cpy_r_r53 = CPyStatics[227]; /* 'codec' */
+    cpy_r_r53 = CPyStatics[225]; /* 'codec' */
     cpy_r_r54 = CPyObject_GetAttr(cpy_r_r52, cpy_r_r53);
     CPy_DECREF(cpy_r_r52);
     if (unlikely(cpy_r_r54 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 13, CPyStatic__ens___globals);
         goto CPyL36;
     }
-    cpy_r_r55 = CPyStatics[228]; /* 'node' */
+    cpy_r_r55 = CPyStatics[226]; /* 'node' */
     cpy_r_r56 = CPyStatic__ens___globals;
-    cpy_r_r57 = CPyStatics[218]; /* 'web3' */
+    cpy_r_r57 = CPyStatics[216]; /* 'web3' */
     cpy_r_r58 = CPyDict_GetItem(cpy_r_r56, cpy_r_r57);
     if (unlikely(cpy_r_r58 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 14, CPyStatic__ens___globals);
         goto CPyL37;
     }
-    cpy_r_r59 = CPyStatics[229]; /* 'ens' */
+    cpy_r_r59 = CPyStatics[227]; /* 'ens' */
     cpy_r_r60 = CPyObject_GetAttr(cpy_r_r58, cpy_r_r59);
     CPy_DECREF(cpy_r_r58);
     if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 14, CPyStatic__ens___globals);
         goto CPyL37;
     }
-    cpy_r_r61 = CPyStatics[230]; /* 'v2.registry.ychad.eth' */
-    cpy_r_r62 = CPyStatics[231]; /* 'namehash' */
+    cpy_r_r61 = CPyStatics[228]; /* 'v2.registry.ychad.eth' */
+    cpy_r_r62 = CPyStatics[229]; /* 'namehash' */
     PyObject *cpy_r_r63[2] = {cpy_r_r60, cpy_r_r61};
     cpy_r_r64 = (PyObject **)&cpy_r_r63;
     cpy_r_r65 = PyObject_VectorcallMethod(cpy_r_r62, cpy_r_r64, 9223372036854775810ULL, 0);
@@ -10636,7 +10386,7 @@ CPyL14: ;
         goto CPyL37;
     }
     cpy_r_r67 = CPyStatic__ens___globals;
-    cpy_r_r68 = CPyStatics[221]; /* 'construct_event_topic_set' */
+    cpy_r_r68 = CPyStatics[219]; /* 'construct_event_topic_set' */
     cpy_r_r69 = CPyDict_GetItem(cpy_r_r67, cpy_r_r68);
     if (unlikely(cpy_r_r69 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 11, CPyStatic__ens___globals);
@@ -10644,7 +10394,7 @@ CPyL14: ;
     }
     PyObject *cpy_r_r70[3] = {cpy_r_r49, cpy_r_r54, cpy_r_r66};
     cpy_r_r71 = (PyObject **)&cpy_r_r70;
-    cpy_r_r72 = _PyObject_Vectorcall(cpy_r_r69, cpy_r_r71, 3, 0);
+    cpy_r_r72 = PyObject_Vectorcall(cpy_r_r69, cpy_r_r71, 3, 0);
     CPy_DECREF(cpy_r_r69);
     if (unlikely(cpy_r_r72 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 11, CPyStatic__ens___globals);
@@ -10660,18 +10410,18 @@ CPyL14: ;
         goto CPyL33;
     }
     CPyStatic__ens___topics = cpy_r_r73;
-    CPy_INCREF(CPyStatic__ens___topics);
+    CPy_INCREF_NO_IMM(CPyStatic__ens___topics);
     cpy_r_r74 = CPyStatic__ens___globals;
-    cpy_r_r75 = CPyStatics[232]; /* 'topics' */
+    cpy_r_r75 = CPyStatics[230]; /* 'topics' */
     cpy_r_r76 = CPyDict_SetItem(cpy_r_r74, cpy_r_r75, cpy_r_r73);
-    CPy_DECREF(cpy_r_r73);
+    CPy_DECREF_NO_IMM(cpy_r_r73);
     cpy_r_r77 = cpy_r_r76 >= 0;
     if (unlikely(!cpy_r_r77)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 11, CPyStatic__ens___globals);
         goto CPyL33;
     }
-    cpy_r_r78 = CPyStatics[224]; /* 'resolver' */
-    cpy_r_r79 = CPyStatics[232]; /* 'topics' */
+    cpy_r_r78 = CPyStatics[222]; /* 'resolver' */
+    cpy_r_r79 = CPyStatics[230]; /* 'topics' */
     cpy_r_r80 = PyList_New(2);
     if (unlikely(cpy_r_r80 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 17, CPyStatic__ens___globals);
@@ -10687,7 +10437,7 @@ CPyL14: ;
     cpy_r_r84 = CPyStatic__ens___globals;
     cpy_r_r85 = CPyStatics[10]; /* '__all__' */
     cpy_r_r86 = CPyDict_SetItem(cpy_r_r84, cpy_r_r85, cpy_r_r80);
-    CPy_DECREF(cpy_r_r80);
+    CPy_DECREF_NO_IMM(cpy_r_r80);
     cpy_r_r87 = cpy_r_r86 >= 0;
     if (unlikely(!cpy_r_r87)) {
         CPy_AddTraceback("yearn_treasury/_ens.py", "<module>", 17, CPyStatic__ens___globals);
@@ -10998,8 +10748,8 @@ char CPyDef_vaults_____top_level__(void) {
     CPy_INCREF(CPyModule_builtins);
     CPy_DECREF(cpy_r_r4);
 CPyL3: ;
-    cpy_r_r5 = CPyStatics[293]; /* ('Dict', 'Final', 'List') */
-    cpy_r_r6 = CPyStatics[26]; /* 'typing' */
+    cpy_r_r5 = CPyStatics[291]; /* ('Dict', 'Final', 'List') */
+    cpy_r_r6 = CPyStatics[24]; /* 'typing' */
     cpy_r_r7 = CPyStatic_vaults___globals;
     cpy_r_r8 = CPyImport_ImportFromMany(cpy_r_r6, cpy_r_r5, cpy_r_r5, cpy_r_r7);
     if (unlikely(cpy_r_r8 == NULL)) {
@@ -11009,8 +10759,8 @@ CPyL3: ;
     CPyModule_typing = cpy_r_r8;
     CPy_INCREF(CPyModule_typing);
     CPy_DECREF(cpy_r_r8);
-    cpy_r_r9 = CPyStatics[294]; /* ('chain',) */
-    cpy_r_r10 = CPyStatics[149]; /* 'brownie' */
+    cpy_r_r9 = CPyStatics[292]; /* ('chain',) */
+    cpy_r_r10 = CPyStatics[147]; /* 'brownie' */
     cpy_r_r11 = CPyStatic_vaults___globals;
     cpy_r_r12 = CPyImport_ImportFromMany(cpy_r_r10, cpy_r_r9, cpy_r_r9, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
@@ -11020,8 +10770,8 @@ CPyL3: ;
     CPyModule_brownie = cpy_r_r12;
     CPy_INCREF(CPyModule_brownie);
     CPy_DECREF(cpy_r_r12);
-    cpy_r_r13 = CPyStatics[295]; /* ('ChecksumAddress',) */
-    cpy_r_r14 = CPyStatics[88]; /* 'eth_typing' */
+    cpy_r_r13 = CPyStatics[293]; /* ('ChecksumAddress',) */
+    cpy_r_r14 = CPyStatics[86]; /* 'eth_typing' */
     cpy_r_r15 = CPyStatic_vaults___globals;
     cpy_r_r16 = CPyImport_ImportFromMany(cpy_r_r14, cpy_r_r13, cpy_r_r13, cpy_r_r15);
     if (unlikely(cpy_r_r16 == NULL)) {
@@ -11031,8 +10781,8 @@ CPyL3: ;
     CPyModule_eth_typing = cpy_r_r16;
     CPy_INCREF(CPyModule_eth_typing);
     CPy_DECREF(cpy_r_r16);
-    cpy_r_r17 = CPyStatics[296]; /* ('Contract', 'Events', 'Network') */
-    cpy_r_r18 = CPyStatics[90]; /* 'y' */
+    cpy_r_r17 = CPyStatics[294]; /* ('Contract', 'Events', 'Network') */
+    cpy_r_r18 = CPyStatics[88]; /* 'y' */
     cpy_r_r19 = CPyStatic_vaults___globals;
     cpy_r_r20 = CPyImport_ImportFromMany(cpy_r_r18, cpy_r_r17, cpy_r_r17, cpy_r_r19);
     if (unlikely(cpy_r_r20 == NULL)) {
@@ -11042,8 +10792,8 @@ CPyL3: ;
     CPyModule_y = cpy_r_r20;
     CPy_INCREF(CPyModule_y);
     CPy_DECREF(cpy_r_r20);
-    cpy_r_r21 = CPyStatics[297]; /* ('resolver', 'topics') */
-    cpy_r_r22 = CPyStatics[237]; /* 'yearn_treasury._ens' */
+    cpy_r_r21 = CPyStatics[295]; /* ('resolver', 'topics') */
+    cpy_r_r22 = CPyStatics[235]; /* 'yearn_treasury._ens' */
     cpy_r_r23 = CPyStatic_vaults___globals;
     cpy_r_r24 = CPyImport_ImportFromMany(cpy_r_r22, cpy_r_r21, cpy_r_r21, cpy_r_r23);
     if (unlikely(cpy_r_r24 == NULL)) {
@@ -11054,13 +10804,13 @@ CPyL3: ;
     CPy_INCREF(CPyModule_yearn_treasury____ens);
     CPy_DECREF(cpy_r_r24);
     cpy_r_r25 = CPyStatic_vaults___globals;
-    cpy_r_r26 = CPyStatics[234]; /* 'chain' */
+    cpy_r_r26 = CPyStatics[232]; /* 'chain' */
     cpy_r_r27 = CPyDict_GetItem(cpy_r_r25, cpy_r_r26);
     if (unlikely(cpy_r_r27 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 10, CPyStatic_vaults___globals);
         goto CPyL105;
     }
-    cpy_r_r28 = CPyStatics[30]; /* 'id' */
+    cpy_r_r28 = CPyStatics[28]; /* 'id' */
     cpy_r_r29 = CPyObject_GetAttr(cpy_r_r27, cpy_r_r28);
     CPy_DECREF(cpy_r_r27);
     if (unlikely(cpy_r_r29 == NULL)) {
@@ -11078,13 +10828,13 @@ CPyL3: ;
         goto CPyL105;
     }
     cpy_r_r31 = CPyStatic_vaults___globals;
-    cpy_r_r32 = CPyStatics[89]; /* 'Network' */
+    cpy_r_r32 = CPyStatics[87]; /* 'Network' */
     cpy_r_r33 = CPyDict_GetItem(cpy_r_r31, cpy_r_r32);
     if (unlikely(cpy_r_r33 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 10, CPyStatic_vaults___globals);
         goto CPyL106;
     }
-    cpy_r_r34 = CPyStatics[103]; /* 'Mainnet' */
+    cpy_r_r34 = CPyStatics[101]; /* 'Mainnet' */
     cpy_r_r35 = CPyObject_GetAttr(cpy_r_r33, cpy_r_r34);
     CPy_DECREF(cpy_r_r33);
     if (unlikely(cpy_r_r35 == NULL)) {
@@ -11109,9 +10859,9 @@ CPyL3: ;
         goto CPyL105;
     }
     if (!cpy_r_r38) goto CPyL94;
-    cpy_r_r39 = CPyStatics[238]; /* '0x9be19Ee7Bc4099D62737a7255f5c227fBcd6dB93' */
+    cpy_r_r39 = CPyStatics[236]; /* '0x9be19Ee7Bc4099D62737a7255f5c227fBcd6dB93' */
     cpy_r_r40 = CPyStatic_vaults___globals;
-    cpy_r_r41 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r41 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r42 = CPyDict_GetItem(cpy_r_r40, cpy_r_r41);
     if (unlikely(cpy_r_r42 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 11, CPyStatic_vaults___globals);
@@ -11119,14 +10869,14 @@ CPyL3: ;
     }
     PyObject *cpy_r_r43[1] = {cpy_r_r39};
     cpy_r_r44 = (PyObject **)&cpy_r_r43;
-    cpy_r_r45 = _PyObject_Vectorcall(cpy_r_r42, cpy_r_r44, 1, 0);
+    cpy_r_r45 = PyObject_Vectorcall(cpy_r_r42, cpy_r_r44, 1, 0);
     CPy_DECREF(cpy_r_r42);
     if (unlikely(cpy_r_r45 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 11, CPyStatic_vaults___globals);
         goto CPyL105;
     }
     cpy_r_r46 = CPyStatic_vaults___globals;
-    cpy_r_r47 = CPyStatics[239]; /* '_v1_addresses_provider' */
+    cpy_r_r47 = CPyStatics[237]; /* '_v1_addresses_provider' */
     cpy_r_r48 = CPyDict_SetItem(cpy_r_r46, cpy_r_r47, cpy_r_r45);
     CPy_DECREF(cpy_r_r45);
     cpy_r_r49 = cpy_r_r48 >= 0;
@@ -11135,14 +10885,14 @@ CPyL3: ;
         goto CPyL105;
     }
     cpy_r_r50 = CPyStatic_vaults___globals;
-    cpy_r_r51 = CPyStatics[239]; /* '_v1_addresses_provider' */
+    cpy_r_r51 = CPyStatics[237]; /* '_v1_addresses_provider' */
     cpy_r_r52 = CPyDict_GetItem(cpy_r_r50, cpy_r_r51);
     if (unlikely(cpy_r_r52 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 13, CPyStatic_vaults___globals);
         goto CPyL105;
     }
-    cpy_r_r53 = CPyStatics[240]; /* 'ADDRESSES_GENERATOR_V1_VAULTS' */
-    cpy_r_r54 = CPyStatics[241]; /* 'addressById' */
+    cpy_r_r53 = CPyStatics[238]; /* 'ADDRESSES_GENERATOR_V1_VAULTS' */
+    cpy_r_r54 = CPyStatics[239]; /* 'addressById' */
     PyObject *cpy_r_r55[2] = {cpy_r_r52, cpy_r_r53};
     cpy_r_r56 = (PyObject **)&cpy_r_r55;
     cpy_r_r57 = PyObject_VectorcallMethod(cpy_r_r54, cpy_r_r56, 9223372036854775810ULL, 0);
@@ -11152,7 +10902,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r52);
     cpy_r_r58 = CPyStatic_vaults___globals;
-    cpy_r_r59 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r59 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r60 = CPyDict_GetItem(cpy_r_r58, cpy_r_r59);
     if (unlikely(cpy_r_r60 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 12, CPyStatic_vaults___globals);
@@ -11160,7 +10910,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r61[1] = {cpy_r_r57};
     cpy_r_r62 = (PyObject **)&cpy_r_r61;
-    cpy_r_r63 = _PyObject_Vectorcall(cpy_r_r60, cpy_r_r62, 1, 0);
+    cpy_r_r63 = PyObject_Vectorcall(cpy_r_r60, cpy_r_r62, 1, 0);
     CPy_DECREF(cpy_r_r60);
     if (unlikely(cpy_r_r63 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 12, CPyStatic_vaults___globals);
@@ -11168,7 +10918,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r57);
     cpy_r_r64 = CPyStatic_vaults___globals;
-    cpy_r_r65 = CPyStatics[242]; /* '_addresses_generator_v1_vaults' */
+    cpy_r_r65 = CPyStatics[240]; /* '_addresses_generator_v1_vaults' */
     cpy_r_r66 = CPyDict_SetItem(cpy_r_r64, cpy_r_r65, cpy_r_r63);
     CPy_DECREF(cpy_r_r63);
     cpy_r_r67 = cpy_r_r66 >= 0;
@@ -11182,20 +10932,20 @@ CPyL3: ;
         goto CPyL105;
     }
     cpy_r_r69 = CPyStatic_vaults___globals;
-    cpy_r_r70 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r70 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r71 = CPyDict_GetItem(cpy_r_r69, cpy_r_r70);
     if (unlikely(cpy_r_r71 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 18, CPyStatic_vaults___globals);
         goto CPyL109;
     }
     cpy_r_r72 = CPyStatic_vaults___globals;
-    cpy_r_r73 = CPyStatics[242]; /* '_addresses_generator_v1_vaults' */
+    cpy_r_r73 = CPyStatics[240]; /* '_addresses_generator_v1_vaults' */
     cpy_r_r74 = CPyDict_GetItem(cpy_r_r72, cpy_r_r73);
     if (unlikely(cpy_r_r74 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 18, CPyStatic_vaults___globals);
         goto CPyL110;
     }
-    cpy_r_r75 = CPyStatics[243]; /* 'assetsAddresses' */
+    cpy_r_r75 = CPyStatics[241]; /* 'assetsAddresses' */
     PyObject *cpy_r_r76[1] = {cpy_r_r74};
     cpy_r_r77 = (PyObject **)&cpy_r_r76;
     cpy_r_r78 = PyObject_VectorcallMethod(cpy_r_r75, cpy_r_r77, 9223372036854775809ULL, 0);
@@ -11205,7 +10955,7 @@ CPyL3: ;
     }
     CPy_DECREF(cpy_r_r74);
     cpy_r_r79 = CPyModule_builtins;
-    cpy_r_r80 = CPyStatics[244]; /* 'map' */
+    cpy_r_r80 = CPyStatics[242]; /* 'map' */
     cpy_r_r81 = CPyObject_GetAttr(cpy_r_r79, cpy_r_r80);
     if (unlikely(cpy_r_r81 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 18, CPyStatic_vaults___globals);
@@ -11213,7 +10963,7 @@ CPyL3: ;
     }
     PyObject *cpy_r_r82[2] = {cpy_r_r71, cpy_r_r78};
     cpy_r_r83 = (PyObject **)&cpy_r_r82;
-    cpy_r_r84 = _PyObject_Vectorcall(cpy_r_r81, cpy_r_r83, 2, 0);
+    cpy_r_r84 = PyObject_Vectorcall(cpy_r_r81, cpy_r_r83, 2, 0);
     CPy_DECREF(cpy_r_r81);
     if (unlikely(cpy_r_r84 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 18, CPyStatic_vaults___globals);
@@ -11230,7 +10980,7 @@ CPyL3: ;
 CPyL31: ;
     cpy_r_r86 = PyIter_Next(cpy_r_r85);
     if (cpy_r_r86 == NULL) goto CPyL113;
-    cpy_r_r87 = CPyStatics[132]; /* 'token' */
+    cpy_r_r87 = CPyStatics[130]; /* 'token' */
     PyObject *cpy_r_r88[1] = {cpy_r_r86};
     cpy_r_r89 = (PyObject **)&cpy_r_r88;
     cpy_r_r90 = PyObject_VectorcallMethod(cpy_r_r87, cpy_r_r89, 9223372036854775809ULL, 0);
@@ -11254,7 +11004,7 @@ CPyL34: ;
         goto CPyL109;
     }
     cpy_r_r94 = CPyStatic_vaults___globals;
-    cpy_r_r95 = CPyStatics[245]; /* 'v1' */
+    cpy_r_r95 = CPyStatics[243]; /* 'v1' */
     cpy_r_r96 = CPyDict_SetItem(cpy_r_r94, cpy_r_r95, cpy_r_r68);
     CPy_DECREF(cpy_r_r68);
     cpy_r_r97 = cpy_r_r96 >= 0;
@@ -11263,13 +11013,13 @@ CPyL34: ;
         goto CPyL105;
     }
     cpy_r_r98 = CPyStatic_vaults___globals;
-    cpy_r_r99 = CPyStatics[234]; /* 'chain' */
+    cpy_r_r99 = CPyStatics[232]; /* 'chain' */
     cpy_r_r100 = CPyDict_GetItem(cpy_r_r98, cpy_r_r99);
     if (unlikely(cpy_r_r100 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 21, CPyStatic_vaults___globals);
         goto CPyL105;
     }
-    cpy_r_r101 = CPyStatics[246]; /* 'height' */
+    cpy_r_r101 = CPyStatics[244]; /* 'height' */
     cpy_r_r102 = CPyObject_GetAttr(cpy_r_r100, cpy_r_r101);
     CPy_DECREF(cpy_r_r100);
     if (unlikely(cpy_r_r102 == NULL)) {
@@ -11287,7 +11037,7 @@ CPyL34: ;
         goto CPyL105;
     }
     cpy_r_r104 = CPyStatic_vaults___globals;
-    cpy_r_r105 = CPyStatics[247]; /* 'now' */
+    cpy_r_r105 = CPyStatics[245]; /* 'now' */
     cpy_r_r106 = CPyTagged_StealAsObject(cpy_r_r103);
     cpy_r_r107 = CPyDict_SetItem(cpy_r_r104, cpy_r_r105, cpy_r_r106);
     CPy_DECREF(cpy_r_r106);
@@ -11330,7 +11080,7 @@ CPyL45: ;
     CPy_Unreachable();
 CPyL47: ;
     cpy_r_r114 = CPyStatic_vaults___globals;
-    cpy_r_r115 = CPyStatics[236]; /* 'Events' */
+    cpy_r_r115 = CPyStatics[234]; /* 'Events' */
     cpy_r_r116 = CPyDict_GetItem(cpy_r_r114, cpy_r_r115);
     if (unlikely(cpy_r_r116 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 25, CPyStatic_vaults___globals);
@@ -11338,15 +11088,15 @@ CPyL47: ;
     }
     PyObject *cpy_r_r117[2] = {cpy_r_r110, cpy_r_r112};
     cpy_r_r118 = (PyObject **)&cpy_r_r117;
-    cpy_r_r119 = CPyStatics[298]; /* ('addresses', 'topics') */
-    cpy_r_r120 = _PyObject_Vectorcall(cpy_r_r116, cpy_r_r118, 0, cpy_r_r119);
+    cpy_r_r119 = CPyStatics[296]; /* ('addresses', 'topics') */
+    cpy_r_r120 = PyObject_Vectorcall(cpy_r_r116, cpy_r_r118, 0, cpy_r_r119);
     CPy_DECREF(cpy_r_r116);
     if (unlikely(cpy_r_r120 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 25, CPyStatic_vaults___globals);
         goto CPyL118;
     }
     cpy_r_r121 = CPyStatic_vaults___globals;
-    cpy_r_r122 = CPyStatics[247]; /* 'now' */
+    cpy_r_r122 = CPyStatics[245]; /* 'now' */
     cpy_r_r123 = CPyDict_GetItem(cpy_r_r121, cpy_r_r122);
     if (unlikely(cpy_r_r123 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 27, CPyStatic_vaults___globals);
@@ -11362,7 +11112,7 @@ CPyL47: ;
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 27, CPyStatic_vaults___globals);
         goto CPyL119;
     }
-    cpy_r_r125 = CPyStatics[249]; /* 'events' */
+    cpy_r_r125 = CPyStatics[247]; /* 'events' */
     cpy_r_r126 = CPyTagged_StealAsObject(cpy_r_r124);
     PyObject *cpy_r_r127[2] = {cpy_r_r120, cpy_r_r126};
     cpy_r_r128 = (PyObject **)&cpy_r_r127;
@@ -11382,7 +11132,7 @@ CPyL47: ;
 CPyL53: ;
     cpy_r_r131 = PyIter_Next(cpy_r_r130);
     if (cpy_r_r131 == NULL) goto CPyL121;
-    cpy_r_r132 = CPyStatics[250]; /* 'newAddress' */
+    cpy_r_r132 = CPyStatics[248]; /* 'newAddress' */
     cpy_r_r133 = PyObject_GetItem(cpy_r_r131, cpy_r_r132);
     CPy_DECREF(cpy_r_r131);
     if (unlikely(cpy_r_r133 == NULL)) {
@@ -11395,7 +11145,7 @@ CPyL53: ;
         CPy_TypeErrorTraceback("yearn_treasury/vaults.py", "<module>", 24, CPyStatic_vaults___globals, "list", cpy_r_r133);
         goto CPyL122;
     }
-    cpy_r_r135 = CPyStatics[251]; /* 'hex' */
+    cpy_r_r135 = CPyStatics[249]; /* 'hex' */
     PyObject *cpy_r_r136[1] = {cpy_r_r134};
     cpy_r_r137 = (PyObject **)&cpy_r_r136;
     cpy_r_r138 = PyObject_VectorcallMethod(cpy_r_r135, cpy_r_r137, 9223372036854775809ULL, 0);
@@ -11403,9 +11153,9 @@ CPyL53: ;
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 24, CPyStatic_vaults___globals);
         goto CPyL123;
     }
-    CPy_DECREF(cpy_r_r134);
+    CPy_DECREF_NO_IMM(cpy_r_r134);
     cpy_r_r139 = CPyStatic_vaults___globals;
-    cpy_r_r140 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r140 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r141 = CPyDict_GetItem(cpy_r_r139, cpy_r_r140);
     if (unlikely(cpy_r_r141 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 24, CPyStatic_vaults___globals);
@@ -11413,7 +11163,7 @@ CPyL53: ;
     }
     PyObject *cpy_r_r142[1] = {cpy_r_r138};
     cpy_r_r143 = (PyObject **)&cpy_r_r142;
-    cpy_r_r144 = _PyObject_Vectorcall(cpy_r_r141, cpy_r_r143, 1, 0);
+    cpy_r_r144 = PyObject_Vectorcall(cpy_r_r141, cpy_r_r143, 1, 0);
     CPy_DECREF(cpy_r_r141);
     if (unlikely(cpy_r_r144 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 24, CPyStatic_vaults___globals);
@@ -11435,9 +11185,9 @@ CPyL60: ;
         goto CPyL118;
     }
     cpy_r_r148 = CPyStatic_vaults___globals;
-    cpy_r_r149 = CPyStatics[252]; /* 'v2_registries' */
+    cpy_r_r149 = CPyStatics[250]; /* 'v2_registries' */
     cpy_r_r150 = CPyDict_SetItem(cpy_r_r148, cpy_r_r149, cpy_r_r109);
-    CPy_DECREF(cpy_r_r109);
+    CPy_DECREF_NO_IMM(cpy_r_r109);
     cpy_r_r151 = cpy_r_r150 >= 0;
     if (unlikely(!cpy_r_r151)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 23, CPyStatic_vaults___globals);
@@ -11455,7 +11205,7 @@ CPyL60: ;
     }
     cpy_r_r154 = (PyObject *)&PyUnicode_Type;
     cpy_r_r155 = CPyStatic_vaults___globals;
-    cpy_r_r156 = CPyStatics[252]; /* 'v2_registries' */
+    cpy_r_r156 = CPyStatics[250]; /* 'v2_registries' */
     cpy_r_r157 = CPyDict_GetItem(cpy_r_r155, cpy_r_r156);
     if (unlikely(cpy_r_r157 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
@@ -11468,7 +11218,7 @@ CPyL60: ;
         goto CPyL126;
     }
     cpy_r_r159 = CPyModule_builtins;
-    cpy_r_r160 = CPyStatics[244]; /* 'map' */
+    cpy_r_r160 = CPyStatics[242]; /* 'map' */
     cpy_r_r161 = CPyObject_GetAttr(cpy_r_r159, cpy_r_r160);
     if (unlikely(cpy_r_r161 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
@@ -11476,13 +11226,13 @@ CPyL60: ;
     }
     PyObject *cpy_r_r162[2] = {cpy_r_r154, cpy_r_r158};
     cpy_r_r163 = (PyObject **)&cpy_r_r162;
-    cpy_r_r164 = _PyObject_Vectorcall(cpy_r_r161, cpy_r_r163, 2, 0);
+    cpy_r_r164 = PyObject_Vectorcall(cpy_r_r161, cpy_r_r163, 2, 0);
     CPy_DECREF(cpy_r_r161);
     if (unlikely(cpy_r_r164 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
         goto CPyL127;
     }
-    CPy_DECREF(cpy_r_r158);
+    CPy_DECREF_NO_IMM(cpy_r_r158);
     cpy_r_r165 = PySequence_List(cpy_r_r164);
     CPy_DECREF(cpy_r_r164);
     if (unlikely(cpy_r_r165 == NULL)) {
@@ -11490,7 +11240,7 @@ CPyL60: ;
         goto CPyL126;
     }
     cpy_r_r166 = CPyStatic_vaults___globals;
-    cpy_r_r167 = CPyStatics[236]; /* 'Events' */
+    cpy_r_r167 = CPyStatics[234]; /* 'Events' */
     cpy_r_r168 = CPyDict_GetItem(cpy_r_r166, cpy_r_r167);
     if (unlikely(cpy_r_r168 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
@@ -11498,16 +11248,16 @@ CPyL60: ;
     }
     PyObject *cpy_r_r169[1] = {cpy_r_r165};
     cpy_r_r170 = (PyObject **)&cpy_r_r169;
-    cpy_r_r171 = CPyStatics[299]; /* ('addresses',) */
-    cpy_r_r172 = _PyObject_Vectorcall(cpy_r_r168, cpy_r_r170, 0, cpy_r_r171);
+    cpy_r_r171 = CPyStatics[297]; /* ('addresses',) */
+    cpy_r_r172 = PyObject_Vectorcall(cpy_r_r168, cpy_r_r170, 0, cpy_r_r171);
     CPy_DECREF(cpy_r_r168);
     if (unlikely(cpy_r_r172 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
         goto CPyL128;
     }
-    CPy_DECREF(cpy_r_r165);
+    CPy_DECREF_NO_IMM(cpy_r_r165);
     cpy_r_r173 = CPyStatic_vaults___globals;
-    cpy_r_r174 = CPyStatics[247]; /* 'now' */
+    cpy_r_r174 = CPyStatics[245]; /* 'now' */
     cpy_r_r175 = CPyDict_GetItem(cpy_r_r173, cpy_r_r174);
     if (unlikely(cpy_r_r175 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
@@ -11523,7 +11273,7 @@ CPyL60: ;
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 34, CPyStatic_vaults___globals);
         goto CPyL129;
     }
-    cpy_r_r177 = CPyStatics[249]; /* 'events' */
+    cpy_r_r177 = CPyStatics[247]; /* 'events' */
     cpy_r_r178 = CPyTagged_StealAsObject(cpy_r_r176);
     PyObject *cpy_r_r179[2] = {cpy_r_r172, cpy_r_r178};
     cpy_r_r180 = (PyObject **)&cpy_r_r179;
@@ -11543,7 +11293,7 @@ CPyL60: ;
 CPyL75: ;
     cpy_r_r183 = PyIter_Next(cpy_r_r182);
     if (cpy_r_r183 == NULL) goto CPyL131;
-    cpy_r_r184 = CPyStatics[59]; /* 'name' */
+    cpy_r_r184 = CPyStatics[57]; /* 'name' */
     cpy_r_r185 = CPyObject_GetAttr(cpy_r_r183, cpy_r_r184);
     if (unlikely(cpy_r_r185 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 35, CPyStatic_vaults___globals);
@@ -11555,7 +11305,7 @@ CPyL75: ;
         CPy_TypeErrorTraceback("yearn_treasury/vaults.py", "<module>", 35, CPyStatic_vaults___globals, "str", cpy_r_r185);
         goto CPyL132;
     }
-    cpy_r_r187 = CPyStatics[253]; /* 'NewVault' */
+    cpy_r_r187 = CPyStatics[251]; /* 'NewVault' */
     cpy_r_r188 = PyUnicode_Compare(cpy_r_r186, cpy_r_r187);
     CPy_DECREF(cpy_r_r186);
     cpy_r_r189 = cpy_r_r188 == -1;
@@ -11571,7 +11321,7 @@ CPyL75: ;
 CPyL81: ;
     cpy_r_r193 = cpy_r_r188 == 0;
     if (!cpy_r_r193) goto CPyL133;
-    cpy_r_r194 = CPyStatics[129]; /* 'vault' */
+    cpy_r_r194 = CPyStatics[127]; /* 'vault' */
     cpy_r_r195 = PyObject_GetItem(cpy_r_r183, cpy_r_r194);
     CPy_DECREF(cpy_r_r183);
     if (unlikely(cpy_r_r195 == NULL)) {
@@ -11585,7 +11335,7 @@ CPyL81: ;
         goto CPyL134;
     }
     cpy_r_r197 = PySet_Add(cpy_r_r153, cpy_r_r196);
-    CPy_DECREF(cpy_r_r196);
+    CPy_DECREF_NO_IMM(cpy_r_r196);
     cpy_r_r198 = cpy_r_r197 >= 0;
     if (unlikely(!cpy_r_r198)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 32, CPyStatic_vaults___globals);
@@ -11614,7 +11364,7 @@ CPyL87: ;
         goto CPyL136;
     }
     cpy_r_r203 = CPyStatic_vaults___globals;
-    cpy_r_r204 = CPyStatics[126]; /* 'Contract' */
+    cpy_r_r204 = CPyStatics[124]; /* 'Contract' */
     cpy_r_r205 = CPyDict_GetItem(cpy_r_r203, cpy_r_r204);
     if (unlikely(cpy_r_r205 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 31, CPyStatic_vaults___globals);
@@ -11622,13 +11372,13 @@ CPyL87: ;
     }
     PyObject *cpy_r_r206[1] = {cpy_r_r202};
     cpy_r_r207 = (PyObject **)&cpy_r_r206;
-    cpy_r_r208 = _PyObject_Vectorcall(cpy_r_r205, cpy_r_r207, 1, 0);
+    cpy_r_r208 = PyObject_Vectorcall(cpy_r_r205, cpy_r_r207, 1, 0);
     CPy_DECREF(cpy_r_r205);
     if (unlikely(cpy_r_r208 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 31, CPyStatic_vaults___globals);
         goto CPyL137;
     }
-    CPy_DECREF(cpy_r_r202);
+    CPy_DECREF_NO_IMM(cpy_r_r202);
     cpy_r_r209 = PyList_Append(cpy_r_r152, cpy_r_r208);
     CPy_DECREF(cpy_r_r208);
     cpy_r_r210 = cpy_r_r209 >= 0;
@@ -11644,9 +11394,9 @@ CPyL92: ;
         goto CPyL125;
     }
     cpy_r_r212 = CPyStatic_vaults___globals;
-    cpy_r_r213 = CPyStatics[254]; /* 'v2' */
+    cpy_r_r213 = CPyStatics[252]; /* 'v2' */
     cpy_r_r214 = CPyDict_SetItem(cpy_r_r212, cpy_r_r213, cpy_r_r152);
-    CPy_DECREF(cpy_r_r152);
+    CPy_DECREF_NO_IMM(cpy_r_r152);
     cpy_r_r215 = cpy_r_r214 >= 0;
     if (unlikely(!cpy_r_r215)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 30, CPyStatic_vaults___globals);
@@ -11660,7 +11410,7 @@ CPyL94: ;
         goto CPyL105;
     }
     cpy_r_r217 = CPyStatic_vaults___globals;
-    cpy_r_r218 = CPyStatics[245]; /* 'v1' */
+    cpy_r_r218 = CPyStatics[243]; /* 'v1' */
     cpy_r_r219 = CPyDict_SetItem(cpy_r_r217, cpy_r_r218, cpy_r_r216);
     CPy_DECREF(cpy_r_r216);
     cpy_r_r220 = cpy_r_r219 >= 0;
@@ -11674,16 +11424,16 @@ CPyL94: ;
         goto CPyL105;
     }
     cpy_r_r222 = CPyStatic_vaults___globals;
-    cpy_r_r223 = CPyStatics[254]; /* 'v2' */
+    cpy_r_r223 = CPyStatics[252]; /* 'v2' */
     cpy_r_r224 = CPyDict_SetItem(cpy_r_r222, cpy_r_r223, cpy_r_r221);
-    CPy_DECREF(cpy_r_r221);
+    CPy_DECREF_NO_IMM(cpy_r_r221);
     cpy_r_r225 = cpy_r_r224 >= 0;
     if (unlikely(!cpy_r_r225)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 41, CPyStatic_vaults___globals);
         goto CPyL105;
     }
     cpy_r_r226 = CPyStatic_vaults___globals;
-    cpy_r_r227 = CPyStatics[254]; /* 'v2' */
+    cpy_r_r227 = CPyStatics[252]; /* 'v2' */
     cpy_r_r228 = CPyDict_GetItem(cpy_r_r226, cpy_r_r227);
     if (unlikely(cpy_r_r228 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 42, CPyStatic_vaults___globals);
@@ -11696,7 +11446,7 @@ CPyL94: ;
         goto CPyL105;
     }
     cpy_r_r230 = CPyModule_builtins;
-    cpy_r_r231 = CPyStatics[255]; /* 'NotImplementedError' */
+    cpy_r_r231 = CPyStatics[253]; /* 'NotImplementedError' */
     cpy_r_r232 = CPyObject_GetAttr(cpy_r_r230, cpy_r_r231);
     if (unlikely(cpy_r_r232 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 42, CPyStatic_vaults___globals);
@@ -11704,13 +11454,13 @@ CPyL94: ;
     }
     PyObject *cpy_r_r233[1] = {cpy_r_r229};
     cpy_r_r234 = (PyObject **)&cpy_r_r233;
-    cpy_r_r235 = _PyObject_Vectorcall(cpy_r_r232, cpy_r_r234, 1, 0);
+    cpy_r_r235 = PyObject_Vectorcall(cpy_r_r232, cpy_r_r234, 1, 0);
     CPy_DECREF(cpy_r_r232);
     if (unlikely(cpy_r_r235 == NULL)) {
         CPy_AddTraceback("yearn_treasury/vaults.py", "<module>", 42, CPyStatic_vaults___globals);
         goto CPyL138;
     }
-    CPy_DECREF(cpy_r_r229);
+    CPy_DECREF_NO_IMM(cpy_r_r229);
     CPy_Raise(cpy_r_r235);
     CPy_DECREF(cpy_r_r235);
     if (unlikely(!0)) {
@@ -11931,22 +11681,22 @@ int CPyGlobalsInit(void)
     return 0;
 }
 
-PyObject *CPyStatics[300];
+PyObject *CPyStatics[298];
 const char * const CPyLit_Str[] = {
     "\003\bbuiltins\rBudgetRequest\036yearn_treasury.budget._request",
     "\003\021approved_requests\021rejected_requests\brequests",
-    "\004\037yearn_treasury.budget._requests\a__all__\017%s must be paid\awarning",
-    "\b\bapproved\brejected\006stream\avesting\004paid\tdataclass\vdataclasses\tgetLogger",
-    "\b\alogging\005Final\bOptional\003Set\005final\006typing\b__name__\006logger",
-    "\b\017__mypyc_attrs__\002id\006number\005title\005state\003url\ncreated_at\nupdated_at",
-    "\006\tclosed_at\004body\006labels\017__annotations__\026mypyc filler docstring\a__doc__",
-    "\003\n__module__\006frozen0https://api.github.com/repos/yearn/budget/issues",
-    "\a\003all\bper_page\004page\003get\aheaders\006params\vstatus_code",
-    "\006\030Failed to fetch issues: \001 \004text\017ConnectionError\004json\fpull_request",
-    "\005\004name\016budget request\bhtml_url\002os\"yearn_treasury/budget/_requests.py",
-    "\a\b<module>\004List\aenviron\fGITHUB_TOKEN\006_TOKEN\rAuthorization\006token ",
-    "\b\b_HEADERS\006symbol\003ETH\rfrom_nickname\fDisperse.app\004hash\006amount\tvalue_usd",
-    "\004\bpony.orm\004pony+yearn_treasury/rules/cost_of_revenue/gas.py\nTreasuryTx",
+    "\005\037yearn_treasury.budget._requests\a__all__\bapproved\brejected\006stream",
+    "\b\avesting\004paid\tdataclass\vdataclasses\tgetLogger\alogging\005Final\bOptional",
+    "\t\003Set\005final\006typing\b__name__\006logger\017__mypyc_attrs__\002id\006number\005title",
+    "\b\005state\003url\ncreated_at\nupdated_at\tclosed_at\004body\006labels\017__annotations__",
+    "\004\026mypyc filler docstring\a__doc__\n__module__\006frozen",
+    "\0040https://api.github.com/repos/yearn/budget/issues\003all\bper_page\004page",
+    "\a\003get\aheaders\006params\vstatus_code\030Failed to fetch issues: \001 \004text",
+    "\a\017ConnectionError\004json\fpull_request\004name\016budget request\bhtml_url\002os",
+    "\005\"yearn_treasury/budget/_requests.py\b<module>\004List\aenviron\fGITHUB_TOKEN",
+    "\a\006_TOKEN\rAuthorization\006token \b_HEADERS\006symbol\003ETH\rfrom_nickname",
+    "\006\fDisperse.app\004hash\006amount\tvalue_usd\bpony.orm\004pony",
+    "\002+yearn_treasury/rules/cost_of_revenue/gas.py\nTreasuryTx",
     "\003\017dao_treasury.db\025CostOfRevenueSortRule\017cost_of_revenue",
     "\a\024dao_treasury.sorting\006HexStr\neth_typing\aNetwork\001y\aCHAINID\vy.constants",
     "\002\006commit\032Gas:Multisig Reimbursement",
@@ -12020,13 +11770,13 @@ const char * const CPyLit_Int[] = {
 const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
-    41, 1, 4, 3, 6, 7, 8, 1, 18, 1, 20, 4, 22, 23, 24, 25, 1, 44, 2, 50,
-    51, 3, 62, 62, 62, 1, 266, 1, 49, 2, 22, 65, 2, 22, 24, 3, 79, 80, 80,
-    1, 271, 1, 82, 2, 84, 85, 1, 87, 1, 89, 1, 91, 3, 97, 76, 74, 3, 97,
-    76, 101, 1, 131, 1, 136, 1, 147, 1, 22, 1, 120, 4, 126, 128, 135, 89,
-    2, 82, 150, 2, 82, 170, 2, 22, 195, 1, 218, 1, 219, 1, 221, 1, 126, 3,
-    233, 22, 65, 1, 234, 1, 235, 3, 126, 236, 89, 2, 224, 232, 2, 248,
-    232, 1, 248
+    41, 1, 4, 3, 6, 7, 8, 1, 16, 1, 18, 4, 20, 21, 22, 23, 1, 42, 2, 48,
+    49, 3, 60, 60, 60, 1, 264, 1, 47, 2, 20, 63, 2, 20, 22, 3, 77, 78, 78,
+    1, 269, 1, 80, 2, 82, 83, 1, 85, 1, 87, 1, 89, 3, 95, 74, 72, 3, 95,
+    74, 99, 1, 129, 1, 134, 1, 145, 1, 20, 1, 118, 4, 124, 126, 133, 87,
+    2, 80, 148, 2, 80, 168, 2, 20, 193, 1, 216, 1, 217, 1, 219, 1, 124, 3,
+    231, 20, 63, 1, 232, 1, 233, 3, 124, 234, 87, 2, 222, 230, 2, 246,
+    230, 1, 246
 };
 const int CPyLit_FrozenSet[] = {0};
 CPyModule *CPyModule_yearn_treasury___budget_internal = NULL;
@@ -12080,8 +11830,6 @@ char CPyDef_budget_____top_level__(void);
 PyObject *CPyStatic__request___logger = NULL;
 PyTypeObject *CPyType__request___BudgetRequest;
 PyObject *CPyDef__request___BudgetRequest(PyObject *cpy_r_args, PyObject *cpy_r_kwargs);
-char CPyDef__request___BudgetRequest_____post_init__(PyObject *cpy_r_self);
-PyObject *CPyPy__request___BudgetRequest_____post_init__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 char CPyDef__request___BudgetRequest___is_approved(PyObject *cpy_r_self);
 PyObject *CPyPy__request___BudgetRequest___is_approved(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 char CPyDef__request___BudgetRequest___is_rejected(PyObject *cpy_r_self);
@@ -12169,7 +11917,6 @@ static struct export_table_ac25d7e9d6501b32db99 exports = {
     &CPyStatic__request___logger,
     &CPyType__request___BudgetRequest,
     &CPyDef__request___BudgetRequest,
-    &CPyDef__request___BudgetRequest_____post_init__,
     &CPyDef__request___BudgetRequest___is_approved,
     &CPyDef__request___BudgetRequest___is_rejected,
     &CPyDef__request___BudgetRequest___is_stream,

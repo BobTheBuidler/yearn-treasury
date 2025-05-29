@@ -75,7 +75,6 @@ struct export_table_ac25d7e9d6501b32db99 {
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
     PyObject *(*CPyDef__request___BudgetRequest)(PyObject *cpy_r_args, PyObject *cpy_r_kwargs);
-    char (*CPyDef__request___BudgetRequest_____post_init__)(PyObject *cpy_r_self);
     char (*CPyDef__request___BudgetRequest___is_approved)(PyObject *cpy_r_self);
     char (*CPyDef__request___BudgetRequest___is_rejected)(PyObject *cpy_r_self);
     char (*CPyDef__request___BudgetRequest___is_stream)(PyObject *cpy_r_self);
