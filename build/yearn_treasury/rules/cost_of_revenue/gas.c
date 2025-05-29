@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit_gas(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("ac25d7e9d6501b32db99__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("92e75bee3b0f09844b5a__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___cost_of_revenue___gas");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "ac25d7e9d6501b32db99__mypyc.init_yearn_treasury___rules___cost_of_revenue___gas");
+    void *init_func = PyCapsule_GetPointer(capsule, "92e75bee3b0f09844b5a__mypyc.init_yearn_treasury___rules___cost_of_revenue___gas");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
