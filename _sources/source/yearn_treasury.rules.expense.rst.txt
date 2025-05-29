@@ -1,0 +1,45 @@
+yearn\_treasury.rules.expense package
+=====================================
+
+Submodules
+----------
+
+yearn\_treasury.rules.expense.general module
+--------------------------------------------
+
+.. automodule:: yearn_treasury.rules.expense.general
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.expense.infrastructure module
+---------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.expense.infrastructure
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.expense.people module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.expense.people
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.expense.security module
+---------------------------------------------
+
+.. automodule:: yearn_treasury.rules.expense.security
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules.expense
+   :members:
+   :undoc-members:
+   :show-inheritance:

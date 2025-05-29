@@ -8,6 +8,7 @@ Subpackages
    :maxdepth: 4
 
    yearn_treasury.rules.cost_of_revenue
+   yearn_treasury.rules.expense
    yearn_treasury.rules.other_income
    yearn_treasury.rules.revenue
 
