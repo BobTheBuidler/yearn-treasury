@@ -108,12 +108,10 @@ def is_bug_bounty(tx: TreasuryTx) -> bool:
     return False
 
 
-@security("Anti-Spam Discord Bot")
-def is_antispam_bot(tx: TreasuryTx) -> bool:
-    return (
-        tx.hash == "0xe397d5682ef780b5371f8c80670e0cd94b4f945c7b432319b24f65c288995a17"
-        and tx.log_index == 357
-    )
+security("Anti-Spam Discord Bot").match(
+    hash="0xe397d5682ef780b5371f8c80670e0cd94b4f945c7b432319b24f65c288995a17",
+    log_index=357,
+)
 
 
 @security("War Room Assistance")
