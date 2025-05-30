@@ -205,8 +205,8 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
                 and tx.to_address == swap.address
             ):
                 pool = await Contract.coroutine(swap.address)
-                token0 = await pool.token0
-                token1 = await pool.token1
+                token0 = await pool.token0  # type: ignore [attr-defined]
+                token1 = await pool.token1  # type: ignore [attr-defined]
                 if token0 in SKIP_TOKENS or token1 in SKIP_TOKENS:
                     # This will be recorded elsewhere
                     continue
