@@ -6,7 +6,7 @@ authors = ["Bob The Buidler <you@example.com>"]
 packages = [{ include = "yearn_treasury/*" }]
 
 [build-system]
-requires = ["setuptools", "wheel", "mypy[mypyc]", "tomli>=2.0.0; python_version < '3.11'", "types-requests"]
+requires = ["setuptools", "wheel", "mypy[mypyc]==1.16", "tomli>=2.0.0; python_version < '3.11'", "types-requests"]
 build-backend = "setuptools.build_meta"
 
 [tool.poetry.scripts]
