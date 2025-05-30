@@ -27,7 +27,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     # STAKING
     # Step 1: Stake your tokens
     if (
-        TreasuryWallet._get_instance(tx.from_address.address)
+        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == lp_depositor
         and "Deposited" in tx._events
     ):
@@ -44,7 +44,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     # Step 2: Get your claim tokens
     elif (
         tx.from_address == ZERO_ADDRESS
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and "Deposited" in tx._events
     ):
         for event in tx._events["Deposited"]:
@@ -61,7 +61,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     # UNSTAKING
     # Step 1: Burn your claim tokens
     elif (
-        TreasuryWallet._get_instance(tx.from_address.address)
+        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == ZERO_ADDRESS
         and "Withdrawn" in tx._events
     ):
@@ -81,7 +81,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     # Step 2: Unstake your tokens
     elif (
         tx.from_address == lp_depositor
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and "Withdrawn" in tx._events
     ):
         for event in tx._events["Withdrawn"]:

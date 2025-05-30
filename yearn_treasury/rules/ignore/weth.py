@@ -14,12 +14,12 @@ weth: Final[ChecksumAddress] = y.weth.address  # type: ignore [assignment]
 def is_weth_mint(tx: TreasuryTx) -> bool:
     if (
         tx.from_address == ZERO_ADDRESS
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and tx.token == weth
     ):
         return True
     if (
-        TreasuryWallet._get_instance(tx.from_address.address)
+        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == weth
         and tx.token == EEE_ADDRESS
     ):
@@ -37,7 +37,7 @@ def is_weth(tx: TreasuryTx) -> bool:
         return True
     if (
         tx.from_address == weth
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and tx.token == EEE_ADDRESS
     ):
         return True

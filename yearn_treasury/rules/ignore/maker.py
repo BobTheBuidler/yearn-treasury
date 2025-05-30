@@ -28,7 +28,7 @@ dsr("Withdrawal").match(from_nickname="Contract: DsrManager")
 def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "YFI"
-        and TreasuryWallet._get_instance(tx.from_address.address)
+        and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and slip_in_events(tx)
     ):
         for event in tx._events["slip"]:
@@ -44,7 +44,7 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
 def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "YFI"
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and flux_in_events(tx)
     ):
         for event in tx._events["flux"]:
@@ -60,7 +60,7 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
 def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "USDC"
-        and TreasuryWallet._get_instance(tx.from_address.address)
+        and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and slip_in_events(tx)
     ):
         for event in tx._events["slip"]:
@@ -76,7 +76,7 @@ def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
 def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "USDC"
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and flux_in_events(tx)
     ):
         for event in tx._events["flux"]:

@@ -106,7 +106,7 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
 
             # LP token
             if (
-                TreasuryWallet._get_instance(tx.from_address.address)
+                TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
                 and tx.from_address == burn["to"]
                 and tx.token == tx.to_address == burn.address
             ):
@@ -176,7 +176,7 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
     # The LP for dumping solidSEX is not verified :( devs blz do something
     # Sell side
     if (
-        TreasuryWallet._get_instance(tx.from_address.address)
+        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_nickname == "Non-Verified Contract: 0xa66901D1965F5410dEeB4d0Bb43f7c1B628Cb20b"
         and tx.symbol == "SOLIDsex"
     ):
@@ -184,7 +184,7 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
     # Buy side
     elif (
         tx.from_nickname == "Non-Verified Contract: 0xa66901D1965F5410dEeB4d0Bb43f7c1B628Cb20b"
-        and TreasuryWallet._get_instance(tx.to_address.address)
+        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and tx.symbol == "WFTM"
     ):
         return True
@@ -201,7 +201,7 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
         for swap in tx._events["Swap"]:
             # Sell side
             if (
-                TreasuryWallet._get_instance(tx.from_address.address)
+                TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
                 and tx.to_address == swap.address
             ):
                 pool = await Contract.coroutine(swap.address)

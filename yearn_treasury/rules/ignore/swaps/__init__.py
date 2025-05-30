@@ -1,9 +1,10 @@
 from typing import Final
 
-from dao_treasury import ignore
+from dao_treasury import IgnoreSortRule, ignore
+from dao_treasury.sorting.factory import SortRuleFactory
 
 
-swaps: Final = ignore("Swaps")
+swaps: Final[SortRuleFactory[IgnoreSortRule]] = ignore("Swaps")
 
 
 from .aave import *
