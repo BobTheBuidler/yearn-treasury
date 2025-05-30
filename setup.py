@@ -9,6 +9,7 @@ else:
     ext_modules = mypycify(
         [
             "yearn_treasury/budget",
+            "yearn_treasury/rules/constants.py",
             "yearn_treasury/rules/cost_of_revenue/gas.py",
             "yearn_treasury/rules/expense",
             "yearn_treasury/rules/ignore",

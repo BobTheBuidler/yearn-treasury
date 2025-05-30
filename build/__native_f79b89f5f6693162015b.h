@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_a025ee80cc65a078a147_H
-#define MYPYC_NATIVE_a025ee80cc65a078a147_H
+#ifndef MYPYC_NATIVE_f79b89f5f6693162015b_H
+#define MYPYC_NATIVE_f79b89f5f6693162015b_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -270,7 +270,7 @@ typedef struct {
 } yearn_treasury___rules___other_income___is_robovault_share_genObject;
 
 
-struct export_table_a025ee80cc65a078a147 {
+struct export_table_f79b89f5f6693162015b {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -285,6 +285,7 @@ struct export_table_a025ee80cc65a078a147 {
     PyObject **CPyStatic__requests____HEADERS;
     PyObject *(*CPyDef__requests___fetch_brs)(void);
     char (*CPyDef__requests_____top_level__)(void);
+    char (*CPyDef_constants_____top_level__)(void);
     PyObject **CPyStatic_gas___gas;
     PyObject **CPyStatic_gas___commit;
     PyObject **CPyStatic_gas____STRATEGIST_GAS_HASHES;

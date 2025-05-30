@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_a025ee80cc65a078a147_H
-#define MYPYC_NATIVE_INTERNAL_a025ee80cc65a078a147_H
+#ifndef MYPYC_NATIVE_INTERNAL_f79b89f5f6693162015b_H
+#define MYPYC_NATIVE_INTERNAL_f79b89f5f6693162015b_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_a025ee80cc65a078a147.h"
+#include "__native_f79b89f5f6693162015b.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[568];
+extern PyObject *CPyStatics[574];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -29,6 +29,11 @@ extern CPyModule *CPyModule_typing;
 extern PyObject *CPyStatic__requests___globals;
 extern CPyModule *CPyModule_os;
 extern CPyModule *CPyModule_requests;
+extern CPyModule *CPyModule_yearn_treasury___rules___constants_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___constants;
+extern PyObject *CPyStatic_constants___globals;
+extern CPyModule *CPyModule_y;
+extern CPyModule *CPyModule_y___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___cost_of_revenue___gas_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___cost_of_revenue___gas;
 extern PyObject *CPyStatic_gas___globals;
@@ -36,8 +41,6 @@ extern CPyModule *CPyModule_pony___orm;
 extern CPyModule *CPyModule_dao_treasury___db;
 extern CPyModule *CPyModule_dao_treasury___sorting;
 extern CPyModule *CPyModule_eth_typing;
-extern CPyModule *CPyModule_y;
-extern CPyModule *CPyModule_y___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense;
 extern PyObject *CPyStatic_expense___globals;
@@ -74,7 +77,6 @@ extern CPyModule *CPyModule_uniswap;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps____skip_tokens_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps____skip_tokens;
 extern PyObject *CPyStatic__skip_tokens___globals;
-extern CPyModule *CPyModule_yearn_treasury___rules___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___aave_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___aave;
 extern PyObject *CPyStatic_aave___globals;
@@ -140,6 +142,7 @@ extern PyObject *CPyStatic__requests____HEADERS;
 extern PyObject *CPyDef__requests___fetch_brs(void);
 extern PyObject *CPyPy__requests___fetch_brs(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__requests_____top_level__(void);
+extern char CPyDef_constants_____top_level__(void);
 extern PyObject *CPyStatic_gas___gas;
 extern PyObject *CPyStatic_gas___commit;
 extern PyObject *CPyStatic_gas____STRATEGIST_GAS_HASHES;
