@@ -1,0 +1,61 @@
+yearn\_treasury.rules.ignore package
+====================================
+
+Subpackages
+-----------
+
+.. toctree::
+   :maxdepth: 4
+
+   yearn_treasury.rules.ignore.swaps
+
+Submodules
+----------
+
+yearn\_treasury.rules.ignore.general module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.general
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.ignore.maker module
+-----------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.maker
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.ignore.staking module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.staking
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.ignore.weth module
+----------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.weth
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.ignore.ygov module
+----------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.ygov
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules.ignore
+   :members:
+   :undoc-members:
+   :show-inheritance:
