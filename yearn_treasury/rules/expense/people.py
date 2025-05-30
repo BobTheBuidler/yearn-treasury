@@ -1,4 +1,11 @@
+from typing import Final
+
 from dao_treasury import TreasuryTx, expense
+
+
+grants: Final = expense("Grants")
+website: Final = grants("Website")
+ux: Final = website("UX")
 
 
 @expense("Coordinape")
@@ -28,7 +35,7 @@ def is_coordinape(tx: TreasuryTx) -> bool:
     )
 
 
-@expense("yGift Team Grant")
+@grants("yGift Team Grant")
 def is_ygift_grant(tx: TreasuryTx) -> bool:
     """Yearn used to use yGift to send team grants but that ended up being too expensive."""
     return tx.to_nickname == "Contract: yGift" and tx.symbol == "yyDAI+yUSDC+yUSDT+yTUSD"

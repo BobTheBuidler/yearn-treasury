@@ -5,6 +5,10 @@ from y import Network, convert
 from y.constants import CHAINID
 
 
+EEE_ADDRESS: Final = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
+ZERO_ADDRESS: Final = "0x0000000000000000000000000000000000000000"
+
+
 TREASURY_MULTISIGS: Final = {
     Network.Mainnet: "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde",
     Network.Fantom: "0x89716Ad7EDC3be3B35695789C475F3e7A3Deb12a",

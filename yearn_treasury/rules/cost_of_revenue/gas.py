@@ -3,24 +3,24 @@ from typing import Final, Set
 
 import pony.orm
 from dao_treasury.db import TreasuryTx
-from dao_treasury.sorting import CostOfRevenueSortRule, cost_of_revenue
+from dao_treasury.sorting import cost_of_revenue
 from eth_typing import HexStr
 from y import Network
 from y.constants import CHAINID
 
 
+gas: Final = cost_of_revenue("Gas")
+
 commit: Final = pony.orm.commit
 
 
-CostOfRevenueSortRule(
-    txgroup="Gas:Multisig Reimbursement",
+gas("Multisig Reimbursement").match(
     hash=HexStr("0x19bcb28cd113896fb06f17b2e5efa86bb8bf78c26e75c633d8f1a0e48b238a86"),
     from_nickname="Yearn yChad Multisig",
 )
 
 
-CostOfRevenueSortRule(
-    txgroup="Gas:Other Gas",
+gas("Other Gas").match(
     hash=HexStr("0x57bc99f6007989606bdd9d1adf91c99d198de51f61d29689ee13ccf440b244df"),
     to_address="0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc",  # type: ignore [arg-type]
 )
@@ -43,7 +43,7 @@ _RETURNED_GAS_HASHES: Final[Set[HexStr]] = {
 }.get(CHAINID, set())
 
 
-@cost_of_revenue("Gas:Strategist Gas")
+@gas("Strategist Gas")
 def is_strategist_gas(tx: TreasuryTx) -> bool:
     if tx.symbol == "ETH":
         if tx.from_nickname == "Disperse.app":
