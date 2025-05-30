@@ -224,11 +224,11 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
 
             # Buy side
             elif tx.from_address == swap.address and TreasuryWallet._get_instance(
-                tx.to_address.address
+                tx.to_address.address  # type: ignore [union-attr, arg-type]
             ):
                 pool = await Contract.coroutine(swap.address)
-                token0 = await pool.token0
-                token1 = await pool.token1
+                token0 = await pool.token0  # type: ignore [attr-defined]
+                token1 = await pool.token1  # type: ignore [attr-defined]
                 if token0 in SKIP_TOKENS or token1 in SKIP_TOKENS:
                     # This will be recorded elsewhere
                     continue

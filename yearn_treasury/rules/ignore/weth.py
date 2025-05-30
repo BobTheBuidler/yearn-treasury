@@ -18,27 +18,23 @@ def is_weth_mint(tx: TreasuryTx) -> bool:
         and tx.token == weth
     ):
         return True
-    if (
+    return bool(
         TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == weth
         and tx.token == EEE_ADDRESS
-    ):
-        return True
-    return False
+    )
 
 
 @ignore("WETH:Burning")
 def is_weth(tx: TreasuryTx) -> bool:
     if (
-        TreasuryWallet._get_instance(tx.from_address.address)
+        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == ZERO_ADDRESS
         and tx.token == weth
     ):
         return True
-    if (
+    return bool(
         tx.from_address == weth
         and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
         and tx.token == EEE_ADDRESS
-    ):
-        return True
-    return False
+    )
