@@ -48,7 +48,7 @@ run_parser.add_argument(
     "--grafana-port",
     type=int,
     help="Port for the Grafana dashboard where you can view your data. Default: 3003",
-    default=3003,
+    default=3004,
 )
 run_parser.add_argument(
     "--renderer-port",
@@ -124,19 +124,14 @@ def main() -> None:
         sort_rules: Final[Path] = Path(__file__).parent / "rules"
         """The path where the sort rules for dao-treasury are defined."""
 
-    # Export ports for external services
-    os.environ["GRAFANA_PORT"] = str(Args.grafana_port)
-    os.environ["RENDERER_PORT"] = str(Args.renderer_port)
+    import dao_treasury.main
+
+    # Export ports for external services (must come after import)
+    os.environ["DAO_TREASURY_GRAFANA_PORT"] = str(Args.grafana_port)
+    os.environ["DAO_TREASURY_RENDERER_PORT"] = str(Args.renderer_port)
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
 
     # Start the balance export routine
-    asyncio.get_event_loop().run_until_complete(_main(Args))
+    asyncio.get_event_loop().run_until_complete(dao_treasury.main.export(Args))
 
     rules  # I just put this here so the import isn't flagged as unused
-
-
-async def _main(args) -> None:
-    import dao_treasury.main
-
-    # TODO: move this gather into dao-treasury
-    await asyncio.gather(export_balances(args), dao_treasury.main.export(args))

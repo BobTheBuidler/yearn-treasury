@@ -11,7 +11,10 @@ staking: Final = ignore("Staking")
 
 @staking("Curve Gauges", Network.Mainnet)
 def is_curve_gauge(tx: TreasuryTx) -> bool:
-    """Not worth auto sorting now, could change in future if happens more often"""
+    """Ignore DAO staking into Curve gauge contracts on Mainnet.
+
+    These deposit transactions into Curve gauges are infrequent and are excluded from automatic categorization.
+    """
     return tx.hash in (
         "0xfb9fbe6e6c1d6e3dbeae81f80f0ff7729c556b08afb6ce1fa8ab04d3ecb56788",
         "0x832eb508906baf2c00dfec7a2d3f7b856fdee683921a5fff206cf6b0c997cb32",
@@ -20,7 +23,14 @@ def is_curve_gauge(tx: TreasuryTx) -> bool:
 
 @staking("Solidex", Network.Fantom)
 async def is_solidex_staking(tx: TreasuryTx) -> bool:
-    """Used when tokens are staked in a staking contract."""
+    """Ignore Solidex staking and unstaking lifecycle transactions on Fantom.
+
+    This rule matches each stage of the Solidex LP flow:
+    - Stake deposits: DAO wallet deposits tokens into the LP depositor contract (`Deposited` event).
+    - Reward claims: Claim tokens minted to DAO (`Deposited` event with ZERO_ADDRESS as sender).
+    - Claim token burns: DAO wallet burns claim tokens to redeem rewards (`Withdrawn` event).
+    - Unstake withdrawals: DAO wallet receives original LP tokens back (`Withdrawn` event).
+    """
     # Solidex Finance: LP Depositor
     lp_depositor = "0x26E1A0d851CF28E697870e1b7F053B605C8b060F"
 
@@ -41,6 +51,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
             ):
                 return True
 
+    # CLAIMING
     # Step 2: Get your claim tokens
     elif (
         tx.from_address == ZERO_ADDRESS
@@ -59,7 +70,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
                 return True
 
     # UNSTAKING
-    # Step 1: Burn your claim tokens
+    # Step 3: Burn your claim tokens
     elif (
         TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == ZERO_ADDRESS
@@ -78,7 +89,7 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
                 ):
                     return True
 
-    # Step 2: Unstake your tokens
+    # Step 4: Unstake your tokens
     elif (
         tx.from_address == lp_depositor
         and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
