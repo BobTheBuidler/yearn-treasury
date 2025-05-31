@@ -30063,13 +30063,13 @@ char CPyDef_staking___is_curve_gauge(PyObject *cpy_r_tx) {
     cpy_r_r0 = CPyStatics[91]; /* 'hash' */
     cpy_r_r1 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r0);
     if (unlikely(cpy_r_r1 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 15, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 18, CPyStatic_staking___globals);
         goto CPyL14;
     }
     if (likely(PyUnicode_Check(cpy_r_r1)))
         cpy_r_r2 = cpy_r_r1;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 15, CPyStatic_staking___globals, "str", cpy_r_r1);
+        CPy_TypeErrorTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 18, CPyStatic_staking___globals, "str", cpy_r_r1);
         goto CPyL14;
     }
     cpy_r_r3 = CPyStatics[344]; /* '0xfb9fbe6e6c1d6e3dbeae81f80f0ff7729c556b08afb6ce1fa8ab04d3ecb56788' */
@@ -30094,13 +30094,13 @@ CPyL7: ;
     cpy_r_r11 = CPyStatics[91]; /* 'hash' */
     cpy_r_r12 = CPyObject_GetAttr(cpy_r_tx, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 15, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 18, CPyStatic_staking___globals);
         goto CPyL14;
     }
     if (likely(PyUnicode_Check(cpy_r_r12)))
         cpy_r_r13 = cpy_r_r12;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 15, CPyStatic_staking___globals, "str", cpy_r_r12);
+        CPy_TypeErrorTraceback("yearn_treasury/rules/ignore/staking.py", "is_curve_gauge", 18, CPyStatic_staking___globals, "str", cpy_r_r12);
         goto CPyL14;
     }
     cpy_r_r14 = CPyStatics[345]; /* '0x832eb508906baf2c00dfec7a2d3f7b856fdee683921a5fff206cf6b0c997cb32' */
@@ -30547,14 +30547,14 @@ PyObject *CPyDef_staking___is_solidex_staking_gen_____mypyc_generator_helper__(P
     cpy_r_r3 = cpy_r_r2;
     cpy_r_r4 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_genObject *)cpy_r___mypyc_self__)->___mypyc_env__;
     if (unlikely(cpy_r_r4 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_gen", "__mypyc_env__", 22, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_gen", "__mypyc_env__", 25, CPyStatic_staking___globals);
         goto CPyL307;
     }
     CPy_INCREF_NO_IMM(cpy_r_r4);
 CPyL1: ;
     cpy_r_r5 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_next_label__;
     if (unlikely(cpy_r_r5 == CPY_INT_TAG)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_next_label__", 22, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_next_label__", 25, CPyStatic_staking___globals);
         goto CPyL308;
     }
     CPyTagged_INCREF(cpy_r_r5);
@@ -30569,7 +30569,7 @@ CPyL2: ;
 CPyL3: ;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPy_Unreachable();
@@ -30582,19 +30582,19 @@ CPyL5: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor = cpy_r_r8;
     cpy_r_r9 = 1;
     if (unlikely(!cpy_r_r9)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 35, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r10 = CPyStatic_staking___globals;
     cpy_r_r11 = CPyStatics[234]; /* 'TreasuryWallet' */
     cpy_r_r12 = CPyDict_GetItem(cpy_r_r10, cpy_r_r11);
     if (unlikely(cpy_r_r12 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 30, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r13 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r13 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 30, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 40, CPyStatic_staking___globals);
         goto CPyL310;
     }
     CPy_INCREF(cpy_r_r13);
@@ -30603,14 +30603,14 @@ CPyL8: ;
     cpy_r_r15 = CPyObject_GetAttr(cpy_r_r13, cpy_r_r14);
     CPy_DECREF(cpy_r_r13);
     if (unlikely(cpy_r_r15 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 30, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
         goto CPyL310;
     }
     cpy_r_r16 = CPyStatics[236]; /* 'address' */
     cpy_r_r17 = CPyObject_GetAttr(cpy_r_r15, cpy_r_r16);
     CPy_DECREF(cpy_r_r15);
     if (unlikely(cpy_r_r17 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 30, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
         goto CPyL310;
     }
     cpy_r_r18 = CPyStatics[237]; /* '_get_instance' */
@@ -30618,7 +30618,7 @@ CPyL8: ;
     cpy_r_r20 = (PyObject **)&cpy_r_r19;
     cpy_r_r21 = PyObject_VectorcallMethod(cpy_r_r18, cpy_r_r20, 9223372036854775810ULL, 0);
     if (unlikely(cpy_r_r21 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 30, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
         goto CPyL311;
     }
     CPy_DECREF(cpy_r_r12);
@@ -30627,14 +30627,14 @@ CPyL8: ;
     CPy_DECREF(cpy_r_r21);
     cpy_r_r23 = cpy_r_r22 >= 0;
     if (unlikely(!cpy_r_r23)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 30, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r24 = cpy_r_r22;
     if (!cpy_r_r24) goto CPyL62;
     cpy_r_r25 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r25 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 31, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 41, CPyStatic_staking___globals);
         goto CPyL308;
     }
     CPy_INCREF(cpy_r_r25);
@@ -30643,12 +30643,12 @@ CPyL14: ;
     cpy_r_r27 = CPyObject_GetAttr(cpy_r_r25, cpy_r_r26);
     CPy_DECREF(cpy_r_r25);
     if (unlikely(cpy_r_r27 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 31, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 41, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r28 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r28 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 31, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 41, CPyStatic_staking___globals);
         goto CPyL312;
     }
     CPy_INCREF(cpy_r_r28);
@@ -30657,7 +30657,7 @@ CPyL16: ;
     CPy_DECREF(cpy_r_r27);
     CPy_DECREF(cpy_r_r28);
     if (unlikely(cpy_r_r29 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 31, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 41, CPyStatic_staking___globals);
         goto CPyL308;
     }
     if (unlikely(!PyBool_Check(cpy_r_r29))) {
@@ -30666,14 +30666,14 @@ CPyL16: ;
         cpy_r_r30 = cpy_r_r29 == Py_True;
     CPy_DECREF(cpy_r_r29);
     if (unlikely(cpy_r_r30 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 31, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 41, CPyStatic_staking___globals);
         goto CPyL308;
     }
     if (!cpy_r_r30) goto CPyL62;
     cpy_r_r31 = CPyStatics[347]; /* 'Deposited' */
     cpy_r_r32 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r32 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 32, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 42, CPyStatic_staking___globals);
         goto CPyL308;
     }
     CPy_INCREF(cpy_r_r32);
@@ -30682,14 +30682,14 @@ CPyL20: ;
     cpy_r_r34 = CPyObject_GetAttr(cpy_r_r32, cpy_r_r33);
     CPy_DECREF(cpy_r_r32);
     if (unlikely(cpy_r_r34 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 32, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 42, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r35 = PySequence_Contains(cpy_r_r34, cpy_r_r31);
     CPy_DECREF(cpy_r_r34);
     cpy_r_r36 = cpy_r_r35 >= 0;
     if (unlikely(!cpy_r_r36)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 32, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 42, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r37 = cpy_r_r35;
@@ -30700,7 +30700,7 @@ CPyL20: ;
 CPyL23: ;
     cpy_r_r38 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r38 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 34, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 44, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r38);
@@ -30709,19 +30709,19 @@ CPyL24: ;
     cpy_r_r40 = CPyObject_GetAttr(cpy_r_r38, cpy_r_r39);
     CPy_DECREF(cpy_r_r38);
     if (unlikely(cpy_r_r40 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 34, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 44, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r41 = CPyStatics[347]; /* 'Deposited' */
     cpy_r_r42 = PyObject_GetItem(cpy_r_r40, cpy_r_r41);
     CPy_DECREF(cpy_r_r40);
     if (unlikely(cpy_r_r42 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 34, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 44, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r43 = PyObject_GetIter(cpy_r_r42);
     if (unlikely(cpy_r_r43 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 34, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 44, CPyStatic_staking___globals);
         goto CPyL315;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__0 != NULL) {
@@ -30745,7 +30745,7 @@ CPyL24: ;
 CPyL29: ;
     cpy_r_r46 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__1;
     if (unlikely(cpy_r_r46 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__1", 34, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__1", 44, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r46);
@@ -30759,12 +30759,12 @@ CPyL30: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event = cpy_r_r47;
     cpy_r_r48 = 1;
     if (unlikely(!cpy_r_r48)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 34, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 44, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r49 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r49 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 36, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 46, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r49);
@@ -30773,12 +30773,12 @@ CPyL33: ;
     cpy_r_r51 = CPyObject_GetAttr(cpy_r_r49, cpy_r_r50);
     CPy_DECREF(cpy_r_r49);
     if (unlikely(cpy_r_r51 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 36, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r52 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r52 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 36, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 46, CPyStatic_staking___globals);
         goto CPyL317;
     }
     CPy_INCREF(cpy_r_r52);
@@ -30787,14 +30787,14 @@ CPyL35: ;
     CPy_DECREF(cpy_r_r51);
     CPy_DECREF(cpy_r_r52);
     if (unlikely(cpy_r_r53 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 36, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r54 = PyObject_IsTrue(cpy_r_r53);
     CPy_DECREF(cpy_r_r53);
     cpy_r_r55 = cpy_r_r54 >= 0;
     if (unlikely(!cpy_r_r55)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 36, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r56 = cpy_r_r54;
@@ -30802,7 +30802,7 @@ CPyL35: ;
     cpy_r_r57 = CPyStatics[348]; /* 'user' */
     cpy_r_r58 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r58 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 37, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 47, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r58);
@@ -30811,7 +30811,7 @@ CPyL39: ;
     CPy_DECREF(cpy_r_r58);
     cpy_r_r60 = cpy_r_r59 >= 0;
     if (unlikely(!cpy_r_r60)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 37, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r61 = cpy_r_r59;
@@ -30819,7 +30819,7 @@ CPyL39: ;
     cpy_r_r62 = CPyStatics[349]; /* 'pool' */
     cpy_r_r63 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r63 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 38, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 48, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r63);
@@ -30828,14 +30828,14 @@ CPyL42: ;
     CPy_DECREF(cpy_r_r63);
     cpy_r_r65 = cpy_r_r64 >= 0;
     if (unlikely(!cpy_r_r65)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 38, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 48, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r66 = cpy_r_r64;
     if (!cpy_r_r66) goto CPyL29;
     cpy_r_r67 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r67 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 39, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 49, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r67);
@@ -30844,12 +30844,12 @@ CPyL45: ;
     cpy_r_r69 = CPyObject_GetAttr(cpy_r_r67, cpy_r_r68);
     CPy_DECREF(cpy_r_r67);
     if (unlikely(cpy_r_r69 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 39, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 49, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r70 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r70 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 39, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 49, CPyStatic_staking___globals);
         goto CPyL318;
     }
     CPy_INCREF(cpy_r_r70);
@@ -30858,28 +30858,28 @@ CPyL47: ;
     cpy_r_r72 = PyObject_GetItem(cpy_r_r70, cpy_r_r71);
     CPy_DECREF(cpy_r_r70);
     if (unlikely(cpy_r_r72 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 39, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 49, CPyStatic_staking___globals);
         goto CPyL318;
     }
     cpy_r_r73 = PyObject_RichCompare(cpy_r_r69, cpy_r_r72, 2);
     CPy_DECREF(cpy_r_r69);
     CPy_DECREF(cpy_r_r72);
     if (unlikely(cpy_r_r73 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 39, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 49, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r74 = PyObject_IsTrue(cpy_r_r73);
     CPy_DECREF(cpy_r_r73);
     cpy_r_r75 = cpy_r_r74 >= 0;
     if (unlikely(!cpy_r_r75)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 39, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 49, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r76 = cpy_r_r74;
     if (!cpy_r_r76) goto CPyL29;
     cpy_r_r77 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r77 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 40, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 50, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r77);
@@ -30888,12 +30888,12 @@ CPyL52: ;
     cpy_r_r79 = CPyObject_GetAttr(cpy_r_r77, cpy_r_r78);
     CPy_DECREF(cpy_r_r77);
     if (unlikely(cpy_r_r79 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r80 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r80 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 40, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 50, CPyStatic_staking___globals);
         goto CPyL319;
     }
     CPy_INCREF(cpy_r_r80);
@@ -30902,21 +30902,21 @@ CPyL54: ;
     cpy_r_r82 = PyObject_GetItem(cpy_r_r80, cpy_r_r81);
     CPy_DECREF(cpy_r_r80);
     if (unlikely(cpy_r_r82 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
         goto CPyL319;
     }
     cpy_r_r83 = PyObject_RichCompare(cpy_r_r79, cpy_r_r82, 2);
     CPy_DECREF(cpy_r_r79);
     CPy_DECREF(cpy_r_r82);
     if (unlikely(cpy_r_r83 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r84 = PyObject_IsTrue(cpy_r_r83);
     CPy_DECREF(cpy_r_r83);
     cpy_r_r85 = cpy_r_r84 >= 0;
     if (unlikely(!cpy_r_r85)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 40, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r86 = cpy_r_r84;
@@ -30929,7 +30929,7 @@ CPyL54: ;
     cpy_r_r88 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r4);
     if (unlikely(!cpy_r_r88)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 42, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 52, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPyGen_SetStopIterationValue(cpy_r_r87);
@@ -30938,14 +30938,14 @@ CPyL54: ;
 CPyL61: ;
     cpy_r_r89 = CPy_NoErrOccurred();
     if (unlikely(!cpy_r_r89)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 34, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 44, CPyStatic_staking___globals);
         goto CPyL314;
     } else
         goto CPyL298;
 CPyL62: ;
     cpy_r_r90 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r90 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 46, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 57, CPyStatic_staking___globals);
         goto CPyL308;
     }
     CPy_INCREF(cpy_r_r90);
@@ -30954,14 +30954,14 @@ CPyL63: ;
     cpy_r_r92 = CPyObject_GetAttr(cpy_r_r90, cpy_r_r91);
     CPy_DECREF(cpy_r_r90);
     if (unlikely(cpy_r_r92 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r93 = CPyStatics[76]; /* '0x0000000000000000000000000000000000000000' */
     cpy_r_r94 = PyObject_RichCompare(cpy_r_r92, cpy_r_r93, 2);
     CPy_DECREF(cpy_r_r92);
     if (unlikely(cpy_r_r94 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
         goto CPyL308;
     }
     if (unlikely(!PyBool_Check(cpy_r_r94))) {
@@ -30970,7 +30970,7 @@ CPyL63: ;
         cpy_r_r95 = cpy_r_r94 == Py_True;
     CPy_DECREF(cpy_r_r94);
     if (unlikely(cpy_r_r95 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 46, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
         goto CPyL308;
     }
     if (!cpy_r_r95) goto CPyL320;
@@ -30978,12 +30978,12 @@ CPyL63: ;
     cpy_r_r97 = CPyStatics[234]; /* 'TreasuryWallet' */
     cpy_r_r98 = CPyDict_GetItem(cpy_r_r96, cpy_r_r97);
     if (unlikely(cpy_r_r98 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 58, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r99 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r99 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 47, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 58, CPyStatic_staking___globals);
         goto CPyL321;
     }
     CPy_INCREF(cpy_r_r99);
@@ -30992,14 +30992,14 @@ CPyL69: ;
     cpy_r_r101 = CPyObject_GetAttr(cpy_r_r99, cpy_r_r100);
     CPy_DECREF(cpy_r_r99);
     if (unlikely(cpy_r_r101 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 58, CPyStatic_staking___globals);
         goto CPyL321;
     }
     cpy_r_r102 = CPyStatics[236]; /* 'address' */
     cpy_r_r103 = CPyObject_GetAttr(cpy_r_r101, cpy_r_r102);
     CPy_DECREF(cpy_r_r101);
     if (unlikely(cpy_r_r103 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 58, CPyStatic_staking___globals);
         goto CPyL321;
     }
     cpy_r_r104 = CPyStatics[237]; /* '_get_instance' */
@@ -31007,7 +31007,7 @@ CPyL69: ;
     cpy_r_r106 = (PyObject **)&cpy_r_r105;
     cpy_r_r107 = PyObject_VectorcallMethod(cpy_r_r104, cpy_r_r106, 9223372036854775810ULL, 0);
     if (unlikely(cpy_r_r107 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 58, CPyStatic_staking___globals);
         goto CPyL322;
     }
     CPy_DECREF(cpy_r_r98);
@@ -31016,7 +31016,7 @@ CPyL69: ;
     CPy_DECREF(cpy_r_r107);
     cpy_r_r109 = cpy_r_r108 >= 0;
     if (unlikely(!cpy_r_r109)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 47, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 58, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r110 = cpy_r_r108;
@@ -31024,7 +31024,7 @@ CPyL69: ;
     cpy_r_r111 = CPyStatics[347]; /* 'Deposited' */
     cpy_r_r112 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r112 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 48, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 59, CPyStatic_staking___globals);
         goto CPyL308;
     }
     CPy_INCREF(cpy_r_r112);
@@ -31033,14 +31033,14 @@ CPyL75: ;
     cpy_r_r114 = CPyObject_GetAttr(cpy_r_r112, cpy_r_r113);
     CPy_DECREF(cpy_r_r112);
     if (unlikely(cpy_r_r114 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 48, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 59, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r115 = PySequence_Contains(cpy_r_r114, cpy_r_r111);
     CPy_DECREF(cpy_r_r114);
     cpy_r_r116 = cpy_r_r115 >= 0;
     if (unlikely(!cpy_r_r116)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 48, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 59, CPyStatic_staking___globals);
         goto CPyL308;
     }
     cpy_r_r117 = cpy_r_r115;
@@ -31051,7 +31051,7 @@ CPyL75: ;
 CPyL78: ;
     cpy_r_r118 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r118 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 50, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 61, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r118);
@@ -31060,19 +31060,19 @@ CPyL79: ;
     cpy_r_r120 = CPyObject_GetAttr(cpy_r_r118, cpy_r_r119);
     CPy_DECREF(cpy_r_r118);
     if (unlikely(cpy_r_r120 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 61, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r121 = CPyStatics[347]; /* 'Deposited' */
     cpy_r_r122 = PyObject_GetItem(cpy_r_r120, cpy_r_r121);
     CPy_DECREF(cpy_r_r120);
     if (unlikely(cpy_r_r122 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 61, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r123 = PyObject_GetIter(cpy_r_r122);
     if (unlikely(cpy_r_r123 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 61, CPyStatic_staking___globals);
         goto CPyL325;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__2 != NULL) {
@@ -31096,7 +31096,7 @@ CPyL79: ;
 CPyL84: ;
     cpy_r_r126 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__3;
     if (unlikely(cpy_r_r126 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__3", 50, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__3", 61, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r126);
@@ -31110,12 +31110,12 @@ CPyL85: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event = cpy_r_r127;
     cpy_r_r128 = 1;
     if (unlikely(!cpy_r_r128)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 61, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r129 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r129 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 51, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r129);
@@ -31124,27 +31124,27 @@ CPyL88: ;
     cpy_r_r131 = CPyObject_GetAttr(cpy_r_r129, cpy_r_r130);
     CPy_DECREF(cpy_r_r129);
     if (unlikely(cpy_r_r131 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r132 = CPyStatics[241]; /* 'contract' */
     cpy_r_r133 = CPyObject_GetAttr(cpy_r_r131, cpy_r_r132);
     CPy_DECREF(cpy_r_r131);
     if (unlikely(cpy_r_r133 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r134 = CPyStatics[349]; /* 'pool' */
     cpy_r_r135 = CPyObject_GetAttr(cpy_r_r133, cpy_r_r134);
     CPy_DECREF(cpy_r_r133);
     if (unlikely(cpy_r_r135 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r136 = CPy_GetCoro(cpy_r_r135);
     CPy_DECREF(cpy_r_r135);
     if (unlikely(cpy_r_r136 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__4 != NULL) {
@@ -31168,7 +31168,7 @@ CPyL94: ;
     if (cpy_r_r139 != NULL) goto CPyL97;
     cpy_r_r140 = CPy_FetchStopIterationValue();
     if (unlikely(cpy_r_r140 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r141 = cpy_r_r140;
@@ -31182,7 +31182,7 @@ CPyL98: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_next_label__ = 2;
     cpy_r_r143 = 1;
     if (unlikely(!cpy_r_r143)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL328;
     } else
         goto CPyL329;
@@ -31194,7 +31194,7 @@ CPyL100: ;
     if (!cpy_r_r145) goto CPyL103;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL104;
     } else
         goto CPyL330;
@@ -31227,7 +31227,7 @@ CPyL106: ;
     cpy_r_r150 = CPy_YieldFromErrorHandle(cpy_r_r149, cpy_r_r148);
     CPy_DecRef(cpy_r_r149);
     if (unlikely(cpy_r_r150 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL331;
     }
     if (cpy_r_r150) goto CPyL110;
@@ -31303,7 +31303,7 @@ CPyL116: ;
 CPyL118: ;
     cpy_r_r157 = CPy_FetchStopIterationValue();
     if (unlikely(cpy_r_r157 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r141 = cpy_r_r157;
@@ -31314,12 +31314,12 @@ CPyL120: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_pool = cpy_r_r141;
     cpy_r_r158 = 1;
     if (unlikely(!cpy_r_r158)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 51, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 62, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r159 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r159 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 53, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 64, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r159);
@@ -31328,12 +31328,12 @@ CPyL122: ;
     cpy_r_r161 = CPyObject_GetAttr(cpy_r_r159, cpy_r_r160);
     CPy_DECREF(cpy_r_r159);
     if (unlikely(cpy_r_r161 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 53, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r162 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r162 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 53, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 64, CPyStatic_staking___globals);
         goto CPyL335;
     }
     CPy_INCREF(cpy_r_r162);
@@ -31342,14 +31342,14 @@ CPyL124: ;
     CPy_DECREF(cpy_r_r161);
     CPy_DECREF(cpy_r_r162);
     if (unlikely(cpy_r_r163 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 53, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r164 = PyObject_IsTrue(cpy_r_r163);
     CPy_DECREF(cpy_r_r163);
     cpy_r_r165 = cpy_r_r164 >= 0;
     if (unlikely(!cpy_r_r165)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 53, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r166 = cpy_r_r164;
@@ -31357,7 +31357,7 @@ CPyL124: ;
     cpy_r_r167 = CPyStatics[348]; /* 'user' */
     cpy_r_r168 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r168 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 54, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 65, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r168);
@@ -31366,7 +31366,7 @@ CPyL128: ;
     CPy_DECREF(cpy_r_r168);
     cpy_r_r170 = cpy_r_r169 >= 0;
     if (unlikely(!cpy_r_r170)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 54, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 65, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r171 = cpy_r_r169;
@@ -31374,7 +31374,7 @@ CPyL128: ;
     cpy_r_r172 = CPyStatics[349]; /* 'pool' */
     cpy_r_r173 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r173 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 55, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 66, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r173);
@@ -31383,14 +31383,14 @@ CPyL131: ;
     CPy_DECREF(cpy_r_r173);
     cpy_r_r175 = cpy_r_r174 >= 0;
     if (unlikely(!cpy_r_r175)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 55, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 66, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r176 = cpy_r_r174;
     if (!cpy_r_r176) goto CPyL84;
     cpy_r_r177 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r177 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 56, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 67, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r177);
@@ -31399,12 +31399,12 @@ CPyL134: ;
     cpy_r_r179 = CPyObject_GetAttr(cpy_r_r177, cpy_r_r178);
     CPy_DECREF(cpy_r_r177);
     if (unlikely(cpy_r_r179 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 56, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 67, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r180 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r180 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 56, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 67, CPyStatic_staking___globals);
         goto CPyL336;
     }
     CPy_INCREF(cpy_r_r180);
@@ -31413,28 +31413,28 @@ CPyL136: ;
     cpy_r_r182 = PyObject_GetItem(cpy_r_r180, cpy_r_r181);
     CPy_DECREF(cpy_r_r180);
     if (unlikely(cpy_r_r182 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 56, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 67, CPyStatic_staking___globals);
         goto CPyL336;
     }
     cpy_r_r183 = PyObject_RichCompare(cpy_r_r179, cpy_r_r182, 2);
     CPy_DECREF(cpy_r_r179);
     CPy_DECREF(cpy_r_r182);
     if (unlikely(cpy_r_r183 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 56, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 67, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r184 = PyObject_IsTrue(cpy_r_r183);
     CPy_DECREF(cpy_r_r183);
     cpy_r_r185 = cpy_r_r184 >= 0;
     if (unlikely(!cpy_r_r185)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 56, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 67, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r186 = cpy_r_r184;
     if (!cpy_r_r186) goto CPyL84;
     cpy_r_r187 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r187 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 57, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 68, CPyStatic_staking___globals);
         goto CPyL324;
     }
     CPy_INCREF(cpy_r_r187);
@@ -31443,12 +31443,12 @@ CPyL141: ;
     cpy_r_r189 = PyObject_GetItem(cpy_r_r187, cpy_r_r188);
     CPy_DECREF(cpy_r_r187);
     if (unlikely(cpy_r_r189 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r190 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_pool;
     if (unlikely(cpy_r_r190 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "pool", 57, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "pool", 68, CPyStatic_staking___globals);
         goto CPyL337;
     }
     CPy_INCREF(cpy_r_r190);
@@ -31457,14 +31457,14 @@ CPyL143: ;
     CPy_DECREF(cpy_r_r189);
     CPy_DECREF(cpy_r_r190);
     if (unlikely(cpy_r_r191 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r192 = PyObject_IsTrue(cpy_r_r191);
     CPy_DECREF(cpy_r_r191);
     cpy_r_r193 = cpy_r_r192 >= 0;
     if (unlikely(!cpy_r_r193)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 57, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
         goto CPyL324;
     }
     cpy_r_r194 = cpy_r_r192;
@@ -31481,7 +31481,7 @@ CPyL146: ;
     cpy_r_r196 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r4);
     if (unlikely(!cpy_r_r196)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 59, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPyGen_SetStopIterationValue(cpy_r_r195);
@@ -31490,7 +31490,7 @@ CPyL146: ;
 CPyL149: ;
     cpy_r_r197 = CPy_NoErrOccurred();
     if (unlikely(!cpy_r_r197)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 50, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 61, CPyStatic_staking___globals);
         goto CPyL314;
     } else
         goto CPyL298;
@@ -31499,12 +31499,12 @@ CPyL150: ;
     cpy_r_r199 = CPyStatics[234]; /* 'TreasuryWallet' */
     cpy_r_r200 = CPyDict_GetItem(cpy_r_r198, cpy_r_r199);
     if (unlikely(cpy_r_r200 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r201 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r201 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 64, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 75, CPyStatic_staking___globals);
         goto CPyL340;
     }
     CPy_INCREF(cpy_r_r201);
@@ -31513,14 +31513,14 @@ CPyL152: ;
     cpy_r_r203 = CPyObject_GetAttr(cpy_r_r201, cpy_r_r202);
     CPy_DECREF(cpy_r_r201);
     if (unlikely(cpy_r_r203 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
         goto CPyL340;
     }
     cpy_r_r204 = CPyStatics[236]; /* 'address' */
     cpy_r_r205 = CPyObject_GetAttr(cpy_r_r203, cpy_r_r204);
     CPy_DECREF(cpy_r_r203);
     if (unlikely(cpy_r_r205 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
         goto CPyL340;
     }
     cpy_r_r206 = CPyStatics[237]; /* '_get_instance' */
@@ -31528,7 +31528,7 @@ CPyL152: ;
     cpy_r_r208 = (PyObject **)&cpy_r_r207;
     cpy_r_r209 = PyObject_VectorcallMethod(cpy_r_r206, cpy_r_r208, 9223372036854775810ULL, 0);
     if (unlikely(cpy_r_r209 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
         goto CPyL341;
     }
     CPy_DECREF(cpy_r_r200);
@@ -31537,14 +31537,14 @@ CPyL152: ;
     CPy_DECREF(cpy_r_r209);
     cpy_r_r211 = cpy_r_r210 >= 0;
     if (unlikely(!cpy_r_r211)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 64, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r212 = cpy_r_r210;
     if (!cpy_r_r212) goto CPyL342;
     cpy_r_r213 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r213 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 65, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 76, CPyStatic_staking___globals);
         goto CPyL339;
     }
     CPy_INCREF(cpy_r_r213);
@@ -31553,14 +31553,14 @@ CPyL158: ;
     cpy_r_r215 = CPyObject_GetAttr(cpy_r_r213, cpy_r_r214);
     CPy_DECREF(cpy_r_r213);
     if (unlikely(cpy_r_r215 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 65, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r216 = CPyStatics[76]; /* '0x0000000000000000000000000000000000000000' */
     cpy_r_r217 = PyObject_RichCompare(cpy_r_r215, cpy_r_r216, 2);
     CPy_DECREF(cpy_r_r215);
     if (unlikely(cpy_r_r217 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 65, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
         goto CPyL339;
     }
     if (unlikely(!PyBool_Check(cpy_r_r217))) {
@@ -31569,14 +31569,14 @@ CPyL158: ;
         cpy_r_r218 = cpy_r_r217 == Py_True;
     CPy_DECREF(cpy_r_r217);
     if (unlikely(cpy_r_r218 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 65, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
         goto CPyL339;
     }
     if (!cpy_r_r218) goto CPyL342;
     cpy_r_r219 = CPyStatics[350]; /* 'Withdrawn' */
     cpy_r_r220 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r220 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 66, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 77, CPyStatic_staking___globals);
         goto CPyL339;
     }
     CPy_INCREF(cpy_r_r220);
@@ -31585,21 +31585,21 @@ CPyL163: ;
     cpy_r_r222 = CPyObject_GetAttr(cpy_r_r220, cpy_r_r221);
     CPy_DECREF(cpy_r_r220);
     if (unlikely(cpy_r_r222 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 66, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 77, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r223 = PySequence_Contains(cpy_r_r222, cpy_r_r219);
     CPy_DECREF(cpy_r_r222);
     cpy_r_r224 = cpy_r_r223 >= 0;
     if (unlikely(!cpy_r_r224)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 66, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 77, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r225 = cpy_r_r223;
     if (!cpy_r_r225) goto CPyL342;
     cpy_r_r226 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r226 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 68, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 79, CPyStatic_staking___globals);
         goto CPyL339;
     }
     CPy_INCREF(cpy_r_r226);
@@ -31608,14 +31608,14 @@ CPyL167: ;
     cpy_r_r228 = CPyObject_GetAttr(cpy_r_r226, cpy_r_r227);
     CPy_DECREF(cpy_r_r226);
     if (unlikely(cpy_r_r228 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 79, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r229 = CPyStatics[241]; /* 'contract' */
     cpy_r_r230 = CPyObject_GetAttr(cpy_r_r228, cpy_r_r229);
     CPy_DECREF(cpy_r_r228);
     if (unlikely(cpy_r_r230 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 79, CPyStatic_staking___globals);
         goto CPyL339;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_token != NULL) {
@@ -31624,12 +31624,12 @@ CPyL167: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_token = cpy_r_r230;
     cpy_r_r231 = 1;
     if (unlikely(!cpy_r_r231)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 68, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 79, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r232 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_token;
     if (unlikely(cpy_r_r232 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "token", 69, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "token", 80, CPyStatic_staking___globals);
         goto CPyL339;
     }
     CPy_INCREF(cpy_r_r232);
@@ -31640,7 +31640,7 @@ CPyL171: ;
     if (!cpy_r_r234) goto CPyL343;
     cpy_r_r235 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_token;
     if (unlikely(cpy_r_r235 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "token", 70, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "token", 81, CPyStatic_staking___globals);
         goto CPyL339;
     }
     CPy_INCREF(cpy_r_r235);
@@ -31649,13 +31649,13 @@ CPyL173: ;
     cpy_r_r237 = CPyObject_GetAttr(cpy_r_r235, cpy_r_r236);
     CPy_DECREF(cpy_r_r235);
     if (unlikely(cpy_r_r237 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL339;
     }
     cpy_r_r238 = CPy_GetCoro(cpy_r_r237);
     CPy_DECREF(cpy_r_r237);
     if (unlikely(cpy_r_r238 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL339;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__6 != NULL) {
@@ -31683,7 +31683,7 @@ CPyL177: ;
 CPyL178: ;
     cpy_r_r242 = CPy_FetchStopIterationValue();
     if (unlikely(cpy_r_r242 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r243 = cpy_r_r242;
@@ -31697,7 +31697,7 @@ CPyL181: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_next_label__ = 4;
     cpy_r_r245 = 1;
     if (unlikely(!cpy_r_r245)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL345;
     } else
         goto CPyL346;
@@ -31709,7 +31709,7 @@ CPyL183: ;
     if (!cpy_r_r247) goto CPyL186;
     CPyErr_SetObjectAndTraceback(cpy_r_type, cpy_r_value, cpy_r_traceback);
     if (unlikely(!0)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL187;
     } else
         goto CPyL347;
@@ -31742,7 +31742,7 @@ CPyL189: ;
     cpy_r_r252 = CPy_YieldFromErrorHandle(cpy_r_r251, cpy_r_r250);
     CPy_DecRef(cpy_r_r251);
     if (unlikely(cpy_r_r252 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL348;
     }
     if (cpy_r_r252) goto CPyL193;
@@ -31817,7 +31817,7 @@ CPyL199: ;
 CPyL201: ;
     cpy_r_r259 = CPy_FetchStopIterationValue();
     if (unlikely(cpy_r_r259 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r243 = cpy_r_r259;
@@ -31828,12 +31828,12 @@ CPyL203: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_pool = cpy_r_r243;
     cpy_r_r260 = 1;
     if (unlikely(!cpy_r_r260)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 70, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 81, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r261 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r261 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 71, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 82, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r261);
@@ -31842,19 +31842,19 @@ CPyL205: ;
     cpy_r_r263 = CPyObject_GetAttr(cpy_r_r261, cpy_r_r262);
     CPy_DECREF(cpy_r_r261);
     if (unlikely(cpy_r_r263 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 71, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 82, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r264 = CPyStatics[350]; /* 'Withdrawn' */
     cpy_r_r265 = PyObject_GetItem(cpy_r_r263, cpy_r_r264);
     CPy_DECREF(cpy_r_r263);
     if (unlikely(cpy_r_r265 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 71, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 82, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r266 = PyObject_GetIter(cpy_r_r265);
     if (unlikely(cpy_r_r266 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 71, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 82, CPyStatic_staking___globals);
         goto CPyL353;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__8 != NULL) {
@@ -31878,7 +31878,7 @@ CPyL205: ;
 CPyL210: ;
     cpy_r_r269 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__9;
     if (unlikely(cpy_r_r269 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__9", 71, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__9", 82, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r269);
@@ -31892,12 +31892,12 @@ CPyL211: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event = cpy_r_r270;
     cpy_r_r271 = 1;
     if (unlikely(!cpy_r_r271)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 71, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 82, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r272 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r272 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 73, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 84, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r272);
@@ -31906,12 +31906,12 @@ CPyL214: ;
     cpy_r_r274 = CPyObject_GetAttr(cpy_r_r272, cpy_r_r273);
     CPy_DECREF(cpy_r_r272);
     if (unlikely(cpy_r_r274 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 73, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r275 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r275 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 73, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 84, CPyStatic_staking___globals);
         goto CPyL355;
     }
     CPy_INCREF(cpy_r_r275);
@@ -31920,14 +31920,14 @@ CPyL216: ;
     CPy_DECREF(cpy_r_r274);
     CPy_DECREF(cpy_r_r275);
     if (unlikely(cpy_r_r276 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 73, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r277 = PyObject_IsTrue(cpy_r_r276);
     CPy_DECREF(cpy_r_r276);
     cpy_r_r278 = cpy_r_r277 >= 0;
     if (unlikely(!cpy_r_r278)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 73, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r279 = cpy_r_r277;
@@ -31935,7 +31935,7 @@ CPyL216: ;
     cpy_r_r280 = CPyStatics[348]; /* 'user' */
     cpy_r_r281 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r281 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 74, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 85, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r281);
@@ -31944,7 +31944,7 @@ CPyL220: ;
     CPy_DECREF(cpy_r_r281);
     cpy_r_r283 = cpy_r_r282 >= 0;
     if (unlikely(!cpy_r_r283)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 74, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 85, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r284 = cpy_r_r282;
@@ -31952,7 +31952,7 @@ CPyL220: ;
     cpy_r_r285 = CPyStatics[349]; /* 'pool' */
     cpy_r_r286 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r286 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 75, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 86, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r286);
@@ -31961,14 +31961,14 @@ CPyL223: ;
     CPy_DECREF(cpy_r_r286);
     cpy_r_r288 = cpy_r_r287 >= 0;
     if (unlikely(!cpy_r_r288)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 75, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 86, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r289 = cpy_r_r287;
     if (!cpy_r_r289) goto CPyL210;
     cpy_r_r290 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r290 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 76, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 87, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r290);
@@ -31977,12 +31977,12 @@ CPyL226: ;
     cpy_r_r292 = CPyObject_GetAttr(cpy_r_r290, cpy_r_r291);
     CPy_DECREF(cpy_r_r290);
     if (unlikely(cpy_r_r292 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r293 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r293 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 76, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 87, CPyStatic_staking___globals);
         goto CPyL356;
     }
     CPy_INCREF(cpy_r_r293);
@@ -31991,28 +31991,28 @@ CPyL228: ;
     cpy_r_r295 = PyObject_GetItem(cpy_r_r293, cpy_r_r294);
     CPy_DECREF(cpy_r_r293);
     if (unlikely(cpy_r_r295 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
         goto CPyL356;
     }
     cpy_r_r296 = PyObject_RichCompare(cpy_r_r292, cpy_r_r295, 2);
     CPy_DECREF(cpy_r_r292);
     CPy_DECREF(cpy_r_r295);
     if (unlikely(cpy_r_r296 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r297 = PyObject_IsTrue(cpy_r_r296);
     CPy_DECREF(cpy_r_r296);
     cpy_r_r298 = cpy_r_r297 >= 0;
     if (unlikely(!cpy_r_r298)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 76, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r299 = cpy_r_r297;
     if (!cpy_r_r299) goto CPyL210;
     cpy_r_r300 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r300 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 77, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 88, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r300);
@@ -32021,12 +32021,12 @@ CPyL233: ;
     cpy_r_r302 = PyObject_GetItem(cpy_r_r300, cpy_r_r301);
     CPy_DECREF(cpy_r_r300);
     if (unlikely(cpy_r_r302 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 77, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 88, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r303 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_pool;
     if (unlikely(cpy_r_r303 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "pool", 77, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "pool", 88, CPyStatic_staking___globals);
         goto CPyL357;
     }
     CPy_INCREF(cpy_r_r303);
@@ -32035,14 +32035,14 @@ CPyL235: ;
     CPy_DECREF(cpy_r_r302);
     CPy_DECREF(cpy_r_r303);
     if (unlikely(cpy_r_r304 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 77, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 88, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r305 = PyObject_IsTrue(cpy_r_r304);
     CPy_DECREF(cpy_r_r304);
     cpy_r_r306 = cpy_r_r305 >= 0;
     if (unlikely(!cpy_r_r306)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 77, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 88, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r307 = cpy_r_r305;
@@ -32055,7 +32055,7 @@ CPyL235: ;
     cpy_r_r309 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r4);
     if (unlikely(!cpy_r_r309)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 79, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 90, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPyGen_SetStopIterationValue(cpy_r_r308);
@@ -32064,14 +32064,14 @@ CPyL235: ;
 CPyL241: ;
     cpy_r_r310 = CPy_NoErrOccurred();
     if (unlikely(!cpy_r_r310)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 71, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 82, CPyStatic_staking___globals);
         goto CPyL314;
     } else
         goto CPyL298;
 CPyL242: ;
     cpy_r_r311 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r311 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 83, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 94, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r311);
@@ -32080,12 +32080,12 @@ CPyL243: ;
     cpy_r_r313 = CPyObject_GetAttr(cpy_r_r311, cpy_r_r312);
     CPy_DECREF(cpy_r_r311);
     if (unlikely(cpy_r_r313 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 83, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 94, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r314 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r314 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 83, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 94, CPyStatic_staking___globals);
         goto CPyL358;
     }
     CPy_INCREF(cpy_r_r314);
@@ -32094,7 +32094,7 @@ CPyL245: ;
     CPy_DECREF(cpy_r_r313);
     CPy_DECREF(cpy_r_r314);
     if (unlikely(cpy_r_r315 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 83, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 94, CPyStatic_staking___globals);
         goto CPyL314;
     }
     if (unlikely(!PyBool_Check(cpy_r_r315))) {
@@ -32103,7 +32103,7 @@ CPyL245: ;
         cpy_r_r316 = cpy_r_r315 == Py_True;
     CPy_DECREF(cpy_r_r315);
     if (unlikely(cpy_r_r316 == 2)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 83, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 94, CPyStatic_staking___globals);
         goto CPyL314;
     }
     if (!cpy_r_r316) goto CPyL298;
@@ -32111,12 +32111,12 @@ CPyL245: ;
     cpy_r_r318 = CPyStatics[234]; /* 'TreasuryWallet' */
     cpy_r_r319 = CPyDict_GetItem(cpy_r_r317, cpy_r_r318);
     if (unlikely(cpy_r_r319 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r320 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r320 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 84, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 95, CPyStatic_staking___globals);
         goto CPyL359;
     }
     CPy_INCREF(cpy_r_r320);
@@ -32125,14 +32125,14 @@ CPyL250: ;
     cpy_r_r322 = CPyObject_GetAttr(cpy_r_r320, cpy_r_r321);
     CPy_DECREF(cpy_r_r320);
     if (unlikely(cpy_r_r322 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
         goto CPyL359;
     }
     cpy_r_r323 = CPyStatics[236]; /* 'address' */
     cpy_r_r324 = CPyObject_GetAttr(cpy_r_r322, cpy_r_r323);
     CPy_DECREF(cpy_r_r322);
     if (unlikely(cpy_r_r324 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
         goto CPyL359;
     }
     cpy_r_r325 = CPyStatics[237]; /* '_get_instance' */
@@ -32140,7 +32140,7 @@ CPyL250: ;
     cpy_r_r327 = (PyObject **)&cpy_r_r326;
     cpy_r_r328 = PyObject_VectorcallMethod(cpy_r_r325, cpy_r_r327, 9223372036854775810ULL, 0);
     if (unlikely(cpy_r_r328 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
         goto CPyL360;
     }
     CPy_DECREF(cpy_r_r319);
@@ -32149,7 +32149,7 @@ CPyL250: ;
     CPy_DECREF(cpy_r_r328);
     cpy_r_r330 = cpy_r_r329 >= 0;
     if (unlikely(!cpy_r_r330)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 84, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r331 = cpy_r_r329;
@@ -32157,7 +32157,7 @@ CPyL250: ;
     cpy_r_r332 = CPyStatics[350]; /* 'Withdrawn' */
     cpy_r_r333 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r333 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 85, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 96, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r333);
@@ -32166,21 +32166,21 @@ CPyL256: ;
     cpy_r_r335 = CPyObject_GetAttr(cpy_r_r333, cpy_r_r334);
     CPy_DECREF(cpy_r_r333);
     if (unlikely(cpy_r_r335 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 85, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 96, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r336 = PySequence_Contains(cpy_r_r335, cpy_r_r332);
     CPy_DECREF(cpy_r_r335);
     cpy_r_r337 = cpy_r_r336 >= 0;
     if (unlikely(!cpy_r_r337)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 85, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 96, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r338 = cpy_r_r336;
     if (!cpy_r_r338) goto CPyL298;
     cpy_r_r339 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r339 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 87, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r339);
@@ -32189,19 +32189,19 @@ CPyL260: ;
     cpy_r_r341 = CPyObject_GetAttr(cpy_r_r339, cpy_r_r340);
     CPy_DECREF(cpy_r_r339);
     if (unlikely(cpy_r_r341 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r342 = CPyStatics[350]; /* 'Withdrawn' */
     cpy_r_r343 = PyObject_GetItem(cpy_r_r341, cpy_r_r342);
     CPy_DECREF(cpy_r_r341);
     if (unlikely(cpy_r_r343 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r344 = PyObject_GetIter(cpy_r_r343);
     if (unlikely(cpy_r_r344 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 98, CPyStatic_staking___globals);
         goto CPyL361;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__10 != NULL) {
@@ -32225,7 +32225,7 @@ CPyL260: ;
 CPyL265: ;
     cpy_r_r347 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->___mypyc_temp__11;
     if (unlikely(cpy_r_r347 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__11", 87, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "__mypyc_temp__11", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r347);
@@ -32239,12 +32239,12 @@ CPyL266: ;
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event = cpy_r_r348;
     cpy_r_r349 = 1;
     if (unlikely(!cpy_r_r349)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r350 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r350 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 89, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 100, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r350);
@@ -32253,12 +32253,12 @@ CPyL269: ;
     cpy_r_r352 = CPyObject_GetAttr(cpy_r_r350, cpy_r_r351);
     CPy_DECREF(cpy_r_r350);
     if (unlikely(cpy_r_r352 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 89, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 100, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r353 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_lp_depositor;
     if (unlikely(cpy_r_r353 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 89, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "lp_depositor", 100, CPyStatic_staking___globals);
         goto CPyL363;
     }
     CPy_INCREF(cpy_r_r353);
@@ -32267,14 +32267,14 @@ CPyL271: ;
     CPy_DECREF(cpy_r_r352);
     CPy_DECREF(cpy_r_r353);
     if (unlikely(cpy_r_r354 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 89, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 100, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r355 = PyObject_IsTrue(cpy_r_r354);
     CPy_DECREF(cpy_r_r354);
     cpy_r_r356 = cpy_r_r355 >= 0;
     if (unlikely(!cpy_r_r356)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 89, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 100, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r357 = cpy_r_r355;
@@ -32282,7 +32282,7 @@ CPyL271: ;
     cpy_r_r358 = CPyStatics[348]; /* 'user' */
     cpy_r_r359 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r359 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 90, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 101, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r359);
@@ -32291,7 +32291,7 @@ CPyL275: ;
     CPy_DECREF(cpy_r_r359);
     cpy_r_r361 = cpy_r_r360 >= 0;
     if (unlikely(!cpy_r_r361)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 90, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 101, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r362 = cpy_r_r360;
@@ -32299,7 +32299,7 @@ CPyL275: ;
     cpy_r_r363 = CPyStatics[349]; /* 'pool' */
     cpy_r_r364 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r364 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 91, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 102, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r364);
@@ -32308,14 +32308,14 @@ CPyL278: ;
     CPy_DECREF(cpy_r_r364);
     cpy_r_r366 = cpy_r_r365 >= 0;
     if (unlikely(!cpy_r_r366)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 91, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 102, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r367 = cpy_r_r365;
     if (!cpy_r_r367) goto CPyL265;
     cpy_r_r368 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r368 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 92, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 103, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r368);
@@ -32324,12 +32324,12 @@ CPyL281: ;
     cpy_r_r370 = CPyObject_GetAttr(cpy_r_r368, cpy_r_r369);
     CPy_DECREF(cpy_r_r368);
     if (unlikely(cpy_r_r370 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 92, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 103, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r371 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r371 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 92, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 103, CPyStatic_staking___globals);
         goto CPyL364;
     }
     CPy_INCREF(cpy_r_r371);
@@ -32338,28 +32338,28 @@ CPyL283: ;
     cpy_r_r373 = PyObject_GetItem(cpy_r_r371, cpy_r_r372);
     CPy_DECREF(cpy_r_r371);
     if (unlikely(cpy_r_r373 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 92, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 103, CPyStatic_staking___globals);
         goto CPyL364;
     }
     cpy_r_r374 = PyObject_RichCompare(cpy_r_r370, cpy_r_r373, 2);
     CPy_DECREF(cpy_r_r370);
     CPy_DECREF(cpy_r_r373);
     if (unlikely(cpy_r_r374 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 92, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 103, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r375 = PyObject_IsTrue(cpy_r_r374);
     CPy_DECREF(cpy_r_r374);
     cpy_r_r376 = cpy_r_r375 >= 0;
     if (unlikely(!cpy_r_r376)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 92, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 103, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r377 = cpy_r_r375;
     if (!cpy_r_r377) goto CPyL265;
     cpy_r_r378 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_tx;
     if (unlikely(cpy_r_r378 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 93, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "tx", 104, CPyStatic_staking___globals);
         goto CPyL314;
     }
     CPy_INCREF(cpy_r_r378);
@@ -32368,12 +32368,12 @@ CPyL288: ;
     cpy_r_r380 = CPyObject_GetAttr(cpy_r_r378, cpy_r_r379);
     CPy_DECREF(cpy_r_r378);
     if (unlikely(cpy_r_r380 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 93, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 104, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r381 = ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r4)->_event;
     if (unlikely(cpy_r_r381 == NULL)) {
-        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 93, CPyStatic_staking___globals);
+        CPy_AttributeError("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", "is_solidex_staking_env", "event", 104, CPyStatic_staking___globals);
         goto CPyL365;
     }
     CPy_INCREF(cpy_r_r381);
@@ -32382,21 +32382,21 @@ CPyL290: ;
     cpy_r_r383 = PyObject_GetItem(cpy_r_r381, cpy_r_r382);
     CPy_DECREF(cpy_r_r381);
     if (unlikely(cpy_r_r383 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 93, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 104, CPyStatic_staking___globals);
         goto CPyL365;
     }
     cpy_r_r384 = PyObject_RichCompare(cpy_r_r380, cpy_r_r383, 2);
     CPy_DECREF(cpy_r_r380);
     CPy_DECREF(cpy_r_r383);
     if (unlikely(cpy_r_r384 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 93, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 104, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r385 = PyObject_IsTrue(cpy_r_r384);
     CPy_DECREF(cpy_r_r384);
     cpy_r_r386 = cpy_r_r385 >= 0;
     if (unlikely(!cpy_r_r386)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 93, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 104, CPyStatic_staking___globals);
         goto CPyL314;
     }
     cpy_r_r387 = cpy_r_r385;
@@ -32409,7 +32409,7 @@ CPyL290: ;
     cpy_r_r389 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r4);
     if (unlikely(!cpy_r_r389)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 95, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 106, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPyGen_SetStopIterationValue(cpy_r_r388);
@@ -32418,7 +32418,7 @@ CPyL290: ;
 CPyL297: ;
     cpy_r_r390 = CPy_NoErrOccurred();
     if (unlikely(!cpy_r_r390)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 87, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 98, CPyStatic_staking___globals);
         goto CPyL314;
     }
 CPyL298: ;
@@ -32430,7 +32430,7 @@ CPyL298: ;
     cpy_r_r392 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r4);
     if (unlikely(!cpy_r_r392)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 97, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 108, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPyGen_SetStopIterationValue(cpy_r_r391);
@@ -32455,7 +32455,7 @@ CPyL304: ;
     PyErr_SetNone(PyExc_StopIteration);
     cpy_r_r396 = 0;
     if (unlikely(!cpy_r_r396)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL306;
     }
     CPy_Unreachable();
@@ -32744,7 +32744,7 @@ PyObject *CPyPy_staking___is_solidex_staking_gen_____mypyc_generator_helper__(Py
     PyObject *retval = CPyDef_staking___is_solidex_staking_gen_____mypyc_generator_helper__(arg___mypyc_self__, arg_type, arg_value, arg_traceback, arg_arg);
     return retval;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+    CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
     return NULL;
 }
 
@@ -33045,7 +33045,7 @@ PyObject *CPyDef_staking___is_solidex_staking(PyObject *cpy_r_tx) {
     PyObject *cpy_r_r5;
     cpy_r_r0 = CPyDef_staking___is_solidex_staking_env();
     if (unlikely(cpy_r_r0 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL6;
     }
     CPy_INCREF(cpy_r_tx);
@@ -33055,12 +33055,12 @@ PyObject *CPyDef_staking___is_solidex_staking(PyObject *cpy_r_tx) {
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r0)->_tx = cpy_r_tx;
     cpy_r_r1 = 1;
     if (unlikely(!cpy_r_r1)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL7;
     }
     cpy_r_r2 = CPyDef_staking___is_solidex_staking_gen();
     if (unlikely(cpy_r_r2 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL7;
     }
     CPy_INCREF_NO_IMM(cpy_r_r0);
@@ -33070,7 +33070,7 @@ PyObject *CPyDef_staking___is_solidex_staking(PyObject *cpy_r_tx) {
     ((yearn_treasury___rules___ignore___staking___is_solidex_staking_genObject *)cpy_r_r2)->___mypyc_env__ = cpy_r_r0;
     cpy_r_r3 = 1;
     if (unlikely(!cpy_r_r3)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL8;
     }
     if (((yearn_treasury___rules___ignore___staking___is_solidex_staking_envObject *)cpy_r_r0)->___mypyc_next_label__ != CPY_INT_TAG) {
@@ -33080,7 +33080,7 @@ PyObject *CPyDef_staking___is_solidex_staking(PyObject *cpy_r_tx) {
     cpy_r_r4 = 1;
     CPy_DECREF_NO_IMM(cpy_r_r0);
     if (unlikely(!cpy_r_r4)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
         goto CPyL9;
     }
     return cpy_r_r2;
@@ -33110,7 +33110,7 @@ PyObject *CPyPy_staking___is_solidex_staking(PyObject *self, PyObject *const *ar
     PyObject *retval = CPyDef_staking___is_solidex_staking(arg_tx);
     return retval;
 fail: ;
-    CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 22, CPyStatic_staking___globals);
+    CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "is_solidex_staking", 25, CPyStatic_staking___globals);
     return NULL;
 }
 
@@ -33336,7 +33336,7 @@ CPyL16: ;
     cpy_r_r54 = CPyStatics[354]; /* 'is_solidex_staking' */
     cpy_r_r55 = CPyDict_GetItem(cpy_r_r53, cpy_r_r54);
     if (unlikely(cpy_r_r55 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL29;
     }
     cpy_r_r56 = CPyStatics[355]; /* 'Solidex' */
@@ -33344,14 +33344,14 @@ CPyL16: ;
     cpy_r_r58 = CPyStatics[70]; /* 'Network' */
     cpy_r_r59 = CPyDict_GetItem(cpy_r_r57, cpy_r_r58);
     if (unlikely(cpy_r_r59 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL33;
     }
     cpy_r_r60 = CPyStatics[80]; /* 'Fantom' */
     cpy_r_r61 = CPyObject_GetAttr(cpy_r_r59, cpy_r_r60);
     CPy_DECREF(cpy_r_r59);
     if (unlikely(cpy_r_r61 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL33;
     }
     cpy_r_r62 = CPyStatic_staking___staking;
@@ -33363,7 +33363,7 @@ CPyL23: ;
     PyErr_SetString(PyExc_NameError, "value for final name \"staking\" was not set");
     cpy_r_r63 = 0;
     if (unlikely(!cpy_r_r63)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL29;
     }
     CPy_Unreachable();
@@ -33372,7 +33372,7 @@ CPyL25: ;
     cpy_r_r65 = (PyObject **)&cpy_r_r64;
     cpy_r_r66 = PyObject_Vectorcall(cpy_r_r62, cpy_r_r65, 2, 0);
     if (unlikely(cpy_r_r66 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL35;
     }
     CPy_DECREF(cpy_r_r61);
@@ -33381,7 +33381,7 @@ CPyL25: ;
     cpy_r_r69 = PyObject_Vectorcall(cpy_r_r66, cpy_r_r68, 1, 0);
     CPy_DECREF(cpy_r_r66);
     if (unlikely(cpy_r_r69 == NULL)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL33;
     }
     CPy_DECREF(cpy_r_r55);
@@ -33391,7 +33391,7 @@ CPyL25: ;
     CPy_DECREF(cpy_r_r69);
     cpy_r_r73 = cpy_r_r72 >= 0;
     if (unlikely(!cpy_r_r73)) {
-        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 21, CPyStatic_staking___globals);
+        CPy_AddTraceback("yearn_treasury/rules/ignore/staking.py", "<module>", 24, CPyStatic_staking___globals);
         goto CPyL29;
     }
     return 1;
@@ -42951,22 +42951,22 @@ const char * const CPyLit_Str[] = {
     "\004\016Infrastructure\016infrastructure\025Tenderly Subscription\004USDT",
     "\002*0xF6060cE3fC3df2640F72E42441355f50F195D96a\017Wonderland Jobs",
     "\002*0x8bA72884984f669aBBc9a5a7b441AD8E3D9a4fD3\005yvYFI",
-    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
-    "\001B0x8ed57eff8f4a61cd40d109223c5054f87e35a6f0a5c85b65b1a7afe5b6e308da",
-    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
+    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
+    "\001B0x38201edb06e8fd3b9aa9d4142594d28cb73768770fdcb68a4da24d8cb0742cfc",
+    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
+    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
+    "\001B0x0b7159645e66c3b460efeb3e1e3c32d5e4eb845a2f2230b28b388ad34a36fcc3",
     "\001B0x2a7c60bb7dd6c15a6d0351e6a2b9f01e51fa6e7df9d1e5f02a3759640211ee56",
     "\001B0x4d404a04bf46b80721f03ad6b821c6d82312c53331d8e7425fb68100116d8b98",
-    "\001B0xb3aab771a5581df5b1c8e6faefedcc88d91b8820c5ae5eaf9c9283014288dda2",
-    "\001B0x38201edb06e8fd3b9aa9d4142594d28cb73768770fdcb68a4da24d8cb0742cfc",
-    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
-    "\001B0x371b6a601da36382067a20236d41f540fc77dc793d64d24fc1bdbcd2c666db2b",
-    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
-    "\001B0xb23d189ac94acb68d457e5a21b765fd0affd73ac1cd5afbe9fb57db8c3f95c30",
-    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
-    "\001B0x0b7159645e66c3b460efeb3e1e3c32d5e4eb845a2f2230b28b388ad34a36fcc3",
     "\001B0x514591e6f8dcac50b6deeabce8a819540cc7caecc182c39dfb93280abb34d3d6",
+    "\001B0xb3aab771a5581df5b1c8e6faefedcc88d91b8820c5ae5eaf9c9283014288dda2",
+    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
+    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
     "\001B0xa121fd9717d0fb4ac72a223db638f4e59094547ddee253e5ba011a5bb0c67126",
-    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
+    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
+    "\001B0x371b6a601da36382067a20236d41f540fc77dc793d64d24fc1bdbcd2c666db2b",
+    "\001B0xb23d189ac94acb68d457e5a21b765fd0affd73ac1cd5afbe9fb57db8c3f95c30",
+    "\001B0x8ed57eff8f4a61cd40d109223c5054f87e35a6f0a5c85b65b1a7afe5b6e308da",
     "\006\017Contract: yGift\027yyDAI+yUSDC+yUSDT+yTUSD\006Grants\006grants\aWebsite\awebsite",
     "\006\002UX\002ux\ris_coordinape\nCoordinape\016is_ygift_grant\020yGift Team Grant",
     "\001*0x0E0aF03c405E17D0e486354fe709d3294d07EC44",
@@ -42979,10 +42979,10 @@ const char * const CPyLit_Str[] = {
     "\001B0xcb79cbe5b68d04a1a3feab3360734277020ee0536380843a8c9db3e8356b81d6",
     "\001B0x3e75d22250d87c183824c3b77ddb9cb11935db2061ce7f34df4f024d0646fcfb",
     "\001B0xca61496c32806ba34f0deb331c32969eda11c947fdd6235173e6fa13d9a1c288",
-    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
+    "\001B0x5e95d5b0773eefaef9c7187d5e9187a89717d269f48e5dcf707acfe1a7e55cb9",
     "\001B0x7df5566cc9ff8ed0aafe126b74ad0e3957e62d530d007565ee32bd1303bcec32",
     "\001B0x70cdcffa444f70754a1df2d80a1adf9c432dfe678381e05ac78ab50b9de9d393",
-    "\001B0x5e95d5b0773eefaef9c7187d5e9187a89717d269f48e5dcf707acfe1a7e55cb9",
+    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
     "\001B0x70ecc34da6c461a0bb9dadfbc4d082a8486e742cbb454f0f67b2df384fb9bffc",
     "\001B0x4df2eee567ebf2a41b555fca3fed41300b12ff2dc3c79ffaee8b7bdf262f9303",
     "\001B0x5deca5d6c934372c174bbef8be9a1e103e06d8b93fd3bf8d77865dfeb34fe3be",
