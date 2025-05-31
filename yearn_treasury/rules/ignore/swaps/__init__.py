@@ -1,7 +1,6 @@
 from typing import Final
 
-from dao_treasury import IgnoreSortRule, ignore
-from dao_treasury.sorting.factory import SortRuleFactory
+from dao_treasury import IgnoreSortRule, SortRuleFactory, ignore
 
 
 swaps: Final[SortRuleFactory[IgnoreSortRule]] = ignore("Swaps")
