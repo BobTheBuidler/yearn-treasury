@@ -77,25 +77,28 @@ async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
     return False
 
 
-def is_inverse_fees_from_stash_contract(tx: TreasuryTx) -> bool:
+def is_inverse_fees_from_stash_contract(from_address: str, to_nickname: str) -> bool:
     return (
-        tx.from_address == "0xE376e8e8E3B0793CD61C6F1283bA18548b726C2e"
-        and tx.to_nickname == "Token: Curve stETH Pool yVault"
+        from_address == "0xE376e8e8E3B0793CD61C6F1283bA18548b726C2e"
+        and to_nickname == "Token: Curve stETH Pool yVault"
     )
 
 
 # TODO: add Network param to SortRule
 @fees("Vaults V2")
 async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
-    for vault in v2:
-        if (
-            tx.from_address == vault.address
-            and tx.token == vault.address
-            and tx.to_address == await vault.rewards.coroutine(block_identifier=tx.block)
-        ):
-            return True
+    token = tx.token.address.address
+    from_address = tx.from_address.address
+    if from_address == token:
+        to_address = tx.to_address
+        for vault in v2:
+            if (
+                from_address == vault.address
+                and to_address == await vault.rewards.coroutine(block_identifier=tx.block)
+            ):
+                return True
 
-    if is_inverse_fees_from_stash_contract(tx):
+    if is_inverse_fees_from_stash_contract(from_address, tx.to_nickname):  # type: ignore [arg-type]
         if tx.value_usd > 0:  # type: ignore [operator]
             tx.value_usd *= -1  # type: ignore [operator]
         return True
