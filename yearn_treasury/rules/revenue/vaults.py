@@ -92,9 +92,8 @@ async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
     if from_address == token:
         to_address = tx.to_address
         for vault in v2:
-            if (
-                from_address == vault.address
-                and to_address == await vault.rewards.coroutine(block_identifier=tx.block)
+            if from_address == vault.address and to_address == await vault.rewards.coroutine(
+                block_identifier=tx.block
             ):
                 return True
 
