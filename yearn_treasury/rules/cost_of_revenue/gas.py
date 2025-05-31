@@ -2,8 +2,7 @@
 from typing import Final, Set
 
 import pony.orm
-from dao_treasury.db import TreasuryTx
-from dao_treasury.sorting import cost_of_revenue
+from dao_treasury import TreasuryTx, cost_of_revenue
 from eth_typing import HexStr
 from y import Network
 from y.constants import CHAINID
