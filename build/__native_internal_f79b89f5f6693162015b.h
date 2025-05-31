@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[580];
+extern PyObject *CPyStatics[576];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -38,8 +38,7 @@ extern CPyModule *CPyModule_yearn_treasury___rules___cost_of_revenue___gas_inter
 extern CPyModule *CPyModule_yearn_treasury___rules___cost_of_revenue___gas;
 extern PyObject *CPyStatic_gas___globals;
 extern CPyModule *CPyModule_pony___orm;
-extern CPyModule *CPyModule_dao_treasury___db;
-extern CPyModule *CPyModule_dao_treasury___sorting;
+extern CPyModule *CPyModule_dao_treasury;
 extern CPyModule *CPyModule_eth_typing;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense;
@@ -54,7 +53,6 @@ extern CPyModule *CPyModule_yearn_treasury___rules___expense___security_internal
 extern CPyModule *CPyModule_yearn_treasury___rules___expense___security;
 extern PyObject *CPyStatic_expense___general___globals;
 extern CPyModule *CPyModule_decimal;
-extern CPyModule *CPyModule_dao_treasury;
 extern PyObject *CPyStatic_infrastructure___globals;
 extern PyObject *CPyStatic_people___globals;
 extern PyObject *CPyStatic_security___globals;
@@ -74,7 +72,6 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___weth;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___ygov_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___ygov;
 extern PyObject *CPyStatic_swaps___globals;
-extern CPyModule *CPyModule_dao_treasury___sorting___factory;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___aave_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___aave;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___compound_internal;
