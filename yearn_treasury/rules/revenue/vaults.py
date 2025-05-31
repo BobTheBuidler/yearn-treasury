@@ -89,13 +89,12 @@ def is_inverse_fees_from_stash_contract(from_address: str, to_nickname: str) -> 
 async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
     token = tx.token.address.address
     from_address = tx.from_address.address
-    if from_address == token:
-        to_address = tx.to_address
-        for vault in v2:
-            if from_address == vault.address and to_address == await vault.rewards.coroutine(
-                block_identifier=tx.block
-            ):
-                return True
+    if (
+        from_address == token
+        and (vault := v2.get(from_address))  # type: ignore [arg-type]
+        and tx.to_address == await vault.rewards.coroutine(block_identifier=tx.block)
+    ):
+        return True
 
     if is_inverse_fees_from_stash_contract(from_address, tx.to_nickname):  # type: ignore [arg-type]
         if tx.value_usd > 0:  # type: ignore [operator]

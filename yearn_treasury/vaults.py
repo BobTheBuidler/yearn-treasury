@@ -27,16 +27,16 @@ if chain.id == Network.Mainnet:
         ).events(now)
     ]
 
-    v2: List[Contract] = [
-        Contract(vault)
+    v2: Dict[ChecksumAddress, Contract] = {
+        vault: Contract(vault)  # type: ignore [misc]
         for vault in {
             event["vault"]
             for event in Events(addresses=list(map(str, v2_registries))).events(now)
             if event.name == "NewVault"
         }
-    ]
+    }
 
 else:
     v1 = {}
-    v2 = []
+    v2 = {}
     raise NotImplementedError(v2)
