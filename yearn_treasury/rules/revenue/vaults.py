@@ -15,18 +15,25 @@ fees: Final = revenue("Fees")
 
 
 # v1 helpers
-def _is_y3crv(tx: TreasuryTx) -> bool:
+def _is_single_sided(tx: TreasuryTx) -> bool:
+    """Fees from single-sided strategies are not denominated in `vault.token`."""
+    symbol = tx.symbol
+    from_nickname = tx.from_nickname
+    return _is_y3crv(symbol, from_nickname) or _is_ypool(symbol, from_nickname)
+
+
+def _is_y3crv(symbol: str, from_nickname: str) -> bool:
     return (
-        tx.symbol == "y3Crv"
-        and (from_nickname := tx.from_nickname).startswith("Contract: Strategy")
+        symbol == "y3Crv"
+        and from_nickname.startswith("Contract: Strategy")
         and from_nickname.endswith("3pool")
     )
 
 
-def _is_ypool(tx: TreasuryTx) -> bool:
+def _is_ypool(symbol: str, from_nickname: str) -> bool:
     return (
-        tx.symbol == "yyDAI+yUSDC+yUSDT+yTUSD"
-        and (from_nickname := tx.from_nickname).startswith("Contract: Strategy")
+        symbol == "yyDAI+yUSDC+yUSDT+yTUSD"
+        and from_nickname.startswith("Contract: Strategy")
         and from_nickname.endswith("ypool")
     )
 
@@ -50,9 +57,11 @@ async def _get_controller(vault: Contract) -> Contract:
 async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
     token = tx.token.address.address
 
+    # Fees from single-sided strategies are not denominated in `vault.token` but everything else is
+    is_single_sided = _is_single_sided(tx)
+
     for vault, underlying in v1.items():
-        # Fees from single-sided strategies are not denominated in `vault.token` but everything else is
-        if token != underlying and not _is_y3crv(tx) and not _is_ypool(tx):
+        if token != underlying and not is_single_sided:
             continue
 
         controller = await _get_controller(vault)
@@ -84,7 +93,6 @@ def is_inverse_fees_from_stash_contract(from_address: str, to_nickname: str) -> 
     )
 
 
-# TODO: add Network param to SortRule
 @fees("Vaults V2")
 async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
     token = tx.token.address.address
