@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[572];
+extern PyObject *CPyStatics[573];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -376,5 +376,7 @@ extern char CPyDef_seasolver_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);
+extern PyObject *CPyStatic_vaults___v1;
+extern PyObject *CPyStatic_vaults___v2;
 extern char CPyDef_vaults_____top_level__(void);
 #endif

@@ -445,6 +445,8 @@ struct export_table_f79b89f5f6693162015b {
     PyObject **CPyStatic__ens___resolver;
     PyObject **CPyStatic__ens___topics;
     char (*CPyDef__ens_____top_level__)(void);
+    PyObject **CPyStatic_vaults___v1;
+    PyObject **CPyStatic_vaults___v2;
     char (*CPyDef_vaults_____top_level__)(void);
 };
 #endif
