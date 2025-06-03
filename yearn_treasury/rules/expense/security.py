@@ -4,7 +4,7 @@ from dao_treasury import TreasuryTx, expense
 from y import Network
 
 
-security: Final = expense("Secutiry")
+security: Final = expense("Security")
 audits: Final = security("Audits")
 
 
