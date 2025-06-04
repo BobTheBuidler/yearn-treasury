@@ -12,6 +12,14 @@ yearn\_treasury.rules.revenue.bribes module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.revenue.farming module
+--------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.farming
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yearn\_treasury.rules.revenue.keepcoins module
 ----------------------------------------------
 
@@ -32,6 +40,14 @@ yearn\_treasury.rules.revenue.vaults module
 -------------------------------------------
 
 .. automodule:: yearn_treasury.rules.revenue.vaults
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.revenue.yteams module
+-------------------------------------------
+
+.. automodule:: yearn_treasury.rules.revenue.yteams
    :members:
    :undoc-members:
    :show-inheritance:
