@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_ca8d11405e47a2424590_H
-#define MYPYC_NATIVE_ca8d11405e47a2424590_H
+#ifndef MYPYC_NATIVE_3ddd27aee2f79379b6d9_H
+#define MYPYC_NATIVE_3ddd27aee2f79379b6d9_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -137,7 +137,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_ca8d11405e47a2424590 {
+struct export_table_3ddd27aee2f79379b6d9 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -152,6 +152,7 @@ struct export_table_ca8d11405e47a2424590 {
     PyObject **CPyStatic__requests____HEADERS;
     PyObject *(*CPyDef__requests___fetch_brs)(void);
     char (*CPyDef__requests_____top_level__)(void);
+    PyObject **CPyStatic_constants___YFI;
     char (*CPyDef_constants_____top_level__)(void);
     PyObject **CPyStatic_gas___gas;
     PyObject **CPyStatic_gas___commit;
@@ -163,6 +164,7 @@ struct export_table_ca8d11405e47a2424590 {
     char (*CPyDef_general___is_sms_discretionary_budget)(PyObject *cpy_r_tx);
     char (*CPyDef_general_____top_level__)(void);
     PyObject **CPyStatic_infrastructure___infrastructure;
+    char (*CPyDef_infrastructure___is_generic_infra)(PyObject *cpy_r_tx);
     char (*CPyDef_infrastructure_____top_level__)(void);
     PyObject **CPyStatic_people___grants;
     PyObject **CPyStatic_people___website;
@@ -191,6 +193,17 @@ struct export_table_ca8d11405e47a2424590 {
     char (*CPyDef_bugs___is_gusd_vault_bug_reimbursement)(PyObject *cpy_r_tx);
     char (*CPyDef_bugs___is_dai_vault_reimbursement)(PyObject *cpy_r_tx);
     char (*CPyDef_bugs_____top_level__)(void);
+    PyObject **CPyStatic_dyfi___dyfi;
+    char (*CPyDef_dyfi___is_dyfi_launch)(PyObject *cpy_r_tx);
+    char (*CPyDef_dyfi___is_dyfi_redemptions)(PyObject *cpy_r_tx);
+    char (*CPyDef_dyfi_____top_level__)(void);
+    PyObject **CPyStatic_events___events;
+    char (*CPyDef_events___is_eth_denver)(PyObject *cpy_r_tx);
+    char (*CPyDef_events_____top_level__)(void);
+    char (*CPyDef_misc___is_ybudget_reward)(PyObject *cpy_r_tx);
+    char (*CPyDef_misc_____top_level__)(void);
+    PyObject **CPyStatic_revshare___revshare;
+    char (*CPyDef_revshare_____top_level__)(void);
     PyObject **CPyStatic_other_income____POINT_ONE;
     PyTypeObject **CPyType_other_income___is_robovault_share_env;
     PyObject *(*CPyDef_other_income___is_robovault_share_env)(void);

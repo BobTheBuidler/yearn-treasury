@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[571];
+extern PyObject *CPyStatics[588];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -130,6 +130,7 @@ extern PyObject *CPyStatic__requests____HEADERS;
 extern PyObject *CPyDef__requests___fetch_brs(void);
 extern PyObject *CPyPy__requests___fetch_brs(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__requests_____top_level__(void);
+extern PyObject *CPyStatic_constants___YFI;
 extern char CPyDef_constants_____top_level__(void);
 extern PyObject *CPyStatic_gas___gas;
 extern PyObject *CPyStatic_gas___commit;
@@ -143,6 +144,8 @@ extern char CPyDef_expense___general___is_sms_discretionary_budget(PyObject *cpy
 extern PyObject *CPyPy_expense___general___is_sms_discretionary_budget(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_expense___general_____top_level__(void);
 extern PyObject *CPyStatic_infrastructure___infrastructure;
+extern char CPyDef_infrastructure___is_generic_infra(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_infrastructure___is_generic_infra(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_infrastructure_____top_level__(void);
 extern PyObject *CPyStatic_people___grants;
 extern PyObject *CPyStatic_people___website;

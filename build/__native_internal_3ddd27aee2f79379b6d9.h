@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_ca8d11405e47a2424590_H
-#define MYPYC_NATIVE_INTERNAL_ca8d11405e47a2424590_H
+#ifndef MYPYC_NATIVE_INTERNAL_3ddd27aee2f79379b6d9_H
+#define MYPYC_NATIVE_INTERNAL_3ddd27aee2f79379b6d9_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_ca8d11405e47a2424590.h"
+#include "__native_3ddd27aee2f79379b6d9.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[513];
+extern PyObject *CPyStatics[561];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -63,8 +63,20 @@ extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___boost_inter
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___boost;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___bugs_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___bugs;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___dyfi_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___dyfi;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___events_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___events;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___misc_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___misc;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___revshare_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___revshare;
 extern PyObject *CPyStatic_boost___globals;
 extern PyObject *CPyStatic_bugs___globals;
+extern PyObject *CPyStatic_dyfi___globals;
+extern PyObject *CPyStatic_events___globals;
+extern PyObject *CPyStatic_misc___globals;
+extern PyObject *CPyStatic_revshare___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_income_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_income;
 extern PyObject *CPyStatic_other_income___globals;
@@ -112,6 +124,7 @@ extern PyObject *CPyStatic__requests____HEADERS;
 extern PyObject *CPyDef__requests___fetch_brs(void);
 extern PyObject *CPyPy__requests___fetch_brs(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__requests_____top_level__(void);
+extern PyObject *CPyStatic_constants___YFI;
 extern char CPyDef_constants_____top_level__(void);
 extern PyObject *CPyStatic_gas___gas;
 extern PyObject *CPyStatic_gas___commit;
@@ -125,6 +138,8 @@ extern char CPyDef_general___is_sms_discretionary_budget(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_general___is_sms_discretionary_budget(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_general_____top_level__(void);
 extern PyObject *CPyStatic_infrastructure___infrastructure;
+extern char CPyDef_infrastructure___is_generic_infra(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_infrastructure___is_generic_infra(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_infrastructure_____top_level__(void);
 extern PyObject *CPyStatic_people___grants;
 extern PyObject *CPyStatic_people___website;
@@ -170,6 +185,21 @@ extern PyObject *CPyPy_bugs___is_gusd_vault_bug_reimbursement(PyObject *self, Py
 extern char CPyDef_bugs___is_dai_vault_reimbursement(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_bugs___is_dai_vault_reimbursement(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_bugs_____top_level__(void);
+extern PyObject *CPyStatic_dyfi___dyfi;
+extern char CPyDef_dyfi___is_dyfi_launch(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_dyfi___is_dyfi_launch(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_dyfi___is_dyfi_redemptions(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_dyfi___is_dyfi_redemptions(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_dyfi_____top_level__(void);
+extern PyObject *CPyStatic_events___events;
+extern char CPyDef_events___is_eth_denver(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_events___is_eth_denver(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_events_____top_level__(void);
+extern char CPyDef_misc___is_ybudget_reward(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_misc___is_ybudget_reward(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_misc_____top_level__(void);
+extern PyObject *CPyStatic_revshare___revshare;
+extern char CPyDef_revshare_____top_level__(void);
 extern PyObject *CPyStatic_other_income____POINT_ONE;
 extern PyTypeObject *CPyType_other_income___is_robovault_share_env;
 extern PyObject *CPyDef_other_income___is_robovault_share_env(void);
