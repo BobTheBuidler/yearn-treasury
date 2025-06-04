@@ -29,9 +29,8 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "YFI"
         and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
-        and slip_in_events(tx)
     ):
-        for event in tx._events["slip"]:
+        for event in tx.get_events("slip"):
             if (
                 all(arg in event for arg in DEPOSIT_EVENT_ARGS)
                 and Decimal(event["wad"]) / 10**18 == tx.amount
@@ -45,9 +44,8 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "YFI"
         and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-        and flux_in_events(tx)
     ):
-        for event in tx._events["flux"]:
+        for event in tx.get_events("flux"):
             if (
                 all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
                 and Decimal(event["wad"]) / 10**18 == tx.amount
@@ -61,9 +59,8 @@ def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "USDC"
         and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
-        and slip_in_events(tx)
     ):
-        for event in tx._events["slip"]:
+        for event in tx.get_events("slip"):
             if (
                 all(arg in event for arg in DEPOSIT_EVENT_ARGS)
                 and Decimal(event["wad"]) / 10**18 == tx.amount
@@ -77,32 +74,11 @@ def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
     if (
         tx.symbol == "USDC"
         and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-        and flux_in_events(tx)
     ):
-        for event in tx._events["flux"]:
+        for event in tx.get_events("flux"):
             if (
                 all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
                 and Decimal(event["wad"]) / 10**18 == tx.amount
             ):
                 return True
     return False
-
-
-def flux_in_events(tx: TreasuryTx) -> bool:
-    try:
-        return "flux" in tx._events
-    except KeyError as e:
-        # This happens sometimes due to a busted abi and shouldnt impact us
-        if str(e) == "'components'":
-            return False
-        raise
-
-
-def slip_in_events(tx: TreasuryTx) -> bool:
-    try:
-        return "slip" in tx._events
-    except KeyError as e:
-        # This happens sometimes due to a busted abi and shouldnt impact us
-        if str(e) == "'components'":
-            return False
-        raise

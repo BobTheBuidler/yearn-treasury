@@ -24,10 +24,9 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
     if (
         TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == ZERO_ADDRESS
-        and "RedeemUnderlying" in tx._events
         and hasattr(tx.token.contract, "underlyingAssetAddress")
     ):
-        for event in tx._events["RedeemUnderlying"]:
+        for event in tx.get_events("RedeemUnderlying"):
             if (
                 tx.from_address == event["_user"]
                 and await tx.token.contract.underlyingAssetAddress == event["_reserve"]
@@ -36,8 +35,8 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
                 return True
 
     # Underlying side
-    if TreasuryWallet._get_instance(tx.to_address.address) and "RedeemUnderlying" in tx._events:  # type: ignore [union-attr, arg-type]
-        for event in tx._events["RedeemUnderlying"]:
+    if TreasuryWallet._get_instance(tx.to_address.address):  # type: ignore [union-attr, arg-type]
+        for event in tx.get_events("RedeemUnderlying"):
             if (
                 tx.token == event["_reserve"]
                 and tx.to_address == event["_user"]
