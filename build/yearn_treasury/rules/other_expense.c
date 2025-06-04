@@ -1,14 +1,14 @@
 #include <Python.h>
 
 PyMODINIT_FUNC
-PyInit_farming(void)
+PyInit_other_expense(void)
 {
     PyObject *tmp;
     if (!(tmp = PyImport_ImportModule("ca8d11405e47a2424590__mypyc"))) return NULL;
-    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___revenue___farming");
+    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___other_expense");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "ca8d11405e47a2424590__mypyc.init_yearn_treasury___rules___revenue___farming");
+    void *init_func = PyCapsule_GetPointer(capsule, "ca8d11405e47a2424590__mypyc.init_yearn_treasury___rules___other_expense");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
@@ -18,4 +18,4 @@ PyInit_farming(void)
 
 // distutils sometimes spuriously tells cl to export CPyInit___init__,
 // so provide that so it chills out
-PyMODINIT_FUNC PyInit___init__(void) { return PyInit_farming(); }
+PyMODINIT_FUNC PyInit___init__(void) { return PyInit_other_expense(); }
