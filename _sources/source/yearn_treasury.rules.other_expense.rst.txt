@@ -1,0 +1,29 @@
+yearn\_treasury.rules.other\_expense package
+============================================
+
+Submodules
+----------
+
+yearn\_treasury.rules.other\_expense.boost module
+-------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.boost
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.other\_expense.bugs module
+------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.bugs
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+Module contents
+---------------
+
+.. automodule:: yearn_treasury.rules.other_expense
+   :members:
+   :undoc-members:
+   :show-inheritance:
