@@ -116,3 +116,37 @@ async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
 def is_v3_vault_fees(tx: TreasuryTx) -> bool:
     # TODO: fill me in too
     return False
+
+
+@fees("YearnFed Fees", Network.Mainnet)
+def is_yearn_fed_fees(tx: TreasuryTx) -> bool:
+    # New version
+    symbol = tx.symbol
+    from_address = tx.from_address
+    if symbol in ["yvCurve-DOLA-U", "CRV"] and from_address == "0x64e4fC597C70B26102464B7F70B1F00C77352910":
+        return True
+    # Old versions
+    if symbol in ["yvCurve-DOLA-U", "yveCRV-DAO"] and from_address in ["0x09F61718474e2FFB884f438275C0405E3D3559d3", "0x7928becDda70755B9ABD5eE7c7D5E267F1412042"]:
+        return True
+    if symbol == "INV" and tx.from_nickname == "Inverse Treasury" and tx.to_nickname == "ySwap Multisig":
+        return True
+    if from_address == "0x9D5Df30F475CEA915b1ed4C0CCa59255C897b61B" and tx.to_nickname == "ySwap Multisig":
+        return True
+    return False
+
+
+@fees("DOLAFRAXBP Fees", Network.Mainnet)
+def is_dolafraxbp_fees(tx: TreasuryTx) -> bool:
+    return tx.from_nickname == "Contract: StrategyConvexFraxBpRewardsClonable" and tx.to_nickname == "Yearn yChad Multisig" and tx.symbol == "yvCurve-DOLA-FRAXBP-U"
+
+
+@fees("TempleDAO Private Vault Fees", Network.Mainnet)
+def is_temple(tx: TreasuryTx) -> bool:
+    if tx.to_nickname in  ["Yearn Treasury", "Yearn yChad Multisig"]: # fees have been sent to both
+        from_nickname = tx.from_nickname
+        symbol = tx.symbol
+        if from_nickname == "Contract: StrategyConvexCrvCvxPairsClonable" and symbol == "CRV":
+            return True
+        elif from_nickname == "Contract: Splitter" and symbol in ["yveCRV-DAO","CRV"]:
+            return True
+    return False
