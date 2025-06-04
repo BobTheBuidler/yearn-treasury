@@ -120,9 +120,9 @@ def is_v3_vault_fees(tx: TreasuryTx) -> bool:
 
 @fees("YearnFed Fees", Network.Mainnet)
 def is_yearn_fed_fees(tx: TreasuryTx) -> bool:
-    # New version
     symbol = tx.symbol
     from_address = tx.from_address
+    # New version
     if (
         symbol in ["yvCurve-DOLA-U", "CRV"]
         and from_address == "0x64e4fC597C70B26102464B7F70B1F00C77352910"
