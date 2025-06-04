@@ -10,10 +10,10 @@ DSPROXY: Final = "0xd42e1Cb8b98382df7Db43e0F09dFE57365659D16"
 DEPOSIT_EVENT_ARGS: Final = "ilk", "usr", "wad"
 WITHDRAWAL_EVENT_ARGS: Final = "cdp", "dst", "wad"
 
-maker = ignore("Maker")
-dai = maker("DAI")
-dsr = maker("DSR")
-cdp = maker("CDP")
+maker: Final = ignore("Maker")
+dai: Final = maker("DAI")
+dsr: Final = maker("DSR")
+cdp: Final = maker("CDP")
 
 
 dai("Minting").match(symbol="DAI", from_address=ZERO_ADDRESS)

@@ -275,6 +275,10 @@ extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyO
 extern char CPyDef_ignore___general_____top_level__(void);
 extern tuple_T3OOO CPyStatic_maker___DEPOSIT_EVENT_ARGS;
 extern tuple_T3OOO CPyStatic_maker___WITHDRAWAL_EVENT_ARGS;
+extern PyObject *CPyStatic_maker___maker;
+extern PyObject *CPyStatic_maker___dai;
+extern PyObject *CPyStatic_maker___dsr;
+extern PyObject *CPyStatic_maker___cdp;
 extern char CPyDef_maker___is_yfi_cdp_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_maker___is_yfi_cdp_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_maker___is_yfi_cdp_withdrawal(PyObject *cpy_r_tx);
