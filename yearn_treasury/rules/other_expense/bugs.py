@@ -47,16 +47,20 @@ def is_stycrv(tx: TreasuryTx) -> bool:
 @bugs("Slippage Bug", Network.Mainnet)
 def is_slippage_bug_reimbursement(tx: TreasuryTx) -> bool:
     """a swap tx was messed up so Yearn sent treasury funds to the relevant strategy to compensate"""
-    return tx.hash in [
+    txhash = tx.hash
+    if txhash in [
         "0xffe3883e34ae0b6ae3a7f304f00c625a7b315a021cf38f47a932e81d3f1c371c",
         "0x42cfcaa06beebe61547724f22fa790c763b2937ca2af8e3d5dbc680b903aad69",
-    ] or tx.log_index == {
+    ]:
+        return True
+
+    other = {
         # separate slippage event
         "0xc179e27f0e38bca52744d71dc6ff2463ed10fa918908ce28adcf4f4c0d6d6a1e": 103,
         "0x51c611597574aaa3b829004363476b1c2a4dc2941dff695c26c100498b695b4f": 214,
-    }.get(
-        tx.hash
-    )
+    }
+
+    return txhash in other and tx.log_index == other[txhash]
 
 
 @bugs("Reimburse GUSD Vault Bug", Network.Mainnet)
