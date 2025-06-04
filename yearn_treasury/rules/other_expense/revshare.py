@@ -1,4 +1,5 @@
 """These predate the yteam revshare splitting implementation so were done manually"""
+
 from typing import Final
 
 from dao_treasury import other_expense

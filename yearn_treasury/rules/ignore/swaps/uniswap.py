@@ -24,7 +24,7 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
             if str(e) == "components":
                 return False
             raise
-        
+
         if "Mint" in events and "Transfer" in events:
             transfers = events["Transfer"]
             for mint in events["Mint"]:
@@ -56,7 +56,9 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     if tokens[0] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[1] == transfer.address
-                            and tx.to_address == transfer.values()[:1] == [mint["sender"], mint.address]
+                            and tx.to_address
+                            == transfer.values()[:1]
+                            == [mint["sender"], mint.address]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
@@ -75,7 +77,9 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     elif tokens[1] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[0] == transfer.address
-                            and tx.to_address == transfer.values()[:1] == [mint["sender"], mint.address]
+                            and tx.to_address
+                            == transfer.values()[:1]
+                            == [mint["sender"], mint.address]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
@@ -114,7 +118,7 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
             if str(e) == "components":
                 return False
             raise
-        
+
         if "Burn" in events and "Transfer" in events:
             transfers = events["Transfer"]
             for burn in events["Burn"]:
