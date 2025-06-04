@@ -266,5 +266,6 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
                     return True
     return False
 
+
 def is_pool(pool: Contract) -> bool:
     return hasattr(pool, "token0") and hasattr(pool, "token1")
