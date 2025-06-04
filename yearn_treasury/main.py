@@ -121,9 +121,6 @@ def main() -> None:
         daemon: Final[bool] = args.daemon
         """Whether to run in daemon mode."""
 
-        sort_rules: Final[Path] = Path(__file__).parent / "rules"
-        """The path where the sort rules for dao-treasury are defined."""
-
     import dao_treasury.main
 
     # Export ports for external services (must come after import)

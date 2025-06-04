@@ -1,3 +1,4 @@
+from pathlib import Path
 from typing import Final, Set
 
 from eth_typing import BlockNumber, ChecksumAddress
@@ -8,6 +9,7 @@ from y.constants import CHAINID
 EEE_ADDRESS: Final = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
 ZERO_ADDRESS: Final = "0x0000000000000000000000000000000000000000"
 
+_YEARN_TREASURY_ROOT_DIR: Final = Path(__file__).parent
 
 TREASURY_MULTISIGS: Final = {
     Network.Mainnet: "0x93A62dA5a14C80f265DAbC077fCEE437B1a0Efde",
@@ -62,3 +64,9 @@ class Args:
     label: Final[str] = "My Portfolio"
     first_tx_block: Final = BlockNumber({Network.Mainnet: 10_502_337}.get(CHAINID, 0))  # type: ignore [call-overload]
     export_start_block: Final = first_tx_block
+
+    sort_rules: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "rules"
+    """The path where the sort rules for dao-treasury are defined."""
+
+    nicknames: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "addresses.yaml"
+    """The path where yearn-treasury's address nicknames are defined."""
