@@ -1,14 +1,14 @@
 #include <Python.h>
 
 PyMODINIT_FUNC
-PyInit_yteams(void)
+PyInit_revshare(void)
 {
     PyObject *tmp;
     if (!(tmp = PyImport_ImportModule("3ddd27aee2f79379b6d9__mypyc"))) return NULL;
-    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___revenue___yteams");
+    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___other_expense___revshare");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "3ddd27aee2f79379b6d9__mypyc.init_yearn_treasury___rules___revenue___yteams");
+    void *init_func = PyCapsule_GetPointer(capsule, "3ddd27aee2f79379b6d9__mypyc.init_yearn_treasury___rules___other_expense___revshare");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
@@ -18,4 +18,4 @@ PyInit_yteams(void)
 
 // distutils sometimes spuriously tells cl to export CPyInit___init__,
 // so provide that so it chills out
-PyMODINIT_FUNC PyInit___init__(void) { return PyInit_yteams(); }
+PyMODINIT_FUNC PyInit___init__(void) { return PyInit_revshare(); }

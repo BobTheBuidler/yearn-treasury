@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit_other_expense(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("ca8d11405e47a2424590__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("3ddd27aee2f79379b6d9__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___other_expense");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "ca8d11405e47a2424590__mypyc.init_yearn_treasury___rules___other_expense");
+    void *init_func = PyCapsule_GetPointer(capsule, "3ddd27aee2f79379b6d9__mypyc.init_yearn_treasury___rules___other_expense");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
