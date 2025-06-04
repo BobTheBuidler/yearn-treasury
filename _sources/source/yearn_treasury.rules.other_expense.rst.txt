@@ -20,6 +20,38 @@ yearn\_treasury.rules.other\_expense.bugs module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.other\_expense.dyfi module
+------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.dyfi
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.other\_expense.events module
+--------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.events
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.other\_expense.misc module
+------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.misc
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
+yearn\_treasury.rules.other\_expense.revshare module
+----------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.other_expense.revshare
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 
