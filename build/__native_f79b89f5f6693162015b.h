@@ -390,6 +390,10 @@ struct export_table_f79b89f5f6693162015b {
     char (*CPyDef_ignore___general_____top_level__)(void);
     tuple_T3OOO *CPyStatic_maker___DEPOSIT_EVENT_ARGS;
     tuple_T3OOO *CPyStatic_maker___WITHDRAWAL_EVENT_ARGS;
+    PyObject **CPyStatic_maker___maker;
+    PyObject **CPyStatic_maker___dai;
+    PyObject **CPyStatic_maker___dsr;
+    PyObject **CPyStatic_maker___cdp;
     char (*CPyDef_maker___is_yfi_cdp_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_maker___is_yfi_cdp_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_maker___is_usdc_cdp_deposit)(PyObject *cpy_r_tx);
