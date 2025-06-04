@@ -969,33 +969,33 @@ web3 = ">=5.27,<5.29.dev0 || ==5.31.0.* || >5.31.1,<5.31.2 || >5.31.2,<8"
 
 [[package]]
 name = "dao-treasury"
-version = "0.0.16"
+version = "0.0.18"
 description = "Produce financial reports for your on-chain org"
 optional = false
 python-versions = "<3.13,>=3.10"
 files = [
-    {file = "dao_treasury-0.0.16-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:66c77f48ba5bf45bacc1d34e871a0574ada81c291d32b96b74ef25aa9ad25a6f"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:ec7ee61bcaa3d2292c7c2d8426bc2ee94ecf84cfcdff3502d49455c43a5d3820"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:0e40c52e47a2243d587b5663bc370890e8e2a8174aa1ebbb294d19b176d94ffe"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:d12d7b570b915bc6d6a37ea209ccdbb83aa0a1174c4d73ebaf9bd37030b1ad4e"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:8a01ef4f90dd73238c2ace4b96242280bb2ea84be5a38b1f85d2606bbad7e55b"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-win32.whl", hash = "sha256:7d09a544a66df2db31e8b24b22cee89347ccabefcc711cd2e07eff23ce87281b"},
-    {file = "dao_treasury-0.0.16-cp310-cp310-win_amd64.whl", hash = "sha256:ab3c75dd48f044a48536651f50c255d1c2c6f27a0200a71a2ccab0e7233c1489"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:cd29dabf9ac7f4d0903cc4aaabbf37cf109d72c1acd5cdb6149494a070c3e513"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:214cffc19ba6e4e1a2ac1a98c6d26dedc294cffbbf4c3d34e485538fa723f8d2"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:39ea42a77402c02d99b9eb7a04a6ecc9fc5666b85d5ab1c10529cf040a80cc2d"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:1e6cd9b6f19863c832dab350b38395d02b38c7a889ef65a59648175aadff87f0"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:d8ad99bbabe703e3ee4521e77f7776fab112ebc8aba51c4b27dfcb565fe8b0d6"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-win32.whl", hash = "sha256:99810155b18e20ff3e4472953df240631a9bbed56349bb02b95edfbf103dc2d5"},
-    {file = "dao_treasury-0.0.16-cp311-cp311-win_amd64.whl", hash = "sha256:446212a23a7eb330284227597e3e832c0247f326c2d55c1b30f76d9b911bccd3"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:b9a61761ae907a20cf82fb015838b7ef175c9135b8cbd02f0e57797374b0613b"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:a9de7650cc9ed395e63dd64977d69225d891667ecfe21d6db5ac390852973217"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:054648b658a6631d64f133f7026dc076fe2333e5c58268f94d7fd080b7c8f68f"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:c937f6a6b46c37735fac57fe72780b26057ba83f8092565db4d8a03485032546"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:7a63bc19f833a78742c2f01e9ffac5ef3ce0cb4f1ab4c1e1f9c978d21a565de6"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-win32.whl", hash = "sha256:1ae8a8048d9f5bbca8f7e285254492f2284ae3fdbe70dbaccdacbdce8f34ec78"},
-    {file = "dao_treasury-0.0.16-cp312-cp312-win_amd64.whl", hash = "sha256:797bc75d92bffd954e19ab5d9f89084a4b848d98e4feb40c919c0cdd8990b03b"},
-    {file = "dao_treasury-0.0.16.tar.gz", hash = "sha256:a63b74f6b2ba40e9532ed9c0a54394ece989541c1444d4fddf728b61a68e75b3"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-macosx_11_0_arm64.whl", hash = "sha256:58fa1bb0fac7a66a9bf11b717d6f98690012b52177c536b2bc04d13877cfd24d"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:854e02f72159b970e168af18aa1f70cc3c31015b33b6d778b7ad82856512f064"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:336db8fa5f3f0e9e0357bdac84fa3fa899d3bee8e9d0e91a2a6d3691f13c612d"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-musllinux_1_2_i686.whl", hash = "sha256:1d636fe99ffd436891ef124a8940a3c77d2b7cf1884aff27cf3863b95e0fe884"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-musllinux_1_2_x86_64.whl", hash = "sha256:baef66595bf28b3edca2c16b7e2db7c389e4fbe63df06d3fd1a0cfddb49eef95"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-win32.whl", hash = "sha256:fff9dd1de4b72acbab8f7ddaf6a9a36281017727dc59a27d3d4e7acb783c5678"},
+    {file = "dao_treasury-0.0.18-cp310-cp310-win_amd64.whl", hash = "sha256:e0816fef1c7679599a94e4230389a70ecde77553172ba8402b9c4f249da5a03a"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-macosx_11_0_arm64.whl", hash = "sha256:b6d32df711674509b52c0aab03c1181c28127d088fec776a545cf1bb30ba46ba"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:63057e351d18484b07ba9b5d4a236fc108ecd3e43ace53d45e0b37abef375e44"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:ea427d3e3a7efb4a023245d2db7d3e98b5a250b33ee64fc23c2480fad18526bc"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-musllinux_1_2_i686.whl", hash = "sha256:2b0173a4f7b588a8b3c68eabced877f2f2ea0cdba69fd02ec7d9bd1793cfc1ec"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-musllinux_1_2_x86_64.whl", hash = "sha256:8475d67ac876225d091ef7302aab34283fbc9e89dc8dba82052ec8e622e2e4d4"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-win32.whl", hash = "sha256:44cbaab07a105056aef1dd1d7b033fcbebcb6e75cbaece000d7c7516073edaa8"},
+    {file = "dao_treasury-0.0.18-cp311-cp311-win_amd64.whl", hash = "sha256:dcb6a928c7014f19021fbb1997b63e498dcaf5184aa48aa9a341307040f066df"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-macosx_11_0_arm64.whl", hash = "sha256:7c7769b3959bef510c5de046ee8c8dd3550563ef6da1c33a05713d567f1a731a"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-manylinux_2_17_x86_64.manylinux2014_x86_64.whl", hash = "sha256:248dc2376216aa8b2606b4e6c010041b0ed94a7c1f1a38e719fb89c9c4b9a2da"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-manylinux_2_5_i686.manylinux1_i686.manylinux_2_17_i686.manylinux2014_i686.whl", hash = "sha256:6541adaa0b1f2e90c8af932e749a6e8dbdacdf7f213c26231096d0975132095e"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-musllinux_1_2_i686.whl", hash = "sha256:8339a3ba7fcb97103ef0eb9df4cb17e408734447422b975e592c03086a5c2329"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-musllinux_1_2_x86_64.whl", hash = "sha256:0e6e7323deb6146bcb0b43de03defd6cddc435dc5bb02a883f05c5bb4220eae3"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-win32.whl", hash = "sha256:ec43a3b14ada23eff28b5ba174e0989b8ca2f0dcd0844ed7ebb8da075a8aa27e"},
+    {file = "dao_treasury-0.0.18-cp312-cp312-win_amd64.whl", hash = "sha256:1cb5a7174966c9ef3e2ef8dd5dc761dd8d15e178cf4c54d4a0e201102be8e214"},
+    {file = "dao_treasury-0.0.18.tar.gz", hash = "sha256:ba8308d16a69748a0308f92bb6336b6ea4f36a1a9ca93b082167ec20038fa360"},
 ]
 
 [package.dependencies]
@@ -4368,4 +4368,4 @@ type = ["pytest-mypy"]
 [metadata]
 lock-version = "2.0"
 python-versions = ">=3.10,<3.13"
-content-hash = "64587165c04d629e3902d0bb84e52cd39ed67c6a29085b8d68421d456b39243f"
+content-hash = "cb766a3c78aef0bd5f55edc228ad0af777078fb82d9fc654aebcaf1aed2b029d"

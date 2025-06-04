@@ -384,8 +384,6 @@ struct export_table_f79b89f5f6693162015b {
     char (*CPyDef_maker___is_yfi_cdp_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_maker___is_usdc_cdp_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_maker___is_usdc_cdp_withdrawal)(PyObject *cpy_r_tx);
-    char (*CPyDef_maker___flux_in_events)(PyObject *cpy_r_tx);
-    char (*CPyDef_maker___slip_in_events)(PyObject *cpy_r_tx);
     char (*CPyDef_maker_____top_level__)(void);
     PyObject **CPyStatic_staking___staking;
     PyTypeObject **CPyType_staking___is_solidex_staking_env;

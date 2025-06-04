@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[573];
+extern PyObject *CPyStatics[571];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -280,10 +280,6 @@ extern char CPyDef_maker___is_usdc_cdp_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_maker___is_usdc_cdp_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_maker___is_usdc_cdp_withdrawal(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_maker___is_usdc_cdp_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern char CPyDef_maker___flux_in_events(PyObject *cpy_r_tx);
-extern PyObject *CPyPy_maker___flux_in_events(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern char CPyDef_maker___slip_in_events(PyObject *cpy_r_tx);
-extern PyObject *CPyPy_maker___slip_in_events(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_maker_____top_level__(void);
 extern PyObject *CPyStatic_staking___staking;
 extern PyTypeObject *CPyType_staking___is_solidex_staking_env;

@@ -17,8 +17,8 @@ ROUTERS: Final = ("0xd9e1cE17f2641f24aE83637ab66a2cca9C378B9F",)
 
 @uniswap("Add Liquidity")
 async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
-    if tx.to_address and "Mint" in tx._events and "Transfer" in tx._events:
-        for mint in tx._events["Mint"]:
+    if tx.to_address and "Mint" in tx.events and "Transfer" in tx.events:
+        for mint in tx.events["Mint"]:
             event_args = {"sender", "amount0", "amount1"}
             if any(arg not in mint for arg in event_args):
                 continue
@@ -37,7 +37,7 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                         token == transfer.address
                         and tx.to_address == transfer.values()[0]
                         and transfer.values()[1] == mint.address
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     )
                     for token in tokens
                 ):
@@ -48,14 +48,14 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     if any(
                         tokens[1] == transfer.address
                         and tx.to_address == transfer.values()[:1] == [mint["sender"], mint.address]
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     ):
                         for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                             if (
                                 tx.to_address == int_tx["from"] == mint["sender"]
                                 and int_tx["to"] in ROUTERS
                             ):
-                                for transfer in tx._events["Transfer"]:
+                                for transfer in tx.events["Transfer"]:
                                     if (
                                         transfer[0] == WRAPPED_GAS_COIN == transfer.address
                                         and tx.token == transfer[1]
@@ -67,14 +67,14 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     if any(
                         tokens[0] == transfer.address
                         and tx.to_address == transfer.values()[:1] == [mint["sender"], mint.address]
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     ):
                         for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                             if (
                                 tx.to_address == int_tx["from"] == mint["sender"]
                                 and int_tx["to"] in ROUTERS
                             ):
-                                for transfer in tx._events["Transfer"]:
+                                for transfer in tx.events["Transfer"]:
                                     if (
                                         transfer[0] == WRAPPED_GAS_COIN == transfer.address
                                         and tx.token == transfer[1]
@@ -98,8 +98,8 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
 
 @uniswap("Remove Liquidity")
 async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
-    if tx.to_address and "Burn" in tx._events and "Transfer" in tx._events:
-        for burn in tx._events["Burn"]:
+    if tx.to_address and "Burn" in tx.events and "Transfer" in tx.events:
+        for burn in tx.events["Burn"]:
             event_args = {"sender", "amount0", "amount1", "to"}
             if any(arg not in burn for arg in event_args):
                 continue
@@ -117,7 +117,7 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                         token == transfer.address
                         and tx.to_address == transfer.values()[0]
                         and tx.from_address == transfer.values()[1] == burn["to"]
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     )
                     for token in tokens
                 ):
@@ -129,11 +129,11 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                         tokens[1] == transfer.address
                         and tx.token == tx.to_address == transfer.values()[0]
                         and tx.from_address == transfer.values()[1] == burn["to"]
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     ):
                         for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                             if int_tx["from"] in ROUTERS and tx.from_address == int_tx["to"]:
-                                for transfer in tx._events["Transfer"]:
+                                for transfer in tx.events["Transfer"]:
                                     if (
                                         tx.token == transfer[0]
                                         and transfer[1] == transfer.address == WRAPPED_GAS_COIN
@@ -146,11 +146,11 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                         tokens[0] == transfer.address
                         and tx.token == tx.to_address == transfer.values()[0]
                         and tx.from_address == transfer.values()[1] == burn["to"]
-                        for transfer in tx._events["Transfer"]
+                        for transfer in tx.events["Transfer"]
                     ):
                         for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                             if int_tx["from"] in ROUTERS and tx.from_address == int_tx["to"]:
-                                for transfer in tx._events["Transfer"]:
+                                for transfer in tx.events["Transfer"]:
                                     if (
                                         transfer[0] == tx.token
                                         and transfer[1] == transfer.address == WRAPPED_GAS_COIN
@@ -197,8 +197,8 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
         return True
 
     # All other swaps
-    elif "Swap" in tx._events:
-        for swap in tx._events["Swap"]:
+    elif "Swap" in tx.events:
+        for swap in tx.events["Swap"]:
             # Sell side
             if (
                 TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]

@@ -39,9 +39,8 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     if (
         TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == lp_depositor
-        and "Deposited" in tx._events
     ):
-        for event in tx._events["Deposited"]:
+        for event in tx.get_events("Deposited"):
             if (
                 event.address == lp_depositor
                 and "user" in event
@@ -53,12 +52,10 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
 
     # CLAIMING
     # Step 2: Get your claim tokens
-    elif (
-        tx.from_address == ZERO_ADDRESS
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-        and "Deposited" in tx._events
+    elif tx.from_address == ZERO_ADDRESS and TreasuryWallet._get_instance(
+        tx.to_address.address  # type: ignore [union-attr, arg-type]
     ):
-        for event in tx._events["Deposited"]:
+        for event in tx.get_events("Deposited"):
             pool = await tx.token.contract.pool
             if (
                 event.address == lp_depositor
@@ -74,12 +71,11 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
     elif (
         TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
         and tx.to_address == ZERO_ADDRESS
-        and "Withdrawn" in tx._events
     ):
         token = tx.token.contract
         if hasattr(token, "pool"):
             pool = await token.pool
-            for event in tx._events["Withdrawn"]:
+            for event in tx.get_events("Withdrawn"):
                 if (
                     event.address == lp_depositor
                     and "user" in event
@@ -90,12 +86,10 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
                     return True
 
     # Step 4: Unstake your tokens
-    elif (
-        tx.from_address == lp_depositor
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-        and "Withdrawn" in tx._events
+    elif tx.from_address == lp_depositor and TreasuryWallet._get_instance(
+        tx.to_address.address  # type: ignore [union-attr, arg-type]
     ):
-        for event in tx._events["Withdrawn"]:
+        for event in tx.get_events("Withdrawn"):
             if (
                 event.address == lp_depositor
                 and "user" in event
