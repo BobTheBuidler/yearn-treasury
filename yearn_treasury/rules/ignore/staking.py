@@ -52,10 +52,9 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
 
     # CLAIMING
     # Step 2: Get your claim tokens
-    elif (
-        tx.from_address == ZERO_ADDRESS
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    elif tx.from_address == ZERO_ADDRESS and TreasuryWallet._get_instance(
+        tx.to_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("Deposited"):
             pool = await tx.token.contract.pool
             if (
@@ -87,10 +86,9 @@ async def is_solidex_staking(tx: TreasuryTx) -> bool:
                     return True
 
     # Step 4: Unstake your tokens
-    elif (
-        tx.from_address == lp_depositor
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    elif tx.from_address == lp_depositor and TreasuryWallet._get_instance(
+        tx.to_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("Withdrawn"):
             if (
                 event.address == lp_depositor

@@ -23,9 +23,7 @@ def is_compound_deposit(tx: TreasuryTx) -> bool:
                 return True
             # underlying side
             elif (
-                tx.to_address == event.address
-                and tx.from_address == minter
-                and minted == tx.amount
+                tx.to_address == event.address and tx.from_address == minter and minted == tx.amount
             ):
                 return True
     return False
@@ -38,11 +36,7 @@ def is_compound_withdrawal(tx: TreasuryTx) -> bool:
             redeemer = event["redeemer"]
             redeemed = tx.token.scale_value(event["redeemTokens"])
             # cToken side
-            if (
-                tx.token == event.address
-                and tx.from_address == redeemer
-                and redeemed == tx.amount
-            ):
+            if tx.token == event.address and tx.from_address == redeemer and redeemed == tx.amount:
                 return True
             # underlying side
             elif (

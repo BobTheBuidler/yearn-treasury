@@ -26,10 +26,9 @@ dsr("Withdrawal").match(from_nickname="Contract: DsrManager")
 
 @cdp("YFI Deposit")
 def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
-    if (
-        tx.symbol == "YFI"
-        and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    if tx.symbol == "YFI" and TreasuryWallet._get_instance(
+        tx.from_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("slip"):
             if (
                 all(arg in event for arg in DEPOSIT_EVENT_ARGS)
@@ -41,10 +40,9 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
 
 @cdp("YFI Withdrawal")
 def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
-    if (
-        tx.symbol == "YFI"
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    if tx.symbol == "YFI" and TreasuryWallet._get_instance(
+        tx.to_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("flux"):
             if (
                 all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
@@ -56,10 +54,9 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
 
 @cdp("USDC Deposit")
 def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
-    if (
-        tx.symbol == "USDC"
-        and TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    if tx.symbol == "USDC" and TreasuryWallet._get_instance(
+        tx.from_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("slip"):
             if (
                 all(arg in event for arg in DEPOSIT_EVENT_ARGS)
@@ -71,10 +68,9 @@ def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
 
 @cdp("USDC Withdrawal")
 def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
-    if (
-        tx.symbol == "USDC"
-        and TreasuryWallet._get_instance(tx.to_address.address)  # type: ignore [union-attr, arg-type]
-    ):
+    if tx.symbol == "USDC" and TreasuryWallet._get_instance(
+        tx.to_address.address
+    ):  # type: ignore [union-attr, arg-type]
         for event in tx.get_events("flux"):
             if (
                 all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
