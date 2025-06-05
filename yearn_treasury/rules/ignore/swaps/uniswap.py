@@ -21,7 +21,7 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
         try:
             events = tx.events
         except KeyError as e:
-            if str(e) == "components":
+            if e.args[0] == "components":
                 return False
             raise
 
@@ -44,8 +44,8 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     if all(
                         any(
                             token == transfer.address
-                            and tx.to_address == transfer.values()[0]
-                            and transfer.values()[1] == mint.address
+                            and tx.to_address == transfer[0]
+                            and transfer[1] == mint.address
                             for transfer in events["Transfer"]
                         )
                         for token in tokens
@@ -115,7 +115,7 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
         try:
             events = tx.events
         except KeyError as e:
-            if str(e) == "components":
+            if e.args[0] == "components":
                 return False
             raise
 
@@ -137,8 +137,8 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                     if tx.token == tx.to_address and all(
                         any(
                             token == transfer.address
-                            and tx.to_address == transfer.values()[0]
-                            and tx.from_address == transfer.values()[1] == burn["to"]
+                            and tx.to_address == transfer[0]
+                            and tx.from_address == transfer[1] == burn["to"]
                             for transfer in transfers
                         )
                         for token in tokens
@@ -149,8 +149,8 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                     if tokens[0] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[1] == transfer.address
-                            and tx.token == tx.to_address == transfer.values()[0]
-                            and tx.from_address == transfer.values()[1] == burn["to"]
+                            and tx.token == tx.to_address == transfer[0]
+                            and tx.from_address == transfer[1] == burn["to"]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
@@ -166,8 +166,8 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
                     elif tokens[1] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[0] == transfer.address
-                            and tx.token == tx.to_address == transfer.values()[0]
-                            and tx.from_address == transfer.values()[1] == burn["to"]
+                            and tx.token == tx.to_address == transfer[0]
+                            and tx.from_address == transfer[1] == burn["to"]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
@@ -226,6 +226,9 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
             and tx.to_address == swap.address
         ):
             pool = await Contract.coroutine(swap.address)
+            if not is_pool(pool):  # type: ignore [arg-type]
+                continue
+
             token0 = await pool.token0  # type: ignore [attr-defined]
             token1 = await pool.token1  # type: ignore [attr-defined]
             if token0 in SKIP_TOKENS or token1 in SKIP_TOKENS:
@@ -248,15 +251,21 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
             tx.to_address.address  # type: ignore [union-attr, arg-type]
         ):
             pool = await Contract.coroutine(swap.address)
+            if not is_pool(pool):  # type: ignore [arg-type]
+                continue
             token0 = await pool.token0  # type: ignore [attr-defined]
             token1 = await pool.token1  # type: ignore [attr-defined]
             if token0 in SKIP_TOKENS or token1 in SKIP_TOKENS:
                 # This will be recorded elsewhere
                 continue
-            if tx.token == token0:
+            if "amount0Out" in swap and tx.token == token0:
                 if tx.token.scale_value(swap["amount0Out"]) == tx.amount:
                     return True
-            elif tx.token == token1:
+            elif "amount1Out" in swap and tx.token == token1:
                 if tx.token.scale_value(swap["amount1Out"]) == tx.amount:
                     return True
     return False
+
+
+def is_pool(pool: Contract) -> bool:
+    return hasattr(pool, "token0") and hasattr(pool, "token1")
