@@ -385,6 +385,7 @@ struct export_table_f79b89f5f6693162015b {
     PyObject *(*CPyDef_uniswap___is_uniswap_swap_gen___close)(PyObject *cpy_r___mypyc_self__);
     PyObject *(*CPyDef_uniswap___is_uniswap_swap_gen_____await__)(PyObject *cpy_r___mypyc_self__);
     PyObject *(*CPyDef_uniswap___is_uniswap_swap)(PyObject *cpy_r_tx);
+    char (*CPyDef_uniswap___is_pool)(PyObject *cpy_r_pool);
     char (*CPyDef_uniswap_____top_level__)(void);
     char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
     char (*CPyDef_ignore___general_____top_level__)(void);

@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[588];
+extern PyObject *CPyStatics[589];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -269,6 +269,8 @@ extern PyObject *CPyDef_uniswap___is_uniswap_swap_gen_____await__(PyObject *cpy_
 extern PyObject *CPyPy_uniswap___is_uniswap_swap_gen_____await__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_uniswap___is_uniswap_swap(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_uniswap___is_uniswap_swap(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_uniswap___is_pool(PyObject *cpy_r_pool);
+extern PyObject *CPyPy_uniswap___is_pool(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_uniswap_____top_level__(void);
 extern char CPyDef_ignore___general___is_returned_fundus(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
