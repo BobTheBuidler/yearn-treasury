@@ -45,3 +45,5 @@ After running the command, the export script will run continuously until you clo
 To access the dashboard, open your browser and navigate to [http://localhost:3004](http://localhost:3004) for the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury) dashboard.
 
 Enjoy!
+
+![image](https://github.com/user-attachments/assets/4293b62d-827a-4bae-af4f-014c99511f99)
