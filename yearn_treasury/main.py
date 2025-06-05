@@ -47,7 +47,7 @@ run_parser.add_argument(
 run_parser.add_argument(
     "--grafana-port",
     type=int,
-    help="Port for the Grafana dashboard where you can view your data. Default: 3003",
+    help="Port for the Grafana dashboard where you can view your data. Default: 3004",
     default=3004,
 )
 run_parser.add_argument(
