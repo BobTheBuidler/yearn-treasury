@@ -48,6 +48,6 @@ Enjoy!
 
 ## Screenshots
 
-#### [DAO Transactions Dashboard](https://bobthebuidler.github.io/dao-treasury/transactions.html)
+#### [Transactions Dashboard](https://bobthebuidler.github.io/yearn-treasury/transactions.html)
 
 ![image](https://github.com/user-attachments/assets/4293b62d-827a-4bae-af4f-014c99511f99)
