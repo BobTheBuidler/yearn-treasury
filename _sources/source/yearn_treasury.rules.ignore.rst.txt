@@ -28,6 +28,14 @@ yearn\_treasury.rules.ignore.maker module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.ignore.passthru module
+--------------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.passthru
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yearn\_treasury.rules.ignore.staking module
 -------------------------------------------
 
