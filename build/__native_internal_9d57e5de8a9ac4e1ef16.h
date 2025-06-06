@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_3ddd27aee2f79379b6d9_H
-#define MYPYC_NATIVE_INTERNAL_3ddd27aee2f79379b6d9_H
+#ifndef MYPYC_NATIVE_INTERNAL_9d57e5de8a9ac4e1ef16_H
+#define MYPYC_NATIVE_INTERNAL_9d57e5de8a9ac4e1ef16_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_3ddd27aee2f79379b6d9.h"
+#include "__native_9d57e5de8a9ac4e1ef16.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[561];
+extern PyObject *CPyStatics[620];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -51,11 +51,20 @@ extern CPyModule *CPyModule_yearn_treasury___rules___expense___people_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense___people;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense___security_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___expense___security;
-extern PyObject *CPyStatic_general___globals;
+extern PyObject *CPyStatic_expense___general___globals;
 extern CPyModule *CPyModule_decimal;
 extern PyObject *CPyStatic_infrastructure___globals;
 extern PyObject *CPyStatic_people___globals;
 extern PyObject *CPyStatic_security___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general;
+extern PyObject *CPyStatic_ignore___general___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___weth_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___weth;
+extern PyObject *CPyStatic_weth___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___ygov_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___ygov;
+extern PyObject *CPyStatic_ygov___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense;
 extern PyObject *CPyStatic_other_expense___globals;
@@ -63,6 +72,8 @@ extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___boost_inter
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___boost;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___bugs_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___bugs;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___donations_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___donations;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___dyfi_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___dyfi;
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___events_internal;
@@ -73,6 +84,7 @@ extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___revshare_in
 extern CPyModule *CPyModule_yearn_treasury___rules___other_expense___revshare;
 extern PyObject *CPyStatic_boost___globals;
 extern PyObject *CPyStatic_bugs___globals;
+extern PyObject *CPyStatic_donations___globals;
 extern PyObject *CPyStatic_dyfi___globals;
 extern PyObject *CPyStatic_events___globals;
 extern PyObject *CPyStatic_misc___globals;
@@ -134,9 +146,9 @@ extern char CPyDef_gas___is_strategist_gas(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_gas___is_strategist_gas(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_gas_____top_level__(void);
 extern char CPyDef_expense_____top_level__(void);
-extern char CPyDef_general___is_sms_discretionary_budget(PyObject *cpy_r_tx);
-extern PyObject *CPyPy_general___is_sms_discretionary_budget(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern char CPyDef_general_____top_level__(void);
+extern char CPyDef_expense___general___is_sms_discretionary_budget(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_expense___general___is_sms_discretionary_budget(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_expense___general_____top_level__(void);
 extern PyObject *CPyStatic_infrastructure___infrastructure;
 extern char CPyDef_infrastructure___is_generic_infra(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_infrastructure___is_generic_infra(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
@@ -166,6 +178,18 @@ extern PyObject *CPyPy_security___is_bug_bounty(PyObject *self, PyObject *const 
 extern char CPyDef_security___is_warroom_help(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_warroom_help(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security_____top_level__(void);
+extern char CPyDef_ignore___general___is_returned_fundus(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_ignore___general_____top_level__(void);
+extern PyObject *CPyStatic_weth___weth;
+extern char CPyDef_weth___is_weth_mint(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_weth___is_weth_mint(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_weth___is_weth(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_weth___is_weth(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_weth_____top_level__(void);
+extern char CPyDef_ygov___is_sent_to_ygov(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_ygov___is_sent_to_ygov(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_ygov_____top_level__(void);
 extern char CPyDef_other_expense_____top_level__(void);
 extern char CPyDef_boost___is_buying_crv_for_boost(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_boost___is_buying_crv_for_boost(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
@@ -185,6 +209,12 @@ extern PyObject *CPyPy_bugs___is_gusd_vault_bug_reimbursement(PyObject *self, Py
 extern char CPyDef_bugs___is_dai_vault_reimbursement(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_bugs___is_dai_vault_reimbursement(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_bugs_____top_level__(void);
+extern PyObject *CPyStatic_donations___donations;
+extern char CPyDef_donations___is_gitcoin_matching_donation(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_donations___is_gitcoin_matching_donation(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_donations___is_warroom_games(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_donations___is_warroom_games(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_donations_____top_level__(void);
 extern PyObject *CPyStatic_dyfi___dyfi;
 extern char CPyDef_dyfi___is_dyfi_launch(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_dyfi___is_dyfi_launch(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
@@ -205,6 +235,8 @@ extern PyTypeObject *CPyType_other_income___is_robovault_share_env;
 extern PyObject *CPyDef_other_income___is_robovault_share_env(void);
 extern PyTypeObject *CPyType_other_income___is_robovault_share_gen;
 extern PyObject *CPyDef_other_income___is_robovault_share_gen(void);
+extern char CPyDef_other_income___is_airdrop(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_other_income___is_airdrop(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_other_income___is_atoken_yield(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_other_income___is_atoken_yield(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helper__(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);

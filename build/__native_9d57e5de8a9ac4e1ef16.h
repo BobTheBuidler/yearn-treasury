@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_3ddd27aee2f79379b6d9_H
-#define MYPYC_NATIVE_3ddd27aee2f79379b6d9_H
+#ifndef MYPYC_NATIVE_9d57e5de8a9ac4e1ef16_H
+#define MYPYC_NATIVE_9d57e5de8a9ac4e1ef16_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -137,7 +137,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_3ddd27aee2f79379b6d9 {
+struct export_table_9d57e5de8a9ac4e1ef16 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -161,8 +161,8 @@ struct export_table_3ddd27aee2f79379b6d9 {
     char (*CPyDef_gas___is_strategist_gas)(PyObject *cpy_r_tx);
     char (*CPyDef_gas_____top_level__)(void);
     char (*CPyDef_expense_____top_level__)(void);
-    char (*CPyDef_general___is_sms_discretionary_budget)(PyObject *cpy_r_tx);
-    char (*CPyDef_general_____top_level__)(void);
+    char (*CPyDef_expense___general___is_sms_discretionary_budget)(PyObject *cpy_r_tx);
+    char (*CPyDef_expense___general_____top_level__)(void);
     PyObject **CPyStatic_infrastructure___infrastructure;
     char (*CPyDef_infrastructure___is_generic_infra)(PyObject *cpy_r_tx);
     char (*CPyDef_infrastructure_____top_level__)(void);
@@ -182,6 +182,14 @@ struct export_table_3ddd27aee2f79379b6d9 {
     char (*CPyDef_security___is_bug_bounty)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_warroom_help)(PyObject *cpy_r_tx);
     char (*CPyDef_security_____top_level__)(void);
+    char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
+    char (*CPyDef_ignore___general_____top_level__)(void);
+    PyObject **CPyStatic_weth___weth;
+    char (*CPyDef_weth___is_weth_mint)(PyObject *cpy_r_tx);
+    char (*CPyDef_weth___is_weth)(PyObject *cpy_r_tx);
+    char (*CPyDef_weth_____top_level__)(void);
+    char (*CPyDef_ygov___is_sent_to_ygov)(PyObject *cpy_r_tx);
+    char (*CPyDef_ygov_____top_level__)(void);
     char (*CPyDef_other_expense_____top_level__)(void);
     char (*CPyDef_boost___is_buying_crv_for_boost)(PyObject *cpy_r_tx);
     char (*CPyDef_boost_____top_level__)(void);
@@ -193,6 +201,10 @@ struct export_table_3ddd27aee2f79379b6d9 {
     char (*CPyDef_bugs___is_gusd_vault_bug_reimbursement)(PyObject *cpy_r_tx);
     char (*CPyDef_bugs___is_dai_vault_reimbursement)(PyObject *cpy_r_tx);
     char (*CPyDef_bugs_____top_level__)(void);
+    PyObject **CPyStatic_donations___donations;
+    char (*CPyDef_donations___is_gitcoin_matching_donation)(PyObject *cpy_r_tx);
+    char (*CPyDef_donations___is_warroom_games)(PyObject *cpy_r_tx);
+    char (*CPyDef_donations_____top_level__)(void);
     PyObject **CPyStatic_dyfi___dyfi;
     char (*CPyDef_dyfi___is_dyfi_launch)(PyObject *cpy_r_tx);
     char (*CPyDef_dyfi___is_dyfi_redemptions)(PyObject *cpy_r_tx);
@@ -209,6 +221,7 @@ struct export_table_3ddd27aee2f79379b6d9 {
     PyObject *(*CPyDef_other_income___is_robovault_share_env)(void);
     PyTypeObject **CPyType_other_income___is_robovault_share_gen;
     PyObject *(*CPyDef_other_income___is_robovault_share_gen)(void);
+    char (*CPyDef_other_income___is_airdrop)(PyObject *cpy_r_tx);
     char (*CPyDef_other_income___is_atoken_yield)(PyObject *cpy_r_tx);
     PyObject *(*CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
     PyObject *(*CPyDef_other_income___is_robovault_share_gen_____next__)(PyObject *cpy_r___mypyc_self__);
