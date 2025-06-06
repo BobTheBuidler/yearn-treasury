@@ -52,11 +52,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-constants-module">yearn_treasury.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.constants">yearn_treasury.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-main-module">yearn_treasury.main module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-shitcoins-module">yearn_treasury.shitcoins module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-vaults-module">yearn_treasury.vaults module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.shitcoins">yearn_treasury.shitcoins module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.vaults">yearn_treasury.vaults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -100,10 +100,24 @@
 <ul>
 <li class="toctree-l1"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html">yearn_treasury.rules.ignore.swaps package</a><ul>
 <li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#submodules">Submodules</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn-treasury-rules-ignore-swaps-aave-module">yearn_treasury.rules.ignore.swaps.aave module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn-treasury-rules-ignore-swaps-compound-module">yearn_treasury.rules.ignore.swaps.compound module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn-treasury-rules-ignore-swaps-uniswap-module">yearn_treasury.rules.ignore.swaps.uniswap module</a></li>
-<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#module-contents">Module contents</a></li>
+<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps.aave">yearn_treasury.rules.ignore.swaps.aave module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.aave.is_aave_deposit"><code class="docutils literal notranslate"><span class="pre">is_aave_deposit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.aave.is_aave_withdrawal"><code class="docutils literal notranslate"><span class="pre">is_aave_withdrawal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps.compound">yearn_treasury.rules.ignore.swaps.compound module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.compound.is_compound_deposit"><code class="docutils literal notranslate"><span class="pre">is_compound_deposit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.compound.is_compound_withdrawal"><code class="docutils literal notranslate"><span class="pre">is_compound_withdrawal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps.uniswap">yearn_treasury.rules.ignore.swaps.uniswap module</a><ul>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.uniswap.is_pool"><code class="docutils literal notranslate"><span class="pre">is_pool()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_deposit"><code class="docutils literal notranslate"><span class="pre">is_uniswap_deposit()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_swap"><code class="docutils literal notranslate"><span class="pre">is_uniswap_swap()</span></code></a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_withdrawal"><code class="docutils literal notranslate"><span class="pre">is_uniswap_withdrawal()</span></code></a></li>
+</ul>
+</li>
+<li class="toctree-l2"><a class="reference internal" href="yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -112,26 +126,285 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="yearn-treasury-rules-ignore-general-module">
-<h2>yearn_treasury.rules.ignore.general module<a class="headerlink" href="#yearn-treasury-rules-ignore-general-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.general">
+<span id="yearn-treasury-rules-ignore-general-module"></span><h2>yearn_treasury.rules.ignore.general module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.general" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.general.is_returned_fundus">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.general.</span></span><span class="sig-name descname"><span class="pre">is_returned_fundus</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/general.html#is_returned_fundus"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.general.is_returned_fundus" title="Link to this definition"></a></dt>
+<dd><p>A user accientally refunded their yield to yChad, yChad sent it back.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-maker-module">
-<h2>yearn_treasury.rules.ignore.maker module<a class="headerlink" href="#yearn-treasury-rules-ignore-maker-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.maker">
+<span id="yearn-treasury-rules-ignore-maker-module"></span><h2>yearn_treasury.rules.ignore.maker module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.maker" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.maker.is_usdc_cdp_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.maker.</span></span><span class="sig-name descname"><span class="pre">is_usdc_cdp_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/maker.html#is_usdc_cdp_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.maker.is_usdc_cdp_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.maker.is_usdc_cdp_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.maker.</span></span><span class="sig-name descname"><span class="pre">is_usdc_cdp_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/maker.html#is_usdc_cdp_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.maker.is_usdc_cdp_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.maker.is_yfi_cdp_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.maker.</span></span><span class="sig-name descname"><span class="pre">is_yfi_cdp_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/maker.html#is_yfi_cdp_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.maker.is_yfi_cdp_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.maker.is_yfi_cdp_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.maker.</span></span><span class="sig-name descname"><span class="pre">is_yfi_cdp_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/maker.html#is_yfi_cdp_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.maker.is_yfi_cdp_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-passthru-module">
-<h2>yearn_treasury.rules.ignore.passthru module<a class="headerlink" href="#yearn-treasury-rules-ignore-passthru-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.passthru">
+<span id="yearn-treasury-rules-ignore-passthru-module"></span><h2>yearn_treasury.rules.ignore.passthru module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.passthru" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_aura">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_aura</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_aura"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_aura" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_dola_bribe">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_dola_bribe</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_dola_bribe"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_dola_bribe" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_idle">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_idle</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_idle"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_idle" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_inverse_fees_from_yearn_fed">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_inverse_fees_from_yearn_fed</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_inverse_fees_from_yearn_fed"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_inverse_fees_from_yearn_fed" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_rkp3r">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_rkp3r</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_rkp3r"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_rkp3r" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_sent_to_dinoswap">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_sent_to_dinoswap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_sent_to_dinoswap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_sent_to_dinoswap" title="Link to this definition"></a></dt>
+<dd><p>These tokens are dumpped and the proceeds sent back to the origin strategy.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_stkaave">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_stkaave</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_stkaave"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_stkaave" title="Link to this definition"></a></dt>
+<dd><p>stkAAVE is sent from a strategy to ychad, then to sms for unwrapping.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_ycrv">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_ycrv</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_ycrv"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_ycrv" title="Link to this definition"></a></dt>
+<dd><p>These are routed thru cowswap with dai as the purchase token.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.passthru.is_yprisma_migration">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.passthru.</span></span><span class="sig-name descname"><span class="pre">is_yprisma_migration</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/passthru.html#is_yprisma_migration"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.passthru.is_yprisma_migration" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-staking-module">
-<h2>yearn_treasury.rules.ignore.staking module<a class="headerlink" href="#yearn-treasury-rules-ignore-staking-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.staking">
+<span id="yearn-treasury-rules-ignore-staking-module"></span><h2>yearn_treasury.rules.ignore.staking module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.staking" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.staking.is_curve_gauge">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.staking.</span></span><span class="sig-name descname"><span class="pre">is_curve_gauge</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/staking.html#is_curve_gauge"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.staking.is_curve_gauge" title="Link to this definition"></a></dt>
+<dd><p>Ignore DAO staking into Curve gauge contracts on Mainnet.</p>
+<p>These deposit transactions into Curve gauges are infrequent and are excluded from automatic categorization.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.staking.is_solidex_staking">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.staking.</span></span><span class="sig-name descname"><span class="pre">is_solidex_staking</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/staking.html#is_solidex_staking"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.staking.is_solidex_staking" title="Link to this definition"></a></dt>
+<dd><p>Ignore Solidex staking and unstaking lifecycle transactions on Fantom.</p>
+<p>This rule matches each stage of the Solidex LP flow:
+- Stake deposits: DAO wallet deposits tokens into the LP depositor contract (<cite>Deposited</cite> event).
+- Reward claims: Claim tokens minted to DAO (<cite>Deposited</cite> event with ZERO_ADDRESS as sender).
+- Claim token burns: DAO wallet burns claim tokens to redeem rewards (<cite>Withdrawn</cite> event).
+- Unstake withdrawals: DAO wallet receives original LP tokens back (<cite>Withdrawn</cite> event).</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-weth-module">
-<h2>yearn_treasury.rules.ignore.weth module<a class="headerlink" href="#yearn-treasury-rules-ignore-weth-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.weth">
+<span id="yearn-treasury-rules-ignore-weth-module"></span><h2>yearn_treasury.rules.ignore.weth module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.weth" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.weth.is_weth">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.weth.</span></span><span class="sig-name descname"><span class="pre">is_weth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/weth.html#is_weth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.weth.is_weth" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.weth.is_weth_mint">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.weth.</span></span><span class="sig-name descname"><span class="pre">is_weth_mint</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/weth.html#is_weth_mint"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.weth.is_weth_mint" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-ygov-module">
-<h2>yearn_treasury.rules.ignore.ygov module<a class="headerlink" href="#yearn-treasury-rules-ignore-ygov-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.ygov">
+<span id="yearn-treasury-rules-ignore-ygov-module"></span><h2>yearn_treasury.rules.ignore.ygov module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.ygov" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.ygov.is_sent_to_ygov">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.ygov.</span></span><span class="sig-name descname"><span class="pre">is_sent_to_ygov</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/ygov.html#is_sent_to_ygov"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.ygov.is_sent_to_ygov" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.13)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yearn_treasury.rules.ignore" title="Link to this heading"></a></h2>
 </section>
 </section>
 

@@ -1,0 +1,205 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.other_expense.bugs &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.other_expense.bugs</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.other_expense.bugs</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">other_expense</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+
+
+<span class="n">bugs</span> <span class="o">=</span> <span class="n">other_expense</span><span class="p">(</span><span class="s2">&quot;Bug Reimbursements&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_double_fee_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_double_fee_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;yDAI Fee Calculation Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_double_fee_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    Due to new single-sided strats that deposit into other vaults,</span>
+<span class="sd">    some users were accidentally charged 2x the expected withdrawal fee.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Disperse.app&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;0x4ce0c829fb46fc1ea03e434599a68af4c6f65f80aff7e934a008c0fe63e9da3f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x90b54bf0d35621160b5094c263a2684f8e7b37fc6467c8c1ce6a53e2e7acbfa1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x2f667223aaefc4b153c28440d151fdb19333aff5d052c0524f2804fbd5a7964c&quot;</span><span class="p">,</span>
+    <span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="is_yyfi_fee_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_yyfi_fee_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;yYFI Fee Calculation Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yyfi_fee_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Disperse.app&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x867b547b67910a08c939978d8071acca28ecc444d7155c0626e87730f67c058c&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_lossy_fee_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_lossy_fee_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;yvCurve-IB Fee Calculation Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_lossy_fee_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;old vault code doesn&#39;t prevent fees from making harvest lossy. so here we airdrop the fee-take back to vault and do some housekeeper to prevent this from happening on other strats.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x61eea3d40b2dc8586a5d20109ed962998c43cc55a37c300f283820150490eaa0&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="mi">179</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_stycrv">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_stycrv">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;Reimburse st-yCRV User&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_stycrv</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Some user lost some funds in a minor issue, then was reimbursed.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x491f07d134f3253ef06a2b46d83b82cdf2927b13cce4d38225d92ce01799da96&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="mi">197</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_slippage_bug_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_slippage_bug_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;Slippage Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_slippage_bug_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;a swap tx was messed up so Yearn sent treasury funds to the relevant strategy to compensate&quot;&quot;&quot;</span>
+    <span class="n">txhash</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
+    <span class="k">if</span> <span class="n">txhash</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;0xffe3883e34ae0b6ae3a7f304f00c625a7b315a021cf38f47a932e81d3f1c371c&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x42cfcaa06beebe61547724f22fa790c763b2937ca2af8e3d5dbc680b903aad69&quot;</span><span class="p">,</span>
+    <span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="n">other</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="c1"># separate slippage event</span>
+        <span class="s2">&quot;0xc179e27f0e38bca52744d71dc6ff2463ed10fa918908ce28adcf4f4c0d6d6a1e&quot;</span><span class="p">:</span> <span class="mi">103</span><span class="p">,</span>
+        <span class="s2">&quot;0x51c611597574aaa3b829004363476b1c2a4dc2941dff695c26c100498b695b4f&quot;</span><span class="p">:</span> <span class="mi">214</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">txhash</span> <span class="ow">in</span> <span class="n">other</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="n">other</span><span class="p">[</span><span class="n">txhash</span><span class="p">]</span></div>
+
+
+
+<div class="viewcode-block" id="is_gusd_vault_bug_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_gusd_vault_bug_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;Reimburse GUSD Vault Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_gusd_vault_bug_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;GUSD&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x22f62d0922c430232aa402296055d79a6cf5c36a8b6253a7f1f46f1e1f66e277&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">!=</span> <span class="mi">65</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_dai_vault_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_expense.html#yearn_treasury.rules.other_expense.bugs.is_dai_vault_reimbursement">[docs]</a>
+<span class="nd">@bugs</span><span class="p">(</span><span class="s2">&quot;Reimburse DAI Vault Bug&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_dai_vault_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="c1"># this is from very early days, I&#39;m not sure if it&#39;s documented anywhere</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x61ad3697ab56316ffdc7b8eaaeee57d0b3f8d4fed3e283eee35c6c38eed594e0&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="mi">202</span>
+    <span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
