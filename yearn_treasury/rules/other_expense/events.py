@@ -7,6 +7,12 @@ from y import Network
 events: Final = other_expense("Events")
 
 
+events("Devcon").match(
+    hash="0x57bc99f6007989606bdd9d1adf91c99d198de51f61d29689ee13ccf440b244df",
+    log_index=83,
+)
+
+
 @events("EthDenver", Network.Mainnet)
 def is_eth_denver(tx: TreasuryTx) -> bool:
     return (
