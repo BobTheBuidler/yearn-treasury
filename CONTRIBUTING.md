@@ -1,6 +1,6 @@
 # Contributing to Yearn Treasury
 
-Yearn Treasury was designed to make it easy for less technical users to contribute new dashboards and visuals. This guide explains how to contribute dashboard updates using Grafana’s user interface. Whether you are creating a new dashboard or editing an existing one, this guide will walk you through the steps in simple language.
+Yearn Treasury is implemented on top of [DAO Treasury](https://github.com/BobTheBuidler/dao-treasury), which was designed to make it easy for less technical users to contribute new dashboards and visuals. This guide explains how to contribute dashboard updates using Grafana’s user interface. Whether you are creating a new dashboard or editing an existing one, this guide will walk you through the steps in simple language.
 
 ---
 
