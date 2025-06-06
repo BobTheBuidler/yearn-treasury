@@ -10,11 +10,13 @@ Welcome to yearn-treasury's documentation!
    :parser: myst_parser.sphinx_
 
 .. toctree::
+   :hidden:
    :maxdepth: 2
    :caption: Contents:
 
    source/modules.rst
    transactions
+   contributing
 
 Indices and tables
 ==================
