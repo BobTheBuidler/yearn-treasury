@@ -14,6 +14,7 @@ Welcome to yearn-treasury's documentation!
    :caption: Contents:
 
    source/modules.rst
+   transactions
 
 Indices and tables
 ==================
