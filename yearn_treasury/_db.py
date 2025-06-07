@@ -16,5 +16,5 @@ def prepare_db() -> None:
         # This wallet is an EOA that has been used to assist in bridging tokens across chains.
         "0x5FcdC32DfC361a32e9d5AB9A384b890C62D0b8AC": "Bridge Assistooor EOA",
     }
-    
+
     Address.set_nicknames(labels)
