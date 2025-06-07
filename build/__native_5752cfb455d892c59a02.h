@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_28054833217bbc43f560_H
-#define MYPYC_NATIVE_28054833217bbc43f560_H
+#ifndef MYPYC_NATIVE_5752cfb455d892c59a02_H
+#define MYPYC_NATIVE_5752cfb455d892c59a02_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -70,7 +70,7 @@ typedef struct {
 } yearn_treasury___rules___other_income___is_robovault_share_genObject;
 
 
-struct export_table_28054833217bbc43f560 {
+struct export_table_5752cfb455d892c59a02 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -158,6 +158,8 @@ struct export_table_28054833217bbc43f560 {
     char (*CPyDef_seasolver___is_seasolver_slippage_revenue)(PyObject *cpy_r_tx);
     char (*CPyDef_seasolver___is_cowswap_incentive)(PyObject *cpy_r_tx);
     char (*CPyDef_seasolver_____top_level__)(void);
+    char (*CPyDef__db___prepare_db)(void);
+    char (*CPyDef__db_____top_level__)(void);
     PyObject **CPyStatic__ens___resolver;
     PyObject **CPyStatic__ens___topics;
     char (*CPyDef__ens_____top_level__)(void);

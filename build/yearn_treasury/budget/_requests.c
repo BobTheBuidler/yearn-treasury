@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit__requests(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("28054833217bbc43f560__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("5752cfb455d892c59a02__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___budget____requests");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "28054833217bbc43f560__mypyc.init_yearn_treasury___budget____requests");
+    void *init_func = PyCapsule_GetPointer(capsule, "5752cfb455d892c59a02__mypyc.init_yearn_treasury___budget____requests");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;

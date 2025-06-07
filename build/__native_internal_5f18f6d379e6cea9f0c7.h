@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_9d57e5de8a9ac4e1ef16_H
-#define MYPYC_NATIVE_INTERNAL_9d57e5de8a9ac4e1ef16_H
+#ifndef MYPYC_NATIVE_INTERNAL_5f18f6d379e6cea9f0c7_H
+#define MYPYC_NATIVE_INTERNAL_5f18f6d379e6cea9f0c7_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_9d57e5de8a9ac4e1ef16.h"
+#include "__native_5f18f6d379e6cea9f0c7.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[620];
+extern PyObject *CPyStatics[635];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -107,6 +107,11 @@ extern PyObject *CPyStatic_seasolver___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___revenue___yteams_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___revenue___yteams;
 extern PyObject *CPyStatic_yteams___globals;
+extern CPyModule *CPyModule_yearn_treasury____db_internal;
+extern CPyModule *CPyModule_yearn_treasury____db;
+extern PyObject *CPyStatic__db___globals;
+extern CPyModule *CPyModule_dao_treasury___db;
+extern CPyModule *CPyModule_yearn_treasury;
 extern CPyModule *CPyModule_yearn_treasury____ens_internal;
 extern CPyModule *CPyModule_yearn_treasury____ens;
 extern PyObject *CPyStatic__ens___globals;
@@ -358,6 +363,9 @@ extern char CPyDef_seasolver_____top_level__(void);
 extern char CPyDef_yteams___is_yteam_rev_share(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_yteams___is_yteam_rev_share(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_yteams_____top_level__(void);
+extern char CPyDef__db___prepare_db(void);
+extern PyObject *CPyPy__db___prepare_db(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);

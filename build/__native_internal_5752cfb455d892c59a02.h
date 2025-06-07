@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_28054833217bbc43f560_H
-#define MYPYC_NATIVE_INTERNAL_28054833217bbc43f560_H
+#ifndef MYPYC_NATIVE_INTERNAL_5752cfb455d892c59a02_H
+#define MYPYC_NATIVE_INTERNAL_5752cfb455d892c59a02_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_28054833217bbc43f560.h"
+#include "__native_5752cfb455d892c59a02.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[463];
+extern PyObject *CPyStatics[478];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -77,6 +77,11 @@ extern PyObject *CPyStatic_keepcoins___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___revenue___seasolver_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___revenue___seasolver;
 extern PyObject *CPyStatic_seasolver___globals;
+extern CPyModule *CPyModule_yearn_treasury____db_internal;
+extern CPyModule *CPyModule_yearn_treasury____db;
+extern PyObject *CPyStatic__db___globals;
+extern CPyModule *CPyModule_dao_treasury___db;
+extern CPyModule *CPyModule_yearn_treasury;
 extern CPyModule *CPyModule_yearn_treasury____ens_internal;
 extern CPyModule *CPyModule_yearn_treasury____ens;
 extern PyObject *CPyStatic__ens___globals;
@@ -217,6 +222,9 @@ extern PyObject *CPyPy_seasolver___is_seasolver_slippage_revenue(PyObject *self,
 extern char CPyDef_seasolver___is_cowswap_incentive(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_seasolver___is_cowswap_incentive(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_seasolver_____top_level__(void);
+extern char CPyDef__db___prepare_db(void);
+extern PyObject *CPyPy__db___prepare_db(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);
