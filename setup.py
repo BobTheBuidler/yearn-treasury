@@ -24,6 +24,7 @@ else:
             "yearn_treasury/rules/revenue/seasolver.py",
             # "yearn_treasury/rules/revenue/vaults.py",
             "yearn_treasury/rules/revenue/yteams.py",
+            "yearn_treasury/_db.py",
             "yearn_treasury/_ens.py",
             "yearn_treasury/vaults.py",
             "--strict",
