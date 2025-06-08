@@ -164,15 +164,14 @@
         <span class="n">strategy</span><span class="p">:</span> <span class="n">ChecksumAddress</span> <span class="o">=</span> <span class="k">await</span> <span class="n">controller</span><span class="o">.</span><span class="n">strategies</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span>
             <span class="n">underlying</span><span class="p">,</span> <span class="n">block_identifier</span><span class="o">=</span><span class="n">tx</span><span class="o">.</span><span class="n">block</span>
         <span class="p">)</span>
-        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">!=</span> <span class="n">strategy</span><span class="p">:</span>
-            <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
-                <span class="s2">&quot;from address </span><span class="si">%s</span><span class="s2"> doesnt match strategy </span><span class="si">%s</span><span class="s2"> set on controller </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
-                <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
-                <span class="n">strategy</span><span class="p">,</span>
-                <span class="n">controller</span><span class="p">,</span>
-            <span class="p">)</span>
-            <span class="k">continue</span>
-        <span class="k">return</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">strategy</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span>
+            <span class="s2">&quot;from address </span><span class="si">%s</span><span class="s2"> doesnt match strategy </span><span class="si">%s</span><span class="s2"> set on controller </span><span class="si">%s</span><span class="s2">&quot;</span><span class="p">,</span>
+            <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>
+            <span class="n">strategy</span><span class="p">,</span>
+            <span class="n">controller</span><span class="p">,</span>
+        <span class="p">)</span>        
     <span class="k">return</span> <span class="kc">False</span></div>
 
 
@@ -220,7 +219,7 @@
 
 <div class="viewcode-block" id="is_yearn_fed_fees">
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults.is_yearn_fed_fees">[docs]</a>
-<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;YearnFed Fees&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;YearnFed&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_yearn_fed_fees</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="n">symbol</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span>
     <span class="n">from_address</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span>
@@ -253,7 +252,7 @@
 
 <div class="viewcode-block" id="is_dolafraxbp_fees">
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults.is_dolafraxbp_fees">[docs]</a>
-<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;DOLAFRAXBP Fees&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;DOLAFRAXBP&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_dolafraxbp_fees</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: StrategyConvexFraxBpRewardsClonable&quot;</span>
@@ -265,7 +264,7 @@
 
 <div class="viewcode-block" id="is_temple">
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults.is_temple">[docs]</a>
-<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;TempleDAO Private Vault Fees&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="nd">@fees</span><span class="p">(</span><span class="s2">&quot;TempleDAO Private Vault&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_temple</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="ow">in</span> <span class="p">[</span><span class="s2">&quot;Yearn Treasury&quot;</span><span class="p">,</span> <span class="s2">&quot;Yearn yChad Multisig&quot;</span><span class="p">]:</span>  <span class="c1"># fees have been sent to both</span>
         <span class="n">from_nickname</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span>
