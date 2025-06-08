@@ -58,15 +58,14 @@ TREASURY_WALLETS: Final = {
 
 
 class Args:
-    wallet: Final[Set[ChecksumAddress]] = TREASURY_WALLETS
-    # TODO: update dashboard def to use this label
-    # label: Final[str] = "Yearn"
-    label: Final[str] = "My Portfolio"
+    wallets: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "wallets.yaml"
+    # TODO: update dashboard def to use this label (we will need to migrate the provisioning files to yearn-treasury but we need to do this anyway for yearn-specific additions)
+    label: Final[str] = "Treasury"  # "Yearn"
     first_tx_block: Final = BlockNumber({Network.Mainnet: 10_502_337}.get(CHAINID, 0))  # type: ignore [call-overload]
     export_start_block: Final = first_tx_block
 
     sort_rules: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "rules"
     """The path where the sort rules for dao-treasury are defined."""
 
-    nicknames: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "addresses.yaml"
+    nicknames: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "address_labels.yaml"
     """The path where yearn-treasury's address nicknames are defined."""
