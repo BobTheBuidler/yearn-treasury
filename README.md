@@ -1,4 +1,4 @@
-This WIP library runs the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury) exporter for the Yearn Finance treasury.
+This WIP library runs the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury) exporter for the [Yearn Finance](https://yearn.fi/) treasury.
 
 ## Installation
 
