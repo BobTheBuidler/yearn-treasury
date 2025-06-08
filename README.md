@@ -14,10 +14,17 @@ This WIP library runs the [dao-treasury](https://github.com/BobTheBuidler/dao-tr
   poetry install
   ```
 
+## Requirements
+- Python 3.10 or higher.
+- At least 16GB of RAM.
+- All dependencies installed as specified in the project’s pyproject.toml file.
+- Proper configuration settings (e.g., API keys, network endpoints) must be set up as required by the portfolio and balance loaders. More info below.
+
 ## Prerequisites
 
-You must have a [brownie network](https://eth-brownie.readthedocs.io/en/stable/network-management.html) configured to use your RPC.
-You will also need [Docker](https://www.docker.com/get-started/) installed on your system.
+- First, you will need to bring your own archive node. This can be one you run yourself, or one from one of the common providers (Tenderly, Alchemy, QuickNode, etc.)
+- You must configure a [brownie network](https://eth-brownie.readthedocs.io/en/stable/network-management.html) to use your RPC.
+- You'll also need [Docker](https://www.docker.com/get-started/) installed on your system. If on MacOS, you will need to leave Docker Desktop open while Yearn Treasury is running.
 
 ## Usage
 
