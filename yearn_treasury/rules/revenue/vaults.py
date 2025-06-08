@@ -74,15 +74,14 @@ async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
         strategy: ChecksumAddress = await controller.strategies.coroutine(
             underlying, block_identifier=tx.block
         )
-        if tx.from_address != strategy:
-            logger.debug(
-                "from address %s doesnt match strategy %s set on controller %s",
-                tx.from_address.address,
-                strategy,
-                controller,
-            )
-            continue
-        return True
+        if tx.from_address == strategy:
+            return True
+        logger.debug(
+            "from address %s doesnt match strategy %s set on controller %s",
+            tx.from_address.address,
+            strategy,
+            controller,
+        )        
     return False
 
 
@@ -118,7 +117,7 @@ def is_v3_vault_fees(tx: TreasuryTx) -> bool:
     return False
 
 
-@fees("YearnFed Fees", Network.Mainnet)
+@fees("YearnFed", Network.Mainnet)
 def is_yearn_fed_fees(tx: TreasuryTx) -> bool:
     symbol = tx.symbol
     from_address = tx.from_address
@@ -148,7 +147,7 @@ def is_yearn_fed_fees(tx: TreasuryTx) -> bool:
     return False
 
 
-@fees("DOLAFRAXBP Fees", Network.Mainnet)
+@fees("DOLAFRAXBP", Network.Mainnet)
 def is_dolafraxbp_fees(tx: TreasuryTx) -> bool:
     return (
         tx.from_nickname == "Contract: StrategyConvexFraxBpRewardsClonable"
@@ -157,7 +156,7 @@ def is_dolafraxbp_fees(tx: TreasuryTx) -> bool:
     )
 
 
-@fees("TempleDAO Private Vault Fees", Network.Mainnet)
+@fees("TempleDAO Private Vault", Network.Mainnet)
 def is_temple(tx: TreasuryTx) -> bool:
     if tx.to_nickname in ["Yearn Treasury", "Yearn yChad Multisig"]:  # fees have been sent to both
         from_nickname = tx.from_nickname
