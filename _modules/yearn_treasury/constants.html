@@ -133,17 +133,16 @@
 <div class="viewcode-block" id="Args">
 <a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.constants.Args">[docs]</a>
 <span class="k">class</span><span class="w"> </span><span class="nc">Args</span><span class="p">:</span>
-    <span class="n">wallet</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="n">ChecksumAddress</span><span class="p">]]</span> <span class="o">=</span> <span class="n">TREASURY_WALLETS</span>
-    <span class="c1"># TODO: update dashboard def to use this label</span>
-    <span class="c1"># label: Final[str] = &quot;Yearn&quot;</span>
-    <span class="n">label</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;My Portfolio&quot;</span>
+    <span class="n">wallets</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">_YEARN_TREASURY_ROOT_DIR</span> <span class="o">/</span> <span class="s2">&quot;wallets.yaml&quot;</span>
+    <span class="c1"># TODO: update dashboard def to use this label (we will need to migrate the provisioning files to yearn-treasury but we need to do this anyway for yearn-specific additions)</span>
+    <span class="n">label</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="nb">str</span><span class="p">]</span> <span class="o">=</span> <span class="s2">&quot;Treasury&quot;</span>  <span class="c1"># &quot;Yearn&quot;</span>
     <span class="n">first_tx_block</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">BlockNumber</span><span class="p">({</span><span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">:</span> <span class="mi">10_502_337</span><span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CHAINID</span><span class="p">,</span> <span class="mi">0</span><span class="p">))</span>  <span class="c1"># type: ignore [call-overload]</span>
     <span class="n">export_start_block</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">first_tx_block</span>
 
     <span class="n">sort_rules</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">_YEARN_TREASURY_ROOT_DIR</span> <span class="o">/</span> <span class="s2">&quot;rules&quot;</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The path where the sort rules for dao-treasury are defined.&quot;&quot;&quot;</span>
 
-    <span class="n">nicknames</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">_YEARN_TREASURY_ROOT_DIR</span> <span class="o">/</span> <span class="s2">&quot;addresses.yaml&quot;</span>
+    <span class="n">nicknames</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Path</span><span class="p">]</span> <span class="o">=</span> <span class="n">_YEARN_TREASURY_ROOT_DIR</span> <span class="o">/</span> <span class="s2">&quot;address_labels.yaml&quot;</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;The path where yearn-treasury&#39;s address nicknames are defined.&quot;&quot;&quot;</span></div>
 
 </pre></div>
