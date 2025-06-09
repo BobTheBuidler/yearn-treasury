@@ -81,7 +81,7 @@ async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
             tx.from_address.address,
             strategy,
             controller,
-        )        
+        )
     return False
 
 
