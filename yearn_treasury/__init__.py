@@ -11,7 +11,7 @@ warnings.filterwarnings(
     "ignore",
     message=".Event log does not contain enough topics for the given ABI.",
     category=UserWarning,
-    module="brownie.network.event"
+    module="brownie.network.event",
 )
 
 
