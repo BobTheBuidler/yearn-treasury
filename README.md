@@ -32,12 +32,12 @@ Run the treasury export tool:
 
 ```bash
 # For pip installations:
-yearn-treasury run --network mainnet --interval 12h
+yearn-treasury --network mainnet --interval 12h
 ```
 
 For local development (from source installation), use:
 ```bash
-poetry run yearn-treasury run --network mainnet --interval 12h
+poetry run yearn-treasury --network mainnet --interval 12h
 ```
 
 **CLI Options:**
