@@ -18,9 +18,13 @@ def fetch_brs() -> List[BudgetRequest]:
     params = {"state": "all", "per_page": 100, "page": 1}
 
     brs = []
+    retries = 0
     while True:
         response = get(api_url, headers=_HEADERS, params=params)  # type: ignore [arg-type]
         if response.status_code != 200:
+            if retries < 5:
+                retries += 1
+                continue
             raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
 
         data: List[dict] = response.json()
