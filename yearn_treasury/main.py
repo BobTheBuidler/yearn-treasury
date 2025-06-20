@@ -51,16 +51,21 @@ run_parser.add_argument(
     default=3004,
 )
 run_parser.add_argument(
-    "--renderer-port",
-    type=int,
-    help="Port for the service that renders visual reports. Default: 8080",
-    default=8080,
-)
-run_parser.add_argument(
     "--victoria-port",
     type=int,
     help="Port for the Victoria metrics reporting endpoint. Default: 8430",
     default=8430,
+)
+run_parser.add_argument(
+    "--start-renderer",
+    action="store_true",
+    help="If set, the Grafana renderer container will be started for dashboard image export. By default, only the grafana container is started.",
+)
+run_parser.add_argument(
+    "--renderer-port",
+    type=int,
+    help="Port for the service that renders visual reports. Default: 8080",
+    default=8080,
 )
 args = run_parser.parse_args()
 
@@ -112,11 +117,14 @@ def main() -> None:
         grafana_port: Final[int] = args.grafana_port
         """Grafana port."""
 
-        renderer_port: Final[int] = args.renderer_port
-        """Report renderer port."""
-
         victoria_port: Final[int] = args.victoria_port
         """Victoria metrics port."""
+
+        start_renderer: Final[bool] = args.start_renderer
+        """Boolean indicating whether to start the renderer container."""
+
+        renderer_port: Final[int] = args.renderer_port
+        """Report renderer port."""
 
         daemon: Final[bool] = args.daemon
         """Whether to run in daemon mode."""
