@@ -17,20 +17,25 @@ all_vaults: Final = tuple(v1.keys()) + tuple(v2.values())
 
 @vaults("Deposit")
 async def is_vault_deposit(tx: TreasuryTx) -> bool:
-    return await is_v1_or_v2_vault_deposit(tx) or tx.hash in {
-        # TODO these go thru zaps and do not get caught by the logic below. figure out how to capture these
-        Network.Mainnet: {  # type: ignore [call-overload]
-            "0x39616fdfc8851e10e17d955f55beea5c3dd4eed7c066a8ecbed8e50b496012ff",
-            "0x248e896eb732dfe40a0fa49131717bb7d2c1721743a2945ab9680787abcf9c50",
-            "0x2ce0240a08c8cc8d35b018995862711eb660a24d294b1aa674fbc467af4e621b",
-            # this is not thru a zap, its a lp-yCRVv2 deposit I probably dont need to write hueristics for
-            "0x93cf055d82b7e82b3877ab506629de6359fc5385ffb6b8c2fbfe0d61947fab59",
-        }
-    }.get(CHAINID, set()) or is_v3_vault_deposit(tx)
+    return (
+        await is_v1_or_v2_vault_deposit(tx)
+        or tx.hash
+        in {
+            # TODO these go thru zaps and do not get caught by the logic below. figure out how to capture these
+            Network.Mainnet: {  # type: ignore [call-overload]
+                "0x39616fdfc8851e10e17d955f55beea5c3dd4eed7c066a8ecbed8e50b496012ff",
+                "0x248e896eb732dfe40a0fa49131717bb7d2c1721743a2945ab9680787abcf9c50",
+                "0x2ce0240a08c8cc8d35b018995862711eb660a24d294b1aa674fbc467af4e621b",
+                # this is not thru a zap, its a lp-yCRVv2 deposit I probably dont need to write hueristics for
+                "0x93cf055d82b7e82b3877ab506629de6359fc5385ffb6b8c2fbfe0d61947fab59",
+            }
+        }.get(CHAINID, set())
+        or is_v3_vault_deposit(tx)
+    )
 
 
 async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
-    """ This code doesn't validate amounts but so far that's not been a problem. """
+    """This code doesn't validate amounts but so far that's not been a problem."""
     try:
         if "Transfer" not in tx.events:
             return False
@@ -61,7 +66,11 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
                         underlying_address = await vault.token
                         for _event in transfer_events:
                             _sender, _receiver, _value = _event.values()
-                            if _event.address == underlying_address and tx_to_address == _sender and tx_token == _receiver:
+                            if (
+                                _event.address == underlying_address
+                                and tx_to_address == _sender
+                                and tx_token == _receiver
+                            ):
                                 # v1
                                 if _event.pos < event_pos:
                                     return True
@@ -94,7 +103,8 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
     return False
 
 
-_v3_deposit_keys: Final = 'sender', 'owner', 'assets', 'shares'
+_v3_deposit_keys: Final = "sender", "owner", "assets", "shares"
+
 
 def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
     try:
@@ -106,29 +116,31 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
             return False
         raise
 
-    if deposits := [event for event in tx.events['Deposit'] if all(key in event for key in _v3_deposit_keys)]:
+    if deposits := [
+        event for event in tx.events["Deposit"] if all(key in event for key in _v3_deposit_keys)
+    ]:
         # Vault side
         if tx.from_address == ZERO_ADDRESS:
             for deposit in deposits:
                 if tx.token != deposit.address:
                     continue
-                if tx.to_address != deposit['owner']:
-                    print('wrong owner')
+                if tx.to_address != deposit["owner"]:
+                    print("wrong owner")
                     continue
-                elif tx.amount == tx.token.scale_value(deposit['shares']):
+                elif tx.amount == tx.token.scale_value(deposit["shares"]):
                     return True
-                print('wrong amount')
-            print('no matching deposit')
-        
+                print("wrong amount")
+            print("no matching deposit")
+
         # Token side
         else:
             for deposit in deposits:
                 if tx.to_address != deposit.address:
                     continue
-                if tx.from_address != deposit['sender']:
-                    print('sender doesnt match')
+                if tx.from_address != deposit["sender"]:
+                    print("sender doesnt match")
                     continue
-                if tx.amount == tx.token.scale_value(deposit['assets']):
+                if tx.amount == tx.token.scale_value(deposit["assets"]):
                     return True
-                print('amount doesnt match')
+                print("amount doesnt match")
     return False
