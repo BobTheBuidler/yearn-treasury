@@ -1,10 +1,12 @@
 from pathlib import Path
 from typing import Final, Set
 
+import y.constants
 from eth_typing import BlockNumber, ChecksumAddress
 from y import Network, convert
-from y.constants import CHAINID
 
+
+CHAINID: Final = y.constants.CHAINID
 
 EEE_ADDRESS: Final = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
 ZERO_ADDRESS: Final = "0x0000000000000000000000000000000000000000"
