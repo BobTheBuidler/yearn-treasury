@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_5f18f6d379e6cea9f0c7_H
-#define MYPYC_NATIVE_INTERNAL_5f18f6d379e6cea9f0c7_H
+#ifndef MYPYC_NATIVE_INTERNAL_cc156e4435e1e8281f42_H
+#define MYPYC_NATIVE_INTERNAL_cc156e4435e1e8281f42_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_5f18f6d379e6cea9f0c7.h"
+#include "__native_cc156e4435e1e8281f42.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[634];
+extern PyObject *CPyStatics[664];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -56,6 +56,13 @@ extern CPyModule *CPyModule_decimal;
 extern PyObject *CPyStatic_infrastructure___globals;
 extern PyObject *CPyStatic_people___globals;
 extern PyObject *CPyStatic_security___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults;
+extern PyObject *CPyStatic_swaps___vaults___globals;
+extern CPyModule *CPyModule_yearn_treasury___constants;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
+extern CPyModule *CPyModule_yearn_treasury___vaults_internal;
+extern CPyModule *CPyModule_yearn_treasury___vaults;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general;
 extern PyObject *CPyStatic_ignore___general___globals;
@@ -118,9 +125,7 @@ extern PyObject *CPyStatic__ens___globals;
 extern CPyModule *CPyModule_brownie;
 extern CPyModule *CPyModule_web3____utils___abi;
 extern CPyModule *CPyModule_web3____utils___events;
-extern CPyModule *CPyModule_yearn_treasury___vaults_internal;
-extern CPyModule *CPyModule_yearn_treasury___vaults;
-extern PyObject *CPyStatic_vaults___globals;
+extern PyObject *CPyStatic_yearn_treasury___vaults___globals;
 extern char CPyDef_budget_____top_level__(void);
 extern PyObject *CPyStatic__request___logger;
 extern PyTypeObject *CPyType__request___BudgetRequest;
@@ -183,6 +188,52 @@ extern PyObject *CPyPy_security___is_bug_bounty(PyObject *self, PyObject *const 
 extern char CPyDef_security___is_warroom_help(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_warroom_help(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security_____top_level__(void);
+extern PyObject *CPyStatic_swaps___vaults___vaults;
+extern PyObject *CPyStatic_swaps___vaults___all_vaults;
+extern tuple_T4OOOO CPyStatic_swaps___vaults____v3_deposit_keys;
+extern PyTypeObject *CPyType_swaps___vaults___is_vault_deposit_env;
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_env(void);
+extern PyTypeObject *CPyType_swaps___vaults___is_vault_deposit_gen;
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen(void);
+extern PyTypeObject *CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_env;
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_env(void);
+extern PyTypeObject *CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_gen;
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen(void);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen_____mypyc_generator_helper__(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen_____mypyc_generator_helper__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen_____next__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen_____next__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen___send(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen___send(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen_____iter__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen_____iter__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen___throw(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen___throw(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen___close(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen___close(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit_gen_____await__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit_gen_____await__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_vault_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_swaps___vaults___is_vault_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____mypyc_generator_helper__(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____mypyc_generator_helper__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____next__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____next__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___send(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen___send(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____iter__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____iter__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___throw(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen___throw(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___close(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen___close(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____await__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____await__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_swaps___vaults___is_v3_vault_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_swaps___vaults___is_v3_vault_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_swaps___vaults_____top_level__(void);
 extern char CPyDef_ignore___general___is_returned_fundus(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_ignore___general_____top_level__(void);
@@ -369,7 +420,7 @@ extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);
-extern PyObject *CPyStatic_vaults___v1;
-extern PyObject *CPyStatic_vaults___v2;
-extern char CPyDef_vaults_____top_level__(void);
+extern PyObject *CPyStatic_yearn_treasury___vaults___v1;
+extern PyObject *CPyStatic_yearn_treasury___vaults___v2;
+extern char CPyDef_yearn_treasury___vaults_____top_level__(void);
 #endif

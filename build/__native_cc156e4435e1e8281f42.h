@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_5f18f6d379e6cea9f0c7_H
-#define MYPYC_NATIVE_5f18f6d379e6cea9f0c7_H
+#ifndef MYPYC_NATIVE_cc156e4435e1e8281f42_H
+#define MYPYC_NATIVE_cc156e4435e1e8281f42_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -26,6 +26,16 @@ typedef struct tuple_T2OO {
 } tuple_T2OO;
 #endif
 
+#ifndef MYPYC_DECLARED_tuple_T4OOOO
+#define MYPYC_DECLARED_tuple_T4OOOO
+typedef struct tuple_T4OOOO {
+    PyObject *f0;
+    PyObject *f1;
+    PyObject *f2;
+    PyObject *f3;
+} tuple_T4OOOO;
+#endif
+
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
@@ -40,6 +50,78 @@ typedef struct {
     PyObject *_body;
     PyObject *_labels;
 } yearn_treasury___budget____request___BudgetRequestObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_self__;
+    PyObject *_tx;
+    PyObject *_type;
+    PyObject *_value;
+    PyObject *_traceback;
+    PyObject *_arg;
+    CPyTagged ___mypyc_next_label__;
+    PyObject *___mypyc_temp__0;
+    tuple_T3OOO ___mypyc_temp__1;
+} yearn_treasury___rules___ignore___swaps___vaults___is_vault_deposit_envObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_env__;
+} yearn_treasury___rules___ignore___swaps___vaults___is_vault_deposit_genObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_self__;
+    PyObject *_tx;
+    PyObject *_type;
+    PyObject *_value;
+    PyObject *_traceback;
+    PyObject *_arg;
+    CPyTagged ___mypyc_next_label__;
+    tuple_T3OOO ___mypyc_temp__2;
+    PyObject *_e;
+    PyObject *_transfer_events;
+    PyObject *_tx_token;
+    PyObject *_block;
+    PyObject *_sender;
+    PyObject *_receiver;
+    PyObject *_underlying_address;
+    PyObject *___mypyc_temp__3;
+    CPyTagged ___mypyc_temp__4;
+    PyObject *_vault;
+    PyObject *___mypyc_temp__5;
+    PyObject *___mypyc_temp__6;
+    PyObject *_event;
+    PyObject *_event_pos;
+    PyObject *_tx_to_address;
+    PyObject *___mypyc_temp__7;
+    tuple_T3OOO ___mypyc_temp__8;
+    PyObject *___mypyc_temp__9;
+    PyObject *___mypyc_temp__10;
+    PyObject *__event;
+    PyObject *__sender;
+    PyObject *__receiver;
+    PyObject *__value;
+    PyObject *___mypyc_temp__11;
+    CPyTagged ___mypyc_temp__12;
+    PyObject *___mypyc_temp__13;
+    tuple_T3OOO ___mypyc_temp__14;
+    PyObject *___mypyc_temp__15;
+    PyObject *___mypyc_temp__16;
+    PyObject *_vault_address;
+    PyObject *___mypyc_temp__17;
+    PyObject *___mypyc_temp__18;
+    PyObject *___mypyc_temp__2_0;
+} yearn_treasury___rules___ignore___swaps___vaults___is_v1_or_v2_vault_deposit_envObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_env__;
+} yearn_treasury___rules___ignore___swaps___vaults___is_v1_or_v2_vault_deposit_genObject;
 
 typedef struct {
     PyObject_HEAD
@@ -137,7 +219,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_5f18f6d379e6cea9f0c7 {
+struct export_table_cc156e4435e1e8281f42 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -182,6 +264,35 @@ struct export_table_5f18f6d379e6cea9f0c7 {
     char (*CPyDef_security___is_bug_bounty)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_warroom_help)(PyObject *cpy_r_tx);
     char (*CPyDef_security_____top_level__)(void);
+    PyObject **CPyStatic_swaps___vaults___vaults;
+    PyObject **CPyStatic_swaps___vaults___all_vaults;
+    tuple_T4OOOO *CPyStatic_swaps___vaults____v3_deposit_keys;
+    PyTypeObject **CPyType_swaps___vaults___is_vault_deposit_env;
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_env)(void);
+    PyTypeObject **CPyType_swaps___vaults___is_vault_deposit_gen;
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen)(void);
+    PyTypeObject **CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_env;
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_env)(void);
+    PyTypeObject **CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_gen;
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen)(void);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____next__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen___close)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____await__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit)(PyObject *cpy_r_tx);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____next__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen___close)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____await__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit)(PyObject *cpy_r_tx);
+    char (*CPyDef_swaps___vaults___is_v3_vault_deposit)(PyObject *cpy_r_tx);
+    char (*CPyDef_swaps___vaults_____top_level__)(void);
     char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
     char (*CPyDef_ignore___general_____top_level__)(void);
     PyObject **CPyStatic_weth___weth;
@@ -299,8 +410,8 @@ struct export_table_5f18f6d379e6cea9f0c7 {
     PyObject **CPyStatic__ens___resolver;
     PyObject **CPyStatic__ens___topics;
     char (*CPyDef__ens_____top_level__)(void);
-    PyObject **CPyStatic_vaults___v1;
-    PyObject **CPyStatic_vaults___v2;
-    char (*CPyDef_vaults_____top_level__)(void);
+    PyObject **CPyStatic_yearn_treasury___vaults___v1;
+    PyObject **CPyStatic_yearn_treasury___vaults___v2;
+    char (*CPyDef_yearn_treasury___vaults_____top_level__)(void);
 };
 #endif
