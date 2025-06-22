@@ -148,7 +148,7 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
 
 @vaults("DOLA Fed Withdrawal")
 def is_dolla_fed_withdrawal(tx: TreasuryTx) -> bool:
-    if tx.from_nickname == 'Token: Curve DOLA Pool yVault - Unlisted' and TreasuryWallet.check_membership(tx.to_address.address, tx.block) and tx.symbol == "DOLA3POOL3CRV-f":  # type: ignore [union-attr, arg-type]
+    if tx.from_nickname == "Token: Curve DOLA Pool yVault - Unlisted" and TreasuryWallet.check_membership(tx.to_address.address, tx.block) and tx.symbol == "DOLA3POOL3CRV-f":  # type: ignore [union-attr, arg-type]
         return True
     elif TreasuryWallet.check_membership(tx.from_address.address, tx.block) and tx.to_address == ZERO_ADDRESS and tx.symbol == "yvCurve-DOLA-U":  # type: ignore [union-attr, arg-type]
         return True
@@ -160,8 +160,19 @@ def is_dola_frax_withdrawal(tx: TreasuryTx) -> bool:
     symbol = tx.symbol
     from_nickname = tx.from_nickname
     to_nickname = tx.to_nickname
-    if symbol == "yvCurve-DOLA-FRAXBP-U" and from_nickname == "Yearn yChad Multisig" and to_nickname == "Zero Address":
+    if (
+        symbol == "yvCurve-DOLA-FRAXBP-U"
+        and from_nickname == "Yearn yChad Multisig"
+        and to_nickname == "Zero Address"
+    ):
         return True
-    elif symbol == "DOLAFRAXBP3CRV-f" and from_nickname == "Token: Curve DOLA-FRAXBP Pool yVault - Unlisted" and to_nickname == "Yearn yChad Multisig":
+    elif (
+        symbol == "DOLAFRAXBP3CRV-f"
+        and from_nickname == "Token: Curve DOLA-FRAXBP Pool yVault - Unlisted"
+        and to_nickname == "Yearn yChad Multisig"
+    ):
         return True
-    return tx.hash == "0x59a3a3b9e724835958eab6d0956a3acf697191182c41403c96d39976047d7240" and tx.log_index == 232
+    return (
+        tx.hash == "0x59a3a3b9e724835958eab6d0956a3acf697191182c41403c96d39976047d7240"
+        and tx.log_index == 232
+    )
