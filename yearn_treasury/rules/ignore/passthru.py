@@ -22,8 +22,11 @@ def is_ycrv(tx: TreasuryTx) -> bool:
     """These are routed thru cowswap with dai as the purchase token."""
     yswaps = "0x7d2aB9CA511EBD6F03971Fb417d3492aA82513f0"
     ymechs = "0x2C01B4AD51a67E2d8F02208F54dF9aC4c0B778B6"
-    if (tx.from_address == yswaps and tx.symbol == "DAI") or (
-        tx.from_address == ymechs and tx.symbol == "3Crv"
+
+    from_address = tx.from_address
+    symbol = tx.symbol
+    if (from_address == yswaps and symbol == "DAI") or (
+        from_address == ymechs and symbol == "3Crv"
     ):
         if tx.to_address == cowswap_router:
             for trade in tx.get_events("Trade"):
