@@ -1,4 +1,6 @@
 1:
+  YFI Mint:
+    - "0x21a3007a2547a9d6f1bceb44cb9292b36079fcccd8f36f7ec1ca066db261e153"
   yvUSDN Shutdown:
     # The USDN vault was shut down but the pool was so rekt they coulnd't even swap for want. Trace amounts of yield sent to yChad.
     - "0x12b3687f4bfbc73c11dccbd61d18c3f785e6f0f91cb46280d7df08143162ceed"
