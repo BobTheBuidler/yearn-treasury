@@ -74,6 +74,7 @@
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>
 
@@ -83,7 +84,7 @@
 
 <div class="viewcode-block" id="is_yla_deposit">
 <a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.yla.is_yla_deposit">[docs]</a>
-<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">)</span>
+<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_yla_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x1d4e974db2d60ebd994410fcd793c5db771af9a14660015faf94cbdaec285009&quot;</span> <span class="ow">and</span> <span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YLA&quot;</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="s2">&quot;0x9ba60bA98413A60dB4C651D4afE5C937bbD8044B&quot;</span>  <span class="c1"># type: ignore [union-attr]</span>
@@ -93,7 +94,7 @@
 
 <div class="viewcode-block" id="is_yla_withdrawal">
 <a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.yla.is_yla_withdrawal">[docs]</a>
-<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">)</span>
+<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_yla_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">return</span> <span class="s2">&quot;0x85c6D6b0cd1383Cc85e8e36C09D0815dAf36b9E9&quot;</span> <span class="ow">in</span> <span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>  <span class="c1"># type: ignore [union-attr]</span>

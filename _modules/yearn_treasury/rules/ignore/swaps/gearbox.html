@@ -72,6 +72,8 @@
              
   <h1>Source code for yearn_treasury.rules.ignore.swaps.gearbox</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>
 
 
@@ -80,7 +82,7 @@
 
 <div class="viewcode-block" id="is_gearbox_deposit">
 <a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_deposit">[docs]</a>
-<span class="nd">@gearbox</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">)</span>
+<span class="nd">@gearbox</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_gearbox_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="n">txhash</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
     <span class="n">log_index</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span>
@@ -96,7 +98,7 @@
 
 <div class="viewcode-block" id="is_gearbox_withdrawal">
 <a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_withdrawal">[docs]</a>
-<span class="nd">@gearbox</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">)</span>
+<span class="nd">@gearbox</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_gearbox_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="n">txhash</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
     <span class="k">return</span> <span class="n">txhash</span> <span class="o">==</span> <span class="s2">&quot;0xb98d8f4dd3d9de50e6fec700fb8e5a732e5a564b7edfe365f97e601694536bb5&quot;</span> <span class="ow">or</span> <span class="p">(</span>
