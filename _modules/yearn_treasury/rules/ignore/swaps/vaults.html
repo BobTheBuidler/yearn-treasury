@@ -226,6 +226,44 @@
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;amount doesnt match&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">False</span></div>
 
+
+
+<div class="viewcode-block" id="is_dolla_fed_withdrawal">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.vaults.is_dolla_fed_withdrawal">[docs]</a>
+<span class="nd">@vaults</span><span class="p">(</span><span class="s2">&quot;DOLA Fed Withdrawal&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_dolla_fed_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Token: Curve DOLA Pool yVault - Unlisted&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DOLA3POOL3CRV-f&quot;</span><span class="p">:</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yvCurve-DOLA-U&quot;</span><span class="p">:</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_dola_frax_withdrawal">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.vaults.is_dola_frax_withdrawal">[docs]</a>
+<span class="nd">@vaults</span><span class="p">(</span><span class="s2">&quot;DOLA FRAX Vault Withdrawal&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_dola_frax_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span>
+    <span class="n">from_nickname</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span>
+    <span class="n">to_nickname</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yvCurve-DOLA-FRAXBP-U&quot;</span>
+        <span class="ow">and</span> <span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Yearn yChad Multisig&quot;</span>
+        <span class="ow">and</span> <span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;Zero Address&quot;</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DOLAFRAXBP3CRV-f&quot;</span>
+        <span class="ow">and</span> <span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Token: Curve DOLA-FRAXBP Pool yVault - Unlisted&quot;</span>
+        <span class="ow">and</span> <span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;Yearn yChad Multisig&quot;</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x59a3a3b9e724835958eab6d0956a3acf697191182c41403c96d39976047d7240&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="mi">232</span>
+    <span class="p">)</span></div>
+
 </pre></div>
 
            </div>
