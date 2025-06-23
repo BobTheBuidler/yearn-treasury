@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_cc156e4435e1e8281f42_H
-#define MYPYC_NATIVE_INTERNAL_cc156e4435e1e8281f42_H
+#ifndef MYPYC_NATIVE_INTERNAL_60b3fa9b5044888b0e16_H
+#define MYPYC_NATIVE_INTERNAL_60b3fa9b5044888b0e16_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_cc156e4435e1e8281f42.h"
+#include "__native_60b3fa9b5044888b0e16.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[677];
+extern PyObject *CPyStatics[697];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -56,11 +56,17 @@ extern CPyModule *CPyModule_decimal;
 extern PyObject *CPyStatic_infrastructure___globals;
 extern PyObject *CPyStatic_people___globals;
 extern PyObject *CPyStatic_security___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox;
+extern PyObject *CPyStatic_gearbox___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether;
+extern PyObject *CPyStatic_pooltogether___globals;
+extern CPyModule *CPyModule_yearn_treasury___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults;
 extern PyObject *CPyStatic_swaps___vaults___globals;
-extern CPyModule *CPyModule_yearn_treasury___constants;
-extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
 extern CPyModule *CPyModule_yearn_treasury___vaults_internal;
 extern CPyModule *CPyModule_yearn_treasury___vaults;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general_internal;
@@ -188,6 +194,14 @@ extern PyObject *CPyPy_security___is_bug_bounty(PyObject *self, PyObject *const 
 extern char CPyDef_security___is_warroom_help(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_warroom_help(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security_____top_level__(void);
+extern char CPyDef_gearbox___is_gearbox_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_gearbox___is_gearbox_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_gearbox___is_gearbox_withdrawal(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_gearbox___is_gearbox_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_gearbox_____top_level__(void);
+extern char CPyDef_pooltogether___is_pooltogether_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_pooltogether___is_pooltogether_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_pooltogether_____top_level__(void);
 extern PyObject *CPyStatic_swaps___vaults___vaults;
 extern PyObject *CPyStatic_swaps___vaults___all_vaults;
 extern tuple_T4OOOO CPyStatic_swaps___vaults____v3_deposit_keys;

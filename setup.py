@@ -14,6 +14,7 @@ else:
             "yearn_treasury/rules/expense",
             # "yearn_treasury/rules/ignore",
             "yearn_treasury/rules/ignore/swaps/gearbox.py",
+            "yearn_treasury/rules/ignore/swaps/pooltogether.py",
             "yearn_treasury/rules/ignore/swaps/vaults.py",
             "yearn_treasury/rules/ignore/general.py",
             "yearn_treasury/rules/ignore/weth.py",
