@@ -8,6 +8,7 @@ swaps: Final[SortRuleFactory[IgnoreSortRule]] = ignore("Swaps")
 
 from yearn_treasury.rules.ignore.swaps.aave import *
 from yearn_treasury.rules.ignore.swaps.compound import *
+from yearn_treasury.rules.ignore.swaps.cowswap import *
 from yearn_treasury.rules.ignore.swaps.gearbox import *
 from yearn_treasury.rules.ignore.swaps.pooltogether import *
 from yearn_treasury.rules.ignore.swaps.synthetix import *
