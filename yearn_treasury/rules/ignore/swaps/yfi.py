@@ -44,6 +44,8 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
             buyback_amount = Decimal(buyback_event["yfi"]) / 10**18
             if tx.amount == buyback_amount:
                 return True
-            print(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
-            #raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
+            print(
+                f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
+            )
+            # raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
     return False
