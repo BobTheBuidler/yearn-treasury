@@ -44,6 +44,14 @@ yearn\_treasury.rules.ignore.swaps.uniswap module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.ignore.swaps.unwrapper module
+---------------------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.swaps.unwrapper
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yearn\_treasury.rules.ignore.swaps.vaults module
 ------------------------------------------------
 

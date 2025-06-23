@@ -5,7 +5,7 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>yearn_treasury.rules.ignore.swaps.yla &mdash; yearn-treasury  documentation</title>
+  <title>yearn_treasury.rules.ignore.swaps.unwrapper &mdash; yearn-treasury  documentation</title>
       <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
       <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
 
@@ -61,7 +61,7 @@
   <ul class="wy-breadcrumbs">
       <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
           <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
-      <li class="breadcrumb-item active">yearn_treasury.rules.ignore.swaps.yla</li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.ignore.swaps.unwrapper</li>
       <li class="wy-breadcrumbs-aside">
       </li>
   </ul>
@@ -70,35 +70,17 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
              
-  <h1>Source code for yearn_treasury.rules.ignore.swaps.yla</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
-
-<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
+  <h1>Source code for yearn_treasury.rules.ignore.swaps.unwrapper</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>
 
 
-<span class="n">yla</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">swaps</span><span class="p">(</span><span class="s2">&quot;Yearn Lazy Ape&quot;</span><span class="p">)</span>
-
-
-<div class="viewcode-block" id="is_yla_deposit">
-<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.yla.is_yla_deposit">[docs]</a>
-<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">is_yla_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x1d4e974db2d60ebd994410fcd793c5db771af9a14660015faf94cbdaec285009&quot;</span> <span class="ow">and</span> <span class="p">(</span>
-        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YLA&quot;</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="s2">&quot;0x9ba60bA98413A60dB4C651D4afE5C937bbD8044B&quot;</span>  <span class="c1"># type: ignore [union-attr]</span>
-    <span class="p">)</span></div>
-
-
-
-<div class="viewcode-block" id="is_yla_withdrawal">
-<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.yla.is_yla_withdrawal">[docs]</a>
-<span class="nd">@yla</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">is_yla_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">return</span> <span class="s2">&quot;0x85c6D6b0cd1383Cc85e8e36C09D0815dAf36b9E9&quot;</span> <span class="ow">in</span> <span class="p">(</span>
-        <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>  <span class="c1"># type: ignore [union-attr]</span>
-        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>  <span class="c1"># type: ignore [union-attr]</span>
-    <span class="p">)</span></div>
+<div class="viewcode-block" id="is_unwrapper">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.unwrapper.is_unwrapper">[docs]</a>
+<span class="nd">@swaps</span><span class="p">(</span><span class="s2">&quot;Unwrapper&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_unwrapper</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;Contract: Unwrapper&quot;</span> <span class="ow">in</span> <span class="p">[</span><span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span><span class="p">]</span></div>
 
 </pre></div>
 
