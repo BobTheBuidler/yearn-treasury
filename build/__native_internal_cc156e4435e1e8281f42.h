@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[664];
+extern PyObject *CPyStatics[677];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -233,6 +233,10 @@ extern PyObject *CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit(PyObject *cpy
 extern PyObject *CPyPy_swaps___vaults___is_v1_or_v2_vault_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_swaps___vaults___is_v3_vault_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_swaps___vaults___is_v3_vault_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_swaps___vaults___is_dolla_fed_withdrawal(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_swaps___vaults___is_dolla_fed_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_swaps___vaults___is_dola_frax_withdrawal(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_swaps___vaults___is_dola_frax_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_swaps___vaults_____top_level__(void);
 extern char CPyDef_ignore___general___is_returned_fundus(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
