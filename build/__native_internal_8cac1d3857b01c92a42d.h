@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_6d2ee3c99f718634e0a2_H
-#define MYPYC_NATIVE_INTERNAL_6d2ee3c99f718634e0a2_H
+#ifndef MYPYC_NATIVE_INTERNAL_8cac1d3857b01c92a42d_H
+#define MYPYC_NATIVE_INTERNAL_8cac1d3857b01c92a42d_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_6d2ee3c99f718634e0a2.h"
+#include "__native_8cac1d3857b01c92a42d.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[705];
+extern PyObject *CPyStatics[708];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -64,6 +64,9 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogeth
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether;
 extern PyObject *CPyStatic_pooltogether___globals;
 extern CPyModule *CPyModule_yearn_treasury___constants;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___unwrapper_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___unwrapper;
+extern PyObject *CPyStatic_unwrapper___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults;
 extern PyObject *CPyStatic_swaps___vaults___globals;
@@ -205,6 +208,9 @@ extern char CPyDef_gearbox_____top_level__(void);
 extern char CPyDef_pooltogether___is_pooltogether_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_pooltogether___is_pooltogether_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_pooltogether_____top_level__(void);
+extern char CPyDef_unwrapper___is_unwrapper(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_unwrapper___is_unwrapper(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_unwrapper_____top_level__(void);
 extern PyObject *CPyStatic_swaps___vaults___vaults;
 extern PyObject *CPyStatic_swaps___vaults___all_vaults;
 extern tuple_T4OOOO CPyStatic_swaps___vaults____v3_deposit_keys;
