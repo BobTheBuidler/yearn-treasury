@@ -292,6 +292,8 @@ struct export_table_cc156e4435e1e8281f42 {
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____await__)(PyObject *cpy_r___mypyc_self__);
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_v3_vault_deposit)(PyObject *cpy_r_tx);
+    char (*CPyDef_swaps___vaults___is_dolla_fed_withdrawal)(PyObject *cpy_r_tx);
+    char (*CPyDef_swaps___vaults___is_dola_frax_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults_____top_level__)(void);
     char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
     char (*CPyDef_ignore___general_____top_level__)(void);
