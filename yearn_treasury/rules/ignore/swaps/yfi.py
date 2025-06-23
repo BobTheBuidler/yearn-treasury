@@ -27,7 +27,7 @@ def is_buyer_top_up(tx: TreasuryTx) -> bool:
 
     # TODO: amortize this into a daily expense
     """
-    return tx.symbol == "DAI" and tx.to_address.address in VYPER_BUYERS
+    return tx.symbol == "DAI" and tx.to_address.address in VYPER_BUYERS  # type: ignore [union-attr]
 
 
 @buying_yfi("Buyer Contract", Network.Mainnet)
@@ -36,16 +36,24 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
     The buy side of these transactions is in :func:`is_buyer_top_up`.
     The buyer is topped up with DAI regularly and buys YFI at the current chainlink market price
     """
-    if tx.symbol == "YFI" and tx.to_address.address == YCHAD_MULTISIG and "Buyback" in tx.events:
-        buyback_event = tx.events["Buyback"]
-        if buyback_event.address in VYPER_BUYERS and all(
-            arg in buyback_event for arg in ("buyer", "yfi", "dai")
-        ):
-            buyback_amount = Decimal(buyback_event["yfi"]) / 10**18
-            if tx.amount == buyback_amount:
-                return True
-            print(
-                f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
-            )
-            # raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
+    if tx.symbol == "YFI" and tx.to_address.address == YCHAD_MULTISIG:  # type: ignore [union-attr]
+        try:
+            events = tx.events
+        except KeyError as e:
+            if "components" in str(e):
+                return False
+            raise
+
+        if "Buyback" in events:
+            buyback_event = events["Buyback"]
+            if buyback_event.address in VYPER_BUYERS and all(
+                arg in buyback_event for arg in ("buyer", "yfi", "dai")
+            ):
+                buyback_amount = Decimal(buyback_event["yfi"]) / 10**18  # type: ignore [arg-type]
+                if tx.amount == buyback_amount:
+                    return True
+                print(
+                    f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
+                )
+                # raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
     return False
