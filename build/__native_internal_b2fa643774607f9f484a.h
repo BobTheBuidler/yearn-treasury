@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_8cac1d3857b01c92a42d_H
-#define MYPYC_NATIVE_INTERNAL_8cac1d3857b01c92a42d_H
+#ifndef MYPYC_NATIVE_INTERNAL_b2fa643774607f9f484a_H
+#define MYPYC_NATIVE_INTERNAL_b2fa643774607f9f484a_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_8cac1d3857b01c92a42d.h"
+#include "__native_b2fa643774607f9f484a.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[710];
+extern PyObject *CPyStatics[713];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -64,6 +64,9 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogeth
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether;
 extern PyObject *CPyStatic_pooltogether___globals;
 extern CPyModule *CPyModule_yearn_treasury___constants;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___synthetix_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___synthetix;
+extern PyObject *CPyStatic_synthetix___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___unwrapper_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___unwrapper;
 extern PyObject *CPyStatic_unwrapper___globals;
@@ -208,6 +211,9 @@ extern char CPyDef_gearbox_____top_level__(void);
 extern char CPyDef_pooltogether___is_pooltogether_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_pooltogether___is_pooltogether_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_pooltogether_____top_level__(void);
+extern char CPyDef_synthetix___is_synthetix_swap(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_synthetix___is_synthetix_swap(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_synthetix_____top_level__(void);
 extern char CPyDef_unwrapper___is_unwrapper(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_unwrapper___is_unwrapper(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_unwrapper_____top_level__(void);

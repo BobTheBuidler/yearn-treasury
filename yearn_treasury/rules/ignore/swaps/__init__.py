@@ -10,6 +10,7 @@ from yearn_treasury.rules.ignore.swaps.aave import *
 from yearn_treasury.rules.ignore.swaps.compound import *
 from yearn_treasury.rules.ignore.swaps.gearbox import *
 from yearn_treasury.rules.ignore.swaps.pooltogether import *
+from yearn_treasury.rules.ignore.swaps.synthetix import *
 from yearn_treasury.rules.ignore.swaps.uniswap import *
 from yearn_treasury.rules.ignore.swaps.unwrapper import *
 from yearn_treasury.rules.ignore.swaps.vaults import *
