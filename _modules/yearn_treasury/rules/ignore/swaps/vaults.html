@@ -200,30 +200,33 @@
     <span class="k">if</span> <span class="n">deposits</span> <span class="o">:=</span> <span class="p">[</span>
         <span class="n">event</span> <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="s2">&quot;Deposit&quot;</span><span class="p">]</span> <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">key</span> <span class="ow">in</span> <span class="n">event</span> <span class="k">for</span> <span class="n">key</span> <span class="ow">in</span> <span class="n">_v3_deposit_keys</span><span class="p">)</span>
     <span class="p">]:</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span>
+        <span class="n">to_address</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span>
+        <span class="n">amount</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
+
         <span class="c1"># Vault side</span>
         <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span><span class="p">:</span>
-            <span class="k">for</span> <span class="n">deposit</span> <span class="ow">in</span> <span class="n">deposits</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">!=</span> <span class="n">deposit</span><span class="o">.</span><span class="n">address</span><span class="p">:</span>
-                    <span class="k">continue</span>
-                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">!=</span> <span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]:</span>
-                    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wrong owner&quot;</span><span class="p">)</span>
-                    <span class="k">continue</span>
-                <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;shares&quot;</span><span class="p">]):</span>
-                    <span class="k">return</span> <span class="kc">True</span>
-                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wrong amount&quot;</span><span class="p">)</span>
-            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no matching deposit&quot;</span><span class="p">)</span>
+            <span class="n">token_address</span> <span class="o">=</span> <span class="n">token</span><span class="o">.</span><span class="n">address</span><span class="o">.</span><span class="n">address</span>
+            <span class="k">if</span> <span class="n">deposits</span> <span class="o">:=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">deposits</span> <span class="k">if</span> <span class="n">token_address</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">address</span><span class="p">]:</span>
+                <span class="k">for</span> <span class="n">deposit</span> <span class="ow">in</span> <span class="n">deposits</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="n">to_address</span> <span class="o">!=</span> <span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]:</span>
+                        <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;wrong owner&quot;</span><span class="p">)</span>
+                        <span class="k">continue</span>
+                    <span class="k">elif</span> <span class="n">amount</span> <span class="o">==</span> <span class="p">(</span><span class="n">scaled</span> <span class="o">:=</span> <span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;shares&quot;</span><span class="p">])):</span>
+                        <span class="k">return</span> <span class="kc">True</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wrong amount:  tx=</span><span class="si">{</span><span class="n">amount</span><span class="si">}</span><span class="s2">  event=</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+                <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no matching vault-side deposit found&quot;</span><span class="p">)</span>
 
         <span class="c1"># Token side</span>
-        <span class="k">else</span><span class="p">:</span>
+        <span class="k">elif</span> <span class="n">deposits</span> <span class="o">:=</span> <span class="p">[</span><span class="n">d</span> <span class="k">for</span> <span class="n">d</span> <span class="ow">in</span> <span class="n">deposits</span> <span class="k">if</span> <span class="n">to_address</span> <span class="o">==</span> <span class="n">d</span><span class="o">.</span><span class="n">address</span><span class="p">]:</span>
             <span class="k">for</span> <span class="n">deposit</span> <span class="ow">in</span> <span class="n">deposits</span><span class="p">:</span>
-                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">!=</span> <span class="n">deposit</span><span class="o">.</span><span class="n">address</span><span class="p">:</span>
-                    <span class="k">continue</span>
                 <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">!=</span> <span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;sender&quot;</span><span class="p">]:</span>
                     <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;sender doesnt match&quot;</span><span class="p">)</span>
                     <span class="k">continue</span>
-                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;assets&quot;</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">deposit</span><span class="p">[</span><span class="s2">&quot;assets&quot;</span><span class="p">]):</span>
                     <span class="k">return</span> <span class="kc">True</span>
                 <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;amount doesnt match&quot;</span><span class="p">)</span>
+            <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;no matching token-side deposit found&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">False</span></div>
 
 
