@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_60b3fa9b5044888b0e16_H
-#define MYPYC_NATIVE_INTERNAL_60b3fa9b5044888b0e16_H
+#ifndef MYPYC_NATIVE_INTERNAL_6d2ee3c99f718634e0a2_H
+#define MYPYC_NATIVE_INTERNAL_6d2ee3c99f718634e0a2_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_60b3fa9b5044888b0e16.h"
+#include "__native_6d2ee3c99f718634e0a2.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[697];
+extern PyObject *CPyStatics[705];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -69,6 +69,9 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults;
 extern PyObject *CPyStatic_swaps___vaults___globals;
 extern CPyModule *CPyModule_yearn_treasury___vaults_internal;
 extern CPyModule *CPyModule_yearn_treasury___vaults;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla;
+extern PyObject *CPyStatic_yla___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___general;
 extern PyObject *CPyStatic_ignore___general___globals;
@@ -252,6 +255,12 @@ extern PyObject *CPyPy_swaps___vaults___is_dolla_fed_withdrawal(PyObject *self, 
 extern char CPyDef_swaps___vaults___is_dola_frax_withdrawal(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_swaps___vaults___is_dola_frax_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_swaps___vaults_____top_level__(void);
+extern PyObject *CPyStatic_yla___yla;
+extern char CPyDef_yla___is_yla_deposit(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_yla___is_yla_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_yla___is_yla_withdrawal(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_yla___is_yla_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_yla_____top_level__(void);
 extern char CPyDef_ignore___general___is_returned_fundus(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_ignore___general___is_returned_fundus(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_ignore___general_____top_level__(void);

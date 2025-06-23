@@ -12,3 +12,4 @@ from yearn_treasury.rules.ignore.swaps.gearbox import *
 from yearn_treasury.rules.ignore.swaps.pooltogether import *
 from yearn_treasury.rules.ignore.swaps.uniswap import *
 from yearn_treasury.rules.ignore.swaps.vaults import *
+from yearn_treasury.rules.ignore.swaps.yla import *

@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_60b3fa9b5044888b0e16_H
-#define MYPYC_NATIVE_60b3fa9b5044888b0e16_H
+#ifndef MYPYC_NATIVE_6d2ee3c99f718634e0a2_H
+#define MYPYC_NATIVE_6d2ee3c99f718634e0a2_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -219,7 +219,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_60b3fa9b5044888b0e16 {
+struct export_table_6d2ee3c99f718634e0a2 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -300,6 +300,10 @@ struct export_table_60b3fa9b5044888b0e16 {
     char (*CPyDef_swaps___vaults___is_dolla_fed_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_dola_frax_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults_____top_level__)(void);
+    PyObject **CPyStatic_yla___yla;
+    char (*CPyDef_yla___is_yla_deposit)(PyObject *cpy_r_tx);
+    char (*CPyDef_yla___is_yla_withdrawal)(PyObject *cpy_r_tx);
+    char (*CPyDef_yla_____top_level__)(void);
     char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
     char (*CPyDef_ignore___general_____top_level__)(void);
     PyObject **CPyStatic_weth___weth;
