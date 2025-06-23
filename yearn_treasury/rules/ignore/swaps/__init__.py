@@ -14,4 +14,5 @@ from yearn_treasury.rules.ignore.swaps.synthetix import *
 from yearn_treasury.rules.ignore.swaps.uniswap import *
 from yearn_treasury.rules.ignore.swaps.unwrapper import *
 from yearn_treasury.rules.ignore.swaps.vaults import *
+from yearn_treasury.rules.ignore.swaps.yfi import *
 from yearn_treasury.rules.ignore.swaps.yla import *
