@@ -32,17 +32,17 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
                 elif token_address == trade["sellToken"] and tx.from_address == trade['owner'] and amount == token.scale_value(trade['sellAmount']):
                     # Did Yearn actually receive the other side of the trade?
                     for address in TREASURY_WALLETS:
-                        if TreasuryWallet.check_membership(address, block)
-                        other_side_query = select(
-                            t for t in TreasuryTx
-                            if t.hash == tx.hash
-                            and t.token.address.address == trade['buyToken']
-                            and t.from_address.address == YSWAPS
-                            and t.to_address.address == address
-                        )
-
-                        if len(other_side_query) > 0:
-                            return True
+                        if TreasuryWallet.check_membership(address, block):
+                            other_side_query = select(
+                                t for t in TreasuryTx
+                                if t.hash == tx.hash
+                                and t.token.address.address == trade['buyToken']
+                                and t.from_address.address == YSWAPS
+                                and t.to_address.address == address
+                            )
+    
+                            if len(other_side_query) > 0:
+                                return True
  
     # made with some help from other contracts
     return tx.hash in {
