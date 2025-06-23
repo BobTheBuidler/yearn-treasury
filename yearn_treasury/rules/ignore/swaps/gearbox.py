@@ -1,11 +1,13 @@
 from dao_treasury import TreasuryTx
+from y import Network
+
 from yearn_treasury.rules.ignore.swaps import swaps
 
 
 gearbox = swaps("Gearbox")
 
 
-@gearbox("Deposit")
+@gearbox("Deposit", Network.Mainnet)
 def is_gearbox_deposit(tx: TreasuryTx) -> bool:
     txhash = tx.hash
     log_index = tx.log_index
@@ -18,7 +20,7 @@ def is_gearbox_deposit(tx: TreasuryTx) -> bool:
     )
 
 
-@gearbox("Withdrawal")
+@gearbox("Withdrawal", Network.Mainnet)
 def is_gearbox_withdrawal(tx: TreasuryTx) -> bool:
     txhash = tx.hash
     return txhash == "0xb98d8f4dd3d9de50e6fec700fb8e5a732e5a564b7edfe365f97e601694536bb5" or (
