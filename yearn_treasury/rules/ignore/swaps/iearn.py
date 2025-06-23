@@ -28,9 +28,9 @@ IEARN: Final[Dict[str, ChecksumAddress]] = {
 POOLS: Final = set(IEARN.values())
 
 POOL_TO_UNDERLYING: Final[Dict[ChecksumAddress, ChecksumAddress]] = {
-    pool: ChecksumAddress(Contract(pool).token())
-    for pool in POOLS
+    pool: ChecksumAddress(Contract(pool).token()) for pool in POOLS
 }
+
 
 @swaps("iEarn:Withdrawal", Network.Mainnet)
 def is_iearn_withdrawal(tx: TreasuryTx) -> bool:
