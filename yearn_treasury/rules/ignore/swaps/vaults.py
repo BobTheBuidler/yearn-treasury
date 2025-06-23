@@ -119,30 +119,33 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
     if deposits := [
         event for event in tx.events["Deposit"] if all(key in event for key in _v3_deposit_keys)
     ]:
+        token = tx.token
+        to_address = tx.to_address
+        amount = tx.amount
+
         # Vault side
         if tx.from_address == ZERO_ADDRESS:
-            for deposit in deposits:
-                if tx.token != deposit.address:
-                    continue
-                if tx.to_address != deposit["owner"]:
-                    print("wrong owner")
-                    continue
-                elif tx.amount == tx.token.scale_value(deposit["shares"]):
-                    return True
-                print("wrong amount")
-            print("no matching deposit")
+            token_address = token.address.address
+            if deposits := [d for d in deposits if token_address == d.address]:
+                for deposit in deposits:
+                    if to_address != deposit["owner"]:
+                        print("wrong owner")
+                        continue
+                    elif amount == (scaled := token.scale_value(deposit["shares"])):
+                        return True
+                    print(f"wrong amount:  tx={amount}  event={scaled}")
+                print("no matching vault-side deposit found")
 
         # Token side
-        else:
+        elif deposits := [d for d in deposits if to_address == d.address]:
             for deposit in deposits:
-                if tx.to_address != deposit.address:
-                    continue
                 if tx.from_address != deposit["sender"]:
                     print("sender doesnt match")
                     continue
-                if tx.amount == tx.token.scale_value(deposit["assets"]):
+                if amount == token.scale_value(deposit["assets"]):
                     return True
                 print("amount doesnt match")
+            print("no matching token-side deposit found")
     return False
 
 
