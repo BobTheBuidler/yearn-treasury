@@ -8,6 +8,7 @@ from yearn_treasury.rules.ignore.swaps import swaps
 def is_pooltogether_deposit(tx: TreasuryTx) -> bool:
     symbol = tx.symbol
     return (
-        (symbol == "POOL" and tx.to_address.address == "0x396b4489da692788e327E2e4b2B0459A5Ef26791")  # type: ignore [union-attr]
-        or (symbol == "PPOOL" and tx.from_address.address == ZERO_ADDRESS)  # type: ignore [union-attr]
-    )
+        symbol == "POOL" and tx.to_address.address == "0x396b4489da692788e327E2e4b2B0459A5Ef26791"
+    ) or (  # type: ignore [union-attr]
+        symbol == "PPOOL" and tx.from_address.address == ZERO_ADDRESS
+    )  # type: ignore [union-attr]
