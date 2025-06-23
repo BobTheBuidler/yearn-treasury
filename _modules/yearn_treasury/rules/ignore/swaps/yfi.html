@@ -102,7 +102,7 @@
 
 <span class="sd">    # TODO: amortize this into a daily expense</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DAI&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="ow">in</span> <span class="n">VYPER_BUYERS</span></div>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DAI&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="ow">in</span> <span class="n">VYPER_BUYERS</span>  <span class="c1"># type: ignore [union-attr]</span></div>
 
 
 
@@ -114,18 +114,26 @@
 <span class="sd">    The buy side of these transactions is in :func:`is_buyer_top_up`.</span>
 <span class="sd">    The buyer is topped up with DAI regularly and buys YFI at the current chainlink market price</span>
 <span class="sd">    &quot;&quot;&quot;</span>
-    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">YCHAD_MULTISIG</span> <span class="ow">and</span> <span class="s2">&quot;Buyback&quot;</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-        <span class="n">buyback_event</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span><span class="p">[</span><span class="s2">&quot;Buyback&quot;</span><span class="p">]</span>
-        <span class="k">if</span> <span class="n">buyback_event</span><span class="o">.</span><span class="n">address</span> <span class="ow">in</span> <span class="n">VYPER_BUYERS</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
-            <span class="n">arg</span> <span class="ow">in</span> <span class="n">buyback_event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;buyer&quot;</span><span class="p">,</span> <span class="s2">&quot;yfi&quot;</span><span class="p">,</span> <span class="s2">&quot;dai&quot;</span><span class="p">)</span>
-        <span class="p">):</span>
-            <span class="n">buyback_amount</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">buyback_event</span><span class="p">[</span><span class="s2">&quot;yfi&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
-            <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">buyback_amount</span><span class="p">:</span>
-                <span class="k">return</span> <span class="kc">True</span>
-            <span class="nb">print</span><span class="p">(</span>
-                <span class="sa">f</span><span class="s2">&quot;from node: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="si">}</span><span class="s2"> from db: </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> diff: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
-            <span class="p">)</span>
-            <span class="c1"># raise ValueError(f&#39;from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}&#39;)</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">YCHAD_MULTISIG</span><span class="p">:</span>  <span class="c1"># type: ignore [union-attr]</span>
+        <span class="k">try</span><span class="p">:</span>
+            <span class="n">events</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span>
+        <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+            <span class="k">if</span> <span class="s2">&quot;components&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">False</span>
+            <span class="k">raise</span>
+
+        <span class="k">if</span> <span class="s2">&quot;Buyback&quot;</span> <span class="ow">in</span> <span class="n">events</span><span class="p">:</span>
+            <span class="n">buyback_event</span> <span class="o">=</span> <span class="n">events</span><span class="p">[</span><span class="s2">&quot;Buyback&quot;</span><span class="p">]</span>
+            <span class="k">if</span> <span class="n">buyback_event</span><span class="o">.</span><span class="n">address</span> <span class="ow">in</span> <span class="n">VYPER_BUYERS</span> <span class="ow">and</span> <span class="nb">all</span><span class="p">(</span>
+                <span class="n">arg</span> <span class="ow">in</span> <span class="n">buyback_event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;buyer&quot;</span><span class="p">,</span> <span class="s2">&quot;yfi&quot;</span><span class="p">,</span> <span class="s2">&quot;dai&quot;</span><span class="p">)</span>
+            <span class="p">):</span>
+                <span class="n">buyback_amount</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">buyback_event</span><span class="p">[</span><span class="s2">&quot;yfi&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>  <span class="c1"># type: ignore [arg-type]</span>
+                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">buyback_amount</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span>
+                    <span class="sa">f</span><span class="s2">&quot;from node: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="si">}</span><span class="s2"> from db: </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> diff: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
+                <span class="p">)</span>
+                <span class="c1"># raise ValueError(f&#39;from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}&#39;)</span>
     <span class="k">return</span> <span class="kc">False</span></div>
 
 </pre></div>
