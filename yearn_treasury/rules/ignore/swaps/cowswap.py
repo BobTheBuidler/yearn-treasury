@@ -1,6 +1,7 @@
 from typing import Final
 
 from dao_treasury import TreasuryTx, TreasuryWallet
+from eth_typing import BlockNumber
 from pony.orm import select
 from y import Network
 
@@ -18,45 +19,52 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
     if tx.from_nickname == "yMechs Multisig" and tx.to_nickname == "Contract: GPv2Settlement":
         return True
 
-    if "Trade" in tx.events:
-        token = tx.token
-        block = tx.block
-        amount = tx.amount
-        token_address = token.address.address
+    try:
+        if "Trade" not in tx.events:
+            return False
+    except KeyError as e:
+        if "components" in str(e):
+            return False
+        raise
 
-        for trade in tx.events["Trade"]:
+    token = tx.token
+    block: BlockNumber = tx.block  # type: ignore [assignment]
+    amount = tx.amount
+    token_address = token.address.address
+
+    for trade in tx.events["Trade"]:
+        if (
+            trade.address == YSWAPS
+            and TreasuryWallet.check_membership(trade["owner"], block)
+            and trade["buyToken"] not in SKIP_TOKENS
+        ):
+            # buy side
             if (
-                trade.address == YSWAPS
-                and TreasuryWallet.check_membership(trade["owner"], block)
-                and trade["buyToken"] not in SKIP_TOKENS
+                token_address == trade["buyToken"]
+                and TreasuryWallet.check_membership(tx.to_address.address, block)  # type: ignore [union-attr, arg-type]
+                and amount == token.scale_value(trade["buyAmount"])
             ):
-                # buy side
-                if (
-                    token_address == trade["buyToken"]
-                    and TreasuryWallet.check_membership(tx.to_address.address, block)
-                    and amount == token.scale_value(trade["buyAmount"])
-                ):
-                    return True
-                # sell side
-                elif (
-                    token_address == trade["sellToken"]
-                    and tx.from_address == trade["owner"]
-                    and amount == token.scale_value(trade["sellAmount"])
-                ):
-                    # Did Yearn actually receive the other side of the trade?
-                    for address in TREASURY_WALLETS:
-                        if TreasuryWallet.check_membership(address, block):
-                            other_side_query = select(
-                                t
-                                for t in TreasuryTx
-                                if t.hash == tx.hash
-                                and t.token.address.address == trade["buyToken"]
-                                and t.from_address.address == YSWAPS
-                                and t.to_address.address == address
-                            )
+                return True
+            # sell side
+            elif (
+                token_address == trade["sellToken"]
+                and tx.from_address == trade["owner"]
+                and amount == token.scale_value(trade["sellAmount"])
+            ):
+                # Did Yearn actually receive the other side of the trade?
+                for address in TREASURY_WALLETS:
+                    if TreasuryWallet.check_membership(address, block):
+                        other_side_query = select(
+                            t
+                            for t in TreasuryTx  # type: ignore [attr-defined]
+                            if t.hash == tx.hash
+                            and t.token.address.address == trade["buyToken"]
+                            and t.from_address.address == YSWAPS
+                            and t.to_address.address == address
+                        )
 
-                            if len(other_side_query) > 0:
-                                return True
+                        if len(other_side_query) > 0:
+                            return True
 
     # made with some help from other contracts
     return tx.hash in {
