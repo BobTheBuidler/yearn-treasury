@@ -34,12 +34,15 @@ _SHITCOINS = {
         "0xe5868468Cb6Dd5d6D7056bd93f084816c6eF075f",
         "0x0a24Bb4842c301276c65086B5d78D5C872993c72",
         "0x63125c0d5Cd9071de9A1ac84c400982f41C697AE",
+        # just andre tinkering
+        "0x5cB5e2d7Ab9Fd32021dF8F1D3E5269bD437Ec3Bf",
         # these arent shitcoins per se but we can't price them and dont expect to in the future, lets save cpu cycles
         "0x9d45DAb69f1309F1F55A7280b1f6a2699ec918E8",  # yFamily NFT <3
         "0x57f1887a8BF19b14fC0dF6Fd9B2acc9Af147eA85",  # ENS
         "0xD057B63f5E69CF1B929b356b579Cba08D7688048",  # vCOW
         "0x4c1317326fD8EFDeBdBE5e1cd052010D97723bd6",  # deprecated yCRV
         "0x8a0889d47f9Aa0Fac1cC718ba34E26b867437880",  # deprecated st-yCRV
+        "0x55a290f08Bb4CAe8DcF1Ea5635A3FCfd4Da60456",  # BITTO
         # test token?
         "0x372d5d02c6b4075bd58892f80300cA590e92d29E",  # tOUSG
         # dETH? don't think this is needed
