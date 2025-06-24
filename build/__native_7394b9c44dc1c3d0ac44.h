@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_b2fa643774607f9f484a_H
-#define MYPYC_NATIVE_b2fa643774607f9f484a_H
+#ifndef MYPYC_NATIVE_7394b9c44dc1c3d0ac44_H
+#define MYPYC_NATIVE_7394b9c44dc1c3d0ac44_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -219,7 +219,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_b2fa643774607f9f484a {
+struct export_table_7394b9c44dc1c3d0ac44 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -267,6 +267,11 @@ struct export_table_b2fa643774607f9f484a {
     char (*CPyDef_gearbox___is_gearbox_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_gearbox___is_gearbox_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_gearbox_____top_level__)(void);
+    PyObject **CPyStatic_iearn___IEARN;
+    PyObject **CPyStatic_iearn___POOLS;
+    PyObject **CPyStatic_iearn___POOL_TO_UNDERLYING;
+    char (*CPyDef_iearn___is_iearn_withdrawal)(PyObject *cpy_r_tx);
+    char (*CPyDef_iearn_____top_level__)(void);
     char (*CPyDef_pooltogether___is_pooltogether_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_pooltogether_____top_level__)(void);
     char (*CPyDef_synthetix___is_synthetix_swap)(PyObject *cpy_r_tx);

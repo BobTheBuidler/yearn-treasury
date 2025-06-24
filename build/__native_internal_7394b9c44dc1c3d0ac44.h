@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_b2fa643774607f9f484a_H
-#define MYPYC_NATIVE_INTERNAL_b2fa643774607f9f484a_H
+#ifndef MYPYC_NATIVE_INTERNAL_7394b9c44dc1c3d0ac44_H
+#define MYPYC_NATIVE_INTERNAL_7394b9c44dc1c3d0ac44_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_b2fa643774607f9f484a.h"
+#include "__native_7394b9c44dc1c3d0ac44.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[713];
+extern PyObject *CPyStatics[739];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -60,10 +60,13 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox_in
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox;
 extern PyObject *CPyStatic_gearbox___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___iearn_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___iearn;
+extern PyObject *CPyStatic_iearn___globals;
+extern CPyModule *CPyModule_yearn_treasury___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether;
 extern PyObject *CPyStatic_pooltogether___globals;
-extern CPyModule *CPyModule_yearn_treasury___constants;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___synthetix_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___synthetix;
 extern PyObject *CPyStatic_synthetix___globals;
@@ -208,6 +211,12 @@ extern PyObject *CPyPy_gearbox___is_gearbox_deposit(PyObject *self, PyObject *co
 extern char CPyDef_gearbox___is_gearbox_withdrawal(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_gearbox___is_gearbox_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_gearbox_____top_level__(void);
+extern PyObject *CPyStatic_iearn___IEARN;
+extern PyObject *CPyStatic_iearn___POOLS;
+extern PyObject *CPyStatic_iearn___POOL_TO_UNDERLYING;
+extern char CPyDef_iearn___is_iearn_withdrawal(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_iearn___is_iearn_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_iearn_____top_level__(void);
 extern char CPyDef_pooltogether___is_pooltogether_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_pooltogether___is_pooltogether_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_pooltogether_____top_level__(void);
