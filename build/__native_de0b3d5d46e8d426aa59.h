@@ -296,6 +296,78 @@ typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
     PyObject *___mypyc_self__;
+    PyObject *_vault;
+    PyObject *_type;
+    PyObject *_value;
+    PyObject *_traceback;
+    PyObject *_arg;
+    CPyTagged ___mypyc_next_label__;
+    PyObject *___mypyc_temp__19;
+    tuple_T3OOO ___mypyc_temp__20;
+} yearn_treasury___rules___ignore___swaps___vaults____get_underlying_envObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_env__;
+} yearn_treasury___rules___ignore___swaps___vaults____get_underlying_genObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_self__;
+    PyObject *_tx;
+    PyObject *_type;
+    PyObject *_value;
+    PyObject *_traceback;
+    PyObject *_arg;
+    CPyTagged ___mypyc_next_label__;
+    PyObject *_to_address;
+    tuple_T3OOO ___mypyc_temp__21;
+    PyObject *_e;
+    PyObject *_transfer_events;
+    PyObject *_token;
+    PyObject *_token_address;
+    PyObject *_block;
+    PyObject *_underlying;
+    PyObject *___mypyc_temp__22;
+    CPyTagged ___mypyc_temp__23;
+    PyObject *_vault;
+    PyObject *___mypyc_temp__24;
+    PyObject *___mypyc_temp__25;
+    PyObject *_event;
+    PyObject *_sender;
+    PyObject *_receiver;
+    PyObject *___mypyc_temp__26;
+    tuple_T3OOO ___mypyc_temp__27;
+    PyObject *___mypyc_temp__28;
+    PyObject *___mypyc_temp__29;
+    PyObject *__event;
+    PyObject *__sender;
+    PyObject *__receiver;
+    PyObject *__value;
+    PyObject *___mypyc_temp__30;
+    CPyTagged ___mypyc_temp__31;
+    PyObject *___mypyc_temp__32;
+    tuple_T3OOO ___mypyc_temp__33;
+    PyObject *_vault_address;
+    PyObject *___mypyc_temp__34;
+    PyObject *___mypyc_temp__35;
+    PyObject *___mypyc_temp__36;
+    PyObject *___mypyc_temp__37;
+    PyObject *___mypyc_temp__2_0;
+} yearn_treasury___rules___ignore___swaps___vaults___is_vault_withdrawal_envObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_env__;
+} yearn_treasury___rules___ignore___swaps___vaults___is_vault_withdrawal_genObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_self__;
     PyObject *_tx;
     PyObject *_type;
     PyObject *_value;
@@ -525,6 +597,7 @@ struct export_table_de0b3d5d46e8d426aa59 {
     char (*CPyDef_unwrapper___is_unwrapper)(PyObject *cpy_r_tx);
     char (*CPyDef_unwrapper_____top_level__)(void);
     PyObject **CPyStatic_swaps___vaults___vaults;
+    PyObject **CPyStatic_swaps___vaults___TREASURY_AND_ZERO;
     PyObject **CPyStatic_swaps___vaults___all_vaults;
     tuple_T4OOOO *CPyStatic_swaps___vaults____v3_deposit_keys;
     PyTypeObject **CPyType_swaps___vaults___is_vault_deposit_env;
@@ -535,6 +608,14 @@ struct export_table_de0b3d5d46e8d426aa59 {
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_env)(void);
     PyTypeObject **CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_gen;
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen)(void);
+    PyTypeObject **CPyType_swaps___vaults____get_underlying_env;
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_env)(void);
+    PyTypeObject **CPyType_swaps___vaults____get_underlying_gen;
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen)(void);
+    PyTypeObject **CPyType_swaps___vaults___is_vault_withdrawal_env;
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_env)(void);
+    PyTypeObject **CPyType_swaps___vaults___is_vault_withdrawal_gen;
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen)(void);
     PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
     PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____next__)(PyObject *cpy_r___mypyc_self__);
     PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
@@ -552,6 +633,22 @@ struct export_table_de0b3d5d46e8d426aa59 {
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen_____await__)(PyObject *cpy_r___mypyc_self__);
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_v3_vault_deposit)(PyObject *cpy_r_tx);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen_____next__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen___close)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying_gen_____await__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults____get_underlying)(PyObject *cpy_r_vault);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen_____next__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen___close)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen_____await__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_dolla_fed_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_dola_frax_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults_____top_level__)(void);
