@@ -13,19 +13,24 @@ from yearn_treasury.rules.ignore.swaps import swaps
 
 curve: Final = swaps("Curve")
 
+
 # curve helpers
 @alru_cache(maxsize=None)
 async def _get_lp_token(pool: Contract) -> ChecksumAddress:
     return ChecksumAddress(await pool.lp_token)
 
+
 async def _is_old_style(tx: TreasuryTx, pool: Contract) -> bool:
-    return hasattr(pool, 'lp_token') and tx.token == await _get_lp_token(pool)
+    return hasattr(pool, "lp_token") and tx.token == await _get_lp_token(pool)
+
 
 def _is_new_style(tx: TreasuryTx, pool: Contract) -> bool:
-    return hasattr(pool, 'totalSupply') and tx.token == pool.address
+    return hasattr(pool, "totalSupply") and tx.token == pool.address
+
 
 def _token_is_curvey(tx: TreasuryTx) -> bool:
-    return 'crv' in tx.symbol.lower() or 'curve' in tx.token.name.lower()
+    return "crv" in tx.symbol.lower() or "curve" in tx.token.name.lower()
+
 
 @alru_cache(maxsize=None)
 async def _get_coin_at_index(pool: Contract, index: int) -> ChecksumAddress:
@@ -66,7 +71,7 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
                     pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
                     if token == await _get_coin_at_index(pool, i):
                         return True
-    
+
     # TODO: see if we can remove these with latest hueristics
     return CHAINID == Network.Mainnet and tx.hash in (
         "0x567d2ebc1a336185950432b8f8b010e1116936f9e6c061634f5aba65bdb1e188",
@@ -77,41 +82,47 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
 @curve("Removing Liquidity")
 async def is_curve_withdrawal(tx: TreasuryTx) -> bool:
     return (
-        _is_curve_withdrawal_one(tx) 
+        _is_curve_withdrawal_one(tx)
         or await _is_curve_withdrawal_multi(tx)
-        #or tx in curve_withdrawal_hashes
+        # or tx in curve_withdrawal_hashes
     )
 
 
 def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
-    for event in tx.get_events('RemoveLiquidityOne'):
+    for event in tx.get_events("RemoveLiquidityOne"):
         # LP Token Side
-        if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx) and tx.amount == tx.token.scale_value(event['token_amount']):
+        if (
+            tx.to_address == ZERO_ADDRESS
+            and _token_is_curvey(tx)
+            and tx.amount == tx.token.scale_value(event["token_amount"])
+        ):
             return True
         # Tokens rec'd
-        elif tx.from_address == event.address and tx.amount == tx.token.scale_value(event['coin_amount']):
+        elif tx.from_address == event.address and tx.amount == tx.token.scale_value(
+            event["coin_amount"]
+        ):
             return True
     return False
 
+
 async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
     pool: Contract
-    for event in tx.get_events('RemoveLiquidity'):
+    for event in tx.get_events("RemoveLiquidity"):
         # LP Token side
         if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx):
             pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
             if await _is_old_style(tx, pool) or _is_new_style(tx, pool):
                 return True
-            print(f'wtf is this: {tx}')
+            print(f"wtf is this: {tx}")
         # Tokens rec'd
-        elif (
-            tx.from_address == event.address
-            and TreasuryWallet.check_membership(tx.to_address.address, tx.block)  # type: ignore [union-attr, arg-type]
-        ):
+        elif tx.from_address == event.address and TreasuryWallet.check_membership(
+            tx.to_address.address, tx.block
+        ):  # type: ignore [union-attr, arg-type]
             try:
-                for i, amount in enumerate(event['token_amounts']):
+                for i, amount in enumerate(event["token_amounts"]):
                     if tx.amount == tx.token.scale_value(amount):
                         pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
-                        if hasattr(pool, 'underlying_coins'):
+                        if hasattr(pool, "underlying_coins"):
                             return tx.token == await pool.underlying_coins.coroutine(i)
                         else:
                             return tx.token == await _get_coin_at_index(pool, i)
