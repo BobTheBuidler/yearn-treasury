@@ -598,6 +598,7 @@ struct export_table_de0b3d5d46e8d426aa59 {
     char (*CPyDef_events___is_eth_denver)(PyObject *cpy_r_tx);
     char (*CPyDef_events_____top_level__)(void);
     char (*CPyDef_misc___is_ybudget_reward)(PyObject *cpy_r_tx);
+    char (*CPyDef_misc___is_one_yfi_for_signers)(PyObject *cpy_r_tx);
     char (*CPyDef_misc_____top_level__)(void);
     PyObject **CPyStatic_revshare___revshare;
     char (*CPyDef_revshare_____top_level__)(void);

@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[793];
+extern PyObject *CPyStatics[801];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -480,6 +480,8 @@ extern PyObject *CPyPy_events___is_eth_denver(PyObject *self, PyObject *const *a
 extern char CPyDef_events_____top_level__(void);
 extern char CPyDef_misc___is_ybudget_reward(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_misc___is_ybudget_reward(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_misc___is_one_yfi_for_signers(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_misc___is_one_yfi_for_signers(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_misc_____top_level__(void);
 extern PyObject *CPyStatic_revshare___revshare;
 extern char CPyDef_revshare_____top_level__(void);
