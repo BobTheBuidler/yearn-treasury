@@ -44,6 +44,14 @@ yearn\_treasury.rules.ignore.staking module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.ignore.unit module
+----------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.unit
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yearn\_treasury.rules.ignore.weth module
 ----------------------------------------
 

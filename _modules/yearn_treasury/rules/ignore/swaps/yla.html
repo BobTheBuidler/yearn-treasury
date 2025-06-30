@@ -99,7 +99,7 @@
     <span class="k">return</span> <span class="s2">&quot;0x85c6D6b0cd1383Cc85e8e36C09D0815dAf36b9E9&quot;</span> <span class="ow">in</span> <span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>  <span class="c1"># type: ignore [union-attr]</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span>  <span class="c1"># type: ignore [union-attr]</span>
-    <span class="p">)</span></div>
+    <span class="p">)</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xb1ed399c268dfaf9917e20270cb720ab95986630b6cd4cabd7f02bb55ad5f7c6&quot;</span></div>
 
 </pre></div>
 

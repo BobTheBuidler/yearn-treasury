@@ -101,8 +101,8 @@
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_yfi_cdp_deposit">[docs]</a>
 <span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;YFI Deposit&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_yfi_cdp_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span>
-        <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
     <span class="p">):</span>
         <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;slip&quot;</span><span class="p">):</span>
             <span class="k">if</span> <span class="p">(</span>
@@ -118,8 +118,8 @@
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_yfi_cdp_withdrawal">[docs]</a>
 <span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;YFI Withdrawal&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_yfi_cdp_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
-    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span>
-        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
     <span class="p">):</span>
         <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;flux&quot;</span><span class="p">):</span>
             <span class="k">if</span> <span class="p">(</span>
