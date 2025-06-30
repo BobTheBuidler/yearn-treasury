@@ -116,8 +116,8 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
             print(f"wtf is this: {tx}")
         # Tokens rec'd
         elif tx.from_address == event.address and TreasuryWallet.check_membership(
-            tx.to_address.address, tx.block
-        ):  # type: ignore [union-attr, arg-type]
+            tx.to_address.address, tx.block  # type: ignore [union-attr, arg-type]
+        ):
             try:
                 for i, amount in enumerate(event["token_amounts"]):
                     if tx.amount == tx.token.scale_value(amount):
