@@ -172,9 +172,9 @@ async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
     to_address = tx.to_address.address  # type: ignore [union-attr]
     if to_address not in TREASURY_AND_ZERO:
         return False
-        
+
     try:
-        if 'Transfer' not in tx.events:
+        if "Transfer" not in tx.events:
             return False
     except KeyError as e:
         if str(e) == "'components'":
@@ -194,11 +194,20 @@ async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
         for event in transfer_events:
             if token_address == event.address:
                 sender, receiver, value = event.values()
-                if to_address == ZERO_ADDRESS == receiver and TreasuryWallet.check_membership(sender, block) and tx.from_address == sender:
+                if (
+                    to_address == ZERO_ADDRESS == receiver
+                    and TreasuryWallet.check_membership(sender, block)
+                    and tx.from_address == sender
+                ):
                     underlying = await _get_underlying(token_address)
                     for _event in transfer_events:
                         _sender, _receiver, _value = _event.values()
-                        if _event.address == underlying and tx.from_address == _receiver and event.pos < _event.pos and token_address == _sender:
+                        if (
+                            _event.address == underlying
+                            and tx.from_address == _receiver
+                            and event.pos < _event.pos
+                            and token_address == _sender
+                        ):
                             return True
     # token side
     for vault in all_vaults:
