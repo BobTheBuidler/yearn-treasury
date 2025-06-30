@@ -39,3 +39,16 @@
 
 # veFarming wallet
 "0x4fc1b14cD213e7B6212145Ba4f180C3d53d1A11e":
+
+### yRoboTreasury Wallets ###
+# https://github.com/yearn/yRoboTreasury/blob/master/deployment.json
+
+# Treasury
+"0xEf77cc176c748d291EfB6CdC982c5744fC7211c8":
+  networks:
+    - 1
+
+# Stables reserve
+"0x278374fFb10B7D16E7633444c13e6E565EA57c28":
+  networks:
+    - 1
