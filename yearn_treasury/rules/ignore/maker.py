@@ -26,8 +26,8 @@ dsr("Withdrawal").match(from_nickname="Contract: DsrManager")
 
 @cdp("YFI Deposit")
 def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
-    if tx.symbol == "YFI" and TreasuryWallet._get_instance(
-        tx.from_address.address  # type: ignore [union-attr, arg-type]
+    if tx.symbol == "YFI" and TreasuryWallet.check_membership(
+        tx.from_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("slip"):
             if (
@@ -40,8 +40,8 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
 
 @cdp("YFI Withdrawal")
 def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
-    if tx.symbol == "YFI" and TreasuryWallet._get_instance(
-        tx.to_address.address  # type: ignore [union-attr, arg-type]
+    if tx.symbol == "YFI" and TreasuryWallet.check_membership(
+        tx.to_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("flux"):
             if (
