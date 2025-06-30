@@ -159,6 +159,9 @@ _factory_strat_to_yield_tokens = {
     "Contract: StrategyConvexFraxFactoryClonable": ("CRV", "CVX", "FXS"),
 }
 
+
 @passthru("Factory Vault Yield", Network.Mainnet)
 def is_factory_vault_yield(tx: TreasuryTx) -> bool:
-    return tx.to_nickname == "yMechs Multisig" and tx.symbol in _factory_strat_to_yield_tokens.get(tx.from_nickname, ())
+    return tx.to_nickname == "yMechs Multisig" and tx.symbol in _factory_strat_to_yield_tokens.get(
+        tx.from_nickname, ()
+    )
