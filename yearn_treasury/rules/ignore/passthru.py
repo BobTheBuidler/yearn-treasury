@@ -151,3 +151,17 @@ def is_idle(tx: TreasuryTx) -> bool:
         "0x55d89a5890cfe80da06f6831fdfa3a366c0ed9cf9b7f1b4d53f5007bb9698fa0",
         "0x6c6fc43dca1841af82b517bc5fc53ea8607e3f95512e4dd3009c0dbb425669f7",
     }
+
+
+_factory_strat_to_yield_tokens = {
+    "Contract: StrategyCurveBoostedFactoryClonable": ("CRV", "LDO"),
+    "Contract: StrategyConvexFactoryClonable": ("CRV", "CVX"),
+    "Contract: StrategyConvexFraxFactoryClonable": ("CRV", "CVX", "FXS"),
+}
+
+
+@passthru("Factory Vault Yield", Network.Mainnet)
+def is_factory_vault_yield(tx: TreasuryTx) -> bool:
+    return tx.to_nickname == "yMechs Multisig" and tx.symbol in _factory_strat_to_yield_tokens.get(
+        tx.from_nickname, ()
+    )
