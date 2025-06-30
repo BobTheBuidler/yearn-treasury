@@ -18,7 +18,11 @@ def is_yla_deposit(tx: TreasuryTx) -> bool:
 
 @yla("Withdrawal", Network.Mainnet)
 def is_yla_withdrawal(tx: TreasuryTx) -> bool:
-    return "0x85c6D6b0cd1383Cc85e8e36C09D0815dAf36b9E9" in (
-        tx.from_address.address,  # type: ignore [union-attr]
-        tx.to_address.address,  # type: ignore [union-attr]
-    ) or tx.hash == "0xb1ed399c268dfaf9917e20270cb720ab95986630b6cd4cabd7f02bb55ad5f7c6"
+    return (
+        "0x85c6D6b0cd1383Cc85e8e36C09D0815dAf36b9E9"
+        in (
+            tx.from_address.address,  # type: ignore [union-attr]
+            tx.to_address.address,  # type: ignore [union-attr]
+        )
+        or tx.hash == "0xb1ed399c268dfaf9917e20270cb720ab95986630b6cd4cabd7f02bb55ad5f7c6"
+    )

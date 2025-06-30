@@ -35,4 +35,7 @@ def is_one_yfi_for_signers(tx: TreasuryTx) -> bool:
         # https://snapshot.box/#/s:veyfi.eth/proposal/0xc7ded2863a10154b6b520921af4ada48d64d74e5b7989f98cdf073542b2e4411
         "0x5ed4ce821cb09b4c6929cc9a6b5e0a23515f9bb97d9b5916819a6986f6c89f09",
         "0xe80628d90254f8da0a6016629c8811b5dd54f231e94f71697ab37d8c00482586",
-    ) or (txhash == "0x831ad751e1be1dbb82cb9e1f5bf0e38e31327b8c58f6ad6b90bcfb396129bb11" and tx.log_index == 403)
+    ) or (
+        txhash == "0x831ad751e1be1dbb82cb9e1f5bf0e38e31327b8c58f6ad6b90bcfb396129bb11"
+        and tx.log_index == 403
+    )
