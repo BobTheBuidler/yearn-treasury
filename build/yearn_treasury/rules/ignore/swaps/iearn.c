@@ -1,14 +1,14 @@
 #include <Python.h>
 
 PyMODINIT_FUNC
-PyInit_pooltogether(void)
+PyInit_iearn(void)
 {
     PyObject *tmp;
     if (!(tmp = PyImport_ImportModule("7394b9c44dc1c3d0ac44__mypyc"))) return NULL;
-    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___ignore___swaps___pooltogether");
+    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___ignore___swaps___iearn");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "7394b9c44dc1c3d0ac44__mypyc.init_yearn_treasury___rules___ignore___swaps___pooltogether");
+    void *init_func = PyCapsule_GetPointer(capsule, "7394b9c44dc1c3d0ac44__mypyc.init_yearn_treasury___rules___ignore___swaps___iearn");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
@@ -18,4 +18,4 @@ PyInit_pooltogether(void)
 
 // distutils sometimes spuriously tells cl to export CPyInit___init__,
 // so provide that so it chills out
-PyMODINIT_FUNC PyInit___init__(void) { return PyInit_pooltogether(); }
+PyMODINIT_FUNC PyInit___init__(void) { return PyInit_iearn(); }
