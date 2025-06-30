@@ -1,6 +1,8 @@
 from typing import Final
 
 from async_lru import alru_cache
+from brownie.exceptions import EventLookupError
+from brownie.network.event import _EventItem
 from dao_treasury import TreasuryTx, TreasuryWallet
 from eth_typing import ChecksumAddress
 from y import Contract, Network
@@ -42,11 +44,14 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
 
         # Tokens sent
         elif tx.to_address == event.address:
-            for i, amount in enumerate(event["token_amounts"]):
-                if tx.amount == tx.token.scale_value(amount):
-                    pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
-                    if tx.token == await _get_coin_at_index(pool, i):
-                        return True
+            try:
+                for i, amount in enumerate(event["token_amounts"]):
+                    if tx.amount == tx.token.scale_value(amount):
+                        pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
+                        if tx.token == await _get_coin_at_index(pool, i):
+                            return True
+            except EventLookupError:
+                pass
 
         # What if a 3crv deposit was needed before the real deposit?
         elif (
@@ -102,11 +107,15 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
             tx.from_address == event.address
             and TreasuryWallet.check_membership(tx.to_address.address, tx.block)  # type: ignore [union-attr, arg-type]
         ):
-            for i, amount in enumerate(event['token_amounts']):
-                if tx.amount == tx.token.scale_value(amount):
-                    pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
-                    if hasattr(pool, 'underlying_coins'):
-                        return tx.token == await pool.underlying_coins.coroutine(i)
-                    else:
-                        return tx.token == await _get_coin_at_index(pool, i)
+            try:
+                for i, amount in enumerate(event['token_amounts']):
+                    if tx.amount == tx.token.scale_value(amount):
+                        pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
+                        if hasattr(pool, 'underlying_coins'):
+                            return tx.token == await pool.underlying_coins.coroutine(i)
+                        else:
+                            return tx.token == await _get_coin_at_index(pool, i)
+            except EventLookupError:
+                # some other event has different keys, maybe we need to implement logic to capture these. time will tell.
+                pass
     return False
