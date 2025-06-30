@@ -89,12 +89,12 @@
 <span class="k">def</span><span class="w"> </span><span class="nf">is_weth_mint</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">if</span> <span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
-        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">weth</span>
     <span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span>
-        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">weth</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">EEE_ADDRESS</span>
     <span class="p">)</span></div>
@@ -106,14 +106,14 @@
 <span class="nd">@ignore</span><span class="p">(</span><span class="s2">&quot;WETH:Burning&quot;</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_weth</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="k">if</span> <span class="p">(</span>
-        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">weth</span>
     <span class="p">):</span>
         <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="nb">bool</span><span class="p">(</span>
         <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">weth</span>
-        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
         <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">EEE_ADDRESS</span>
     <span class="p">)</span></div>
 
