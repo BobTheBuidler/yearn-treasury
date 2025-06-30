@@ -140,7 +140,7 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
                     #     return True
                     amount = round(amount, 10)
                     scaled = round(token.scale_value(deposit["shares"]), 10)
-                    if amount == (scaled := token.scale_value(deposit["shares"])):
+                    if amount == scaled:
                         return True
                     print(f"wrong amount:  tx={amount}  event={scaled}")
                 print("no matching vault-side deposit found")
@@ -153,8 +153,8 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
                     print("sender doesnt match")
                     continue
                 # TODO: once postgres is in, remove the `round`
-                amount = round(amount, 10)
-                scaled = round(token.scale_value(deposit["assets"]), 10)
+                amount = round(amount, 9)
+                scaled = round(token.scale_value(deposit["assets"]), 9)
                 if amount == scaled:
                     return True
                 print(f"wrong amount:  tx={amount}  event={scaled}")
