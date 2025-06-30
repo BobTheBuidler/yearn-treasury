@@ -1,16 +1,20 @@
 from typing import Final
 
+from async_lru import alru_cache
 from dao_treasury import TreasuryTx, TreasuryWallet
 from eth_typing import BlockNumber, ChecksumAddress
-from y import Network
+from y import Contract, Network
+from y.prices.yearn import YearnInspiredVault
 
-from yearn_treasury.constants import CHAINID
+from yearn_treasury.constants import CHAINID, TREASURY_WALLETS
 from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 from yearn_treasury.vaults import v1, v2
 
 
 vaults: Final = swaps("Vaults")
+
+TREASURY_AND_ZERO: Final = {*TREASURY_WALLETS, ZERO_ADDRESS}
 
 all_vaults: Final = tuple(v1.keys()) + tuple(v2.values())
 
@@ -63,7 +67,7 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
                     sender, receiver, value = event.values()
                     if sender == ZERO_ADDRESS and TreasuryWallet.check_membership(receiver, block):
                         tx_to_address = tx.to_address
-                        underlying_address = await vault.token
+                        underlying_address = await _get_underlying(vault)
                         for _event in transfer_events:
                             _sender, _receiver, _value = _event.values()
                             if (
@@ -80,7 +84,7 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
 
     # token side
     for vault in all_vaults:
-        if tx_token == await vault.token:
+        if tx_token == await _get_underlying(vault):
             for event in transfer_events:
                 if tx_token == event.address:
                     vault_address = vault.address
@@ -131,21 +135,89 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
                     if to_address != deposit["owner"]:
                         print("wrong owner")
                         continue
-                    elif amount == (scaled := token.scale_value(deposit["shares"])):
+                    # TODO: once postgres is in, remove the `round`
+                    # elif amount == (scaled := token.scale_value(deposit["shares"])):
+                    #     return True
+                    amount = round(amount, 10)
+                    scaled = round(token.scale_value(deposit["shares"]), 10)
+                    if amount == (scaled := token.scale_value(deposit["shares"])):
                         return True
                     print(f"wrong amount:  tx={amount}  event={scaled}")
                 print("no matching vault-side deposit found")
 
         # Token side
         elif deposits := [d for d in deposits if to_address == d.address]:
+            from_address = tx.from_address.address  # type: ignore [union-attr]
             for deposit in deposits:
-                if tx.from_address != deposit["sender"]:
+                if from_address != deposit["sender"]:
                     print("sender doesnt match")
                     continue
-                if amount == token.scale_value(deposit["assets"]):
+                # TODO: once postgres is in, remove the `round`
+                amount = round(amount, 10)
+                scaled = round(token.scale_value(deposit["assets"]), 10)
+                if amount == scaled:
                     return True
-                print("amount doesnt match")
+                print(f"wrong amount:  tx={amount}  event={scaled}")
             print("no matching token-side deposit found")
+    return False
+
+
+@alru_cache(maxsize=None)
+async def _get_underlying(vault: Contract) -> ChecksumAddress:
+    return (await YearnInspiredVault(vault, asynchronous=True).underlying).address  # type: ignore [return-value]
+
+
+@vaults("Withdrawal")
+async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
+    to_address = tx.to_address.address  # type: ignore [union-attr]
+    if to_address not in TREASURY_AND_ZERO:
+        return False
+        
+    try:
+        if 'Transfer' not in tx.events:
+            return False
+    except KeyError as e:
+        if str(e) == "'components'":
+            return False
+        raise
+
+    transfer_events = tx.events["Transfer"]
+
+    token = tx.token
+    token_address: ChecksumAddress = token.address.address  # type: ignore [assignment]
+    block: BlockNumber = tx.block  # type: ignore [assignment]
+
+    underlying: ChecksumAddress
+
+    # vault side
+    if any(token_address == vault.address for vault in all_vaults):
+        for event in transfer_events:
+            if token_address == event.address:
+                sender, receiver, value = event.values()
+                if to_address == ZERO_ADDRESS == receiver and TreasuryWallet.check_membership(sender, block) and tx.from_address == sender:
+                    underlying = await _get_underlying(token_address)
+                    for _event in transfer_events:
+                        _sender, _receiver, _value = _event.values()
+                        if _event.address == underlying and tx.from_address == _receiver and event.pos < _event.pos and token_address == _sender:
+                            return True
+    # token side
+    for vault in all_vaults:
+        if token_address == await _get_underlying(vault):
+            vault_address = vault.address
+            for event in transfer_events:
+                if token_address == event.address:
+                    sender, receiver, value = event.values()
+                    if tx.from_address == vault_address == sender and to_address == receiver:
+                        for _event in transfer_events:
+                            _sender, _receiver, _value = _event.values()
+                            if (
+                                _event.address == vault_address
+                                and _receiver == ZERO_ADDRESS
+                                and TreasuryWallet.check_membership(_sender, block)
+                                and to_address == _sender
+                                and _event.pos < event.pos
+                            ):
+                                return True
     return False
 
 
