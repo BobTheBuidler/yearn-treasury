@@ -36,6 +36,14 @@ yearn\_treasury.rules.ignore.swaps.gearbox module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.rules.ignore.swaps.iearn module
+-----------------------------------------------
+
+.. automodule:: yearn_treasury.rules.ignore.swaps.iearn
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 yearn\_treasury.rules.ignore.swaps.pooltogether module
 ------------------------------------------------------
 
