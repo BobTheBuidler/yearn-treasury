@@ -1,6 +1,7 @@
 from typing import Final
 
 from dao_treasury import TreasuryTx, TreasuryWallet
+from eth_typing import ChecksumAddress
 
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 from yearn_treasury.rules.ignore.swaps import swaps
@@ -20,27 +21,31 @@ def is_aave_deposit(tx: TreasuryTx) -> bool:
 
 @aave("Withdrawal")
 async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
+    from_address: ChecksumAddress = tx.from_address.address  # type: ignore [union-attr, assignment]
+    to_address: ChecksumAddress = tx.to_address.address  # type: ignore [union-attr, assignment]
     # Atoken side
     if (
-        TreasuryWallet._get_instance(tx.from_address.address)  # type: ignore [union-attr, arg-type]
-        and tx.to_address == ZERO_ADDRESS
-        and hasattr(tx.token.contract, "underlyingAssetAddress")
+        TreasuryWallet.check_membership(from_address, tx.block)  # type: ignore [union-attr, arg-type]
+        and to_address == ZERO_ADDRESS
     ):
-        for event in tx.get_events("RedeemUnderlying"):
-            if (
-                tx.from_address == event["_user"]
-                and await tx.token.contract.underlyingAssetAddress == event["_reserve"]
-                and tx.token.scale_value(event["_amount"]) == tx.amount
-            ):
-                return True
+        token = tx.token
+        if hasattr(token.contract, "underlyingAssetAddress"):
+            for event in tx.get_events("RedeemUnderlying"):
+                if (
+                    from_address == event["_user"]
+                    and await token.contract.underlyingAssetAddress == event["_reserve"]
+                    and token.scale_value(event["_amount"]) == tx.amount
+                ):
+                    return True
 
     # Underlying side
-    if TreasuryWallet._get_instance(tx.to_address.address):  # type: ignore [union-attr, arg-type]
+    if TreasuryWallet.check_membership(tx.to_address.address, tx.block):  # type: ignore [union-attr, arg-type]
+        token = tx.token
         for event in tx.get_events("RedeemUnderlying"):
             if (
-                tx.token == event["_reserve"]
-                and tx.to_address == event["_user"]
-                and tx.token.scale_value(event["_amount"]) == tx.amount
+                token == event["_reserve"]
+                and to_address == event["_user"]
+                and token.scale_value(event["_amount"]) == tx.amount
             ):
                 return True
 
