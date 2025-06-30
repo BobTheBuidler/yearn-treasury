@@ -251,6 +251,23 @@
         <span class="s2">&quot;0x6c6fc43dca1841af82b517bc5fc53ea8607e3f95512e4dd3009c0dbb425669f7&quot;</span><span class="p">,</span>
     <span class="p">}</span></div>
 
+
+
+<span class="n">_factory_strat_to_yield_tokens</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="s2">&quot;Contract: StrategyCurveBoostedFactoryClonable&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;CRV&quot;</span><span class="p">,</span> <span class="s2">&quot;LDO&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;Contract: StrategyConvexFactoryClonable&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;CRV&quot;</span><span class="p">,</span> <span class="s2">&quot;CVX&quot;</span><span class="p">),</span>
+    <span class="s2">&quot;Contract: StrategyConvexFraxFactoryClonable&quot;</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;CRV&quot;</span><span class="p">,</span> <span class="s2">&quot;CVX&quot;</span><span class="p">,</span> <span class="s2">&quot;FXS&quot;</span><span class="p">),</span>
+<span class="p">}</span>
+
+
+<div class="viewcode-block" id="is_factory_vault_yield">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_factory_vault_yield">[docs]</a>
+<span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;Factory Vault Yield&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_factory_vault_yield</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;yMechs Multisig&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="ow">in</span> <span class="n">_factory_strat_to_yield_tokens</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span><span class="p">,</span> <span class="p">()</span>
+    <span class="p">)</span></div>
+
 </pre></div>
 
            </div>
