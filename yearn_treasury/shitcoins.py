@@ -66,10 +66,12 @@ _SHITCOINS = {
         "0xD2F89F59fBC7125b406e3F60A992DFa9FdB76524",  # MISTRAL AI
         "0xa0CCdBCeB5Da30F9d62F7A727F2B35C69dF08760",  # CHUNK AI
         "0x7CE31075d7450Aff4A9a82DdDF69D451B1e0C4E9",  # DEEPSEEK AI
+        # matt furry spam
         "0x73228b3D33cC71cB721Fc62950577bE63bd9c8C9",  # Maskman by Matt Furie
         "0x7c28e66436C93BB9F657dDF2BA0eeeCf61369b92",  # Bloodboy by Matt Furie
         "0x70c5e1124569f17B1Be71E15833EaF1331f8727F",  # Pac-hat by Matt Furie
         "0xBd6555eC87C8A9a2280dCD6df45b9b074fC93Df2",  # Bork by Matt Furie
+        # test token
         "0x2F375Ce83EE85e505150d24E85A1742fd03cA593",  # TEST
     ),
 }
