@@ -24,6 +24,7 @@ else:
             # "yearn_treasury/rules/ignore/swaps/yfi.py",
             "yearn_treasury/rules/ignore/swaps/yla.py",
             "yearn_treasury/rules/ignore/general.py",
+            "yearn_treasury/rules/ignore/unit.py",
             "yearn_treasury/rules/ignore/weth.py",
             "yearn_treasury/rules/ignore/ygov.py",
             "yearn_treasury/rules/other_expense",

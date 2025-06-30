@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_24d837ededc6fd012b63_H
-#define MYPYC_NATIVE_24d837ededc6fd012b63_H
+#ifndef MYPYC_NATIVE_de0b3d5d46e8d426aa59_H
+#define MYPYC_NATIVE_de0b3d5d46e8d426aa59_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -388,7 +388,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_24d837ededc6fd012b63 {
+struct export_table_de0b3d5d46e8d426aa59 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -561,6 +561,14 @@ struct export_table_24d837ededc6fd012b63 {
     char (*CPyDef_yla_____top_level__)(void);
     char (*CPyDef_ignore___general___is_returned_fundus)(PyObject *cpy_r_tx);
     char (*CPyDef_ignore___general_____top_level__)(void);
+    PyObject **CPyStatic_unit___unit;
+    PyObject **CPyStatic_unit___collateral;
+    PyObject **CPyStatic_unit___usdp;
+    char (*CPyDef_unit___is_unit_yfi_deposit)(PyObject *cpy_r_tx);
+    char (*CPyDef_unit___is_unit_yfi_withdrawal)(PyObject *cpy_r_tx);
+    char (*CPyDef_unit___is_minting_usdp)(PyObject *cpy_r_tx);
+    char (*CPyDef_unit___is_burning_usdp)(PyObject *cpy_r_tx);
+    char (*CPyDef_unit_____top_level__)(void);
     PyObject **CPyStatic_weth___weth;
     char (*CPyDef_weth___is_weth_mint)(PyObject *cpy_r_tx);
     char (*CPyDef_weth___is_weth)(PyObject *cpy_r_tx);

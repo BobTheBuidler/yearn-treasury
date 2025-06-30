@@ -1,14 +1,14 @@
 #include <Python.h>
 
 PyMODINIT_FUNC
-PyInit_vaults(void)
+PyInit_unit(void)
 {
     PyObject *tmp;
     if (!(tmp = PyImport_ImportModule("de0b3d5d46e8d426aa59__mypyc"))) return NULL;
-    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___vaults");
+    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___ignore___unit");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "de0b3d5d46e8d426aa59__mypyc.init_yearn_treasury___vaults");
+    void *init_func = PyCapsule_GetPointer(capsule, "de0b3d5d46e8d426aa59__mypyc.init_yearn_treasury___rules___ignore___unit");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
@@ -18,4 +18,4 @@ PyInit_vaults(void)
 
 // distutils sometimes spuriously tells cl to export CPyInit___init__,
 // so provide that so it chills out
-PyMODINIT_FUNC PyInit___init__(void) { return PyInit_vaults(); }
+PyMODINIT_FUNC PyInit___init__(void) { return PyInit_unit(); }
