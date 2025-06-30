@@ -1,0 +1,146 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.expense.infrastructure &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.expense.infrastructure</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.expense.infrastructure</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">expense</span>
+
+
+<span class="n">infrastructure</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">expense</span><span class="p">(</span><span class="s2">&quot;Infrastructure&quot;</span><span class="p">)</span>
+
+
+<span class="n">infrastructure</span><span class="p">(</span><span class="s2">&quot;Tenderly Subscription&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;USDT&quot;</span><span class="p">,</span>
+    <span class="n">to_address</span><span class="o">=</span><span class="s2">&quot;0xF6060cE3fC3df2640F72E42441355f50F195D96a&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">infrastructure</span><span class="p">(</span><span class="s2">&quot;Wonderland Jobs&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="n">to_address</span><span class="o">=</span><span class="s2">&quot;0x8bA72884984f669aBBc9a5a7b441AD8E3D9a4fD3&quot;</span>
+<span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_generic_infra">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.infrastructure.is_generic_infra">[docs]</a>
+<span class="nd">@infrastructure</span><span class="p">(</span><span class="s2">&quot;Unspecified Infra&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_generic_infra</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">txhash</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DAI&quot;</span> <span class="ow">and</span> <span class="n">txhash</span> <span class="ow">in</span> <span class="p">{</span>
+        <span class="s2">&quot;0x0c59e87027bcdcaa718e322a28bc436106d73ae8623071930437bdb0706c4d65&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x47035f156d4e6144c144b2ac5e91497e353c9a4e23133587bbf3da2f9d7da596&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x40352e7166bf5196aa1160302cfcc157facf99731af0e11741b8729dd84e131c&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xc269f6fb016a48fe150f689231a73532b631877d1376608df639dad79514904b&quot;</span><span class="p">,</span>
+    <span class="p">}:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="n">other</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="s2">&quot;0x08ef1aacdf7d0f16be5e6fd0a64ebd0ba3b0c3dd0a7884a9a470aa89a7fe1a06&quot;</span><span class="p">:</span> <span class="mi">222</span><span class="p">,</span>
+        <span class="s2">&quot;0xeb51cb5a3b4ae618be75bf3e23c2d8e333d93d5e81e869eca7f9612a30079822&quot;</span><span class="p">:</span> <span class="mi">195</span><span class="p">,</span>
+        <span class="s2">&quot;0x3e75d22250d87c183824c3b77ddb9cb11935db2061ce7f34df4f024d0646fcfb&quot;</span><span class="p">:</span> <span class="mi">117</span><span class="p">,</span>
+        <span class="s2">&quot;0x1621ba5c9b57930c97cc43d5d6d401ee9c69fed435b0b458ee031544a10bfa75&quot;</span><span class="p">:</span> <span class="mi">460</span><span class="p">,</span>
+        <span class="s2">&quot;0x5deca5d6c934372c174bbef8be9a1e103e06d8b93fd3bf8d77865dfeb34fe3be&quot;</span><span class="p">:</span> <span class="mi">98</span><span class="p">,</span>
+        <span class="s2">&quot;0xfc07ee04d44f8e481f58339b7b8c998d454e4ec427b8021c4e453c8eeee6a9b9&quot;</span><span class="p">:</span> <span class="mi">207</span><span class="p">,</span>
+    <span class="p">}</span>
+
+    <span class="k">return</span> <span class="n">txhash</span> <span class="ow">in</span> <span class="n">other</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="n">other</span><span class="p">[</span><span class="n">txhash</span><span class="p">]</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
