@@ -1,3 +1,12 @@
+"""
+Ignore rules for Aave-related transactions.
+
+This module defines rules for identifying and ignoring Aave-related
+transactions in the Yearn Treasury system. It provides matching logic
+for deposit and withdrawal events, so these transactions can be
+ignored in analytics and reporting.
+"""
+
 from typing import Final
 
 from dao_treasury import TreasuryTx, TreasuryWallet

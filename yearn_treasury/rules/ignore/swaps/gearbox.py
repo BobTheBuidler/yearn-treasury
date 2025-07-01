@@ -1,3 +1,11 @@
+"""
+Ignore rules for Gearbox protocol transactions.
+
+This module defines matching logic for Gearbox protocol deposit and
+withdrawal swaps, so these transactions can be filtered from analytics
+and reporting.
+"""
+
 from dao_treasury import TreasuryTx
 from y import Network
 
