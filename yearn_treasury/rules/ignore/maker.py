@@ -1,3 +1,11 @@
+"""
+Ignore rules for Maker protocol.
+
+This module defines matching logic for Maker protocol transactions,
+including DAI minting/burning, DSR deposit/withdrawal, and CDP
+deposit/withdrawal for YFI and USDC.
+"""
+
 from decimal import Decimal
 from typing import Final
 

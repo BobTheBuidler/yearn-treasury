@@ -1,4 +1,9 @@
-"""This submodule contains sort rules related to Unit.xyz protocol"""
+"""
+Ignore rules for Unit.xyz protocol.
+
+This module defines matching logic for Unit.xyz protocol transactions,
+so they can be ignored in analytics and reporting.
+"""
 
 from typing import Final
 
