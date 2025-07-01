@@ -1,3 +1,11 @@
+"""
+Ignore rules for WETH minting and burning.
+
+This module defines matching logic for WETH minting and burning
+transactions, so those transactions can be ignored in analytics
+and reporting.
+"""
+
 from typing import Final
 
 import y

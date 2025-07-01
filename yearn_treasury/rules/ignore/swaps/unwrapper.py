@@ -1,3 +1,11 @@
+"""
+Ignore rules for the Unwrapper contract.
+
+This module defines matching logic for swaps involving the Unwrapper
+contract, so those transactions can be ignored from analytics and
+reporting.
+"""
+
 from dao_treasury import TreasuryTx
 from y import Network
 
