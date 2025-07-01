@@ -13750,10 +13750,10 @@ CPyL157: ;
 CPyL160: ;
     cpy_r_r171 = CPyStatics[226]; /* 'token' */
     cpy_r_r172 = CPyObject_GetAttr(cpy_r_r170, cpy_r_r171);
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r172;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r172;
     cpy_r_r173 = 1;
     CPy_DECREF(cpy_r_r170);
     if (unlikely(cpy_r_r172 == NULL)) {
@@ -13958,19 +13958,19 @@ CPyL192: ;
     }
     cpy_r_r188 = cpy_r_r204;
 CPyL194: ;
-    cpy_r_r205 = ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1;
+    cpy_r_r205 = ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0;
     if (unlikely(cpy_r_r205 == NULL)) {
-        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_1' of 'is_curve_deposit_env' undefined");
+        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_0' of 'is_curve_deposit_env' undefined");
     } else {
         CPy_INCREF(cpy_r_r205);
     }
     cpy_r_r206 = PyObject_RichCompare(cpy_r_r205, cpy_r_r188, 2);
     CPy_DECREF(cpy_r_r205);
     cpy_r_r207 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r207;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r207;
     cpy_r_r208 = 1;
     CPy_DECREF(cpy_r_r188);
     if (unlikely(cpy_r_r206 == NULL)) {
@@ -14643,10 +14643,10 @@ CPyL293: ;
     } else {
         CPy_INCREF(cpy_r_r328);
     }
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r328;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r328;
     cpy_r_r329 = 1;
     if (unlikely(cpy_r_r328 == NULL)) {
         CPy_AddTraceback("yearn_treasury/rules/ignore/swaps/curve.py", "is_curve_deposit", 72, CPyStatic_curve___globals);
@@ -14852,19 +14852,19 @@ CPyL327: ;
     }
     cpy_r_r344 = cpy_r_r360;
 CPyL329: ;
-    cpy_r_r361 = ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0;
+    cpy_r_r361 = ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1;
     if (unlikely(cpy_r_r361 == NULL)) {
-        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_0' of 'is_curve_deposit_env' undefined");
+        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_1' of 'is_curve_deposit_env' undefined");
     } else {
         CPy_INCREF(cpy_r_r361);
     }
     cpy_r_r362 = PyObject_RichCompare(cpy_r_r361, cpy_r_r344, 2);
     CPy_DECREF(cpy_r_r361);
     cpy_r_r363 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r363;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r363;
     cpy_r_r364 = 1;
     CPy_DECREF(cpy_r_r344);
     if (unlikely(cpy_r_r362 == NULL)) {
@@ -15420,37 +15420,37 @@ CPyL418: ;
     goto CPyL203;
 CPyL419: ;
     cpy_r_r420 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r420;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r420;
     cpy_r_r421 = 1;
     goto CPyL203;
 CPyL420: ;
     cpy_r_r422 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r422;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r422;
     cpy_r_r423 = 1;
     CPy_DecRef(cpy_r_r174);
     goto CPyL203;
 CPyL421: ;
     cpy_r_r424 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r424;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r424;
     cpy_r_r425 = 1;
     CPy_DecRef(cpy_r_r174);
     CPyTagged_DecRef(cpy_r_r175);
     goto CPyL203;
 CPyL422: ;
     cpy_r_r426 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r426;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r426;
     cpy_r_r427 = 1;
     CPy_DecRef(cpy_r_r174);
     CPy_DecRef(cpy_r_r179);
@@ -15478,27 +15478,27 @@ CPyL425: ;
     goto CPyL176;
 CPyL426: ;
     cpy_r_r428 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r428;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r428;
     cpy_r_r429 = 1;
     goto CPyL186;
 CPyL427: ;
     cpy_r_r430 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r430;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r430;
     cpy_r_r431 = 1;
     CPy_DecRef(cpy_r_r189);
     goto CPyL186;
 CPyL428: ;
     cpy_r_r432 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r432;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r432;
     cpy_r_r433 = 1;
     CPy_DecRef(cpy_r_r188);
     goto CPyL186;
@@ -15513,10 +15513,10 @@ CPyL429: ;
     goto CPyL188;
 CPyL430: ;
     cpy_r_r434 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r434;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r434;
     cpy_r_r435 = 1;
     CPy_DecRef(cpy_r_arg);
     goto CPyL203;
@@ -15805,10 +15805,10 @@ CPyL462: ;
     CPy_XDecRef(cpy_r_r9);
     CPy_XDecRef(cpy_r_r11);
     cpy_r_r436 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r436;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r436;
     cpy_r_r437 = 1;
     goto CPyL321;
 CPyL463: ;
@@ -15819,10 +15819,10 @@ CPyL463: ;
     CPy_XDecRef(cpy_r_r9);
     CPy_XDecRef(cpy_r_r11);
     cpy_r_r438 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r438;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r438;
     cpy_r_r439 = 1;
     CPy_DecRef(cpy_r_r345);
     goto CPyL321;
@@ -15834,10 +15834,10 @@ CPyL464: ;
     CPy_XDecRef(cpy_r_r9);
     CPy_XDecRef(cpy_r_r11);
     cpy_r_r440 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r440;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r440;
     cpy_r_r441 = 1;
     CPy_DecRef(cpy_r_r344);
     goto CPyL321;
@@ -15869,87 +15869,87 @@ CPyL468: ;
 CPyL469: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r442 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r442;
-    cpy_r_r443 = 1;
-    cpy_r_r444 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r444;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r442;
+    cpy_r_r443 = 1;
+    cpy_r_r444 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r444;
     cpy_r_r445 = 1;
     goto CPyL2;
 CPyL470: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r446 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r446;
-    cpy_r_r447 = 1;
-    cpy_r_r448 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r448;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r446;
+    cpy_r_r447 = 1;
+    cpy_r_r448 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r448;
     cpy_r_r449 = 1;
     goto CPyL34;
 CPyL471: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r450 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r450;
-    cpy_r_r451 = 1;
-    cpy_r_r452 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r452;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r450;
+    cpy_r_r451 = 1;
+    cpy_r_r452 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r452;
     cpy_r_r453 = 1;
     goto CPyL68;
 CPyL472: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r454 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r454;
-    cpy_r_r455 = 1;
-    cpy_r_r456 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r456;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r454;
+    cpy_r_r455 = 1;
+    cpy_r_r456 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r456;
     cpy_r_r457 = 1;
     goto CPyL137;
 CPyL473: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r458 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r458;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r458;
     cpy_r_r459 = 1;
     goto CPyL174;
 CPyL474: ;
     cpy_r_r460 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r460;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r460;
     cpy_r_r461 = 1;
     goto CPyL371;
 CPyL475: ;
     CPyTagged_DECREF(cpy_r_r13);
     cpy_r_r462 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_0 = cpy_r_r462;
+    ((yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject *)cpy_r_r12)->___mypyc_temp__2_1 = cpy_r_r462;
     cpy_r_r463 = 1;
     goto CPyL273;
 CPyL476: ;
@@ -18907,10 +18907,10 @@ CPyL176: ;
 CPyL178: ;
     cpy_r_r200 = CPyStatics[226]; /* 'token' */
     cpy_r_r201 = CPyObject_GetAttr(cpy_r_r199, cpy_r_r200);
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r201;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r201;
     cpy_r_r202 = 1;
     CPy_DECREF(cpy_r_r199);
     if (unlikely(cpy_r_r201 == NULL)) {
@@ -19115,19 +19115,19 @@ CPyL210: ;
     }
     cpy_r_r217 = cpy_r_r233;
 CPyL212: ;
-    cpy_r_r234 = ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1;
+    cpy_r_r234 = ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0;
     if (unlikely(cpy_r_r234 == NULL)) {
-        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_1' of '_is_curve_withdrawal_multi_env' undefined");
+        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_0' of '_is_curve_withdrawal_multi_env' undefined");
     } else {
         CPy_INCREF(cpy_r_r234);
     }
     cpy_r_r235 = PyObject_RichCompare(cpy_r_r234, cpy_r_r217, 2);
     CPy_DECREF(cpy_r_r234);
     cpy_r_r236 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r236;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r236;
     cpy_r_r237 = 1;
     CPy_DECREF(cpy_r_r217);
     if (unlikely(cpy_r_r235 == NULL)) {
@@ -19159,10 +19159,10 @@ CPyL216: ;
 CPyL217: ;
     cpy_r_r240 = CPyStatics[226]; /* 'token' */
     cpy_r_r241 = CPyObject_GetAttr(cpy_r_r239, cpy_r_r240);
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r241;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r241;
     cpy_r_r242 = 1;
     CPy_DECREF(cpy_r_r239);
     if (unlikely(cpy_r_r241 == NULL)) {
@@ -19367,19 +19367,19 @@ CPyL249: ;
     }
     cpy_r_r257 = cpy_r_r273;
 CPyL251: ;
-    cpy_r_r274 = ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0;
+    cpy_r_r274 = ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1;
     if (unlikely(cpy_r_r274 == NULL)) {
-        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_0' of '_is_curve_withdrawal_multi_env' undefined");
+        PyErr_SetString(PyExc_AttributeError, "attribute '__mypyc_temp__2_1' of '_is_curve_withdrawal_multi_env' undefined");
     } else {
         CPy_INCREF(cpy_r_r274);
     }
     cpy_r_r275 = PyObject_RichCompare(cpy_r_r274, cpy_r_r257, 2);
     CPy_DECREF(cpy_r_r274);
     cpy_r_r276 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r276;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r276;
     cpy_r_r277 = 1;
     CPy_DECREF(cpy_r_r257);
     if (unlikely(cpy_r_r275 == NULL)) {
@@ -19882,27 +19882,27 @@ CPyL329: ;
     goto CPyL259;
 CPyL330: ;
     cpy_r_r305 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r305;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r305;
     cpy_r_r306 = 1;
     goto CPyL259;
 CPyL331: ;
     cpy_r_r307 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r307;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r307;
     cpy_r_r308 = 1;
     CPy_DecRef(cpy_r_r205);
     goto CPyL259;
 CPyL332: ;
     cpy_r_r309 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r309;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r309;
     cpy_r_r310 = 1;
     CPy_DecRef(cpy_r_r205);
     CPy_DecRef(cpy_r_r208);
@@ -19928,27 +19928,27 @@ CPyL335: ;
     goto CPyL194;
 CPyL336: ;
     cpy_r_r311 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r311;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r311;
     cpy_r_r312 = 1;
     goto CPyL204;
 CPyL337: ;
     cpy_r_r313 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r313;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r313;
     cpy_r_r314 = 1;
     CPy_DecRef(cpy_r_r218);
     goto CPyL204;
 CPyL338: ;
     cpy_r_r315 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r315;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r315;
     cpy_r_r316 = 1;
     CPy_DecRef(cpy_r_r217);
     goto CPyL204;
@@ -19962,10 +19962,10 @@ CPyL339: ;
     goto CPyL206;
 CPyL340: ;
     cpy_r_r317 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r317;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r317;
     cpy_r_r318 = 1;
     CPy_DecRef(cpy_r_arg);
     goto CPyL259;
@@ -19982,37 +19982,37 @@ CPyL342: ;
     goto CPyL214;
 CPyL343: ;
     cpy_r_r319 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r319;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r319;
     cpy_r_r320 = 1;
     goto CPyL259;
 CPyL344: ;
     cpy_r_r321 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r321;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r321;
     cpy_r_r322 = 1;
     CPy_DecRef(cpy_r_r243);
     goto CPyL259;
 CPyL345: ;
     cpy_r_r323 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r323;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r323;
     cpy_r_r324 = 1;
     CPy_DecRef(cpy_r_r243);
     CPyTagged_DecRef(cpy_r_r244);
     goto CPyL259;
 CPyL346: ;
     cpy_r_r325 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r325;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r325;
     cpy_r_r326 = 1;
     CPy_DecRef(cpy_r_r243);
     CPy_DecRef(cpy_r_r248);
@@ -20038,27 +20038,27 @@ CPyL349: ;
     goto CPyL233;
 CPyL350: ;
     cpy_r_r327 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r327;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r327;
     cpy_r_r328 = 1;
     goto CPyL243;
 CPyL351: ;
     cpy_r_r329 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r329;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r329;
     cpy_r_r330 = 1;
     CPy_DecRef(cpy_r_r258);
     goto CPyL243;
 CPyL352: ;
     cpy_r_r331 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r331;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r331;
     cpy_r_r332 = 1;
     CPy_DecRef(cpy_r_r257);
     goto CPyL243;
@@ -20072,10 +20072,10 @@ CPyL353: ;
     goto CPyL245;
 CPyL354: ;
     cpy_r_r333 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r333;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r333;
     cpy_r_r334 = 1;
     CPy_DecRef(cpy_r_arg);
     goto CPyL259;
@@ -20110,78 +20110,78 @@ CPyL359: ;
 CPyL360: ;
     CPyTagged_DECREF(cpy_r_r11);
     cpy_r_r335 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r335;
-    cpy_r_r336 = 1;
-    cpy_r_r337 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r337;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r335;
+    cpy_r_r336 = 1;
+    cpy_r_r337 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r337;
     cpy_r_r338 = 1;
     goto CPyL2;
 CPyL361: ;
     CPyTagged_DECREF(cpy_r_r11);
     cpy_r_r339 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r339;
-    cpy_r_r340 = 1;
-    cpy_r_r341 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r341;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r339;
+    cpy_r_r340 = 1;
+    cpy_r_r341 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r341;
     cpy_r_r342 = 1;
     goto CPyL34;
 CPyL362: ;
     CPyTagged_DECREF(cpy_r_r11);
     cpy_r_r343 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r343;
-    cpy_r_r344 = 1;
-    cpy_r_r345 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r345;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r343;
+    cpy_r_r344 = 1;
+    cpy_r_r345 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r345;
     cpy_r_r346 = 1;
     goto CPyL68;
 CPyL363: ;
     CPyTagged_DECREF(cpy_r_r11);
     cpy_r_r347 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
-    }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r347;
-    cpy_r_r348 = 1;
-    cpy_r_r349 = NULL;
     if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
         CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r349;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r347;
+    cpy_r_r348 = 1;
+    cpy_r_r349 = NULL;
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    }
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r349;
     cpy_r_r350 = 1;
     goto CPyL153;
 CPyL364: ;
     CPyTagged_DECREF(cpy_r_r11);
     cpy_r_r351 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r351;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r351;
     cpy_r_r352 = 1;
     goto CPyL192;
 CPyL365: ;
     cpy_r_r353 = NULL;
-    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 != NULL) {
-        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1);
+    if (((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 != NULL) {
+        CPy_DECREF(((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0);
     }
-    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_1 = cpy_r_r353;
+    ((yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject *)cpy_r_r10)->___mypyc_temp__2_0 = cpy_r_r353;
     cpy_r_r354 = 1;
     goto CPyL278;
 CPyL366: ;
@@ -30192,7 +30192,7 @@ CPyL105: ;
         CPy_AddTraceback("yearn_treasury/rules/ignore/swaps/vaults.py", "is_v3_vault_deposit", 156, CPyStatic_swaps___vaults___globals);
         goto CPyL167;
     }
-    cpy_r_r210 = CPyStatics[718]; /* 9 */
+    cpy_r_r210 = CPyStatics[718]; /* 8 */
     PyObject *cpy_r_r211[2] = {cpy_r_amount, cpy_r_r210};
     cpy_r_r212 = (PyObject **)&cpy_r_r211;
     cpy_r_r213 = PyObject_Vectorcall(cpy_r_r209, cpy_r_r212, 2, 0);
@@ -30226,7 +30226,7 @@ CPyL105: ;
         CPy_AddTraceback("yearn_treasury/rules/ignore/swaps/vaults.py", "is_v3_vault_deposit", 157, CPyStatic_swaps___vaults___globals);
         goto CPyL172;
     }
-    cpy_r_r223 = CPyStatics[718]; /* 9 */
+    cpy_r_r223 = CPyStatics[718]; /* 8 */
     PyObject *cpy_r_r224[2] = {cpy_r_r219, cpy_r_r223};
     cpy_r_r225 = (PyObject **)&cpy_r_r224;
     cpy_r_r226 = PyObject_Vectorcall(cpy_r_r222, cpy_r_r225, 2, 0);
@@ -59626,10 +59626,10 @@ const char * const CPyLit_Str[] = {
     "\002%yearn_treasury.rules.expense.security\vto_nickname",
     "\005\031Yearn Strategist Multisig\003DAI\aDecimal\adecimal\aexpense",
     "\003\033is_sms_discretionary_budget\030SMS Discretionary Budget\bnetworks",
-    "\001B0x47035f156d4e6144c144b2ac5e91497e353c9a4e23133587bbf3da2f9d7da596",
-    "\001B0x0c59e87027bcdcaa718e322a28bc436106d73ae8623071930437bdb0706c4d65",
     "\001B0x40352e7166bf5196aa1160302cfcc157facf99731af0e11741b8729dd84e131c",
+    "\001B0x0c59e87027bcdcaa718e322a28bc436106d73ae8623071930437bdb0706c4d65",
     "\001B0xc269f6fb016a48fe150f689231a73532b631877d1376608df639dad79514904b",
+    "\001B0x47035f156d4e6144c144b2ac5e91497e353c9a4e23133587bbf3da2f9d7da596",
     "\001B0x08ef1aacdf7d0f16be5e6fd0a64ebd0ba3b0c3dd0a7884a9a470aa89a7fe1a06",
     "\001B0xeb51cb5a3b4ae618be75bf3e23c2d8e333d93d5e81e869eca7f9612a30079822",
     "\001B0x3e75d22250d87c183824c3b77ddb9cb11935db2061ce7f34df4f024d0646fcfb",
@@ -59640,22 +59640,22 @@ const char * const CPyLit_Str[] = {
     "\002*0xF6060cE3fC3df2640F72E42441355f50F195D96a\017Wonderland Jobs",
     "\002*0x8bA72884984f669aBBc9a5a7b441AD8E3D9a4fD3\020is_generic_infra",
     "\002\021Unspecified Infra\005yvYFI",
-    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
     "\001B0x371b6a601da36382067a20236d41f540fc77dc793d64d24fc1bdbcd2c666db2b",
-    "\001B0x0b7159645e66c3b460efeb3e1e3c32d5e4eb845a2f2230b28b388ad34a36fcc3",
-    "\001B0x2a7c60bb7dd6c15a6d0351e6a2b9f01e51fa6e7df9d1e5f02a3759640211ee56",
-    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
-    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
-    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
+    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
     "\001B0xa121fd9717d0fb4ac72a223db638f4e59094547ddee253e5ba011a5bb0c67126",
-    "\001B0x514591e6f8dcac50b6deeabce8a819540cc7caecc182c39dfb93280abb34d3d6",
-    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
+    "\001B0x2a7c60bb7dd6c15a6d0351e6a2b9f01e51fa6e7df9d1e5f02a3759640211ee56",
     "\001B0xb23d189ac94acb68d457e5a21b765fd0affd73ac1cd5afbe9fb57db8c3f95c30",
     "\001B0x8ed57eff8f4a61cd40d109223c5054f87e35a6f0a5c85b65b1a7afe5b6e308da",
+    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
     "\001B0xb3aab771a5581df5b1c8e6faefedcc88d91b8820c5ae5eaf9c9283014288dda2",
-    "\001B0x4d404a04bf46b80721f03ad6b821c6d82312c53331d8e7425fb68100116d8b98",
+    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
+    "\001B0x514591e6f8dcac50b6deeabce8a819540cc7caecc182c39dfb93280abb34d3d6",
+    "\001B0x0b7159645e66c3b460efeb3e1e3c32d5e4eb845a2f2230b28b388ad34a36fcc3",
     "\001B0x38201edb06e8fd3b9aa9d4142594d28cb73768770fdcb68a4da24d8cb0742cfc",
-    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
+    "\001B0x4d404a04bf46b80721f03ad6b821c6d82312c53331d8e7425fb68100116d8b98",
+    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
+    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
+    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
     "\006\017Contract: yGift\027yyDAI+yUSDC+yUSDT+yTUSD\006Grants\006grants\aWebsite\awebsite",
     "\006\002UX\002ux\ris_coordinape\nCoordinape\016is_ygift_grant\020yGift Team Grant",
     "\001*0x0E0aF03c405E17D0e486354fe709d3294d07EC44",
@@ -59666,9 +59666,9 @@ const char * const CPyLit_Str[] = {
     "\001B0xcb79cbe5b68d04a1a3feab3360734277020ee0536380843a8c9db3e8356b81d6",
     "\001B0xca61496c32806ba34f0deb331c32969eda11c947fdd6235173e6fa13d9a1c288",
     "\001B0x5e95d5b0773eefaef9c7187d5e9187a89717d269f48e5dcf707acfe1a7e55cb9",
-    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
-    "\001B0x70cdcffa444f70754a1df2d80a1adf9c432dfe678381e05ac78ab50b9de9d393",
     "\001B0x7df5566cc9ff8ed0aafe126b74ad0e3957e62d530d007565ee32bd1303bcec32",
+    "\001B0x70cdcffa444f70754a1df2d80a1adf9c432dfe678381e05ac78ab50b9de9d393",
+    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
     "\001B0x70ecc34da6c461a0bb9dadfbc4d082a8486e742cbb454f0f67b2df384fb9bffc",
     "\001B0x4df2eee567ebf2a41b555fca3fed41300b12ff2dc3c79ffaee8b7bdf262f9303",
     "\001B0x3e045ced19590db8905d8a69c2f0fd0acd4f90301cf6356742e735cd7caa0964",
@@ -59754,26 +59754,26 @@ const char * const CPyLit_Str[] = {
     "\002+yearn_treasury.rules.other_expense.revshare\030CRV Buyer Contract (DAI)",
     "\002\003CRV\031CRV Buyer Contract (USDT)",
     "\001*0x3D71d79C224998E608d03C5Ec9B405E7a38505F0",
-    "\001B0xc945264eef9e494251bdc3c23147fa7fde7c4115f94c8feae9826bc06dd0338c",
-    "\001B0x8d7e61b2c6b4e3554258c0f383baee9afc26f60a01d5cdc4a178840f9b506cce",
-    "\001B0xd04e5b2b19b2e88d72426d08cb04a54b64d788309787caacfcdb0a4bd440503f",
-    "\001B0xcf2f0cfe8c5a1b848b57d5cebd5375335ae889f2075373e23f50a3c65a03b2b2",
-    "\001B0x3fa631fe04338ffd71d07c05d5a6d93c4f8c6bbe435a0af17bf819e43d31f8b3",
-    "\001B0x4a8a8ddbca5b4debdc298c3ed39149f8933b79b937aa71b9e8d969c5fd691865",
-    "\001B0x54e88407a9a7161bc259b1d9193a0cec8152c976cf985ccdd9ab1c23e80ce112",
-    "\001B0xe2d6420b3eae91634e6b06f4c1d2d7e25e5277f7f945c98731daccb005513f11",
-    "\001B0xc8ac7d1ec0631723846e170fb22aab5881c15ccf4fdae15dbe283cd38d782ea7",
-    "\001B0xb87eb568fb662b28b61bfb4fa477d6db59e8c5c0eb8107cb5f7aa6ad0be4292c",
-    "\001B0x2f5c5e6ba0633d097c99d0bf64e4a96f5f440c6eab2197565e83435f96473ed1",
-    "\001B0xd5b506d20d35daf583350d5f7cfbf8f827cbe78326d36dbf02bbbbede7bbb0b2",
-    "\001B0x2391a566b567528ad838169804c77b67ee9724acd174ae6d8a5ebbb715870c35",
-    "\001B0x2ebb191b54e7b2d9916d36462a211e416781a873bac630c32c5e771192410e14",
-    "\001B0x000f6a0140da4a5c70e671523c8b8406ee8353c973b700dcc575ca1f347628af",
     "\001B0xf0a946524c4b244b626bdddb9ef07051a3252dfa18caac7a8e66ec365655a15f",
+    "\001B0x000f6a0140da4a5c70e671523c8b8406ee8353c973b700dcc575ca1f347628af",
+    "\001B0xcf2f0cfe8c5a1b848b57d5cebd5375335ae889f2075373e23f50a3c65a03b2b2",
+    "\001B0x2ebb191b54e7b2d9916d36462a211e416781a873bac630c32c5e771192410e14",
+    "\001B0xc945264eef9e494251bdc3c23147fa7fde7c4115f94c8feae9826bc06dd0338c",
+    "\001B0xe2d6420b3eae91634e6b06f4c1d2d7e25e5277f7f945c98731daccb005513f11",
     "\001B0xf5aa2466338bb9d134c7a7dfe9a42aefa4348684ce2fab3ce655acf5925da8fe",
-    "\001B0x6fd9d2da32a1b5b4b9e61a1659900ebb54c45b2a6254d79d84cb8cd9fe06c474",
+    "\001B0xc8ac7d1ec0631723846e170fb22aab5881c15ccf4fdae15dbe283cd38d782ea7",
+    "\001B0x3fa631fe04338ffd71d07c05d5a6d93c4f8c6bbe435a0af17bf819e43d31f8b3",
     "\001B0x7c365f0afa683727163ee627e5cdab607be70e1c6beee3e3d0c2e35b0e366bde",
+    "\001B0x4a8a8ddbca5b4debdc298c3ed39149f8933b79b937aa71b9e8d969c5fd691865",
+    "\001B0x2391a566b567528ad838169804c77b67ee9724acd174ae6d8a5ebbb715870c35",
+    "\001B0x8d7e61b2c6b4e3554258c0f383baee9afc26f60a01d5cdc4a178840f9b506cce",
     "\001B0x2367da0c38d9c5b7fb0e422ce364ae9c8fbb74567a96f94078c58d9f9e0809ac",
+    "\001B0xb87eb568fb662b28b61bfb4fa477d6db59e8c5c0eb8107cb5f7aa6ad0be4292c",
+    "\001B0xd5b506d20d35daf583350d5f7cfbf8f827cbe78326d36dbf02bbbbede7bbb0b2",
+    "\001B0x54e88407a9a7161bc259b1d9193a0cec8152c976cf985ccdd9ab1c23e80ce112",
+    "\001B0xd04e5b2b19b2e88d72426d08cb04a54b64d788309787caacfcdb0a4bd440503f",
+    "\001B0x2f5c5e6ba0633d097c99d0bf64e4a96f5f440c6eab2197565e83435f96473ed1",
+    "\001B0x6fd9d2da32a1b5b4b9e61a1659900ebb54c45b2a6254d79d84cb8cd9fe06c474",
     "\003\rother_expense\027is_buying_crv_for_boost\027Buying CRV For Boosties",
     "\001B0x4ce0c829fb46fc1ea03e434599a68af4c6f65f80aff7e934a008c0fe63e9da3f",
     "\001B0x90b54bf0d35621160b5094c263a2684f8e7b37fc6467c8c1ce6a53e2e7acbfa1",
@@ -59819,17 +59819,17 @@ const char * const CPyLit_Str[] = {
     "\003\021is_ybudget_reward\016yBudget Reward\026is_one_yfi_for_signers",
     "\005\0211 YFI for Signers\bRevshare\brevshare\006yAudit\byLockers",
     "\001B0x038aeb3351b762bc92c5e4274c01520ae08dc314e2282ececc2a19a033d994a8",
-    "\001B0x44f7d3b2030799ea45932baf6049528a059aabd6387f3128993d646d01c8e877",
-    "\001B0xf2dbe58dffd3bc1476755e9f74e2ae07531579d0a3ea9e2aaac2ef902e080c2a",
-    "\001B0xc12ded505ea158717890e4ae6e7ab5eb5cb61edbc13dfd125dd0e6f9b1af9477",
     "\001B0x3424e8a6688c89f7974968213c8c25f3bd8100f78c54475edb001c11a8ad5d21",
-    "\001B0x4923fd32b4eacdc1617700c67176935676ca4d06bbfbb73644730c55534623db",
-    "\001B0x037a9cc5baa7d63a11d0f0720ee552bbf4ad85118ee5425220a263695fedbe9f",
-    "\001B0x327684dab9e3ce61d125b36fe0b59cbfbc8aa5ac7a5b051125ab7cac3b93b90b",
-    "\001B0xb39f2991fdc2c70b43046be3eac36bff35c21c7f66e2888a52afc3956abae451",
+    "\001B0xf2dbe58dffd3bc1476755e9f74e2ae07531579d0a3ea9e2aaac2ef902e080c2a",
     "\001B0x7c086a82b43b2f49db93b76a0698cf86a9c620b3bf924f0003175b04a17455ad",
-    "\001B0x8079e9cae847da196dc5507561bc9d1434f765f05045bc1a82df735ec83bc6ec",
+    "\001B0x327684dab9e3ce61d125b36fe0b59cbfbc8aa5ac7a5b051125ab7cac3b93b90b",
     "\001B0x5ba604cae0d355835b182fa23c8a58ae695905e69ed08c7cf8a52f3eca889484",
+    "\001B0x037a9cc5baa7d63a11d0f0720ee552bbf4ad85118ee5425220a263695fedbe9f",
+    "\001B0xb39f2991fdc2c70b43046be3eac36bff35c21c7f66e2888a52afc3956abae451",
+    "\001B0x44f7d3b2030799ea45932baf6049528a059aabd6387f3128993d646d01c8e877",
+    "\001B0x8079e9cae847da196dc5507561bc9d1434f765f05045bc1a82df735ec83bc6ec",
+    "\001B0xc12ded505ea158717890e4ae6e7ab5eb5cb61edbc13dfd125dd0e6f9b1af9477",
+    "\001B0x4923fd32b4eacdc1617700c67176935676ca4d06bbfbb73644730c55534623db",
     "\001B0xe8b5a4ebf1f04048f6226b22b2865a33621e88ea255dcea0cfd7a975a3a7e387",
     "\006\005aLEND\005aLINK\021Yearn Treasury V1\002rv\vis_contract\023ContractNotVerified",
     "\006\005vault\020block_identifier\022Contract: Strategy\brv3USDCc\005ERC20\brv3USDCb",
@@ -59890,7 +59890,7 @@ const char * const CPyLit_Bytes[] = {
     "",
 };
 const char * const CPyLit_Int[] = {
-    "\031100\0001\000-1\000200000\000222\000195\000117\000460\00098\000207\000254\000399\00089\000101\000327\000152\000357\000366\000367\00074\00075\000212\000213\00010\0009",
+    "\031100\0001\000-1\000200000\000222\000195\000117\000460\00098\000207\000254\000399\00089\000101\000327\000152\000357\000366\000367\00074\00075\000212\000213\00010\0008",
     "\022232\000556\000179\000197\000103\000214\00065\000202\000429\000430\000431\000150\0000\00083\000403\000127\000163\00072",
     "",
 };
