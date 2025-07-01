@@ -71,7 +71,15 @@
            <div itemprop="articleBody">
              
   <h1>Source code for yearn_treasury.rules.ignore.swaps.unwrapper</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ignore rules for the Unwrapper contract.</span>
+
+<span class="sd">This module defines matching logic for swaps involving the Unwrapper</span>
+<span class="sd">contract, so those transactions can be ignored from analytics and</span>
+<span class="sd">reporting.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>

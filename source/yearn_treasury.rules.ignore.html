@@ -203,6 +203,10 @@
 </section>
 <section id="module-yearn_treasury.rules.ignore.maker">
 <span id="yearn-treasury-rules-ignore-maker-module"></span><h2>yearn_treasury.rules.ignore.maker module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.maker" title="Link to this heading"></a></h2>
+<p>Ignore rules for Maker protocol.</p>
+<p>This module defines matching logic for Maker protocol transactions,
+including DAI minting/burning, DSR deposit/withdrawal, and CDP
+deposit/withdrawal for YFI and USDC.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="yearn_treasury.rules.ignore.maker.is_usdc_cdp_deposit">
 <span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.maker.</span></span><span class="sig-name descname"><span class="pre">is_usdc_cdp_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/maker.html#is_usdc_cdp_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.maker.is_usdc_cdp_deposit" title="Link to this definition"></a></dt>
@@ -431,7 +435,9 @@
 </section>
 <section id="module-yearn_treasury.rules.ignore.unit">
 <span id="yearn-treasury-rules-ignore-unit-module"></span><h2>yearn_treasury.rules.ignore.unit module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.unit" title="Link to this heading"></a></h2>
-<p>This submodule contains sort rules related to Unit.xyz protocol</p>
+<p>Ignore rules for Unit.xyz protocol.</p>
+<p>This module defines matching logic for Unit.xyz protocol transactions,
+so they can be ignored in analytics and reporting.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="yearn_treasury.rules.ignore.unit.is_burning_usdp">
 <span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.unit.</span></span><span class="sig-name descname"><span class="pre">is_burning_usdp</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/unit.html#is_burning_usdp"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.unit.is_burning_usdp" title="Link to this definition"></a></dt>
@@ -487,6 +493,10 @@
 </section>
 <section id="module-yearn_treasury.rules.ignore.weth">
 <span id="yearn-treasury-rules-ignore-weth-module"></span><h2>yearn_treasury.rules.ignore.weth module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.weth" title="Link to this heading"></a></h2>
+<p>Ignore rules for WETH minting and burning.</p>
+<p>This module defines matching logic for WETH minting and burning
+transactions, so those transactions can be ignored in analytics
+and reporting.</p>
 <dl class="py function">
 <dt class="sig sig-object py" id="yearn_treasury.rules.ignore.weth.is_weth">
 <span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.weth.</span></span><span class="sig-name descname"><span class="pre">is_weth</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/weth.html#is_weth"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.weth.is_weth" title="Link to this definition"></a></dt>
