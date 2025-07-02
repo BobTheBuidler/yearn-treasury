@@ -1,3 +1,10 @@
+"""
+Expense rules for infrastructure payments.
+
+This module defines matching logic for infrastructure-related expenses,
+including Tenderly, Wonderland Jobs, and generic infra payments.
+"""
+
 from typing import Final
 
 from dao_treasury import TreasuryTx, expense

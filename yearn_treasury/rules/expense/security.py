@@ -1,3 +1,11 @@
+"""
+Expense rules for security, audits, and bug bounties.
+
+This module defines matching logic for security-related expenses,
+including audits (yAcademy, ChainSec, StateMind, MixBytes, unspecified),
+bug bounties, and other security-related deliverables.
+"""
+
 from typing import Final
 
 from dao_treasury import TreasuryTx, expense

@@ -1,3 +1,11 @@
+"""
+Gas cost rules for Yearn Treasury.
+
+This module defines rules and matching logic for classifying gas-related
+transactions as cost of revenue. It includes logic for multisig
+reimbursements, strategist gas, returned gas, and more.
+"""
+
 # mypy: disable-error-code="call-overload"
 from typing import Final, Set
 
