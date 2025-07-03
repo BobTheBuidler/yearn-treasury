@@ -1,3 +1,11 @@
+"""
+Budget request data model for Yearn Treasury.
+
+This module defines the BudgetRequest dataclass, which models a single
+budget request and its state. It provides methods for checking approval,
+rejection, streaming, vesting, and payment status.
+"""
+
 from dataclasses import dataclass
 from logging import getLogger
 from typing import Final, Optional, Set, final

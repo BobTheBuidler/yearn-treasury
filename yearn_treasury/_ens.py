@@ -1,3 +1,17 @@
+"""
+ENS resolver and event topic utilities for Yearn Treasury.
+
+This module defines the ENS resolver contract and event topic set
+used for dynamic vault discovery and event processing. It supports
+vault mapping and analytics by enabling on-chain lookups and event
+filtering for Yearn vaults.
+
+Key Responsibilities:
+    - Provide the ENS resolver contract for vault registry lookups.
+    - Construct event topic sets for AddressChanged events.
+    - Used by vault discovery, analytics, and reporting modules.
+"""
+
 from typing import Final
 
 from brownie import web3
