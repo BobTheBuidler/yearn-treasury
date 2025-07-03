@@ -71,7 +71,14 @@
            <div itemprop="articleBody">
              
   <h1>Source code for yearn_treasury.rules.ignore.swaps.pooltogether</h1><div class="highlight"><pre>
-<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ignore rules for PoolTogether protocol transactions.</span>
+
+<span class="sd">This module defines matching logic for PoolTogether deposits swaps,</span>
+<span class="sd">as they can be safely ignored in analytics and reporting.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZERO_ADDRESS</span>
