@@ -1,3 +1,11 @@
+"""
+Other expense rules for donations in Yearn Treasury.
+
+This module defines matching logic for donation transactions,
+including Gitcoin matching rounds, 4626 Alliance, Vyper Compiler
+Audit Contest, Warroom Games, and more.
+"""
+
 from typing import Final
 
 from dao_treasury import TreasuryTx, other_expense

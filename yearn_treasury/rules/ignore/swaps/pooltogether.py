@@ -1,3 +1,10 @@
+"""
+Ignore rules for PoolTogether protocol transactions.
+
+This module defines matching logic for PoolTogether deposits swaps,
+as they can be safely ignored in analytics and reporting.
+"""
+
 from dao_treasury import TreasuryTx
 from y import Network
 

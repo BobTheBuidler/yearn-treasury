@@ -1,3 +1,17 @@
+"""
+Vault discovery and tracking utilities for Yearn Treasury.
+
+This module discovers Yearn vault contracts and maps them to their
+underlying assets using Yearn's on-chain registry contracts. It
+provides dictionaries for v1 and v2 vaults, supporting transaction
+classification, analytics, and reporting across the Yearn Treasury
+system.
+
+Key Responsibilities:
+    - Discover and map all v1 and v2 vault contracts to underlying assets at startup.
+    - Provide lookup tables for use in vault deposit/withdrawal sort rules.
+"""
+
 from typing import Dict, Final, List
 
 from brownie import chain

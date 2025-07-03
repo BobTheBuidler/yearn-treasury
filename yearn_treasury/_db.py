@@ -1,3 +1,16 @@
+"""
+Database labeling utility for Yearn Treasury.
+
+This module provides a helper function to set up address nicknames
+in the database, mapping key Yearn Treasury addresses to human-readable
+labels. It is used during database preparation to ensure that wallet
+addresses are clearly labeled in analytics and reporting.
+
+When Yearn Treasury is imported, this module maps important addresses
+to descriptive nicknames within the DAO Treasury database entity system
+for improved data clarity and prettification of reports.
+"""
+
 # mypy: disable-error-code="arg-type"
 from dao_treasury.db import Address
 from y import Network

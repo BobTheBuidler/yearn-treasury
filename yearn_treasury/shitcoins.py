@@ -1,3 +1,17 @@
+"""
+List of "shitcoins" (but like, actual shit shitcoins) to ignore in all
+Yearn Treasury analytics.
+
+This module defines, for each blockchain network, a set of token addresses
+known to be unpricable, considered as spam, or otherwise unwanted for
+reporting and analytics. These tokens are passed in to :mod:`eth-portfolio`,
+which contains the logic that prevents these shitcoins from being included in
+any Yearn Treasury outputs.
+
+Since these tokens do nothing but add noise to the outputs, transactions
+involving them are excluded from portfolio calculations, reports, and dashboards.
+"""
+
 from y import Network, convert
 from y.constants import CHAINID
 

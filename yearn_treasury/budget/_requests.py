@@ -1,3 +1,11 @@
+"""
+Budget request ingestion and filtering for Yearn Treasury.
+
+This module fetches budget requests from GitHub, parses them into
+BudgetRequest objects, and provides lists of approved and rejected
+requests.
+"""
+
 import os
 from requests import get
 from typing import Final, List

@@ -1,3 +1,11 @@
+"""
+Other expense rules for miscellaneous cases in Yearn Treasury.
+
+This module defines matching logic for miscellaneous other expenses.
+If it doesn't really fit anywhere else in :mod:`~other_expenses`,
+it will end up in here.
+"""
+
 from dao_treasury import TreasuryTx, other_expense
 from y import Network
 
