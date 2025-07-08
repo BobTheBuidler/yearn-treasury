@@ -20,6 +20,7 @@ else:
             "yearn_treasury/rules/ignore/swaps/synthetix.py",
             "yearn_treasury/rules/ignore/swaps/unwrapper.py",
             "yearn_treasury/rules/ignore/swaps/vaults.py",
+            "yearn_treasury/rules/ignore/swaps/woofy.py",
             # NOTE: disabled until new brownie release with fixed type hints
             # "yearn_treasury/rules/ignore/swaps/yfi.py",
             "yearn_treasury/rules/ignore/swaps/yla.py",

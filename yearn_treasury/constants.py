@@ -59,6 +59,14 @@ TREASURY_WALLETS: Final = {
 }
 
 
+YFI: Final = {
+    Network.Mainnet: "0x0bc529c00C6401aEF6D220BE8C6Ea1667F6Ad93e",
+    Network.Fantom: "0x29b0Da86e484E1C0029B56e817912d778aC0EC69",
+    Network.Arbitrum: "0x82e3A8F066a6989666b031d916c43672085b1582",
+    Network.Polygon: "0xDA537104D6A5edd53c6fBba9A898708E465260b6",
+}.get(CHAINID, None)  # type: ignore [call-overload]
+
+
 class Args:
     wallets: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "wallets.yaml"
     # TODO: update dashboard def to use this label (we will need to migrate the provisioning files to yearn-treasury but we need to do this anyway for yearn-specific additions)
