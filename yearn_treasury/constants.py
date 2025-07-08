@@ -64,7 +64,9 @@ YFI: Final = {
     Network.Fantom: "0x29b0Da86e484E1C0029B56e817912d778aC0EC69",
     Network.Arbitrum: "0x82e3A8F066a6989666b031d916c43672085b1582",
     Network.Polygon: "0xDA537104D6A5edd53c6fBba9A898708E465260b6",
-}.get(CHAINID, None)  # type: ignore [call-overload]
+}.get(
+    CHAINID, None
+)  # type: ignore [call-overload]
 
 
 class Args:

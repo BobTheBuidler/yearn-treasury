@@ -19,10 +19,10 @@ WOOFY_SCALE: Final = Decimal(10**12)
 def is_woofy(tx: TreasuryTx) -> bool:
     """
     Returns True if the tx involved wrapping or unwrapping WOOFY.
-    
+
     https://docs.yearn.fi/resources/deprecated/woofy
     """
-    
+
     # Wrapping, YFI side
     if tx.to_address == WOOFY and tx.symbol == "YFI":
         # Check for WOOFY transfer
@@ -30,7 +30,11 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != WOOFY:
                 continue
             sender, receiver, amount = transfer.values()
-            if sender == ZERO_ADDRESS and tx.from_address == receiver and Decimal(amount) / YFI_SCALE == tx.amount:
+            if (
+                sender == ZERO_ADDRESS
+                and tx.from_address == receiver
+                and Decimal(amount) / YFI_SCALE == tx.amount
+            ):
                 return True
 
     # Wrapping, WOOFY side
@@ -40,9 +44,13 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != YFI:
                 continue
             sender, receiver, amount = transfer.values()
-            if receiver == WOOFY and tx.to_address == sender and Decimal(amount) / WOOFY_SCALE == tx.amount:
+            if (
+                receiver == WOOFY
+                and tx.to_address == sender
+                and Decimal(amount) / WOOFY_SCALE == tx.amount
+            ):
                 return True
-    
+
     # Unwrapping, YFI side
     elif tx.from_address == WOOFY and tx.symbol == "YFI":
         # Check for WOOFY transfer
@@ -50,7 +58,11 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != WOOFY:
                 continue
             sender, receiver, amount = transfer.values()
-            if tx.to_address == sender and receiver == ZERO_ADDRESS and Decimal(amount) / YFI_SCALE == tx.amount:
+            if (
+                tx.to_address == sender
+                and receiver == ZERO_ADDRESS
+                and Decimal(amount) / YFI_SCALE == tx.amount
+            ):
                 return True
 
     # Unwrapping, WOOFY side
@@ -60,6 +72,10 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != YFI:
                 continue
             sender, receiver, amount = transfer.values()
-            if sender == WOOFY and tx.from_address == receiver and Decimal(amount) / WOOFY_SCALE == tx.amount:
+            if (
+                sender == WOOFY
+                and tx.from_address == receiver
+                and Decimal(amount) / WOOFY_SCALE == tx.amount
+            ):
                 return True
     return False

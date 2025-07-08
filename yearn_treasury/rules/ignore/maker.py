@@ -42,7 +42,9 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
                 # TODO: remove this rounding once we move to postgres
                 if Decimal(event["wad"]) / 10**18 == tx.amount:
                     return True
-                print(f"yfi cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
+                print(
+                    f"yfi cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
+                )
     return False
 
 
@@ -56,7 +58,9 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
                 # TODO: remove this rounding once we move to postgres
                 if Decimal(event["wad"]) / 10**18 == tx.amount:
                     return True
-                print(f"yfi cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
+                print(
+                    f"yfi cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
+                )
     return False
 
 
@@ -69,7 +73,9 @@ def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
             if all(arg in event for arg in DEPOSIT_EVENT_ARGS):
                 if Decimal(event["wad"]) / 10**18 == tx.amount:
                     return True
-                print(f"usdc cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
+                print(
+                    f"usdc cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
+                )
     return False
 
 
@@ -82,5 +88,7 @@ def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
             if all(arg in event for arg in WITHDRAWAL_EVENT_ARGS):
                 if Decimal(event["wad"]) / 10**18 == tx.amount:
                     return True
-                print(f"usdc cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
+                print(
+                    f"usdc cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
+                )
     return False
