@@ -95,12 +95,16 @@ def main() -> None:
     Raises:
         RuntimeError: If the Brownie network cannot be determined.
     """
+    import dao_treasury.db
     import eth_portfolio
 
     from . import constants, rules, shitcoins
 
     # Merge local SHITCOINS into eth_portfolio's config to skip tokens we don't care about
     eth_portfolio.SHITCOINS[constants.CHAINID].update(shitcoins.SHITCOINS)  # type: ignore [index]
+
+    # Drop any shitcoin txs that might be in the db
+    dao_treasury.db._drop_shitcoin_txs()
 
     @final
     class Args(constants.Args):
