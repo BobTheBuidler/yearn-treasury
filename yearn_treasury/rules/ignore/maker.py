@@ -38,11 +38,11 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
         tx.from_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("slip"):
-            if (
-                all(arg in event for arg in DEPOSIT_EVENT_ARGS)
-                and Decimal(event["wad"]) / 10**18 == tx.amount
-            ):
-                return True
+            if all(arg in event for arg in DEPOSIT_EVENT_ARGS):
+                # TODO: remove this rounding once we move to postgres
+                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                    return True
+                print(f"yfi cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
     return False
 
 
@@ -52,37 +52,35 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
         tx.to_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("flux"):
-            if (
-                all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
-                and Decimal(event["wad"]) / 10**18 == tx.amount
-            ):
-                return True
+            if all(arg in event for arg in WITHDRAWAL_EVENT_ARGS):
+                # TODO: remove this rounding once we move to postgres
+                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                    return True
+                print(f"yfi cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
     return False
 
 
 @cdp("USDC Deposit")
 def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
-    if tx.symbol == "USDC" and TreasuryWallet._get_instance(
-        tx.from_address.address  # type: ignore [union-attr, arg-type]
+    if tx.symbol == "USDC" and TreasuryWallet.check_membership(
+        tx.from_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("slip"):
-            if (
-                all(arg in event for arg in DEPOSIT_EVENT_ARGS)
-                and Decimal(event["wad"]) / 10**18 == tx.amount
-            ):
-                return True
+            if all(arg in event for arg in DEPOSIT_EVENT_ARGS):
+                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                    return True
+                print(f"usdc cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
     return False
 
 
 @cdp("USDC Withdrawal")
 def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
-    if tx.symbol == "USDC" and TreasuryWallet._get_instance(
-        tx.to_address.address  # type: ignore [union-attr, arg-type]
+    if tx.symbol == "USDC" and TreasuryWallet.check_membership(
+        tx.to_address.address, tx.block  # type: ignore [union-attr, arg-type]
     ):
         for event in tx.get_events("flux"):
-            if (
-                all(arg in event for arg in WITHDRAWAL_EVENT_ARGS)
-                and Decimal(event["wad"]) / 10**18 == tx.amount
-            ):
-                return True
+            if all(arg in event for arg in WITHDRAWAL_EVENT_ARGS):
+                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                    return True
+                print(f"usdc cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}")
     return False
