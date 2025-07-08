@@ -17,7 +17,11 @@ WOOFY_SCALE: Final = Decimal(10**12)
 
 @swaps("WOOFY", Network.Mainnet)
 def is_woofy(tx: TreasuryTx) -> bool:
-    """ Returns True if the tx involved wrapping or unwrapping WOOFY. """
+    """
+    Returns True if the tx involved wrapping or unwrapping WOOFY.
+    
+    https://docs.yearn.fi/resources/deprecated/woofy
+    """
     
     # Wrapping, YFI side
     if tx.to_address == WOOFY and tx.symbol == "YFI":
