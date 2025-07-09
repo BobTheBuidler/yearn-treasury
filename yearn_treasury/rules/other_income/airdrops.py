@@ -6,7 +6,10 @@ from y import Network
 
 airdrop: Final = other_income("Airdrop")
 
-_SAFE_AIRDROP_CONTRACTS: Final = "0xA0b937D5c8E32a80E3a8ed4227CD020221544ee6", "0xC0fde70A65C7569Fe919bE57492228DEE8cDb585"
+_SAFE_AIRDROP_CONTRACTS: Final = (
+    "0xA0b937D5c8E32a80E3a8ed4227CD020221544ee6",
+    "0xC0fde70A65C7569Fe919bE57492228DEE8cDb585",
+)
 
 
 @airdrop("SAFE", Network.Mainnet)
