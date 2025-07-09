@@ -174,22 +174,22 @@ def is_cowswap_migration(tx: TreasuryTx) -> bool:
 
 
 def is_curve_bribe(tx: TreasuryTx) -> bool:
-    """ All present and future curve bribes are committed to yveCRV holders. """
+    """All present and future curve bribes are committed to yveCRV holders."""
     from_nickname = tx.from_nickname
-    if (
-        from_nickname == "Contract: CurveYCRVVoter"
-        and tx.hash not in [
-            # took place before bribes were committed to yveCRV
-            "0x6824345c8a0c1f0b801d8050bb6f587032c4a9fa153faa113d723a2068d844f4",
-            # was a whitehat hack of the v1 bribe contract, necessary to safeguard user funds
-            "0xfcef3911809770fe351b2b526e4ee0274589a3f7d6ef9408a8f5643fa006b771",
-        ]
-    ):
+    if from_nickname == "Contract: CurveYCRVVoter" and tx.hash not in [
+        # took place before bribes were committed to yveCRV
+        "0x6824345c8a0c1f0b801d8050bb6f587032c4a9fa153faa113d723a2068d844f4",
+        # was a whitehat hack of the v1 bribe contract, necessary to safeguard user funds
+        "0xfcef3911809770fe351b2b526e4ee0274589a3f7d6ef9408a8f5643fa006b771",
+    ]:
         return True
-        
+
     # Bribe V3
-    elif from_nickname == "Contract: yBribe" and tx.to_nickname in ["Yearn Treasury", "ySwap Multisig"]:
+    elif from_nickname == "Contract: yBribe" and tx.to_nickname in [
+        "Yearn Treasury",
+        "ySwap Multisig",
+    ]:
         return True
-    
+
     # NOTE: I added this one-off to capture tokens sent to BribeSplitter 0x527e80008D212E2891C737Ba8a2768a7337D7Fd2
     return tx.hash == "0xce45da7e3a7616ed0c0d356d6dfa8a784606c9a8034bae9faa40abf7b52be114"
