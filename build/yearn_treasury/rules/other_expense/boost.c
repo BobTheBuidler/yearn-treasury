@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit_boost(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("f4259edc049d194ab89a__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("d5aee7d4e845e8a4d3c4__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___other_expense___boost");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "f4259edc049d194ab89a__mypyc.init_yearn_treasury___rules___other_expense___boost");
+    void *init_func = PyCapsule_GetPointer(capsule, "d5aee7d4e845e8a4d3c4__mypyc.init_yearn_treasury___rules___other_expense___boost");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;

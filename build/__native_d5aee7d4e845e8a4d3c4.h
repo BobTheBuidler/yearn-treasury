@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_de0b3d5d46e8d426aa59_H
-#define MYPYC_NATIVE_de0b3d5d46e8d426aa59_H
+#ifndef MYPYC_NATIVE_d5aee7d4e845e8a4d3c4_H
+#define MYPYC_NATIVE_d5aee7d4e845e8a4d3c4_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -24,6 +24,63 @@ typedef struct tuple_T2OO {
     PyObject *f0;
     PyObject *f1;
 } tuple_T2OO;
+#endif
+
+#ifndef MYPYC_DECLARED_tuple_T5IIIII
+#define MYPYC_DECLARED_tuple_T5IIIII
+typedef struct tuple_T5IIIII {
+    CPyTagged f0;
+    CPyTagged f1;
+    CPyTagged f2;
+    CPyTagged f3;
+    CPyTagged f4;
+} tuple_T5IIIII;
+#endif
+
+#ifndef MYPYC_DECLARED_tuple_T2OT5IIIII
+#define MYPYC_DECLARED_tuple_T2OT5IIIII
+typedef struct tuple_T2OT5IIIII {
+    PyObject *f0;
+    tuple_T5IIIII f1;
+} tuple_T2OT5IIIII;
+#endif
+
+#ifndef MYPYC_DECLARED_tuple_T2II
+#define MYPYC_DECLARED_tuple_T2II
+typedef struct tuple_T2II {
+    CPyTagged f0;
+    CPyTagged f1;
+} tuple_T2II;
+#endif
+
+#ifndef MYPYC_DECLARED_tuple_T2OT2II
+#define MYPYC_DECLARED_tuple_T2OT2II
+typedef struct tuple_T2OT2II {
+    PyObject *f0;
+    tuple_T2II f1;
+} tuple_T2OT2II;
+#endif
+
+#ifndef MYPYC_DECLARED_tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO
+#define MYPYC_DECLARED_tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO
+typedef struct tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO {
+    PyObject *f0;
+    PyObject *f1;
+    PyObject *f2;
+    PyObject *f3;
+    PyObject *f4;
+    PyObject *f5;
+    PyObject *f6;
+    PyObject *f7;
+    PyObject *f8;
+    tuple_T2OT5IIIII f9;
+    PyObject *f10;
+    PyObject *f11;
+    PyObject *f12;
+    tuple_T2OT2II f13;
+    PyObject *f14;
+    PyObject *f15;
+} tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO;
 #endif
 
 #ifndef MYPYC_DECLARED_tuple_T4OOOO
@@ -460,7 +517,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_de0b3d5d46e8d426aa59 {
+struct export_table_d5aee7d4e845e8a4d3c4 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -590,6 +647,9 @@ struct export_table_de0b3d5d46e8d426aa59 {
     PyObject **CPyStatic_iearn___POOL_TO_UNDERLYING;
     char (*CPyDef_iearn___is_iearn_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_iearn_____top_level__)(void);
+    PyObject **CPyStatic_otc____OTC_SWAPS;
+    char (*CPyDef_otc___is_otc_swap)(PyObject *cpy_r_tx);
+    char (*CPyDef_otc_____top_level__)(void);
     char (*CPyDef_pooltogether___is_pooltogether_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_pooltogether_____top_level__)(void);
     char (*CPyDef_synthetix___is_synthetix_swap)(PyObject *cpy_r_tx);
@@ -652,6 +712,10 @@ struct export_table_de0b3d5d46e8d426aa59 {
     char (*CPyDef_swaps___vaults___is_dolla_fed_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults___is_dola_frax_withdrawal)(PyObject *cpy_r_tx);
     char (*CPyDef_swaps___vaults_____top_level__)(void);
+    PyObject **CPyStatic_woofy___YFI_SCALE;
+    PyObject **CPyStatic_woofy___WOOFY_SCALE;
+    char (*CPyDef_woofy___is_woofy)(PyObject *cpy_r_tx);
+    char (*CPyDef_woofy_____top_level__)(void);
     PyObject **CPyStatic_yla___yla;
     char (*CPyDef_yla___is_yla_deposit)(PyObject *cpy_r_tx);
     char (*CPyDef_yla___is_yla_withdrawal)(PyObject *cpy_r_tx);

@@ -1,14 +1,14 @@
 #include <Python.h>
 
 PyMODINIT_FUNC
-PyInit_infrastructure(void)
+PyInit_otc(void)
 {
     PyObject *tmp;
     if (!(tmp = PyImport_ImportModule("d5aee7d4e845e8a4d3c4__mypyc"))) return NULL;
-    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___expense___infrastructure");
+    PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___ignore___swaps___otc");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "d5aee7d4e845e8a4d3c4__mypyc.init_yearn_treasury___rules___expense___infrastructure");
+    void *init_func = PyCapsule_GetPointer(capsule, "d5aee7d4e845e8a4d3c4__mypyc.init_yearn_treasury___rules___ignore___swaps___otc");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
@@ -18,4 +18,4 @@ PyInit_infrastructure(void)
 
 // distutils sometimes spuriously tells cl to export CPyInit___init__,
 // so provide that so it chills out
-PyMODINIT_FUNC PyInit___init__(void) { return PyInit_infrastructure(); }
+PyMODINIT_FUNC PyInit___init__(void) { return PyInit_otc(); }

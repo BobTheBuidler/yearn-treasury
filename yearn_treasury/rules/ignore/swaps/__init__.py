@@ -12,6 +12,7 @@ from yearn_treasury.rules.ignore.swaps.cowswap import *
 from yearn_treasury.rules.ignore.swaps.curve import *
 from yearn_treasury.rules.ignore.swaps.gearbox import *
 from yearn_treasury.rules.ignore.swaps.iearn import *
+from yearn_treasury.rules.ignore.swaps.otc import *
 from yearn_treasury.rules.ignore.swaps.pooltogether import *
 from yearn_treasury.rules.ignore.swaps.synthetix import *
 from yearn_treasury.rules.ignore.swaps.uniswap import *

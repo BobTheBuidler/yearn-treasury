@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_de0b3d5d46e8d426aa59_H
-#define MYPYC_NATIVE_INTERNAL_de0b3d5d46e8d426aa59_H
+#ifndef MYPYC_NATIVE_INTERNAL_d5aee7d4e845e8a4d3c4_H
+#define MYPYC_NATIVE_INTERNAL_d5aee7d4e845e8a4d3c4_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_de0b3d5d46e8d426aa59.h"
+#include "__native_d5aee7d4e845e8a4d3c4.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[811];
+extern PyObject *CPyStatics[836];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -70,6 +70,9 @@ extern PyObject *CPyStatic_gearbox___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___iearn_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___iearn;
 extern PyObject *CPyStatic_iearn___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___otc_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___otc;
+extern PyObject *CPyStatic_otc___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___pooltogether;
 extern PyObject *CPyStatic_pooltogether___globals;
@@ -85,6 +88,10 @@ extern PyObject *CPyStatic_swaps___vaults___globals;
 extern CPyModule *CPyModule_y___prices___yearn;
 extern CPyModule *CPyModule_yearn_treasury___vaults_internal;
 extern CPyModule *CPyModule_yearn_treasury___vaults;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___woofy_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___woofy;
+extern PyObject *CPyStatic_woofy___globals;
+extern CPyModule *CPyModule_brownie;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla;
 extern PyObject *CPyStatic_yla___globals;
@@ -150,7 +157,6 @@ extern CPyModule *CPyModule_yearn_treasury;
 extern CPyModule *CPyModule_yearn_treasury____ens_internal;
 extern CPyModule *CPyModule_yearn_treasury____ens;
 extern PyObject *CPyStatic__ens___globals;
-extern CPyModule *CPyModule_brownie;
 extern CPyModule *CPyModule_web3____utils___abi;
 extern CPyModule *CPyModule_web3____utils___events;
 extern PyObject *CPyStatic_yearn_treasury___vaults___globals;
@@ -355,6 +361,10 @@ extern PyObject *CPyStatic_iearn___POOL_TO_UNDERLYING;
 extern char CPyDef_iearn___is_iearn_withdrawal(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_iearn___is_iearn_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_iearn_____top_level__(void);
+extern PyObject *CPyStatic_otc____OTC_SWAPS;
+extern char CPyDef_otc___is_otc_swap(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_otc___is_otc_swap(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_otc_____top_level__(void);
 extern char CPyDef_pooltogether___is_pooltogether_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_pooltogether___is_pooltogether_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_pooltogether_____top_level__(void);
@@ -455,6 +465,11 @@ extern PyObject *CPyPy_swaps___vaults___is_dolla_fed_withdrawal(PyObject *self, 
 extern char CPyDef_swaps___vaults___is_dola_frax_withdrawal(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_swaps___vaults___is_dola_frax_withdrawal(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_swaps___vaults_____top_level__(void);
+extern PyObject *CPyStatic_woofy___YFI_SCALE;
+extern PyObject *CPyStatic_woofy___WOOFY_SCALE;
+extern char CPyDef_woofy___is_woofy(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_woofy___is_woofy(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_woofy_____top_level__(void);
 extern PyObject *CPyStatic_yla___yla;
 extern char CPyDef_yla___is_yla_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_yla___is_yla_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
