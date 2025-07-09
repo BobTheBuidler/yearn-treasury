@@ -562,17 +562,11 @@ extern PyObject *CPyPy_airdrops___is_safe_airdrop(PyObject *self, PyObject *cons
 extern char CPyDef_airdrops___is_airdrop(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_airdrops___is_airdrop(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_airdrops_____top_level__(void);
-extern PyObject *CPyStatic_other_income___misc___airdrop;
 extern PyObject *CPyStatic_other_income___misc____POINT_ONE;
-extern tuple_T2OO CPyStatic_other_income___misc____SAFE_AIRDROP_CONTRACTS;
 extern PyTypeObject *CPyType_other_income___misc___is_robovault_share_env;
 extern PyObject *CPyDef_other_income___misc___is_robovault_share_env(void);
 extern PyTypeObject *CPyType_other_income___misc___is_robovault_share_gen;
 extern PyObject *CPyDef_other_income___misc___is_robovault_share_gen(void);
-extern char CPyDef_other_income___misc___is_safe_airdrop(PyObject *cpy_r_tx);
-extern PyObject *CPyPy_other_income___misc___is_safe_airdrop(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
-extern char CPyDef_other_income___misc___is_airdrop(PyObject *cpy_r_tx);
-extern PyObject *CPyPy_other_income___misc___is_airdrop(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_other_income___misc___is_atoken_yield(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_other_income___misc___is_atoken_yield(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern PyObject *CPyDef_other_income___misc___is_robovault_share_gen_____mypyc_generator_helper__(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
