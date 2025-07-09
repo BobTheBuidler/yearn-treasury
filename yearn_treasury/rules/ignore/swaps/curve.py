@@ -84,7 +84,12 @@ async def is_curve_withdrawal(tx: TreasuryTx) -> bool:
     return (
         _is_curve_withdrawal_one(tx)
         or await _is_curve_withdrawal_multi(tx)
-        # or tx in curve_withdrawal_hashes
+        or (
+            CHAINID == Network.Mainnet and tx.hash in (
+                # This was a one-off withdrawal from a special pool 0x5756bbdDC03DaB01a3900F01Fb15641C3bfcc457
+                "0xe4f7c8566944202faed1d1e190e400e7bdf8592e65803b09510584ca5284d174",
+            )
+        )
     )
 
 
