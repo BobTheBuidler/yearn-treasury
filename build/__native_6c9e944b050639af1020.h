@@ -772,15 +772,11 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_airdrops___is_safe_airdrop)(PyObject *cpy_r_tx);
     char (*CPyDef_airdrops___is_airdrop)(PyObject *cpy_r_tx);
     char (*CPyDef_airdrops_____top_level__)(void);
-    PyObject **CPyStatic_other_income___misc___airdrop;
     PyObject **CPyStatic_other_income___misc____POINT_ONE;
-    tuple_T2OO *CPyStatic_other_income___misc____SAFE_AIRDROP_CONTRACTS;
     PyTypeObject **CPyType_other_income___misc___is_robovault_share_env;
     PyObject *(*CPyDef_other_income___misc___is_robovault_share_env)(void);
     PyTypeObject **CPyType_other_income___misc___is_robovault_share_gen;
     PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen)(void);
-    char (*CPyDef_other_income___misc___is_safe_airdrop)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___misc___is_airdrop)(PyObject *cpy_r_tx);
     char (*CPyDef_other_income___misc___is_atoken_yield)(PyObject *cpy_r_tx);
     PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
     PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____next__)(PyObject *cpy_r___mypyc_self__);
