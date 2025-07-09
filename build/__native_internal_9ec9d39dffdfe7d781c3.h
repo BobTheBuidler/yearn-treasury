@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_d5aee7d4e845e8a4d3c4_H
-#define MYPYC_NATIVE_INTERNAL_d5aee7d4e845e8a4d3c4_H
+#ifndef MYPYC_NATIVE_INTERNAL_9ec9d39dffdfe7d781c3_H
+#define MYPYC_NATIVE_INTERNAL_9ec9d39dffdfe7d781c3_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_d5aee7d4e845e8a4d3c4.h"
+#include "__native_9ec9d39dffdfe7d781c3.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[836];
+extern PyObject *CPyStatics[846];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -56,6 +56,10 @@ extern CPyModule *CPyModule_decimal;
 extern PyObject *CPyStatic_infrastructure___globals;
 extern PyObject *CPyStatic_people___globals;
 extern PyObject *CPyStatic_security___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___conversion_factory_internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___conversion_factory;
+extern PyObject *CPyStatic_conversion_factory___globals;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___curve_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___curve;
 extern PyObject *CPyStatic_curve___globals;
@@ -63,7 +67,6 @@ extern CPyModule *CPyModule_async_lru;
 extern CPyModule *CPyModule_brownie___exceptions;
 extern CPyModule *CPyModule_brownie___network___event;
 extern CPyModule *CPyModule_yearn_treasury___constants;
-extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox_internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox;
 extern PyObject *CPyStatic_gearbox___globals;
@@ -222,6 +225,9 @@ extern PyObject *CPyPy_security___is_bug_bounty(PyObject *self, PyObject *const 
 extern char CPyDef_security___is_warroom_help(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_warroom_help(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security_____top_level__(void);
+extern char CPyDef_conversion_factory___is_conversion_factory(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_conversion_factory___is_conversion_factory(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_conversion_factory_____top_level__(void);
 extern PyObject *CPyStatic_curve___curve;
 extern PyTypeObject *CPyType_curve____get_lp_token_env;
 extern PyObject *CPyDef_curve____get_lp_token_env(void);

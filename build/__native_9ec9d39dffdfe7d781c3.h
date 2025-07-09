@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_d5aee7d4e845e8a4d3c4_H
-#define MYPYC_NATIVE_d5aee7d4e845e8a4d3c4_H
+#ifndef MYPYC_NATIVE_9ec9d39dffdfe7d781c3_H
+#define MYPYC_NATIVE_9ec9d39dffdfe7d781c3_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -517,7 +517,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_d5aee7d4e845e8a4d3c4 {
+struct export_table_9ec9d39dffdfe7d781c3 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -562,6 +562,8 @@ struct export_table_d5aee7d4e845e8a4d3c4 {
     char (*CPyDef_security___is_bug_bounty)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_warroom_help)(PyObject *cpy_r_tx);
     char (*CPyDef_security_____top_level__)(void);
+    char (*CPyDef_conversion_factory___is_conversion_factory)(PyObject *cpy_r_tx);
+    char (*CPyDef_conversion_factory_____top_level__)(void);
     PyObject **CPyStatic_curve___curve;
     PyTypeObject **CPyType_curve____get_lp_token_env;
     PyObject *(*CPyDef_curve____get_lp_token_env)(void);
