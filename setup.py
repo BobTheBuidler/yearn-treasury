@@ -16,6 +16,7 @@ else:
             "yearn_treasury/rules/ignore/swaps/curve.py",
             "yearn_treasury/rules/ignore/swaps/gearbox.py",
             "yearn_treasury/rules/ignore/swaps/iearn.py",
+            "yearn_treasury/rules/ignore/swaps/otc.py",
             "yearn_treasury/rules/ignore/swaps/pooltogether.py",
             "yearn_treasury/rules/ignore/swaps/synthetix.py",
             "yearn_treasury/rules/ignore/swaps/unwrapper.py",
