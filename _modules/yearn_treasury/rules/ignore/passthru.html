@@ -268,6 +268,15 @@
         <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span><span class="p">,</span> <span class="p">()</span>
     <span class="p">)</span></div>
 
+
+
+<div class="viewcode-block" id="is_cowswap_migration">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_cowswap_migration">[docs]</a>
+<span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;CowSwap Migration&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_cowswap_migration</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;A one-time tx that transferred tokens from an old contract to its replacement.&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xb50341d3db2ff4a39b9bfa21753893035554ae44abb7d104ab650753db1c4855&quot;</span></div>
+
 </pre></div>
 
            </div>
