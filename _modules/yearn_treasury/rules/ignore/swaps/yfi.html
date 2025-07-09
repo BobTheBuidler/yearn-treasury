@@ -74,8 +74,9 @@
 <span></span><span class="kn">import</span><span class="w"> </span><span class="nn">decimal</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
 
+<span class="kn">from</span><span class="w"> </span><span class="nn">brownie.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventLookupError</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">WRAPPED_GAS_COIN</span><span class="p">,</span> <span class="n">Network</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">YCHAD_MULTISIG</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>
@@ -88,6 +89,10 @@
     <span class="s2">&quot;0x6903223578806940bd3ff0C51f87aa43968424c8&quot;</span><span class="p">,</span>  <span class="c1"># buys YFI for DAI at the current chainlink price. Can be funded via llamapay stream.</span>
 <span class="p">)</span>
 <span class="sd">&quot;&quot;&quot;These contracts, now retired, previously were used to purchase YFI for DAI at the current chainlink market price.&quot;&quot;&quot;</span>
+
+
+<span class="n">YFI_BUYBACK_AUCTIONS</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="s2">&quot;0x4349ed200029e6Cf38F1455B9dA88981F1806df3&quot;</span>
+
 
 <span class="n">Decimal</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">decimal</span><span class="o">.</span><span class="n">Decimal</span>
 
@@ -134,6 +139,45 @@
                     <span class="sa">f</span><span class="s2">&quot;from node: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="si">}</span><span class="s2"> from db: </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2"> diff: </span><span class="si">{</span><span class="n">buyback_amount</span><span class="w"> </span><span class="o">-</span><span class="w"> </span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">&quot;</span>
                 <span class="p">)</span>
                 <span class="c1"># raise ValueError(f&#39;from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}&#39;)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_buying_with_auction">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_auction">[docs]</a>
+<span class="nd">@buying_yfi</span><span class="p">(</span><span class="s2">&quot;Buyback Auction&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_buying_with_auction</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">try</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">!=</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">!=</span> <span class="n">YCHAD_MULTISIG</span> <span class="ow">or</span> <span class="s2">&quot;AuctionTaken&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="n">EventLookupError</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+        <span class="c1"># TODO: diagnose and fix this, pretty sure it&#39;s in eth-event</span>
+        <span class="k">if</span> <span class="s2">&quot;components&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
+            <span class="k">raise</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="n">auctions_taken</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;AuctionTaken&quot;</span><span class="p">)</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">auctions_taken</span><span class="p">)</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">auctions_taken</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">1</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">NotImplementedError</span><span class="p">(</span><span class="s2">&quot;we need new code to handle this case&quot;</span><span class="p">)</span>
+    <span class="n">event</span> <span class="o">=</span> <span class="n">auctions_taken</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+    <span class="k">if</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">!=</span> <span class="n">YFI_BUYBACK_AUCTIONS</span><span class="p">:</span>  <span class="c1"># type: ignore [attr-defined]</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">event</span><span class="p">)</span>  <span class="c1"># type: ignore [attr-defined]</span>
+    <span class="c1"># did the auction contract send weth to tx.sender?</span>
+    <span class="k">for</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Transfer&quot;</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">WRAPPED_GAS_COIN</span><span class="p">:</span>
+            <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">amount</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="n">sender</span> <span class="o">!=</span> <span class="n">YFI_BUYBACK_AUCTIONS</span><span class="p">:</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">!=</span> <span class="n">receiver</span><span class="p">:</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Transfer does not match auction taker:  taker=</span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="si">}</span><span class="s2">  transfer=</span><span class="si">{</span><span class="n">receiver</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr]</span>
+                <span class="k">continue</span>
+            <span class="k">if</span> <span class="n">amount</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;taken&quot;</span><span class="p">]:</span>  <span class="c1"># type: ignore [call-overload]</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AuctionTaken: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2"> amount does not match Transfer: </span><span class="si">{</span><span class="n">transfer</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">False</span></div>
 
 </pre></div>
