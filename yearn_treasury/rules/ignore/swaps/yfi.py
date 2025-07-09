@@ -1,8 +1,9 @@
 import decimal
 from typing import Final
 
+from brownie.exceptions import EventLookupError
 from dao_treasury import TreasuryTx
-from y import Network
+from y import WRAPPED_GAS_COIN, Network
 
 from yearn_treasury.constants import YCHAD_MULTISIG
 from yearn_treasury.rules.ignore.swaps import swaps
@@ -15,6 +16,10 @@ VYPER_BUYERS: Final = (
     "0x6903223578806940bd3ff0C51f87aa43968424c8",  # buys YFI for DAI at the current chainlink price. Can be funded via llamapay stream.
 )
 """These contracts, now retired, previously were used to purchase YFI for DAI at the current chainlink market price."""
+
+
+YFI_BUYBACK_AUCTIONS: Final = "0x4349ed200029e6Cf38F1455B9dA88981F1806df3"
+
 
 Decimal: Final = decimal.Decimal
 
@@ -56,4 +61,40 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
                     f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
                 )
                 # raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
+    return False
+
+
+@buying_yfi("Buyback Auction", Network.Mainnet)
+def is_buying_with_auction(tx: TreasuryTx) -> bool:
+    try:
+        if tx.symbol != 'YFI' or tx.to_address != YCHAD_MULTISIG or "AuctionTaken" not in tx.events:
+            return False
+    except EventLookupError:
+        return False
+    except KeyError as e:
+        # TODO: diagnose and fix this, pretty sure it's in eth-event
+        if "components" not in str(e):
+            raise
+        return False
+    
+    auctions_taken = tx.get_events('AuctionTaken')
+    if len(auctions_taken) == 0:
+        return False
+    if len(auctions_taken) > 1:
+        raise NotImplementedError("we need new code to handle this case")
+    event = auctions_taken[0]
+    if event.address != YFI_BUYBACK_AUCTIONS:  # type: ignore [attr-defined]
+        raise ValueError(event.address, event)  # type: ignore [attr-defined]
+    # did the auction contract send weth to tx.sender?
+    for transfer in tx.get_events('Transfer'):
+        if transfer.address == WRAPPED_GAS_COIN:
+            sender, receiver, amount = transfer.values()
+            if sender != YFI_BUYBACK_AUCTIONS:
+                continue
+            if tx.from_address != receiver:
+                print(f"Transfer does not match auction taker:  taker={tx.from_address.address}  transfer={receiver}")  # type: ignore [union-attr]
+                continue
+            if amount == event['taken']:  # type: ignore [call-overload]
+                return True
+            print(f"AuctionTaken: {event} amount does not match Transfer: {transfer}")
     return False
