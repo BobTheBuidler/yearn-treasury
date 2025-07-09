@@ -39,3 +39,9 @@ def is_coordinape(tx: TreasuryTx) -> bool:
 def is_ygift_grant(tx: TreasuryTx) -> bool:
     """Yearn used to use yGift to send team grants but that ended up being too expensive."""
     return tx.to_nickname == "Contract: yGift" and tx.symbol == "yyDAI+yUSDC+yUSDT+yTUSD"
+
+
+@grants("Simple Vesting Escrow")
+def is_simple_vesting_escrow(tx: TreasuryTx) -> bool:
+    # TODO: amortize the streamed funds as a daily amount and sort more granularly based on BR
+    return tx.to_nickname == "Contract: Simple Vesting Escrow"
