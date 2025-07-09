@@ -277,6 +277,31 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;A one-time tx that transferred tokens from an old contract to its replacement.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xb50341d3db2ff4a39b9bfa21753893035554ae44abb7d104ab650753db1c4855&quot;</span></div>
 
+
+
+<div class="viewcode-block" id="is_curve_bribe">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_curve_bribe">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_curve_bribe</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;All present and future curve bribes are committed to yveCRV holders.&quot;&quot;&quot;</span>
+    <span class="n">from_nickname</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span>
+    <span class="k">if</span> <span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: CurveYCRVVoter&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="c1"># took place before bribes were committed to yveCRV</span>
+        <span class="s2">&quot;0x6824345c8a0c1f0b801d8050bb6f587032c4a9fa153faa113d723a2068d844f4&quot;</span><span class="p">,</span>
+        <span class="c1"># was a whitehat hack of the v1 bribe contract, necessary to safeguard user funds</span>
+        <span class="s2">&quot;0xfcef3911809770fe351b2b526e4ee0274589a3f7d6ef9408a8f5643fa006b771&quot;</span><span class="p">,</span>
+    <span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Bribe V3</span>
+    <span class="k">elif</span> <span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: yBribe&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="ow">in</span> <span class="p">[</span>
+        <span class="s2">&quot;Yearn Treasury&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;ySwap Multisig&quot;</span><span class="p">,</span>
+    <span class="p">]:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># NOTE: I added this one-off to capture tokens sent to BribeSplitter 0x527e80008D212E2891C737Ba8a2768a7337D7Fd2</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xce45da7e3a7616ed0c0d356d6dfa8a784606c9a8034bae9faa40abf7b52be114&quot;</span></div>
+
 </pre></div>
 
            </div>
