@@ -67,7 +67,7 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
 @buying_yfi("Buyback Auction", Network.Mainnet)
 def is_buying_with_auction(tx: TreasuryTx) -> bool:
     try:
-        if tx.symbol != 'YFI' or tx.to_address != YCHAD_MULTISIG or "AuctionTaken" not in tx.events:
+        if tx.symbol != "YFI" or tx.to_address != YCHAD_MULTISIG or "AuctionTaken" not in tx.events:
             return False
     except EventLookupError:
         return False
@@ -76,8 +76,8 @@ def is_buying_with_auction(tx: TreasuryTx) -> bool:
         if "components" not in str(e):
             raise
         return False
-    
-    auctions_taken = tx.get_events('AuctionTaken')
+
+    auctions_taken = tx.get_events("AuctionTaken")
     if len(auctions_taken) == 0:
         return False
     if len(auctions_taken) > 1:
@@ -86,7 +86,7 @@ def is_buying_with_auction(tx: TreasuryTx) -> bool:
     if event.address != YFI_BUYBACK_AUCTIONS:  # type: ignore [attr-defined]
         raise ValueError(event.address, event)  # type: ignore [attr-defined]
     # did the auction contract send weth to tx.sender?
-    for transfer in tx.get_events('Transfer'):
+    for transfer in tx.get_events("Transfer"):
         if transfer.address == WRAPPED_GAS_COIN:
             sender, receiver, amount = transfer.values()
             if sender != YFI_BUYBACK_AUCTIONS:
@@ -94,7 +94,7 @@ def is_buying_with_auction(tx: TreasuryTx) -> bool:
             if tx.from_address != receiver:
                 print(f"Transfer does not match auction taker:  taker={tx.from_address.address}  transfer={receiver}")  # type: ignore [union-attr]
                 continue
-            if amount == event['taken']:  # type: ignore [call-overload]
+            if amount == event["taken"]:  # type: ignore [call-overload]
                 return True
             print(f"AuctionTaken: {event} amount does not match Transfer: {transfer}")
     return False
