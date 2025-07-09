@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_9ec9d39dffdfe7d781c3_H
-#define MYPYC_NATIVE_9ec9d39dffdfe7d781c3_H
+#ifndef MYPYC_NATIVE_6c9e944b050639af1020_H
+#define MYPYC_NATIVE_6c9e944b050639af1020_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -435,19 +435,20 @@ typedef struct {
     tuple_T3OOO ___mypyc_temp__1;
     PyObject *_strat;
     tuple_T3OOO ___mypyc_temp__2;
+    PyObject *_vault;
     PyObject *___mypyc_temp__3;
     tuple_T3OOO ___mypyc_temp__4;
     PyObject *___mypyc_temp__5;
     tuple_T3OOO ___mypyc_temp__6;
     PyObject *___mypyc_temp__7;
     tuple_T3OOO ___mypyc_temp__8;
-} yearn_treasury___rules___other_income___is_robovault_share_envObject;
+} yearn_treasury___rules___other_income___misc___is_robovault_share_envObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
     PyObject *___mypyc_env__;
-} yearn_treasury___rules___other_income___is_robovault_share_genObject;
+} yearn_treasury___rules___other_income___misc___is_robovault_share_genObject;
 
 typedef struct {
     PyObject_HEAD
@@ -517,7 +518,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_9ec9d39dffdfe7d781c3 {
+struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -760,31 +761,40 @@ struct export_table_9ec9d39dffdfe7d781c3 {
     PyObject **CPyStatic_events___events;
     char (*CPyDef_events___is_eth_denver)(PyObject *cpy_r_tx);
     char (*CPyDef_events_____top_level__)(void);
-    char (*CPyDef_misc___is_ybudget_reward)(PyObject *cpy_r_tx);
-    char (*CPyDef_misc___is_one_yfi_for_signers)(PyObject *cpy_r_tx);
-    char (*CPyDef_misc_____top_level__)(void);
+    char (*CPyDef_other_expense___misc___is_ybudget_reward)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_expense___misc___is_one_yfi_for_signers)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_expense___misc_____top_level__)(void);
     PyObject **CPyStatic_revshare___revshare;
     char (*CPyDef_revshare_____top_level__)(void);
-    PyObject **CPyStatic_other_income____POINT_ONE;
-    PyTypeObject **CPyType_other_income___is_robovault_share_env;
-    PyObject *(*CPyDef_other_income___is_robovault_share_env)(void);
-    PyTypeObject **CPyType_other_income___is_robovault_share_gen;
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen)(void);
-    char (*CPyDef_other_income___is_airdrop)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___is_atoken_yield)(PyObject *cpy_r_tx);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen_____next__)(PyObject *cpy_r___mypyc_self__);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen___close)(PyObject *cpy_r___mypyc_self__);
-    PyObject *(*CPyDef_other_income___is_robovault_share_gen_____await__)(PyObject *cpy_r___mypyc_self__);
-    PyObject *(*CPyDef_other_income___is_robovault_share)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___is_cowswap_gas_reimbursement)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___is_usds_referral_code)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___is_yeth_application_fee)(PyObject *cpy_r_tx);
-    char (*CPyDef_other_income___is_yprisma_fees)(PyObject *cpy_r_tx);
     char (*CPyDef_other_income_____top_level__)(void);
+    PyObject **CPyStatic_airdrops___airdrop;
+    tuple_T2OO *CPyStatic_airdrops____SAFE_AIRDROP_CONTRACTS;
+    char (*CPyDef_airdrops___is_safe_airdrop)(PyObject *cpy_r_tx);
+    char (*CPyDef_airdrops___is_airdrop)(PyObject *cpy_r_tx);
+    char (*CPyDef_airdrops_____top_level__)(void);
+    PyObject **CPyStatic_other_income___misc___airdrop;
+    PyObject **CPyStatic_other_income___misc____POINT_ONE;
+    tuple_T2OO *CPyStatic_other_income___misc____SAFE_AIRDROP_CONTRACTS;
+    PyTypeObject **CPyType_other_income___misc___is_robovault_share_env;
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_env)(void);
+    PyTypeObject **CPyType_other_income___misc___is_robovault_share_gen;
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen)(void);
+    char (*CPyDef_other_income___misc___is_safe_airdrop)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_airdrop)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_atoken_yield)(PyObject *cpy_r_tx);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____next__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen___send)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____iter__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen___throw)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen___close)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen_____await__)(PyObject *cpy_r___mypyc_self__);
+    PyObject *(*CPyDef_other_income___misc___is_robovault_share)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_cowswap_gas_reimbursement)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_usds_referral_code)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_yeth_application_fee)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc___is_yprisma_fees)(PyObject *cpy_r_tx);
+    char (*CPyDef_other_income___misc_____top_level__)(void);
     PyObject **CPyStatic_bribes___bribes;
     char (*CPyDef_bribes___is_ycrv_bribe)(PyObject *cpy_r_tx);
     char (*CPyDef_bribes___is_ybribe_fees)(PyObject *cpy_r_tx);
