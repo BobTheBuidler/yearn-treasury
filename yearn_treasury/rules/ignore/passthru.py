@@ -169,5 +169,5 @@ def is_factory_vault_yield(tx: TreasuryTx) -> bool:
 
 @passthru("CowSwap Migration", Network.Mainnet)
 def is_cowswap_migration(tx: TreasuryTx) -> bool:
-    """ A one-time tx that transferred tokens from an old contract to its replacement. """
+    """A one-time tx that transferred tokens from an old contract to its replacement."""
     return tx.hash == "0xb50341d3db2ff4a39b9bfa21753893035554ae44abb7d104ab650753db1c4855"
