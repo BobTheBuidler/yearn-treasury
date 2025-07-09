@@ -13,6 +13,7 @@ else:
             "yearn_treasury/rules/cost_of_revenue/gas.py",
             "yearn_treasury/rules/expense",
             # "yearn_treasury/rules/ignore",
+            "yearn_treasury/rules/ignore/swaps/conversion_factory.py",
             "yearn_treasury/rules/ignore/swaps/curve.py",
             "yearn_treasury/rules/ignore/swaps/gearbox.py",
             "yearn_treasury/rules/ignore/swaps/iearn.py",
