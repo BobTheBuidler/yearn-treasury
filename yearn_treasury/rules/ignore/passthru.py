@@ -165,3 +165,9 @@ def is_factory_vault_yield(tx: TreasuryTx) -> bool:
     return tx.to_nickname == "yMechs Multisig" and tx.symbol in _factory_strat_to_yield_tokens.get(
         tx.from_nickname, ()
     )
+
+
+@passthru("CowSwap Migration", Network.Mainnet)
+def is_cowswap_migration(tx: TreasuryTx) -> bool:
+    """A one-time tx that transferred tokens from an old contract to its replacement."""
+    return tx.hash == "0xb50341d3db2ff4a39b9bfa21753893035554ae44abb7d104ab650753db1c4855"
