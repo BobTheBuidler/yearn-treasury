@@ -118,6 +118,15 @@
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;Yearn used to use yGift to send team grants but that ended up being too expensive.&quot;&quot;&quot;</span>
     <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: yGift&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yyDAI+yUSDC+yUSDT+yTUSD&quot;</span></div>
 
+
+
+<div class="viewcode-block" id="is_simple_vesting_escrow">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_simple_vesting_escrow">[docs]</a>
+<span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;Simple Vesting Escrow&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_simple_vesting_escrow</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="c1"># TODO: amortize the streamed funds as a daily amount and sort more granularly based on BR</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: Simple Vesting Escrow&quot;</span></div>
+
 </pre></div>
 
            </div>
