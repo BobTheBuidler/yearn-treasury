@@ -138,8 +138,8 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
                     # TODO: once postgres is in, remove the `round`
                     # elif amount == (scaled := token.scale_value(deposit["shares"])):
                     #     return True
-                    amount = round(amount, 10)
-                    scaled = round(token.scale_value(deposit["shares"]), 10)
+                    amount = round(amount, 9)
+                    scaled = round(token.scale_value(deposit["shares"]), 9)
                     if amount == scaled:
                         return True
                     print(f"wrong amount:  tx={amount}  event={scaled}")
