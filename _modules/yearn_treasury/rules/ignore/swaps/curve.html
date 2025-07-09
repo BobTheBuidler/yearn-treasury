@@ -177,7 +177,14 @@
     <span class="k">return</span> <span class="p">(</span>
         <span class="n">_is_curve_withdrawal_one</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
         <span class="ow">or</span> <span class="k">await</span> <span class="n">_is_curve_withdrawal_multi</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
-        <span class="c1"># or tx in curve_withdrawal_hashes</span>
+        <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">CHAINID</span> <span class="o">==</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span>
+            <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
+            <span class="ow">in</span> <span class="p">(</span>
+                <span class="c1"># This was a one-off withdrawal from a special pool 0x5756bbdDC03DaB01a3900F01Fb15641C3bfcc457</span>
+                <span class="s2">&quot;0xe4f7c8566944202faed1d1e190e400e7bdf8592e65803b09510584ca5284d174&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
     <span class="p">)</span></div>
 
 
