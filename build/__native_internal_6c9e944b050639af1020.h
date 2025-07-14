@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[856];
+extern PyObject *CPyStatics[869];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -213,6 +213,14 @@ extern char CPyDef_people___is_coordinape(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_people___is_coordinape(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_people___is_ygift_grant(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_people___is_ygift_grant(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_people___is_yhaas_trinity_ii(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_people___is_yhaas_trinity_ii(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_people___is_gteam(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_people___is_gteam(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_people___is_rantom(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_people___is_rantom(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_people___is_worms(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_people___is_worms(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_people___is_simple_vesting_escrow(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_people___is_simple_vesting_escrow(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_people_____top_level__(void);

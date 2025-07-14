@@ -552,6 +552,10 @@ struct export_table_6c9e944b050639af1020 {
     PyObject **CPyStatic_people___ux;
     char (*CPyDef_people___is_coordinape)(PyObject *cpy_r_tx);
     char (*CPyDef_people___is_ygift_grant)(PyObject *cpy_r_tx);
+    char (*CPyDef_people___is_yhaas_trinity_ii)(PyObject *cpy_r_tx);
+    char (*CPyDef_people___is_gteam)(PyObject *cpy_r_tx);
+    char (*CPyDef_people___is_rantom)(PyObject *cpy_r_tx);
+    char (*CPyDef_people___is_worms)(PyObject *cpy_r_tx);
     char (*CPyDef_people___is_simple_vesting_escrow)(PyObject *cpy_r_tx);
     char (*CPyDef_people_____top_level__)(void);
     PyObject **CPyStatic_security___security;
