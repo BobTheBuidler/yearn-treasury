@@ -190,6 +190,9 @@ async def is_uniswap_withdrawal(tx: TreasuryTx) -> bool:
     return CHAINID == Network.Mainnet and tx.hash in (
         "0xf0723677162cdf8105c0f752a8c03c53803cb9dd9a6649f3b9bc5d26822d531f",
         "0xaf1b7f138fb8bf3f5e13a680cb4a9b7983ec71a75836111c03dee6ae530db176",  # v3
+        # these use ETH not WETH so they dont match
+        "0x5b05dfd3305c471df0ad944237edc2dbb14b268f7415252de566a5ab283002af",
+        "0x46ab9b383751f612ea0de8c0c6e9fa86e7324de04b032ecb48161989b7dbdbf7",
     )
 
 
