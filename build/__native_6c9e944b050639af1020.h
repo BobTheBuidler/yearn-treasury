@@ -556,6 +556,7 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_people_____top_level__)(void);
     PyObject **CPyStatic_security___security;
     PyObject **CPyStatic_security___audits;
+    PyObject **CPyStatic_security___grants;
     char (*CPyDef_security___is_yacademy_audit)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_chainsec_audit)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_statemind_audit)(PyObject *cpy_r_tx);
@@ -563,6 +564,7 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_security___is_other_audit)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_bug_bounty)(PyObject *cpy_r_tx);
     char (*CPyDef_security___is_warroom_help)(PyObject *cpy_r_tx);
+    char (*CPyDef_security___is_ysecurity)(PyObject *cpy_r_tx);
     char (*CPyDef_security_____top_level__)(void);
     char (*CPyDef_conversion_factory___is_conversion_factory)(PyObject *cpy_r_tx);
     char (*CPyDef_conversion_factory_____top_level__)(void);
