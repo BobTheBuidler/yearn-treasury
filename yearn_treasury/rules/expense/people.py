@@ -41,6 +41,36 @@ def is_ygift_grant(tx: TreasuryTx) -> bool:
     return tx.to_nickname == "Contract: yGift" and tx.symbol == "yyDAI+yUSDC+yUSDT+yTUSD"
 
 
+# TODO: refactor all of this, there's gotta be a better way to handle yteams who have received both one-off and streamed pmnts
+@grants("yHAAS Trinity [BR#263]")
+def is_yhaas_trinity_ii(tx: TreasuryTx) -> bool:
+    """https://github.com/yearn/budget/issues/263"""
+    return tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450" and tx.to_address.address in (
+        # team
+        "0x35a83D4C1305451E0448fbCa96cAb29A7cCD0811",
+        # stream 
+        "0xEC83C8c3156e4f6b95B048066F3b308C93cb5848",
+    )
+
+
+@grants("G-Team [BR#267]")
+def is_gteam(tx: TreasuryTx) -> bool:
+    """https://github.com/yearn/budget/issues/267"""
+    return tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450" and tx.to_address == "0x63E02F93622541CfE41aFedCF96a114DB71Ba4EE"
+
+
+@grants("Rantom [BR#129]")
+def is_rantom(tx: TreasuryTx) -> bool:
+    """https://github.com/yearn/budget/issues/129"""
+    return tx.to_address == "0x254b42CaCf7290e72e2C84c0337E36E645784Ce1"
+
+
+@grants("Worms")
+def is_worms(tx: TreasuryTx) -> bool:
+    return tx.to_address == "0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc"
+
+
+# NOTE: this needs to go at the bottom because there are some streams that will already be caught by above matchers
 @grants("Simple Vesting Escrow")
 def is_simple_vesting_escrow(tx: TreasuryTx) -> bool:
     # TODO: amortize the streamed funds as a daily amount and sort more granularly based on BR
