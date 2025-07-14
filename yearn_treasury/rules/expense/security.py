@@ -14,6 +14,7 @@ from y import Network
 
 security: Final = expense("Security")
 audits: Final = security("Audits")
+grants: Final = security("Grants")
 
 
 @audits("yAcademy", Network.Mainnet)
@@ -136,3 +137,11 @@ def is_warroom_help(tx: TreasuryTx) -> bool:
         tx.hash == "0xca61496c32806ba34f0deb331c32969eda11c947fdd6235173e6fa13d9a1c288"
         and tx.log_index == 152
     )
+
+
+@grants("ySecurity", Network.Mainnet)
+def is_ysecurity(tx: TreasuryTx) -> bool:
+    """
+    https://github.com/yearn/budget/issues/145
+    """
+    return tx.to_address == "0x4851C7C7163bdF04A22C9e12Ab77e184a5dB8F0E"
