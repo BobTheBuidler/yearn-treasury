@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[853];
+extern PyObject *CPyStatics[856];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -218,6 +218,7 @@ extern PyObject *CPyPy_people___is_simple_vesting_escrow(PyObject *self, PyObjec
 extern char CPyDef_people_____top_level__(void);
 extern PyObject *CPyStatic_security___security;
 extern PyObject *CPyStatic_security___audits;
+extern PyObject *CPyStatic_security___grants;
 extern char CPyDef_security___is_yacademy_audit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_yacademy_audit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security___is_chainsec_audit(PyObject *cpy_r_tx);
@@ -232,6 +233,8 @@ extern char CPyDef_security___is_bug_bounty(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_bug_bounty(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security___is_warroom_help(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_security___is_warroom_help(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_security___is_ysecurity(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_security___is_ysecurity(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_security_____top_level__(void);
 extern char CPyDef_conversion_factory___is_conversion_factory(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_conversion_factory___is_conversion_factory(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
