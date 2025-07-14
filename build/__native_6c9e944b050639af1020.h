@@ -111,76 +111,38 @@ typedef struct {
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_pool;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__0;
     tuple_T3OOO ___mypyc_temp__1;
-} yearn_treasury___rules___ignore___swaps___curve____get_lp_token_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve____get_lp_token_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
     PyObject *_pool;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__2;
     tuple_T3OOO ___mypyc_temp__3;
     PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___ignore___swaps___curve____is_old_style_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve____is_old_style_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_pool;
     CPyTagged _index;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__4;
     tuple_T3OOO ___mypyc_temp__5;
-} yearn_treasury___rules___ignore___swaps___curve____get_coin_at_index_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve____get_coin_at_index_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *_pool;
     PyObject *___mypyc_temp__6;
     PyObject *___mypyc_temp__7;
@@ -209,44 +171,22 @@ typedef struct {
     tuple_T3OOO ___mypyc_temp__26;
     PyObject *___mypyc_temp__2_0;
     PyObject *___mypyc_temp__2_1;
-} yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__27;
     tuple_T3OOO ___mypyc_temp__28;
-} yearn_treasury___rules___ignore___swaps___curve___is_curve_withdrawal_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve___is_curve_withdrawal_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *_pool;
     PyObject *___mypyc_temp__29;
     PyObject *___mypyc_temp__30;
@@ -269,44 +209,22 @@ typedef struct {
     tuple_T3OOO ___mypyc_temp__44;
     PyObject *___mypyc_temp__2_0;
     PyObject *___mypyc_temp__2_1;
-} yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__0;
     tuple_T3OOO ___mypyc_temp__1;
-} yearn_treasury___rules___ignore___swaps___vaults___is_vault_deposit_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___vaults___is_vault_deposit_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     tuple_T3OOO ___mypyc_temp__2;
     PyObject *_e;
     PyObject *_transfer_events;
@@ -322,6 +240,7 @@ typedef struct {
     PyObject *___mypyc_temp__6;
     PyObject *_event;
     PyObject *_event_pos;
+    PyObject *_value;
     PyObject *_tx_to_address;
     PyObject *___mypyc_temp__7;
     tuple_T3OOO ___mypyc_temp__8;
@@ -341,44 +260,22 @@ typedef struct {
     PyObject *___mypyc_temp__17;
     PyObject *___mypyc_temp__18;
     PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___ignore___swaps___vaults___is_v1_or_v2_vault_deposit_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___vaults___is_v1_or_v2_vault_deposit_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_vault;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__19;
     tuple_T3OOO ___mypyc_temp__20;
-} yearn_treasury___rules___ignore___swaps___vaults____get_underlying_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___vaults____get_underlying_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *_to_address;
     tuple_T3OOO ___mypyc_temp__21;
     PyObject *_e;
@@ -395,6 +292,7 @@ typedef struct {
     PyObject *_event;
     PyObject *_sender;
     PyObject *_receiver;
+    PyObject *_value;
     PyObject *___mypyc_temp__26;
     tuple_T3OOO ___mypyc_temp__27;
     PyObject *___mypyc_temp__28;
@@ -413,24 +311,13 @@ typedef struct {
     PyObject *___mypyc_temp__36;
     PyObject *___mypyc_temp__37;
     PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___ignore___swaps___vaults___is_vault_withdrawal_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___ignore___swaps___vaults___is_vault_withdrawal_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__0;
     tuple_T3OOO ___mypyc_temp__1;
     PyObject *_strat;
@@ -442,64 +329,31 @@ typedef struct {
     tuple_T3OOO ___mypyc_temp__6;
     PyObject *___mypyc_temp__7;
     tuple_T3OOO ___mypyc_temp__8;
-} yearn_treasury___rules___other_income___misc___is_robovault_share_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___other_income___misc___is_robovault_share_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__0;
     tuple_T3OOO ___mypyc_temp__1;
-} yearn_treasury___rules___revenue___farming___is_comp_rewards_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___revenue___farming___is_comp_rewards_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__2;
     tuple_T3OOO ___mypyc_temp__3;
-} yearn_treasury___rules___revenue___farming___is_scream_rewards_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___revenue___farming___is_scream_rewards_genObject;
 
 typedef struct {
     PyObject_HEAD
     CPyVTableItem *vtable;
-    PyObject *___mypyc_self__;
     PyObject *_tx;
-    PyObject *_type;
-    PyObject *_value;
-    PyObject *_traceback;
-    PyObject *_arg;
-    CPyTagged ___mypyc_next_label__;
+    int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__4;
     PyObject *___mypyc_temp__5;
     PyObject *_event;
@@ -509,12 +363,6 @@ typedef struct {
     PyObject *___mypyc_temp__8;
     tuple_T3OOO ___mypyc_temp__9;
     PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_envObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_env__;
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
@@ -573,28 +421,16 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_conversion_factory___is_conversion_factory)(PyObject *cpy_r_tx);
     char (*CPyDef_conversion_factory_____top_level__)(void);
     PyObject **CPyStatic_curve___curve;
-    PyTypeObject **CPyType_curve____get_lp_token_env;
-    PyObject *(*CPyDef_curve____get_lp_token_env)(void);
     PyTypeObject **CPyType_curve____get_lp_token_gen;
     PyObject *(*CPyDef_curve____get_lp_token_gen)(void);
-    PyTypeObject **CPyType_curve____is_old_style_env;
-    PyObject *(*CPyDef_curve____is_old_style_env)(void);
     PyTypeObject **CPyType_curve____is_old_style_gen;
     PyObject *(*CPyDef_curve____is_old_style_gen)(void);
-    PyTypeObject **CPyType_curve____get_coin_at_index_env;
-    PyObject *(*CPyDef_curve____get_coin_at_index_env)(void);
     PyTypeObject **CPyType_curve____get_coin_at_index_gen;
     PyObject *(*CPyDef_curve____get_coin_at_index_gen)(void);
-    PyTypeObject **CPyType_curve___is_curve_deposit_env;
-    PyObject *(*CPyDef_curve___is_curve_deposit_env)(void);
     PyTypeObject **CPyType_curve___is_curve_deposit_gen;
     PyObject *(*CPyDef_curve___is_curve_deposit_gen)(void);
-    PyTypeObject **CPyType_curve___is_curve_withdrawal_env;
-    PyObject *(*CPyDef_curve___is_curve_withdrawal_env)(void);
     PyTypeObject **CPyType_curve___is_curve_withdrawal_gen;
     PyObject *(*CPyDef_curve___is_curve_withdrawal_gen)(void);
-    PyTypeObject **CPyType_curve____is_curve_withdrawal_multi_env;
-    PyObject *(*CPyDef_curve____is_curve_withdrawal_multi_env)(void);
     PyTypeObject **CPyType_curve____is_curve_withdrawal_multi_gen;
     PyObject *(*CPyDef_curve____is_curve_withdrawal_multi_gen)(void);
     PyObject *(*CPyDef_curve____get_lp_token_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
@@ -670,20 +506,12 @@ struct export_table_6c9e944b050639af1020 {
     PyObject **CPyStatic_swaps___vaults___TREASURY_AND_ZERO;
     PyObject **CPyStatic_swaps___vaults___all_vaults;
     tuple_T4OOOO *CPyStatic_swaps___vaults____v3_deposit_keys;
-    PyTypeObject **CPyType_swaps___vaults___is_vault_deposit_env;
-    PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_env)(void);
     PyTypeObject **CPyType_swaps___vaults___is_vault_deposit_gen;
     PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen)(void);
-    PyTypeObject **CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_env;
-    PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_env)(void);
     PyTypeObject **CPyType_swaps___vaults___is_v1_or_v2_vault_deposit_gen;
     PyObject *(*CPyDef_swaps___vaults___is_v1_or_v2_vault_deposit_gen)(void);
-    PyTypeObject **CPyType_swaps___vaults____get_underlying_env;
-    PyObject *(*CPyDef_swaps___vaults____get_underlying_env)(void);
     PyTypeObject **CPyType_swaps___vaults____get_underlying_gen;
     PyObject *(*CPyDef_swaps___vaults____get_underlying_gen)(void);
-    PyTypeObject **CPyType_swaps___vaults___is_vault_withdrawal_env;
-    PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_env)(void);
     PyTypeObject **CPyType_swaps___vaults___is_vault_withdrawal_gen;
     PyObject *(*CPyDef_swaps___vaults___is_vault_withdrawal_gen)(void);
     PyObject *(*CPyDef_swaps___vaults___is_vault_deposit_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
@@ -780,8 +608,6 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_airdrops___is_airdrop)(PyObject *cpy_r_tx);
     char (*CPyDef_airdrops_____top_level__)(void);
     PyObject **CPyStatic_other_income___misc____POINT_ONE;
-    PyTypeObject **CPyType_other_income___misc___is_robovault_share_env;
-    PyObject *(*CPyDef_other_income___misc___is_robovault_share_env)(void);
     PyTypeObject **CPyType_other_income___misc___is_robovault_share_gen;
     PyObject *(*CPyDef_other_income___misc___is_robovault_share_gen)(void);
     char (*CPyDef_other_income___misc___is_atoken_yield)(PyObject *cpy_r_tx);
@@ -803,16 +629,10 @@ struct export_table_6c9e944b050639af1020 {
     char (*CPyDef_bribes___is_ybribe_fees)(PyObject *cpy_r_tx);
     char (*CPyDef_bribes_____top_level__)(void);
     PyObject **CPyStatic_farming___farming;
-    PyTypeObject **CPyType_farming___is_comp_rewards_env;
-    PyObject *(*CPyDef_farming___is_comp_rewards_env)(void);
     PyTypeObject **CPyType_farming___is_comp_rewards_gen;
     PyObject *(*CPyDef_farming___is_comp_rewards_gen)(void);
-    PyTypeObject **CPyType_farming___is_scream_rewards_env;
-    PyObject *(*CPyDef_farming___is_scream_rewards_env)(void);
     PyTypeObject **CPyType_farming___is_scream_rewards_gen;
     PyObject *(*CPyDef_farming___is_scream_rewards_gen)(void);
-    PyTypeObject **CPyType_farming____is_generic_comp_rewards_env;
-    PyObject *(*CPyDef_farming____is_generic_comp_rewards_env)(void);
     PyTypeObject **CPyType_farming____is_generic_comp_rewards_gen;
     PyObject *(*CPyDef_farming____is_generic_comp_rewards_gen)(void);
     PyObject *(*CPyDef_farming___is_comp_rewards_gen_____mypyc_generator_helper__)(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg);
