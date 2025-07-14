@@ -1,0 +1,269 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.ignore.swaps.curve &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.ignore.swaps.curve</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.ignore.swaps.curve</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">async_lru</span><span class="w"> </span><span class="kn">import</span> <span class="n">alru_cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">brownie.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">EventLookupError</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">brownie.network.event</span><span class="w"> </span><span class="kn">import</span> <span class="n">_EventItem</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">eth_typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">ChecksumAddress</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">Network</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">CHAINID</span><span class="p">,</span> <span class="n">ZERO_ADDRESS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.ignore.swaps</span><span class="w"> </span><span class="kn">import</span> <span class="n">swaps</span>
+
+
+<span class="n">curve</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">swaps</span><span class="p">(</span><span class="s2">&quot;Curve&quot;</span><span class="p">)</span>
+
+
+<span class="c1"># curve helpers</span>
+<div class="viewcode-block" id="_get_lp_token">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._get_lp_token">[docs]</a>
+<span class="nd">@alru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_lp_token</span><span class="p">(</span><span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChecksumAddress</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">ChecksumAddress</span><span class="p">(</span><span class="k">await</span> <span class="n">pool</span><span class="o">.</span><span class="n">lp_token</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="_is_old_style">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_old_style">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_is_old_style</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="s2">&quot;lp_token&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="k">await</span> <span class="n">_get_lp_token</span><span class="p">(</span><span class="n">pool</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="_is_new_style">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_new_style">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_new_style</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="s2">&quot;totalSupply&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">pool</span><span class="o">.</span><span class="n">address</span></div>
+
+
+
+<div class="viewcode-block" id="_token_is_curvey">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._token_is_curvey">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">_token_is_curvey</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="s2">&quot;crv&quot;</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="ow">or</span> <span class="s2">&quot;curve&quot;</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">name</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span></div>
+
+
+
+<div class="viewcode-block" id="_get_coin_at_index">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._get_coin_at_index">[docs]</a>
+<span class="nd">@alru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_coin_at_index</span><span class="p">(</span><span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">index</span><span class="p">:</span> <span class="nb">int</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChecksumAddress</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">ChecksumAddress</span><span class="p">(</span><span class="k">await</span> <span class="n">pool</span><span class="o">.</span><span class="n">coins</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">index</span><span class="p">))</span></div>
+
+
+
+<div class="viewcode-block" id="is_curve_deposit">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve.is_curve_deposit">[docs]</a>
+<span class="nd">@curve</span><span class="p">(</span><span class="s2">&quot;Adding Liquidity&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">is_curve_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;AddLiquidity&quot;</span><span class="p">):</span>
+        <span class="c1"># LP Token Side</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">_token_is_curvey</span><span class="p">(</span><span class="n">tx</span><span class="p">):</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [assignment]</span>
+            <span class="k">if</span> <span class="k">await</span> <span class="n">_is_old_style</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">pool</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_is_new_style</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+        <span class="c1"># Tokens sent</span>
+        <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">:</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">amount</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;token_amounts&quot;</span><span class="p">]):</span>
+                    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+                        <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [assignment]</span>
+                        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="k">await</span> <span class="n">_get_coin_at_index</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">except</span> <span class="n">EventLookupError</span><span class="p">:</span>
+                <span class="k">pass</span>
+
+        <span class="c1"># What if a 3crv deposit was needed before the real deposit?</span>
+        <span class="k">elif</span> <span class="p">(</span>
+            <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+            <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="s2">&quot;0xA79828DF1850E8a3A3064576f380D90aECDD3359&quot;</span>
+            <span class="ow">and</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="s2">&quot;0xbEbc44782C7dB0a1A60Cb6fe97d0b483032FF1C7&quot;</span>
+        <span class="p">):</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;AddLiquidity-3crv: </span><span class="si">{</span><span class="n">event</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+            <span class="n">token</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span>
+            <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">amount</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;token_amounts&quot;</span><span class="p">]):</span>
+                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+                    <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [assignment]</span>
+                    <span class="k">if</span> <span class="n">token</span> <span class="o">==</span> <span class="k">await</span> <span class="n">_get_coin_at_index</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">i</span><span class="p">):</span>
+                        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># TODO: see if we can remove these with latest hueristics</span>
+    <span class="k">return</span> <span class="n">CHAINID</span> <span class="o">==</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="s2">&quot;0x567d2ebc1a336185950432b8f8b010e1116936f9e6c061634f5aba65bdb1e188&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x17e2d7a40697204b3e726d40725082fec5f152f65f400df850f13ef4a4f6c827&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_curve_withdrawal">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve.is_curve_withdrawal">[docs]</a>
+<span class="nd">@curve</span><span class="p">(</span><span class="s2">&quot;Removing Liquidity&quot;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">is_curve_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">_is_curve_withdrawal_one</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="k">await</span> <span class="n">_is_curve_withdrawal_multi</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+        <span class="ow">or</span> <span class="p">(</span>
+            <span class="n">CHAINID</span> <span class="o">==</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span>
+            <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
+            <span class="ow">in</span> <span class="p">(</span>
+                <span class="c1"># This was a one-off withdrawal from a special pool 0x5756bbdDC03DaB01a3900F01Fb15641C3bfcc457</span>
+                <span class="s2">&quot;0xe4f7c8566944202faed1d1e190e400e7bdf8592e65803b09510584ca5284d174&quot;</span><span class="p">,</span>
+            <span class="p">)</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="_is_curve_withdrawal_one">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_one">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">_is_curve_withdrawal_one</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;RemoveLiquidityOne&quot;</span><span class="p">):</span>
+        <span class="c1"># LP Token Side</span>
+        <span class="k">if</span> <span class="p">(</span>
+            <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
+            <span class="ow">and</span> <span class="n">_token_is_curvey</span><span class="p">(</span><span class="n">tx</span><span class="p">)</span>
+            <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;token_amount&quot;</span><span class="p">])</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+        <span class="c1"># Tokens rec&#39;d</span>
+        <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span>
+            <span class="n">event</span><span class="p">[</span><span class="s2">&quot;coin_amount&quot;</span><span class="p">]</span>
+        <span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="_is_curve_withdrawal_multi">
+<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_multi">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_is_curve_withdrawal_multi</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="n">pool</span><span class="p">:</span> <span class="n">Contract</span>
+    <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;RemoveLiquidity&quot;</span><span class="p">):</span>
+        <span class="c1"># LP Token side</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">_token_is_curvey</span><span class="p">(</span><span class="n">tx</span><span class="p">):</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [assignment]</span>
+            <span class="k">if</span> <span class="k">await</span> <span class="n">_is_old_style</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">pool</span><span class="p">)</span> <span class="ow">or</span> <span class="n">_is_new_style</span><span class="p">(</span><span class="n">tx</span><span class="p">,</span> <span class="n">pool</span><span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+            <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;wtf is this: </span><span class="si">{</span><span class="n">tx</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="c1"># Tokens rec&#39;d</span>
+        <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+            <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="p">):</span>
+            <span class="k">try</span><span class="p">:</span>
+                <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">amount</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;token_amounts&quot;</span><span class="p">]):</span>
+                    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">amount</span><span class="p">):</span>
+                        <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">event</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [assignment]</span>
+                        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="s2">&quot;underlying_coins&quot;</span><span class="p">):</span>
+                            <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="k">await</span> <span class="n">pool</span><span class="o">.</span><span class="n">underlying_coins</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">i</span><span class="p">)</span>
+                        <span class="k">else</span><span class="p">:</span>
+                            <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="k">await</span> <span class="n">_get_coin_at_index</span><span class="p">(</span><span class="n">pool</span><span class="p">,</span> <span class="n">i</span><span class="p">)</span>
+            <span class="k">except</span> <span class="n">EventLookupError</span><span class="p">:</span>
+                <span class="c1"># some other event has different keys, maybe we need to implement logic to capture these. time will tell.</span>
+                <span class="k">pass</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

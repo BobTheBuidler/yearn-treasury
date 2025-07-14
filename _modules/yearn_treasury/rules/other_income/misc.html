@@ -1,0 +1,201 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.other_income.misc &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.other_income.misc</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.other_income.misc</h1><div class="highlight"><pre>
+<span></span><span class="c1"># mypy: disable-error-code=&quot;union-attr&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Optional</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">other_income</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">ContractNotVerified</span><span class="p">,</span> <span class="n">ERC20</span><span class="p">,</span> <span class="n">Network</span>  <span class="c1"># type: ignore [attr-defined]</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZERO_ADDRESS</span>
+
+
+<span class="n">_POINT_ONE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="s2">&quot;0.1&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_atoken_yield">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_atoken_yield">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;aToken Yield&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_atoken_yield</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;aLEND&quot;</span><span class="p">,</span> <span class="s2">&quot;aLINK&quot;</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Yearn Treasury&quot;</span><span class="p">,</span> <span class="s2">&quot;Yearn Treasury V1&quot;</span><span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_robovault_share">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_robovault_share">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;RoboVault Thank You&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Fantom</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">is_robovault_share</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">    After Yearn devs helped robovault with a vulnerability, robovault committed to sending Yearn a portion of their fees.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">if</span> <span class="ow">not</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span><span class="o">.</span><span class="n">startswith</span><span class="p">(</span><span class="s2">&quot;rv&quot;</span><span class="p">)</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">is_contract</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">try</span><span class="p">:</span>
+        <span class="n">strat</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+    <span class="k">except</span> <span class="n">ContractNotVerified</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">vault</span><span class="p">:</span> <span class="n">Optional</span><span class="p">[</span><span class="n">Contract</span><span class="p">]</span> <span class="o">=</span> <span class="nb">getattr</span><span class="p">(</span><span class="n">strat</span><span class="p">,</span> <span class="s2">&quot;vault&quot;</span><span class="p">,</span> <span class="kc">None</span><span class="p">)</span>
+
+    <span class="k">if</span> <span class="n">vault</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">False</span>
+
+    <span class="k">if</span> <span class="k">await</span> <span class="n">vault</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">block_identifier</span><span class="o">=</span><span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: Strategy&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;rv3USDCc&quot;</span>
+        <span class="ow">and</span> <span class="k">await</span> <span class="n">ERC20</span><span class="p">(</span>  <span class="c1"># type: ignore [call-overload]</span>
+            <span class="k">await</span> <span class="n">vault</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">block_identifier</span><span class="o">=</span><span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">),</span>
+            <span class="n">asynchronous</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span>
+        <span class="p">)</span><span class="o">.</span><span class="n">symbol</span>
+        <span class="o">==</span> <span class="s2">&quot;rv3USDCb&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_cowswap_gas_reimbursement">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_cowswap_gas_reimbursement">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;Cowswap Gas Reimbursement&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_cowswap_gas_reimbursement</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;ETH&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Cowswap Multisig&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;yMechs Multisig&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_usds_referral_code">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_usds_referral_code">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;USDS Referral Code&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_usds_referral_code</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Yearn earns some USDS for referring deposits to Maker&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;USDS&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="s2">&quot;0x3C5142F28567E6a0F172fd0BaaF1f2847f49D02F&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_yeth_application_fee">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_yeth_application_fee">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;yETH Application Fee&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yeth_application_fee</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yETH&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="o">==</span> <span class="s2">&quot;Yearn Treasury&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">==</span> <span class="n">_POINT_ONE</span></div>
+
+
+
+<div class="viewcode-block" id="is_yprisma_fees">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.other_income.html#yearn_treasury.rules.other_income.misc.is_yprisma_fees">[docs]</a>
+<span class="nd">@other_income</span><span class="p">(</span><span class="s2">&quot;yPRISMA Fees&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yprisma_fees</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yvmkUSD-A&quot;</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Contract: YPrismaFeeDistributor&quot;</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

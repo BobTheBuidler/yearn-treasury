@@ -1,0 +1,172 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.cost_of_revenue.gas &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.cost_of_revenue.gas</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.cost_of_revenue.gas</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Gas cost rules for Yearn Treasury.</span>
+
+<span class="sd">This module defines rules and matching logic for classifying gas-related</span>
+<span class="sd">transactions as cost of revenue. It includes logic for multisig</span>
+<span class="sd">reimbursements, strategist gas, returned gas, and more.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="c1"># mypy: disable-error-code=&quot;call-overload&quot;</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Set</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">pony.orm</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">cost_of_revenue</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">eth_typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">HexStr</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">CHAINID</span>
+
+
+<span class="n">gas</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">cost_of_revenue</span><span class="p">(</span><span class="s2">&quot;Gas&quot;</span><span class="p">)</span>
+
+<span class="n">commit</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">pony</span><span class="o">.</span><span class="n">orm</span><span class="o">.</span><span class="n">commit</span>
+
+
+<span class="n">gas</span><span class="p">(</span><span class="s2">&quot;Multisig Reimbursement&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="nb">hash</span><span class="o">=</span><span class="n">HexStr</span><span class="p">(</span><span class="s2">&quot;0x19bcb28cd113896fb06f17b2e5efa86bb8bf78c26e75c633d8f1a0e48b238a86&quot;</span><span class="p">),</span>
+    <span class="n">from_nickname</span><span class="o">=</span><span class="s2">&quot;Yearn yChad Multisig&quot;</span><span class="p">,</span>
+<span class="p">)</span>
+
+
+<span class="n">gas</span><span class="p">(</span><span class="s2">&quot;Other Gas&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span>
+    <span class="nb">hash</span><span class="o">=</span><span class="n">HexStr</span><span class="p">(</span><span class="s2">&quot;0x57bc99f6007989606bdd9d1adf91c99d198de51f61d29689ee13ccf440b244df&quot;</span><span class="p">),</span>
+    <span class="n">to_address</span><span class="o">=</span><span class="s2">&quot;0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc&quot;</span><span class="p">,</span>  <span class="c1"># type: ignore [arg-type]</span>
+<span class="p">)</span>
+
+
+<span class="n">_STRATEGIST_GAS_HASHES</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="n">HexStr</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CHAINID</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+
+<span class="n">_RETURNED_GAS_HASHES</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="n">HexStr</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xac2253f1d8f78680411b353d65135d58bc880cdf9507ea7848daf05925e1443f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xd27d4a732dd1a9ac93c7db1695a6d2aff40e007627d710da91f328b246be44bc&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x5a828e5bde96cd8745223fe32daefaa9140a09acc69202c33f6f789228c8134b&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x110ef82ec16eb53bf71b073aca4a37d4fbfaa74166c687a726211392a02f0059&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xaad012505975dd13a57599a28d33c979f72084ae56ccba76997f05822a5497f5&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xd10e8eb19b9493b32daf880da40e8e80ae96e9947ebd372562504e376c253731&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xa937f94cd93e07e5a1abf3010267b213caf8fbefb5d56e417ab057de39c697a5&quot;</span><span class="p">,</span>
+    <span class="p">},</span>
+<span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">CHAINID</span><span class="p">,</span> <span class="nb">set</span><span class="p">())</span>
+
+
+<div class="viewcode-block" id="is_strategist_gas">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.cost_of_revenue.html#yearn_treasury.rules.cost_of_revenue.gas.is_strategist_gas">[docs]</a>
+<span class="nd">@gas</span><span class="p">(</span><span class="s2">&quot;Strategist Gas&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_strategist_gas</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;ETH&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">==</span> <span class="s2">&quot;Disperse.app&quot;</span><span class="p">:</span>
+            <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="n">_STRATEGIST_GAS_HASHES</span>
+
+        <span class="c1"># Returned gas</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="n">_RETURNED_GAS_HASHES</span><span class="p">:</span>
+            <span class="n">tx</span><span class="o">.</span><span class="n">amount</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>
+            <span class="n">tx</span><span class="o">.</span><span class="n">value_usd</span> <span class="o">*=</span> <span class="o">-</span><span class="mi">1</span>  <span class="c1"># type: ignore [operator]</span>
+            <span class="n">commit</span><span class="p">()</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
