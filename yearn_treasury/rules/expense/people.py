@@ -45,18 +45,25 @@ def is_ygift_grant(tx: TreasuryTx) -> bool:
 @grants("yHAAS Trinity [BR#263]")
 def is_yhaas_trinity_ii(tx: TreasuryTx) -> bool:
     """https://github.com/yearn/budget/issues/263"""
-    return tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450" and tx.to_address.address in (
-        # team
-        "0x35a83D4C1305451E0448fbCa96cAb29A7cCD0811",
-        # stream 
-        "0xEC83C8c3156e4f6b95B048066F3b308C93cb5848",
+    return (
+        tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450"
+        and tx.to_address.address
+        in (
+            # team
+            "0x35a83D4C1305451E0448fbCa96cAb29A7cCD0811",
+            # stream
+            "0xEC83C8c3156e4f6b95B048066F3b308C93cb5848",
+        )
     )
 
 
 @grants("G-Team [BR#267]")
 def is_gteam(tx: TreasuryTx) -> bool:
     """https://github.com/yearn/budget/issues/267"""
-    return tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450" and tx.to_address == "0x63E02F93622541CfE41aFedCF96a114DB71Ba4EE"
+    return (
+        tx.hash == "0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450"
+        and tx.to_address == "0x63E02F93622541CfE41aFedCF96a114DB71Ba4EE"
+    )
 
 
 @grants("Rantom [BR#129]")
