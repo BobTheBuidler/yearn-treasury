@@ -120,6 +120,55 @@
 
 
 
+<span class="c1"># TODO: refactor all of this, there&#39;s gotta be a better way to handle yteams who have received both one-off and streamed pmnts</span>
+<div class="viewcode-block" id="is_yhaas_trinity_ii">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_yhaas_trinity_ii">[docs]</a>
+<span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;yHAAS Trinity [BR#263]&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yhaas_trinity_ii</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;https://github.com/yearn/budget/issues/263&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span>
+        <span class="ow">in</span> <span class="p">(</span>
+            <span class="c1"># team</span>
+            <span class="s2">&quot;0x35a83D4C1305451E0448fbCa96cAb29A7cCD0811&quot;</span><span class="p">,</span>
+            <span class="c1"># stream</span>
+            <span class="s2">&quot;0xEC83C8c3156e4f6b95B048066F3b308C93cb5848&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_gteam">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_gteam">[docs]</a>
+<span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;G-Team [BR#267]&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_gteam</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;https://github.com/yearn/budget/issues/267&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450&quot;</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="s2">&quot;0x63E02F93622541CfE41aFedCF96a114DB71Ba4EE&quot;</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_rantom">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_rantom">[docs]</a>
+<span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;Rantom [BR#129]&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_rantom</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;https://github.com/yearn/budget/issues/129&quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="s2">&quot;0x254b42CaCf7290e72e2C84c0337E36E645784Ce1&quot;</span></div>
+
+
+
+<div class="viewcode-block" id="is_worms">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_worms">[docs]</a>
+<span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;Worms&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_worms</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="s2">&quot;0xB1d693B77232D88a3C9467eD5619FfE79E80BCCc&quot;</span></div>
+
+
+
+<span class="c1"># NOTE: this needs to go at the bottom because there are some streams that will already be caught by above matchers</span>
 <div class="viewcode-block" id="is_simple_vesting_escrow">
 <a class="viewcode-back" href="../../../../source/yearn_treasury.rules.expense.html#yearn_treasury.rules.expense.people.is_simple_vesting_escrow">[docs]</a>
 <span class="nd">@grants</span><span class="p">(</span><span class="s2">&quot;Simple Vesting Escrow&quot;</span><span class="p">)</span>
