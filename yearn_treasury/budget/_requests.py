@@ -35,7 +35,7 @@ def fetch_brs() -> List[BudgetRequest]:
                 continue
             raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
 
-        data: List[dict] = response.json()
+        data: List[dict] = response.json()  # type: ignore [type-arg]
         if not data:  # If the current page is empty, we are done.
             break
 
@@ -46,7 +46,7 @@ def fetch_brs() -> List[BudgetRequest]:
 
             # TODO labels table in db (also dataclass) with the descriptions included
             # Extract the label names (tags) from the "labels" key.
-            label_objs: List[dict] = item.get("labels", [])
+            label_objs: List[dict] = item.get("labels", [])  # type: ignore [type-arg]
             labels = {label.get("name") for label in label_objs}
 
             if "budget request" not in labels:
