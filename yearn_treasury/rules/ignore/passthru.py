@@ -1,8 +1,10 @@
 from decimal import Decimal
-from typing import Final
+from typing import Final, Tuple
 
-from dao_treasury import TreasuryTx, ignore
+from dao_treasury import TreasuryTx, TreasuryWallet, ignore
 from y import Network
+
+from yearn_treasury.constants import CHAINID, ZERO_ADDRESS
 
 
 passthru: Final = ignore("Pass-Thru")
@@ -193,3 +195,65 @@ def is_curve_bribe(tx: TreasuryTx) -> bool:
 
     # NOTE: I added this one-off to capture tokens sent to BribeSplitter 0x527e80008D212E2891C737Ba8a2768a7337D7Fd2
     return tx.hash == "0xce45da7e3a7616ed0c0d356d6dfa8a784606c9a8034bae9faa40abf7b52be114"
+
+
+_pass_thru_hashes: Tuple[str, ...] = {
+    Network.Mainnet: (
+        "0xf662c68817c56a64b801181a3175c8a7e7a5add45f8242990c695d418651e50d",
+    ),
+    Network.Fantom: (
+        "0x411d0aff42c3862d06a0b04b5ffd91f4593a9a8b2685d554fe1fbe5dc7e4fc04",
+        "0xa347da365286cc912e4590fc71e97a5bcba9e258c98a301f85918826538aa021",
+    ),
+}.get(CHAINID, ())  # type: ignore [call-overload]
+
+
+@passthru("Misc.", Network.Mainnet)
+def is_misc_passthru_mainnet(tx: TreasuryTx) -> bool:
+    # not sure if we still need this, TODO figure it out
+    # NOTE skipped the hashmatcher to do strange things ... there is probably a better way to do this
+    if tx.hash in _pass_thru_hashes and str(tx.log_index).lower() != "nan":
+        return True
+
+    txhash = tx.hash
+    if txhash in {
+        "0xae6797ad466de75731117df46ccea5c263265dd6258d596b9d6d8cf3a7b1e3c2",
+        "0x2a6191ba8426d3ae77e2a6c91de10a6e76d1abdb2d0f831c6c5aad52be3d6246",
+        # https://github.com/yearn/chief-multisig-officer/pull/924
+        "0x25b54e113e58a3a4bbffc011cdfcb8c07a0424f33b0dbda921803d82b88f1429",
+        "0xcb000dd2b623f9924fe0234831800950a3269b2d412ce9eeabb0ec65cd737059",
+    }: 
+        return True
+    # do these need hueristics? build real sort logic if these keep reoccurring
+    elif (
+        txhash == "0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a"
+        and (tx.symbol in ("CRV", "CVX", "yPRISMA") or tx.log_index == 254)
+    ):
+        return True
+    return False
+
+
+@passthru("Misc.", Network.Fantom)
+def is_misc_passthru_fantom(tx: TreasuryTx) -> bool:
+    # not sure if we still need this, TODO figure it out
+    # NOTE skipped the hashmatcher to do strange things ... there is probably a better way to do this
+    if tx.hash in _pass_thru_hashes and str(tx.log_index).lower() != "nan":
+        return True
+
+    if tx.hash == "0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a":
+        return True
+    # Passing thru to yvWFTM
+    if (
+        tx.symbol == 'WFTM'
+        and TreasuryWallet.check_membership(tx.from_address.address, tx.block)  # type: ignore [arg-type, union-attr]
+        and tx.to_address == "0x0DEC85e74A92c52b7F708c4B10207D9560CEFaf0"
+    ):
+        # dont want to accidenally sort a vault deposit here
+        is_deposit = False
+        for event in tx.get_events('Transfer'):
+            sender, receiver, _ = event.values()
+            if tx.to_address == event.address and sender == ZERO_ADDRESS and tx.from_address == receiver:
+                is_deposit = True
+        if not is_deposit:
+            return True
+    return False
