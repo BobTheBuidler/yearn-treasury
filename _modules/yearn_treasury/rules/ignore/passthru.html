@@ -72,10 +72,12 @@
              
   <h1>Source code for yearn_treasury.rules.ignore.passthru</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
-<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Tuple</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span><span class="p">,</span> <span class="n">ignore</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">CHAINID</span><span class="p">,</span> <span class="n">ZERO_ADDRESS</span>
 
 
 <span class="n">passthru</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;Pass-Thru&quot;</span><span class="p">)</span>
@@ -301,6 +303,77 @@
 
     <span class="c1"># NOTE: I added this one-off to capture tokens sent to BribeSplitter 0x527e80008D212E2891C737Ba8a2768a7337D7Fd2</span>
     <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0xce45da7e3a7616ed0c0d356d6dfa8a784606c9a8034bae9faa40abf7b52be114&quot;</span></div>
+
+
+
+<span class="n">_pass_thru_hashes</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="o">...</span><span class="p">]</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">:</span> <span class="p">(</span><span class="s2">&quot;0xf662c68817c56a64b801181a3175c8a7e7a5add45f8242990c695d418651e50d&quot;</span><span class="p">,),</span>
+    <span class="n">Network</span><span class="o">.</span><span class="n">Fantom</span><span class="p">:</span> <span class="p">(</span>
+        <span class="s2">&quot;0x411d0aff42c3862d06a0b04b5ffd91f4593a9a8b2685d554fe1fbe5dc7e4fc04&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xa347da365286cc912e4590fc71e97a5bcba9e258c98a301f85918826538aa021&quot;</span><span class="p">,</span>
+    <span class="p">),</span>
+<span class="p">}</span><span class="o">.</span><span class="n">get</span><span class="p">(</span>
+    <span class="n">CHAINID</span><span class="p">,</span> <span class="p">()</span>
+<span class="p">)</span>  <span class="c1"># type: ignore [call-overload]</span>
+
+
+<div class="viewcode-block" id="is_misc_passthru_mainnet">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_misc_passthru_mainnet">[docs]</a>
+<span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;Misc.&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_misc_passthru_mainnet</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="c1"># not sure if we still need this, TODO figure it out</span>
+    <span class="c1"># NOTE skipped the hashmatcher to do strange things ... there is probably a better way to do this</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="n">_pass_thru_hashes</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">log_index</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;nan&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="n">txhash</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span>
+    <span class="k">if</span> <span class="n">txhash</span> <span class="ow">in</span> <span class="p">{</span>
+        <span class="s2">&quot;0xae6797ad466de75731117df46ccea5c263265dd6258d596b9d6d8cf3a7b1e3c2&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x2a6191ba8426d3ae77e2a6c91de10a6e76d1abdb2d0f831c6c5aad52be3d6246&quot;</span><span class="p">,</span>
+        <span class="c1"># https://github.com/yearn/chief-multisig-officer/pull/924</span>
+        <span class="s2">&quot;0x25b54e113e58a3a4bbffc011cdfcb8c07a0424f33b0dbda921803d82b88f1429&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xcb000dd2b623f9924fe0234831800950a3269b2d412ce9eeabb0ec65cd737059&quot;</span><span class="p">,</span>
+    <span class="p">}:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># do these need hueristics? build real sort logic if these keep reoccurring</span>
+    <span class="k">elif</span> <span class="n">txhash</span> <span class="o">==</span> <span class="s2">&quot;0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a&quot;</span> <span class="ow">and</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;CRV&quot;</span><span class="p">,</span> <span class="s2">&quot;CVX&quot;</span><span class="p">,</span> <span class="s2">&quot;yPRISMA&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">log_index</span> <span class="o">==</span> <span class="mi">254</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_misc_passthru_fantom">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_misc_passthru_fantom">[docs]</a>
+<span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;Misc.&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Fantom</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_misc_passthru_fantom</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="c1"># not sure if we still need this, TODO figure it out</span>
+    <span class="c1"># NOTE skipped the hashmatcher to do strange things ... there is probably a better way to do this</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="n">_pass_thru_hashes</span> <span class="ow">and</span> <span class="nb">str</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">log_index</span><span class="p">)</span><span class="o">.</span><span class="n">lower</span><span class="p">()</span> <span class="o">!=</span> <span class="s2">&quot;nan&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="o">==</span> <span class="s2">&quot;0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="kc">True</span>
+    <span class="c1"># Passing thru to yvWFTM</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;WFTM&quot;</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span><span class="p">)</span>  <span class="c1"># type: ignore [arg-type, union-attr]</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="s2">&quot;0x0DEC85e74A92c52b7F708c4B10207D9560CEFaf0&quot;</span>
+    <span class="p">):</span>
+        <span class="c1"># dont want to accidenally sort a vault deposit here</span>
+        <span class="n">is_deposit</span> <span class="o">=</span> <span class="kc">False</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Transfer&quot;</span><span class="p">):</span>
+            <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">_</span> <span class="o">=</span> <span class="n">event</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">event</span><span class="o">.</span><span class="n">address</span>
+                <span class="ow">and</span> <span class="n">sender</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">receiver</span>
+            <span class="p">):</span>
+                <span class="n">is_deposit</span> <span class="o">=</span> <span class="kc">True</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">is_deposit</span><span class="p">:</span>
+            <span class="k">return</span> <span class="kc">True</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
 
 </pre></div>
 
