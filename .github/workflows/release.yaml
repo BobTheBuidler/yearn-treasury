@@ -40,6 +40,7 @@ jobs:
             cibw_build: "*musllinux*"
             cibw_archs_linux: x86_64
             artifact_name: "wheels-ubuntu-latest-musllinux-x64"
+            cibw_before_all_linux: "apk add --no-cache gcc musl-dev python3-dev openblas-dev"
 
           # ----------------------------------------------------
           # musllinux 32-bit
@@ -49,6 +50,7 @@ jobs:
             cibw_build: "*musllinux*"
             cibw_archs_linux: i686
             artifact_name: "wheels-ubuntu-latest-musllinux-x86"
+            cibw_before_all_linux: "apk add --no-cache gcc musl-dev python3-dev openblas-dev"
 
           # ----------------------------------------------------
           # macOS (64-bit only)
@@ -101,6 +103,8 @@ jobs:
           CIBW_ARCHS_WINDOWS: ${{ matrix.cibw_archs_windows || '' }}
           # Which wheels to build for Linux (manylinux vs. musllinux)
           CIBW_BUILD: ${{ matrix.cibw_build || '' }}
+          # Which commands to run before building on Linux
+          CIBW_BEFORE_ALL_LINUX: ${{ matrix.cibw_before_all_linux || '' }}
         run: python -m cibuildwheel --output-dir wheelhouse
 
       - name: Upload wheels
