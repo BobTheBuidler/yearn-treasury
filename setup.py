@@ -46,6 +46,7 @@ else:
             "--disable-error-code=unused-ignore",
             "--disable-error-code=union-attr",
             "--disable-error-code=no-any-return",
+            "--disable-error-code=misc",  # TODO: drop support for 32bit systems
         ],
     )
 
