@@ -12,7 +12,7 @@ requires = [
     "mypy[mypyc]==1.17.0",
     "tomli>=2.0.0; python_version < '3.11'",
     "types-requests",
-    "dao-treasury>=0.0.40,<1",
+    "dao-treasury>=0.0.42,<0.1",
     "eth-typing==4.4.0",
 ]
 build-backend = "setuptools.build_meta"
@@ -22,7 +22,7 @@ yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-dao-treasury = ">=0.0.40,<0.1"
+dao-treasury = ">=0.0.42,<0.1"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "*"
