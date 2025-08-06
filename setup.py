@@ -44,7 +44,6 @@ else:
             "--strict",
             "--pretty",
             "--disable-error-code=unused-ignore",
-            "--disable-error-code=type-arg",
             "--disable-error-code=union-attr",
             "--disable-error-code=no-any-return",
         ],
