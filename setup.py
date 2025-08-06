@@ -47,7 +47,6 @@ else:
             "--disable-error-code=type-arg",
             "--disable-error-code=union-attr",
             "--disable-error-code=no-any-return",
-            "--disable-error-code=misc",
         ],
     )
 
