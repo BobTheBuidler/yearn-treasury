@@ -198,14 +198,14 @@ def is_curve_bribe(tx: TreasuryTx) -> bool:
 
 
 _pass_thru_hashes: Tuple[str, ...] = {
-    Network.Mainnet: (
-        "0xf662c68817c56a64b801181a3175c8a7e7a5add45f8242990c695d418651e50d",
-    ),
+    Network.Mainnet: ("0xf662c68817c56a64b801181a3175c8a7e7a5add45f8242990c695d418651e50d",),
     Network.Fantom: (
         "0x411d0aff42c3862d06a0b04b5ffd91f4593a9a8b2685d554fe1fbe5dc7e4fc04",
         "0xa347da365286cc912e4590fc71e97a5bcba9e258c98a301f85918826538aa021",
     ),
-}.get(CHAINID, ())  # type: ignore [call-overload]
+}.get(
+    CHAINID, ()
+)  # type: ignore [call-overload]
 
 
 @passthru("Misc.", Network.Mainnet)
@@ -222,12 +222,11 @@ def is_misc_passthru_mainnet(tx: TreasuryTx) -> bool:
         # https://github.com/yearn/chief-multisig-officer/pull/924
         "0x25b54e113e58a3a4bbffc011cdfcb8c07a0424f33b0dbda921803d82b88f1429",
         "0xcb000dd2b623f9924fe0234831800950a3269b2d412ce9eeabb0ec65cd737059",
-    }: 
+    }:
         return True
     # do these need hueristics? build real sort logic if these keep reoccurring
-    elif (
-        txhash == "0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a"
-        and (tx.symbol in ("CRV", "CVX", "yPRISMA") or tx.log_index == 254)
+    elif txhash == "0x14faeac8ee0734875611e68ce0614eaf39db94a5ffb5bc6f9739da6daf58282a" and (
+        tx.symbol in ("CRV", "CVX", "yPRISMA") or tx.log_index == 254
     ):
         return True
     return False
@@ -244,15 +243,19 @@ def is_misc_passthru_fantom(tx: TreasuryTx) -> bool:
         return True
     # Passing thru to yvWFTM
     if (
-        tx.symbol == 'WFTM'
+        tx.symbol == "WFTM"
         and TreasuryWallet.check_membership(tx.from_address.address, tx.block)  # type: ignore [arg-type, union-attr]
         and tx.to_address == "0x0DEC85e74A92c52b7F708c4B10207D9560CEFaf0"
     ):
         # dont want to accidenally sort a vault deposit here
         is_deposit = False
-        for event in tx.get_events('Transfer'):
+        for event in tx.get_events("Transfer"):
             sender, receiver, _ = event.values()
-            if tx.to_address == event.address and sender == ZERO_ADDRESS and tx.from_address == receiver:
+            if (
+                tx.to_address == event.address
+                and sender == ZERO_ADDRESS
+                and tx.from_address == receiver
+            ):
                 is_deposit = True
         if not is_deposit:
             return True
