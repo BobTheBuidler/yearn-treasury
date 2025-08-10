@@ -21,7 +21,7 @@ build-backend = "setuptools.build_meta"
 yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
+python = ">=3.13,<3.14"
 dao-treasury = ">=0.0.42,<0.1"
 eth-brownie = ">=1.21.0,<1.22"
 
