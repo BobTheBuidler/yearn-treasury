@@ -23,8 +23,7 @@ else:
             "yearn_treasury/rules/ignore/swaps/unwrapper.py",
             "yearn_treasury/rules/ignore/swaps/vaults.py",
             "yearn_treasury/rules/ignore/swaps/woofy.py",
-            # NOTE: disabled until new brownie release with fixed type hints
-            # "yearn_treasury/rules/ignore/swaps/yfi.py",
+            # "yearn_treasury/rules/ignore/swaps/yfi.py",  enable with brownie 1.22.0
             "yearn_treasury/rules/ignore/swaps/yla.py",
             "yearn_treasury/rules/ignore/general.py",
             "yearn_treasury/rules/ignore/unit.py",
@@ -36,11 +35,11 @@ else:
             "yearn_treasury/rules/revenue/farming.py",
             "yearn_treasury/rules/revenue/keepcoins.py",
             "yearn_treasury/rules/revenue/seasolver.py",
-            # "yearn_treasury/rules/revenue/vaults.py",
+            # "yearn_treasury/rules/revenue/vaults.py",  enable with brownie 1.22.0
             "yearn_treasury/rules/revenue/yteams.py",
             "yearn_treasury/_db.py",
             "yearn_treasury/_ens.py",
-            "yearn_treasury/vaults.py",
+            # "yearn_treasury/vaults.py",  enable with brownie 1.22.0
             "--strict",
             "--pretty",
             "--disable-error-code=unused-ignore",
