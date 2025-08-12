@@ -33,11 +33,6 @@ def fetch_brs() -> List[BudgetRequest]:
     retries = 0
     while True:
         response = _make_get_request(params=params)
-        if response.status_code != 200:
-            if retries < 5:
-                retries += 1
-                continue
-            raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
 
         data: List[dict] = response.json()  # type: ignore [type-arg]
         if not data:  # If the current page is empty, we are done.
@@ -78,14 +73,21 @@ def fetch_brs() -> List[BudgetRequest]:
 
 
 def _make_get_request(params: Dict[str, Any]) -> Any:
+    retries = 0
     while True:
         try:
-            return requests.get(API_URL, headers=_HEADERS, params=params)
+            response = requests.get(API_URL, headers=_HEADERS, params=params)
+            response.raise_for_status()
+            return response
         except requests.ConnectionError as e:
-            if "rate limit exceeded" not in str(e):
-                raise
-            print("Github API rate limited...")
-            time.sleep(15)
+            if "rate limit exceeded" in str(e):
+                print("Github API rate limited...")
+            elif retries < 5:
+                print(e)
+            else:
+                raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}") from e
+            retries += 1
+            time.sleep(5 * (retries + 1))
 
 
 budget_requests: Final = fetch_brs()
