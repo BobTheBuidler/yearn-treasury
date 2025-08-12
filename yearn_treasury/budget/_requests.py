@@ -26,7 +26,8 @@ def fetch_brs() -> List[BudgetRequest]:
     # URL to fetch issues from the repo
 
     # Use parameters to fetch issues in all states, up to 100 per page.
-    params = {"state": "all", "per_page": 100, "page": 1}
+    current_page = 1
+    params = {"state": "all", "per_page": 100, "page": current_page}
 
     brs = []
     retries = 0
@@ -70,7 +71,8 @@ def fetch_brs() -> List[BudgetRequest]:
             brs.append(br)
 
         # Move on to the next page.
-        params["page"] += 1  # type: ignore [operator]
+        current_page += 1
+        params["page"] += current_page
 
     return brs
 
