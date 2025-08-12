@@ -86,6 +86,6 @@ def _make_get_request(params: Dict[str, Any]) -> Any:
             time.sleep(15)
 
 
-requests = fetch_brs()
-approved_requests = [r for r in requests if r.is_approved()]
-rejected_requests = [r for r in requests if r.is_rejected()]
+budget_requests: Final = fetch_brs()
+approved_requests: Final = [r for r in budget_requests if r.is_approved()]
+rejected_requests: Final = [r for r in budget_requests if r.is_rejected()]
