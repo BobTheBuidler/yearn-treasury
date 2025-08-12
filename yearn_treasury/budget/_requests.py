@@ -79,7 +79,7 @@ def _make_get_request(params: Dict[str, Any]) -> Any:
             response = requests.get(API_URL, headers=_HEADERS, params=params)
             response.raise_for_status()
             return response
-        except requests.ConnectionError as e:
+        except requests.HTTPError as e:
             if "rate limit exceeded" in str(e):
                 print("Github API rate limited...")
             elif retries < 5:
