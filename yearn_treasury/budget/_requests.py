@@ -15,6 +15,7 @@ from yearn_treasury.budget._request import BudgetRequest
 
 
 API_URL: Final = "https://api.github.com/repos/yearn/budget/issues"
+"""URL to fetch issues from the repo."""
 
 # Optionally use a GitHub personal access token for higher API rate limits.
 # TODO move this to envs file and document
@@ -23,8 +24,6 @@ _HEADERS: Final = {"Authorization": f"token {_TOKEN}"} if _TOKEN else {}
 
 
 def fetch_brs() -> List[BudgetRequest]:
-    # URL to fetch issues from the repo
-
     # Use parameters to fetch issues in all states, up to 100 per page.
     current_page = 1
     params = {"state": "all", "per_page": 100, "page": current_page}
