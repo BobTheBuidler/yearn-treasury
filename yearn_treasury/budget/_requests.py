@@ -85,7 +85,9 @@ def _make_get_request(params: Dict[str, Any]) -> Any:
             elif retries < 5:
                 print(e)
             else:
-                raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}") from e
+                raise ConnectionError(
+                    f"Failed to fetch issues: {response.status_code} {response.text}"
+                ) from e
             retries += 1
             time.sleep(5 * (retries + 1))
 
