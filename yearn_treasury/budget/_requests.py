@@ -7,11 +7,14 @@ requests.
 """
 
 import os
-from requests import get
-from typing import Final, List
+import time
+import requests
+from typing import Any, Dict, Final, List
 
 from yearn_treasury.budget._request import BudgetRequest
 
+
+API_URL: Final = "https://api.github.com/repos/yearn/budget/issues"
 
 # Optionally use a GitHub personal access token for higher API rate limits.
 # TODO move this to envs file and document
@@ -21,14 +24,14 @@ _HEADERS: Final = {"Authorization": f"token {_TOKEN}"} if _TOKEN else {}
 
 def fetch_brs() -> List[BudgetRequest]:
     # URL to fetch issues from the repo
-    api_url = "https://api.github.com/repos/yearn/budget/issues"
+    
     # Use parameters to fetch issues in all states, up to 100 per page.
     params = {"state": "all", "per_page": 100, "page": 1}
 
     brs = []
     retries = 0
     while True:
-        response = get(api_url, headers=_HEADERS, params=params)  # type: ignore [arg-type]
+        response = _make_get_request(params=params)
         if response.status_code != 200:
             if retries < 5:
                 retries += 1
@@ -70,6 +73,17 @@ def fetch_brs() -> List[BudgetRequest]:
         params["page"] += 1  # type: ignore [operator]
 
     return brs
+
+
+def _make_get_request(params: Dict[str, Any]) -> Any:
+    while True:
+        try:
+            return requests.get(API_URL, headers=_HEADERS, params=params)
+        except requests.ConnectionError as e:
+            if "rate limit exceeded" not in str(e):
+                raise
+            print("Github API rate limited...")
+            time.sleep(15)
 
 
 requests = fetch_brs()
