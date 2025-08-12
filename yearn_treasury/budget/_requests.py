@@ -72,7 +72,7 @@ def fetch_brs() -> List[BudgetRequest]:
 
         # Move on to the next page.
         current_page += 1
-        params["page"] += current_page
+        params["page"] = current_page
 
     return brs
 
