@@ -7,11 +7,15 @@ requests.
 """
 
 import os
-from requests import get
-from typing import Final, List
+import time
+import requests
+from typing import Any, Dict, Final, List
 
 from yearn_treasury.budget._request import BudgetRequest
 
+
+API_URL: Final = "https://api.github.com/repos/yearn/budget/issues"
+"""URL to fetch issues from the repo."""
 
 # Optionally use a GitHub personal access token for higher API rate limits.
 # TODO move this to envs file and document
@@ -20,20 +24,14 @@ _HEADERS: Final = {"Authorization": f"token {_TOKEN}"} if _TOKEN else {}
 
 
 def fetch_brs() -> List[BudgetRequest]:
-    # URL to fetch issues from the repo
-    api_url = "https://api.github.com/repos/yearn/budget/issues"
     # Use parameters to fetch issues in all states, up to 100 per page.
-    params = {"state": "all", "per_page": 100, "page": 1}
+    current_page = 1
+    params = {"state": "all", "per_page": 100, "page": current_page}
 
     brs = []
     retries = 0
     while True:
-        response = get(api_url, headers=_HEADERS, params=params)  # type: ignore [arg-type]
-        if response.status_code != 200:
-            if retries < 5:
-                retries += 1
-                continue
-            raise ConnectionError(f"Failed to fetch issues: {response.status_code} {response.text}")
+        response = _make_get_request(params=params)
 
         data: List[dict] = response.json()  # type: ignore [type-arg]
         if not data:  # If the current page is empty, we are done.
@@ -67,11 +65,32 @@ def fetch_brs() -> List[BudgetRequest]:
             brs.append(br)
 
         # Move on to the next page.
-        params["page"] += 1  # type: ignore [operator]
+        current_page += 1
+        params["page"] = current_page
 
     return brs
 
 
-requests = fetch_brs()
-approved_requests = [r for r in requests if r.is_approved()]
-rejected_requests = [r for r in requests if r.is_rejected()]
+def _make_get_request(params: Dict[str, Any]) -> Any:
+    retries = 0
+    while True:
+        try:
+            response = requests.get(API_URL, headers=_HEADERS, params=params)
+            response.raise_for_status()
+            return response
+        except requests.HTTPError as e:
+            if "rate limit exceeded" in str(e):
+                print("Github API rate limited...")
+            elif retries < 5:
+                print(e)
+            else:
+                raise ConnectionError(
+                    f"Failed to fetch issues: {response.status_code} {response.text}"
+                ) from e
+            retries += 1
+            time.sleep(5 * (retries + 1))
+
+
+budget_requests: Final = fetch_brs()
+approved_requests: Final = [r for r in budget_requests if r.is_approved()]
+rejected_requests: Final = [r for r in budget_requests if r.is_rejected()]
