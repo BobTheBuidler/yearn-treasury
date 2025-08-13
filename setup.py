@@ -21,7 +21,7 @@ else:
             "yearn_treasury/rules/ignore/swaps/pooltogether.py",
             "yearn_treasury/rules/ignore/swaps/synthetix.py",
             "yearn_treasury/rules/ignore/swaps/unwrapper.py",
-            "yearn_treasury/rules/ignore/swaps/vaults.py",
+            # "yearn_treasury/rules/ignore/swaps/vaults.py",  push async-lru-c first
             "yearn_treasury/rules/ignore/swaps/woofy.py",
             # "yearn_treasury/rules/ignore/swaps/yfi.py",  enable with brownie 1.22.0
             "yearn_treasury/rules/ignore/swaps/yla.py",
