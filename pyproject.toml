@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "yearn-treasury"
-version = "0.0.26"
+version = "0.0.27"
 description = "This WIP library runs the eth-portfolio and dao-treasury exporters for the Yearn Finance treasury."
 authors = ["Bob The Buidler <you@example.com>"]
 packages = [{ include = "yearn_treasury/*" }]
