@@ -9,8 +9,8 @@ compound: Final = swaps("Compound")
 
 
 @compound("Deposit")
-def is_compound_deposit(tx: TreasuryTx) -> bool:
-    for event in tx.get_events("Mint"):
+async def is_compound_deposit(tx: TreasuryTx) -> bool:
+    for event in await tx.get_events("Mint", sync=False):
         if all(arg in event for arg in ("minter", "mintTokens", "mintAmount")):
             minter = event["minter"]
             minted = tx.token.scale_value(event["mintTokens"])
@@ -30,8 +30,8 @@ def is_compound_deposit(tx: TreasuryTx) -> bool:
 
 
 @compound("Withdrawal")
-def is_compound_withdrawal(tx: TreasuryTx) -> bool:
-    for event in tx.get_events("Redeem"):
+async def is_compound_withdrawal(tx: TreasuryTx) -> bool:
+    for event in await tx.get_events("Redeem", sync=False):
         if all(arg in event for arg in ("redeemer", "redeemTokens", "redeemAmount")):
             redeemer = event["redeemer"]
             redeemed = tx.token.scale_value(event["redeemTokens"])
