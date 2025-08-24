@@ -40,11 +40,11 @@ def is_yfi_cdp_deposit(tx: TreasuryTx) -> bool:
         for event in tx.get_events("slip"):
             if all(arg in event for arg in DEPOSIT_EVENT_ARGS):
                 # TODO: remove this rounding once we move to postgres
-                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                scaled = round(Decimal(event["wad"]) / 10**18, 12)
+                rounded = round(tx.amount, 12)
+                if scaled == rounded:
                     return True
-                print(
-                    f"yfi cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
-                )
+                print(f"yfi cdp deposit amount no match [{scaled}, {rounded}]")
     return False
 
 
@@ -56,11 +56,11 @@ def is_yfi_cdp_withdrawal(tx: TreasuryTx) -> bool:
         for event in tx.get_events("flux"):
             if all(arg in event for arg in WITHDRAWAL_EVENT_ARGS):
                 # TODO: remove this rounding once we move to postgres
-                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                scaled = round(Decimal(event["wad"]) / 10**18, 12)
+                rounded = round(tx.amount, 12)
+                if scaled == rounded:
                     return True
-                print(
-                    f"yfi cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
-                )
+                print(f"yfi cdp withdrawal amount no match [{scaled}, {rounded}]")
     return False
 
 
@@ -71,11 +71,10 @@ def is_usdc_cdp_deposit(tx: TreasuryTx) -> bool:
     ):
         for event in tx.get_events("slip"):
             if all(arg in event for arg in DEPOSIT_EVENT_ARGS):
-                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                scaled = Decimal(event["wad"]) / 10**18
+                if scaled == tx.amount:
                     return True
-                print(
-                    f"usdc cdp deposit amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
-                )
+                print(f"usdc cdp deposit amount no match [{scaled}, {tx.amount}]")
     return False
 
 
@@ -86,9 +85,8 @@ def is_usdc_cdp_withdrawal(tx: TreasuryTx) -> bool:
     ):
         for event in tx.get_events("flux"):
             if all(arg in event for arg in WITHDRAWAL_EVENT_ARGS):
-                if Decimal(event["wad"]) / 10**18 == tx.amount:
+                scaled = Decimal(event["wad"]) / 10**18
+                if scaled == tx.amount:
                     return True
-                print(
-                    f"usdc cdp withdrawal amount no match [{Decimal(event['wad']) / 10**18}, {tx.amount}"
-                )
+                print(f"usdc cdp withdrawal amount no match [{scaled}, {tx.amount}]")
     return False
