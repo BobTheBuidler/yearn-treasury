@@ -30,6 +30,10 @@ YCHAD_MULTISIGS: Final = {
     Network.Base: "0xbfAABa9F56A39B814281D68d2Ad949e88D06b02E",
 }
 
+YSWAP_MULTISIGS: Final = {
+    Network.Mainnet: "0x7d2aB9CA511EBD6F03971Fb417d3492aA82513f0",
+}
+
 
 if CHAINID not in TREASURY_MULTISIGS or CHAINID not in YCHAD_MULTISIGS:
     raise RuntimeError(f"{Network(CHAINID)} is not supported")
@@ -39,6 +43,8 @@ TREASURY_MULTISIG: Final = convert.to_address(TREASURY_MULTISIGS[CHAINID])  # ty
 
 YCHAD_MULTISIG: Final = convert.to_address(YCHAD_MULTISIGS[CHAINID])  # type: ignore [index]
 
+__yswap_multisig = YSWAP_MULTISIGS.get(CHAINID)  # type: ignore [call-overload]
+YSWAP_MULTISIG: Final = convert.to_address(__yswap_multisig) if __yswap_multisig else None
 
 _TREASURY_WALLETS: Final = {
     Network.Mainnet: {
@@ -46,7 +52,7 @@ _TREASURY_WALLETS: Final = {
         YCHAD_MULTISIG,
         "0xb99a40fcE04cb740EB79fC04976CA15aF69AaaaE",  # Yearn Treasury V1
         "0x5f0845101857d2A91627478e302357860b1598a1",  # Yearn KP3R Wallet
-        "0x7d2aB9CA511EBD6F03971Fb417d3492aA82513f0",  # ySwap Multisig
+        YSWAP_MULTISIG,
         "0x2C01B4AD51a67E2d8F02208F54dF9aC4c0B778B6",  # yMechs Multisig
         "0xE376e8e8E3B0793CD61C6F1283bA18548b726C2e",  # Fee Reimbursement Stash
         "0xC001d00d425Fa92C4F840baA8f1e0c27c4297a0B",  # New token dumping wallet
