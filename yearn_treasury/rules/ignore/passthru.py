@@ -41,11 +41,7 @@ def is_ycrv(tx: TreasuryTx) -> bool:
                     fee_amount,
                     order_uid,
                 ) = trade.values()
-                if (
-                    tx.from_address == owner
-                    and tx.token == sell_token
-                    and buy_token == ycrv
-                ):
+                if tx.from_address == owner and tx.token == sell_token and buy_token == ycrv:
                     scaled = Decimal(sell_amount) / 10**18
                     # TODO: remove this rounding when we implement postgres
                     if scaled == tx.amount:
@@ -264,6 +260,7 @@ def is_misc_passthru_fantom(tx: TreasuryTx) -> bool:
             return True
     return False
 
+
 @passthru("yvBoost INCOMPLETE", Network.Mainnet)
 def is_buying_yvboost(tx: TreasuryTx) -> bool:
     """Bought back yvBoost is unwrapped and sent back to vault holders."""
@@ -271,28 +268,36 @@ def is_buying_yvboost(tx: TreasuryTx) -> bool:
     block: BlockNumber = tx.block  # type: ignore [assignment]
     from_address: ChecksumAddress = tx.from_address.address  # type: ignore [union-attr, assignment]
     to_address: ChecksumAddress = tx.to_address.address  # type: ignore [union-attr, assignment]
-    if symbol == 'SPELL' and TreasuryWallet.check_membership(from_address, block) and to_address == cowswap_router:
+    if (
+        symbol == "SPELL"
+        and TreasuryWallet.check_membership(from_address, block)
+        and to_address == cowswap_router
+    ):
         return True
-    
+
     elif (
         symbol == "yveCRV-DAO"
         and TreasuryWallet.check_membership(from_address, block)
-        and to_address in ("0xd7240B32d24B814fE52946cD44d94a2e3532E63d", "0x7fe508eE30316e3261079e2C81f4451E0445103b")
+        and to_address
+        in (
+            "0xd7240B32d24B814fE52946cD44d94a2e3532E63d",
+            "0x7fe508eE30316e3261079e2C81f4451E0445103b",
+        )
     ):
         return True
-    
-    elif(
+
+    elif (
         symbol == "3Crv"
         and from_address == "0xd7240B32d24B814fE52946cD44d94a2e3532E63d"
         and TreasuryWallet.check_membership(to_address, block)
     ):
         return True
-    
+
     # SPELL bribe handling
     elif symbol == "SPELL":
         if tx.to_nickname in ("Abracadabra Treasury", "Contract: BribeSplitter"):
             return True
-        
+
     return tx in (
         "0x9eabdf110efbfb44aab7a50eb4fe187f68deae7c8f28d78753c355029f2658d3",
         "0x5a80f5ff90fc6f4f4597290b2432adbb62ab4154ead68b515accdf19b01c1086",
