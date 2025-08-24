@@ -75,9 +75,10 @@
 <span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span><span class="p">,</span> <span class="n">Tuple</span>
 
 <span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span><span class="p">,</span> <span class="n">ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">eth_typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlockNumber</span><span class="p">,</span> <span class="n">ChecksumAddress</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">CHAINID</span><span class="p">,</span> <span class="n">ZERO_ADDRESS</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">CHAINID</span><span class="p">,</span> <span class="n">YSWAP_MULTISIG</span><span class="p">,</span> <span class="n">ZERO_ADDRESS</span>
 
 
 <span class="n">passthru</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;Pass-Thru&quot;</span><span class="p">)</span>
@@ -100,12 +101,11 @@
 <span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;Bribes for yCRV&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
 <span class="k">def</span><span class="w"> </span><span class="nf">is_ycrv</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
 <span class="w">    </span><span class="sd">&quot;&quot;&quot;These are routed thru cowswap with dai as the purchase token.&quot;&quot;&quot;</span>
-    <span class="n">yswaps</span> <span class="o">=</span> <span class="s2">&quot;0x7d2aB9CA511EBD6F03971Fb417d3492aA82513f0&quot;</span>
     <span class="n">ymechs</span> <span class="o">=</span> <span class="s2">&quot;0x2C01B4AD51a67E2d8F02208F54dF9aC4c0B778B6&quot;</span>
 
     <span class="n">from_address</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span>
     <span class="n">symbol</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span>
-    <span class="k">if</span> <span class="p">(</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">yswaps</span> <span class="ow">and</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DAI&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
+    <span class="k">if</span> <span class="p">(</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">YSWAP_MULTISIG</span> <span class="ow">and</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;DAI&quot;</span><span class="p">)</span> <span class="ow">or</span> <span class="p">(</span>
         <span class="n">from_address</span> <span class="o">==</span> <span class="n">ymechs</span> <span class="ow">and</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;3Crv&quot;</span>
     <span class="p">):</span>
         <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">cowswap_router</span><span class="p">:</span>
@@ -119,13 +119,12 @@
                     <span class="n">fee_amount</span><span class="p">,</span>
                     <span class="n">order_uid</span><span class="p">,</span>
                 <span class="p">)</span> <span class="o">=</span> <span class="n">trade</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-                <span class="k">if</span> <span class="p">(</span>
-                    <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">owner</span>
-                    <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">sell_token</span>
-                    <span class="ow">and</span> <span class="n">buy_token</span> <span class="o">==</span> <span class="n">ycrv</span>
-                    <span class="ow">and</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">sell_amount</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
-                <span class="p">):</span>
-                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">owner</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">sell_token</span> <span class="ow">and</span> <span class="n">buy_token</span> <span class="o">==</span> <span class="n">ycrv</span><span class="p">:</span>
+                    <span class="n">scaled</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">sell_amount</span><span class="p">)</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
+                    <span class="c1"># TODO: remove this rounding when we implement postgres</span>
+                    <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                        <span class="k">return</span> <span class="kc">True</span>
+                    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;bribes for ycrv amount no match: [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 
     <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="p">{</span>
         <span class="c1"># one off exception case to correct accounting mix-up</span>
@@ -374,6 +373,58 @@
         <span class="k">if</span> <span class="ow">not</span> <span class="n">is_deposit</span><span class="p">:</span>
             <span class="k">return</span> <span class="kc">True</span>
     <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_buying_yvboost">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.passthru.is_buying_yvboost">[docs]</a>
+<span class="nd">@passthru</span><span class="p">(</span><span class="s2">&quot;yvBoost INCOMPLETE&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_buying_yvboost</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Bought back yvBoost is unwrapped and sent back to vault holders.&quot;&quot;&quot;</span>
+    <span class="n">symbol</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span>
+    <span class="n">block</span><span class="p">:</span> <span class="n">BlockNumber</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [assignment]</span>
+    <span class="n">from_address</span><span class="p">:</span> <span class="n">ChecksumAddress</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, assignment]</span>
+    <span class="n">to_address</span><span class="p">:</span> <span class="n">ChecksumAddress</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, assignment]</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;SPELL&quot;</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">from_address</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">to_address</span> <span class="o">==</span> <span class="n">cowswap_router</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;yveCRV-DAO&quot;</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">from_address</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+        <span class="ow">and</span> <span class="n">to_address</span>
+        <span class="ow">in</span> <span class="p">(</span>
+            <span class="s2">&quot;0xd7240B32d24B814fE52946cD44d94a2e3532E63d&quot;</span><span class="p">,</span>
+            <span class="s2">&quot;0x7fe508eE30316e3261079e2C81f4451E0445103b&quot;</span><span class="p">,</span>
+        <span class="p">)</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;3Crv&quot;</span>
+        <span class="ow">and</span> <span class="n">from_address</span> <span class="o">==</span> <span class="s2">&quot;0xd7240B32d24B814fE52946cD44d94a2e3532E63d&quot;</span>
+        <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span><span class="n">to_address</span><span class="p">,</span> <span class="n">block</span><span class="p">)</span>
+    <span class="p">):</span>
+        <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># SPELL bribe handling</span>
+    <span class="k">elif</span> <span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;SPELL&quot;</span><span class="p">:</span>
+        <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_nickname</span> <span class="ow">in</span> <span class="p">(</span><span class="s2">&quot;Abracadabra Treasury&quot;</span><span class="p">,</span> <span class="s2">&quot;Contract: BribeSplitter&quot;</span><span class="p">):</span>
+            <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="n">tx</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="s2">&quot;0x9eabdf110efbfb44aab7a50eb4fe187f68deae7c8f28d78753c355029f2658d3&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x5a80f5ff90fc6f4f4597290b2432adbb62ab4154ead68b515accdf19b01c1086&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x848b4d629e137ad8d8eefe5db40eab895c9959b9c210d0ae0fef16a04bfaaee1&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x896663aa9e2633b5d152028bdf84d7f4b1137dd27a8e61daca3863db16bebc4f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xd8aa1e5d093a89515530b7267a9fd216b97fddb6478b3027b2f5c1d53070cd5f&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x169aab84b408fce76e0b776ebf412c796240300c5610f0263d5c09d0d3f1b062&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0xe6fefbf061f4489cd967cdff6aa8aca616f0c709e08c3696f12b0027e9e166c9&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x10be8a3345660f3c51b695e8716f758b1a91628bd612093784f0516a604f79c1&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
 
 </pre></div>
 
