@@ -30,12 +30,11 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != WOOFY:
                 continue
             sender, receiver, amount = transfer.values()
-            if (
-                sender == ZERO_ADDRESS
-                and tx.from_address == receiver
-                and Decimal(amount) / YFI_SCALE == tx.amount
-            ):
-                return True
+            if sender == ZERO_ADDRESS and tx.from_address == receiver:
+                scaled = Decimal(amount) / YFI_SCALE
+                if scaled == tx.amount:
+                    return True
+                print(f"woofy wrapping woofy side amount no match: [{scaled}, {tx.amount}]")
 
     # Wrapping, WOOFY side
     elif tx.from_address == ZERO_ADDRESS and tx.symbol == "WOOFY":
@@ -44,13 +43,12 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != YFI:
                 continue
             sender, receiver, amount = transfer.values()
-            if (
-                receiver == WOOFY
-                and tx.to_address == sender
-                and Decimal(amount) / WOOFY_SCALE == tx.amount
-            ):
-                return True
-
+            if receiver == WOOFY and tx.to_address == sender:
+                scaled = Decimal(amount) / WOOFY_SCALE
+                if scaled == tx.amount:
+                    return True
+                print(f"woofy wrapping yfi side amount no match: [{scaled}, {tx.amount}]")
+    
     # Unwrapping, YFI side
     elif tx.from_address == WOOFY and tx.symbol == "YFI":
         # Check for WOOFY transfer
@@ -58,12 +56,13 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != WOOFY:
                 continue
             sender, receiver, amount = transfer.values()
-            if (
-                tx.to_address == sender
-                and receiver == ZERO_ADDRESS
-                and Decimal(amount) / YFI_SCALE == tx.amount
-            ):
-                return True
+            if tx.to_address == sender and receiver == ZERO_ADDRESS:
+                scaled = round(Decimal(amount) / YFI_SCALE, 12)
+                rounded = round(tx.amount, 12)
+                if scaled == rounded:
+                    return True
+                print(f"woofy unwrapping yfi side amount no match: [{scaled}, {rounded}]")
+                
 
     # Unwrapping, WOOFY side
     elif tx.to_address == ZERO_ADDRESS and tx.symbol == "WOOFY":
@@ -72,10 +71,11 @@ def is_woofy(tx: TreasuryTx) -> bool:
             if transfer.address != YFI:
                 continue
             sender, receiver, amount = transfer.values()
-            if (
-                sender == WOOFY
-                and tx.from_address == receiver
-                and Decimal(amount) / WOOFY_SCALE == tx.amount
-            ):
-                return True
+            if sender == WOOFY and tx.from_address == receiver:
+                # TODO remove this rounding once sqlite is replaced with postgres
+                scaled = round(Decimal(amount) / WOOFY_SCALE, 7)
+                rounded = round(tx.amount, 7)
+                if scaled == rounded:
+                    return True
+                print(f"woofy unwrapping woofy side amount no match: [{scaled}, {rounded}]")
     return False
