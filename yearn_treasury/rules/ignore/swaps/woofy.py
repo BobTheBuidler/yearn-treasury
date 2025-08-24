@@ -48,7 +48,7 @@ def is_woofy(tx: TreasuryTx) -> bool:
                 if scaled == tx.amount:
                     return True
                 print(f"woofy wrapping yfi side amount no match: [{scaled}, {tx.amount}]")
-    
+
     # Unwrapping, YFI side
     elif tx.from_address == WOOFY and tx.symbol == "YFI":
         # Check for WOOFY transfer
@@ -62,7 +62,6 @@ def is_woofy(tx: TreasuryTx) -> bool:
                 if scaled == rounded:
                     return True
                 print(f"woofy unwrapping yfi side amount no match: [{scaled}, {rounded}]")
-                
 
     # Unwrapping, WOOFY side
     elif tx.to_address == ZERO_ADDRESS and tx.symbol == "WOOFY":
