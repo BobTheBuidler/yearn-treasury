@@ -105,12 +105,11 @@
             <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">address</span> <span class="o">!=</span> <span class="n">WOOFY</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">amount</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">sender</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
-                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">receiver</span>
-                <span class="ow">and</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">YFI_SCALE</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
-            <span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">sender</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">receiver</span><span class="p">:</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">YFI_SCALE</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;woofy wrapping woofy side amount no match: [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 
     <span class="c1"># Wrapping, WOOFY side</span>
     <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;WOOFY&quot;</span><span class="p">:</span>
@@ -119,12 +118,11 @@
             <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">address</span> <span class="o">!=</span> <span class="n">YFI</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">amount</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">receiver</span> <span class="o">==</span> <span class="n">WOOFY</span>
-                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">sender</span>
-                <span class="ow">and</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">WOOFY_SCALE</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
-            <span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">receiver</span> <span class="o">==</span> <span class="n">WOOFY</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">sender</span><span class="p">:</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">WOOFY_SCALE</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;woofy wrapping yfi side amount no match: [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 
     <span class="c1"># Unwrapping, YFI side</span>
     <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">WOOFY</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span><span class="p">:</span>
@@ -133,12 +131,12 @@
             <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">address</span> <span class="o">!=</span> <span class="n">WOOFY</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">amount</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">sender</span>
-                <span class="ow">and</span> <span class="n">receiver</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
-                <span class="ow">and</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">YFI_SCALE</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
-            <span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">sender</span> <span class="ow">and</span> <span class="n">receiver</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span><span class="p">:</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">YFI_SCALE</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="n">rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">rounded</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;woofy unwrapping yfi side amount no match: [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">rounded</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
 
     <span class="c1"># Unwrapping, WOOFY side</span>
     <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;WOOFY&quot;</span><span class="p">:</span>
@@ -147,12 +145,13 @@
             <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">address</span> <span class="o">!=</span> <span class="n">YFI</span><span class="p">:</span>
                 <span class="k">continue</span>
             <span class="n">sender</span><span class="p">,</span> <span class="n">receiver</span><span class="p">,</span> <span class="n">amount</span> <span class="o">=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">values</span><span class="p">()</span>
-            <span class="k">if</span> <span class="p">(</span>
-                <span class="n">sender</span> <span class="o">==</span> <span class="n">WOOFY</span>
-                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">receiver</span>
-                <span class="ow">and</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">WOOFY_SCALE</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
-            <span class="p">):</span>
-                <span class="k">return</span> <span class="kc">True</span>
+            <span class="k">if</span> <span class="n">sender</span> <span class="o">==</span> <span class="n">WOOFY</span> <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">receiver</span><span class="p">:</span>
+                <span class="c1"># TODO remove this rounding once sqlite is replaced with postgres</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">amount</span><span class="p">)</span> <span class="o">/</span> <span class="n">WOOFY_SCALE</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+                <span class="n">rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">7</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">rounded</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;woofy unwrapping woofy side amount no match: [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">rounded</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
     <span class="k">return</span> <span class="kc">False</span></div>
 
 </pre></div>
