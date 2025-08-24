@@ -2,9 +2,10 @@ from decimal import Decimal
 from typing import Final, Tuple
 
 from dao_treasury import TreasuryTx, TreasuryWallet, ignore
+from eth_typing import BlockNumber, ChecksumAddress
 from y import Network
 
-from yearn_treasury.constants import CHAINID, ZERO_ADDRESS
+from yearn_treasury.constants import CHAINID, YSWAP_MULTISIG, ZERO_ADDRESS
 
 
 passthru: Final = ignore("Pass-Thru")
@@ -22,12 +23,11 @@ def is_sent_to_dinoswap(tx: TreasuryTx) -> bool:
 @passthru("Bribes for yCRV", Network.Mainnet)
 def is_ycrv(tx: TreasuryTx) -> bool:
     """These are routed thru cowswap with dai as the purchase token."""
-    yswaps = "0x7d2aB9CA511EBD6F03971Fb417d3492aA82513f0"
     ymechs = "0x2C01B4AD51a67E2d8F02208F54dF9aC4c0B778B6"
 
     from_address = tx.from_address
     symbol = tx.symbol
-    if (from_address == yswaps and symbol == "DAI") or (
+    if (from_address == YSWAP_MULTISIG and symbol == "DAI") or (
         from_address == ymechs and symbol == "3Crv"
     ):
         if tx.to_address == cowswap_router:
@@ -45,9 +45,12 @@ def is_ycrv(tx: TreasuryTx) -> bool:
                     tx.from_address == owner
                     and tx.token == sell_token
                     and buy_token == ycrv
-                    and Decimal(sell_amount) / 10**18 == tx.amount
                 ):
-                    return True
+                    scaled = Decimal(sell_amount) / 10**18
+                    # TODO: remove this rounding when we implement postgres
+                    if scaled == tx.amount:
+                        return True
+                    print(f"bribes for ycrv amount no match: [{scaled}, {tx.amount}]")
 
     elif tx.hash in {
         # one off exception case to correct accounting mix-up
@@ -260,3 +263,43 @@ def is_misc_passthru_fantom(tx: TreasuryTx) -> bool:
         if not is_deposit:
             return True
     return False
+
+@passthru("yvBoost INCOMPLETE", Network.Mainnet)
+def is_buying_yvboost(tx: TreasuryTx) -> bool:
+    """Bought back yvBoost is unwrapped and sent back to vault holders."""
+    symbol = tx.symbol
+    block: BlockNumber = tx.block  # type: ignore [assignment]
+    from_address: ChecksumAddress = tx.from_address.address  # type: ignore [union-attr, assignment]
+    to_address: ChecksumAddress = tx.to_address.address  # type: ignore [union-attr, assignment]
+    if symbol == 'SPELL' and TreasuryWallet.check_membership(from_address, block) and to_address == cowswap_router:
+        return True
+    
+    elif (
+        symbol == "yveCRV-DAO"
+        and TreasuryWallet.check_membership(from_address, block)
+        and to_address in ("0xd7240B32d24B814fE52946cD44d94a2e3532E63d", "0x7fe508eE30316e3261079e2C81f4451E0445103b")
+    ):
+        return True
+    
+    elif(
+        symbol == "3Crv"
+        and from_address == "0xd7240B32d24B814fE52946cD44d94a2e3532E63d"
+        and TreasuryWallet.check_membership(to_address, block)
+    ):
+        return True
+    
+    # SPELL bribe handling
+    elif symbol == "SPELL":
+        if tx.to_nickname in ("Abracadabra Treasury", "Contract: BribeSplitter"):
+            return True
+        
+    return tx in (
+        "0x9eabdf110efbfb44aab7a50eb4fe187f68deae7c8f28d78753c355029f2658d3",
+        "0x5a80f5ff90fc6f4f4597290b2432adbb62ab4154ead68b515accdf19b01c1086",
+        "0x848b4d629e137ad8d8eefe5db40eab895c9959b9c210d0ae0fef16a04bfaaee1",
+        "0x896663aa9e2633b5d152028bdf84d7f4b1137dd27a8e61daca3863db16bebc4f",
+        "0xd8aa1e5d093a89515530b7267a9fd216b97fddb6478b3027b2f5c1d53070cd5f",
+        "0x169aab84b408fce76e0b776ebf412c796240300c5610f0263d5c09d0d3f1b062",
+        "0xe6fefbf061f4489cd967cdff6aa8aca616f0c709e08c3696f12b0027e9e166c9",
+        "0x10be8a3345660f3c51b695e8716f758b1a91628bd612093784f0516a604f79c1",
+    )
