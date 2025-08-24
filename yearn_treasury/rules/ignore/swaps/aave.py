@@ -39,7 +39,7 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
     ):
         token = tx.token
         if hasattr(token.contract, "underlyingAssetAddress"):
-            for event in tx.get_events("RedeemUnderlying"):
+            for event in await tx.get_events("RedeemUnderlying", sync=False):
                 if (
                     from_address == event["_user"]
                     and await token.contract.underlyingAssetAddress == event["_reserve"]
@@ -50,7 +50,7 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
     # Underlying side
     if TreasuryWallet.check_membership(tx.to_address.address, tx.block):  # type: ignore [union-attr, arg-type]
         token = tx.token
-        for event in tx.get_events("RedeemUnderlying"):
+        for event in await tx.get_events("RedeemUnderlying", sync=False):
             if (
                 token == event["_reserve"]
                 and to_address == event["_user"]
