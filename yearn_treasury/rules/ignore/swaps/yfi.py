@@ -90,6 +90,7 @@ def is_buying_with_auction(tx: TreasuryTx) -> bool:
         if transfer.address == WRAPPED_GAS_COIN:
             sender, receiver, amount = transfer.values()
             if sender != YFI_BUYBACK_AUCTIONS:
+                print(f"Transfer sender is not YFI_BUYBACK_AUCTIONS:  sender={sender}  YFI_BUYBACK_AUCTIONS={YFI_BUYBACK_AUCTIONS}")  # type: ignore [union-attr]
                 continue
             if tx.from_address != receiver:
                 print(f"Transfer does not match auction taker:  taker={tx.from_address.address}  transfer={receiver}")  # type: ignore [union-attr]
