@@ -108,10 +108,8 @@ _SHITCOINS = {
         # generally looks like shit (move to eth-portfolio)
         "0xE8ED1fca5af1c7dd46A3D5bbDFf7e99749D9e0aa",  # Hachi
         "0x00d0F0250364C431376cC64AADd3aa13c6A8998D",  # SMEGMA
-
         # Fake USDC (move to eth-port)
         "0x1b8F28C0d410456FE04b8f421d00d6654F66AbB6",
-
         # ERC20 (move to eth-port)
         "0xe37be01D1337E77aCB0b4293DDb4D410D80010a7",
         "0x7EeAcC32C81e4D78E9705fBf0b977f5A858Bf0F3",
