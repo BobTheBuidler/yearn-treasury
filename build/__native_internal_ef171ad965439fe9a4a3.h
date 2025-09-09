@@ -676,6 +676,7 @@ extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);
+extern PyObject *CPyStatic__logging___suppress_logs_for;
 extern char CPyDef__logging___setup_eth_portfolio_logging(void);
 extern PyObject *CPyPy__logging___setup_eth_portfolio_logging(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__logging_____top_level__(void);
