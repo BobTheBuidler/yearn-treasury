@@ -685,6 +685,7 @@ struct export_table_ef171ad965439fe9a4a3 {
     PyObject **CPyStatic__ens___resolver;
     PyObject **CPyStatic__ens___topics;
     char (*CPyDef__ens_____top_level__)(void);
+    PyObject **CPyStatic__logging___suppress_logs_for;
     char (*CPyDef__logging___setup_eth_portfolio_logging)(void);
     char (*CPyDef__logging_____top_level__)(void);
     PyObject **CPyStatic_yearn_treasury___vaults___v1;
