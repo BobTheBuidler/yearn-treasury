@@ -40,6 +40,12 @@ run_parser.add_argument(
     default="12h",
 )
 run_parser.add_argument(
+    "--concurrency",
+    type=int,
+    help="The max number of historical blocks to export concurrently. default: 60",
+    default=50,
+)
+run_parser.add_argument(
     "--daemon",
     action="store_true",
     help="Run as a background daemon (currently unsupported).",
@@ -117,6 +123,9 @@ def main() -> None:
 
         interval: Final[str] = args.interval
         """Time interval between snapshots."""
+
+        concurrency: Final[int] = args.concurrency
+        """The max number of historical blocks to export concurrently."""
 
         grafana_port: Final[int] = args.grafana_port
         """Grafana port."""
