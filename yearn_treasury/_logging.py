@@ -10,9 +10,9 @@ from yearn_treasury.constants import CHAINID
 
 
 suppress_logs_for = {
-    Network.Mainnet: [
-    ],
+    Network.Mainnet: [],
 }
+
 
 def setup_eth_portfolio_logging() -> None:
     for token in suppress_logs_for.get(CHAINID, []):
