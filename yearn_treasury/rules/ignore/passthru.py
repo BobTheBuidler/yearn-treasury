@@ -44,7 +44,7 @@ def is_ycrv(tx: TreasuryTx) -> bool:
                 if tx.from_address == owner and tx.token == sell_token and buy_token == ycrv:
                     scaled = Decimal(sell_amount) / 10**18
                     # TODO: remove this rounding when we implement postgres
-                    if scaled == tx.amount:
+                    if round(scaled, 11) == round(tx.amount, 11):
                         return True
                     print(f"bribes for ycrv amount no match: [{scaled}, {tx.amount}]")
 
