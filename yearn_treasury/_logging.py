@@ -2,7 +2,7 @@
 This file contains logic for suppressing eth-portfolio error logs where desired.
 """
 
-from typing import Dict, List
+from typing import Dict, Final, List
 
 from cchecksum import to_checksum_address
 from eth_portfolio._utils import SUPPRESS_ERROR_LOGS
@@ -12,8 +12,10 @@ from y import Network
 from yearn_treasury.constants import CHAINID
 
 
-suppress_logs_for: Dict[Network, List[HexAddress]] = {
-    Network.Mainnet: [],
+suppress_logs_for: Final[Dict[Network, List[HexAddress]]] = {
+    Network.Mainnet: [
+        "0xBF7AA989192b020a8d3e1C65a558e123834325cA",  # unpriceable yvWBTC
+    ],
 }
 
 
