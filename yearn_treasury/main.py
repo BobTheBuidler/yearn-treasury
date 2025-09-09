@@ -42,7 +42,7 @@ run_parser.add_argument(
 run_parser.add_argument(
     "--concurrency",
     type=int,
-    help="The max number of historical blocks to export concurrently. default: 60",
+    help="The max number of historical blocks to export concurrently. default: 50",
     default=50,
 )
 run_parser.add_argument(
