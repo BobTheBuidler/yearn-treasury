@@ -1,12 +1,12 @@
-#ifndef MYPYC_NATIVE_INTERNAL_1a77286884ffe32b1942_H
-#define MYPYC_NATIVE_INTERNAL_1a77286884ffe32b1942_H
+#ifndef MYPYC_NATIVE_INTERNAL_0e100735679f22f49703_H
+#define MYPYC_NATIVE_INTERNAL_0e100735679f22f49703_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_1a77286884ffe32b1942.h"
+#include "__native_0e100735679f22f49703.h"
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[769];
+extern PyObject *CPyStatics[779];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -157,6 +157,11 @@ extern CPyModule *CPyModule_yearn_treasury____ens;
 extern PyObject *CPyStatic__ens___globals;
 extern CPyModule *CPyModule_web3____utils___abi;
 extern CPyModule *CPyModule_web3____utils___events;
+extern CPyModule *CPyModule_yearn_treasury____logging_internal;
+extern CPyModule *CPyModule_yearn_treasury____logging;
+extern PyObject *CPyStatic__logging___globals;
+extern CPyModule *CPyModule_cchecksum;
+extern CPyModule *CPyModule_eth_portfolio____utils;
 extern char CPyDef_budget_____top_level__(void);
 extern PyObject *CPyStatic__request___logger;
 extern PyTypeObject *CPyType__request___BudgetRequest;
@@ -469,4 +474,7 @@ extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
 extern char CPyDef__ens_____top_level__(void);
+extern char CPyDef__logging___setup_eth_portfolio_logging(void);
+extern PyObject *CPyPy__logging___setup_eth_portfolio_logging(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef__logging_____top_level__(void);
 #endif

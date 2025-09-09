@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_6c9e944b050639af1020_H
-#define MYPYC_NATIVE_6c9e944b050639af1020_H
+#ifndef MYPYC_NATIVE_ef171ad965439fe9a4a3_H
+#define MYPYC_NATIVE_ef171ad965439fe9a4a3_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -366,7 +366,7 @@ typedef struct {
 } yearn_treasury___rules___revenue___farming____is_generic_comp_rewards_genObject;
 
 
-struct export_table_6c9e944b050639af1020 {
+struct export_table_ef171ad965439fe9a4a3 {
     char (*CPyDef_budget_____top_level__)(void);
     PyObject **CPyStatic__request___logger;
     PyTypeObject **CPyType__request___BudgetRequest;
@@ -685,6 +685,8 @@ struct export_table_6c9e944b050639af1020 {
     PyObject **CPyStatic__ens___resolver;
     PyObject **CPyStatic__ens___topics;
     char (*CPyDef__ens_____top_level__)(void);
+    char (*CPyDef__logging___setup_eth_portfolio_logging)(void);
+    char (*CPyDef__logging_____top_level__)(void);
     PyObject **CPyStatic_yearn_treasury___vaults___v1;
     PyObject **CPyStatic_yearn_treasury___vaults___v2;
     char (*CPyDef_yearn_treasury___vaults_____top_level__)(void);
