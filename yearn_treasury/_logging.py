@@ -12,7 +12,7 @@ from y import Network
 from yearn_treasury.constants import CHAINID
 
 
-suppress_logs_for: Dict[Network, List[HexAddress] = {
+suppress_logs_for: Dict[Network, List[HexAddress]] = {
     Network.Mainnet: [],
 }
 
