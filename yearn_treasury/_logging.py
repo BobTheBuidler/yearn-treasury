@@ -17,6 +17,7 @@ suppress_logs_for: Final[Dict[Network, List[HexAddress]]] = {
     Network.Mainnet: [
         "0xBF7AA989192b020a8d3e1C65a558e123834325cA",  # unpriceable yvWBTC - This vault had a bug and does not have a pricePerShare
         "0x5aFE3855358E112B5647B952709E6165e1c1eEEe",  # SAFE - This was not tradeable at the time of the first airdrops
+        "0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D",  # yvCurve-alETH - The underlying curve pool had an issue and is unpriceable
     ],
 }
 
