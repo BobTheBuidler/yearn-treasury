@@ -1,3 +1,4 @@
+# mypy: disable-error-code="list-item"
 """
 This file contains logic for suppressing eth-portfolio error logs where desired.
 """
