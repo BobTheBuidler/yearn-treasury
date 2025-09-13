@@ -1,3 +1,4 @@
+from inspect import markcoroutinefunction
 from typing import Final
 
 from async_lru import alru_cache
