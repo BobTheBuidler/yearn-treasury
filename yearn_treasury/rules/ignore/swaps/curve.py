@@ -130,7 +130,8 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
                     if tx.amount == tx.token.scale_value(amount):
                         pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
                         if hasattr(pool, "underlying_coins"):
-                            return tx.token == await pool.underlying_coins.coroutine(i)
+                            coin: ChecksumAddress = await pool.underlying_coins.coroutine(i)
+                            return tx.token == coin
                         else:
                             return tx.token == await _get_coin_at_index(pool, i)
             except EventLookupError:
