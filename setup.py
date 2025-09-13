@@ -14,14 +14,14 @@ else:
             "yearn_treasury/rules/expense",
             # "yearn_treasury/rules/ignore",
             "yearn_treasury/rules/ignore/swaps/conversion_factory.py",
-            # "yearn_treasury/rules/ignore/swaps/curve.py",  push async-lru-c first
+            "yearn_treasury/rules/ignore/swaps/curve.py",
             "yearn_treasury/rules/ignore/swaps/gearbox.py",
             "yearn_treasury/rules/ignore/swaps/iearn.py",
             "yearn_treasury/rules/ignore/swaps/otc.py",
             "yearn_treasury/rules/ignore/swaps/pooltogether.py",
             "yearn_treasury/rules/ignore/swaps/synthetix.py",
             "yearn_treasury/rules/ignore/swaps/unwrapper.py",
-            # "yearn_treasury/rules/ignore/swaps/vaults.py",  push async-lru-c first
+            "yearn_treasury/rules/ignore/swaps/vaults.py",
             "yearn_treasury/rules/ignore/swaps/woofy.py",
             # "yearn_treasury/rules/ignore/swaps/yfi.py",  enable with brownie 1.22.0
             "yearn_treasury/rules/ignore/swaps/yla.py",
