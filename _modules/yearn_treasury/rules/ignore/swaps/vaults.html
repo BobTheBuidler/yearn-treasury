@@ -249,7 +249,7 @@
 <span class="nd">@alru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_underlying</span><span class="p">(</span><span class="n">vault</span><span class="p">:</span> <span class="n">Contract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChecksumAddress</span><span class="p">:</span>
     <span class="n">underlying</span> <span class="o">=</span> <span class="k">await</span> <span class="n">YearnInspiredVault</span><span class="p">(</span><span class="n">vault</span><span class="p">,</span> <span class="n">asynchronous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">underlying</span>
-    <span class="k">return</span> <span class="n">underlying</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [return-value, no-any-return]</span></div>
+    <span class="k">return</span> <span class="n">underlying</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [return-value]</span></div>
 
 
 
