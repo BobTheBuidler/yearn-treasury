@@ -204,11 +204,11 @@ typedef struct {
     tuple_T3OOO ___mypyc_temp__39;
     PyObject *___mypyc_temp__40;
     tuple_T3OOO ___mypyc_temp__41;
+    PyObject *___mypyc_generator_attribute__coin;
     PyObject *___mypyc_temp__42;
     tuple_T3OOO ___mypyc_temp__43;
     tuple_T3OOO ___mypyc_temp__44;
     PyObject *___mypyc_temp__2_0;
-    PyObject *___mypyc_temp__2_1;
 } yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_genObject;
 
 typedef struct {
@@ -271,6 +271,7 @@ typedef struct {
     int32_t ___mypyc_next_label__;
     PyObject *___mypyc_temp__21;
     tuple_T3OOO ___mypyc_temp__22;
+    PyObject *___mypyc_generator_attribute__underlying;
 } yearn_treasury___rules___ignore___swaps___vaults____get_underlying_genObject;
 
 typedef struct {
