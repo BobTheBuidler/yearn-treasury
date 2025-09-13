@@ -689,6 +689,10 @@ extern PyObject *CPyPy__db___prepare_db(PyObject *self, PyObject *const *args, s
 extern char CPyDef__db_____top_level__(void);
 extern PyObject *CPyStatic__ens___resolver;
 extern PyObject *CPyStatic__ens___topics;
+extern PyObject *CPyDef__ens___topics_for_name(PyObject *cpy_r_name);
+extern PyObject *CPyPy__ens___topics_for_name(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef__ens___resolve_all_previous(void);
+extern PyObject *CPyPy__ens___resolve_all_previous(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef__ens_____top_level__(void);
 extern PyObject *CPyStatic__logging___suppress_logs_for;
 extern char CPyDef__logging___setup_eth_portfolio_logging(void);
