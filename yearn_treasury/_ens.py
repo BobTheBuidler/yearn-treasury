@@ -14,7 +14,7 @@ Key Responsibilities:
 
 # TODO: move this to dao-treasury
 
-from typing import Final, List
+from typing import Final
 
 from brownie import chain, web3
 from eth_typing import HexStr
@@ -26,7 +26,7 @@ from y import Contract, Events
 resolver: Final[Contract] = Contract("0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41")
 
 
-def topics_for_name(name: str) -> List[HexStr]:
+def topics_for_name(name: str) -> list[HexStr]:
     return construct_event_topic_set(
         filter_by_name("AddressChanged", resolver.abi)[0],  # type: ignore [arg-type]
         web3.codec,
@@ -37,7 +37,7 @@ def topics_for_name(name: str) -> List[HexStr]:
 topics: Final = topics_for_name("v2.registry.ychad.eth")
 
 
-def resolve_all_previous():
+def resolve_all_previous() -> list[Contract]:
     return [
         Contract(event["newAddress"].hex())  # type: ignore [attr-defined]
         for event in Events(  # type: ignore [attr-defined]
