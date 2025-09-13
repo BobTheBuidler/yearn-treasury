@@ -1,3 +1,4 @@
+from inspect import markcoroutinefunction
 from typing import Final
 
 from async_lru import alru_cache
@@ -16,6 +17,7 @@ curve: Final = swaps("Curve")
 
 # curve helpers
 @alru_cache(maxsize=None)
+@markcoroutinefunction
 async def _get_lp_token(pool: Contract) -> ChecksumAddress:
     return ChecksumAddress(await pool.lp_token)
 
@@ -33,6 +35,7 @@ def _token_is_curvey(tx: TreasuryTx) -> bool:
 
 
 @alru_cache(maxsize=None)
+@markcoroutinefunction
 async def _get_coin_at_index(pool: Contract, index: int) -> ChecksumAddress:
     return ChecksumAddress(await pool.coins.coroutine(index))
 
