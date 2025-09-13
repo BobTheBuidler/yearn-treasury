@@ -165,7 +165,7 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
 @alru_cache(maxsize=None)
 async def _get_underlying(vault: Contract) -> ChecksumAddress:
     underlying = await YearnInspiredVault(vault, asynchronous=True).underlying
-    return underlying.address  # type: ignore [return-value, no-any-return]
+    return underlying.address  # type: ignore [return-value]
 
 
 @vaults("Withdrawal")
