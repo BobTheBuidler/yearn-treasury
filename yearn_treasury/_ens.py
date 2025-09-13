@@ -12,20 +12,38 @@ Key Responsibilities:
     - Used by vault discovery, analytics, and reporting modules.
 """
 
+# TODO: move this to dao-treasury
+
 from typing import Final
 
-from brownie import web3
+from brownie import chain, web3
+from eth_typing import HexStr
 from web3._utils.abi import filter_by_name
 from web3._utils.events import construct_event_topic_set
-from y import Contract
+from y import Contract, Events
 
 
 resolver: Final[Contract] = Contract("0x4976fb03C32e5B8cfe2b6cCB31c09Ba78EBaBa41")
 
-topics: Final = construct_event_topic_set(
-    filter_by_name("AddressChanged", resolver.abi)[0],  # type: ignore [arg-type]
-    web3.codec,
-    {"node": web3.ens.namehash("v2.registry.ychad.eth")},  # type: ignore [union-attr]
-)
+
+def topics_for_name(name: str) -> list[HexStr]:
+    return construct_event_topic_set(
+        filter_by_name("AddressChanged", resolver.abi)[0],  # type: ignore [arg-type]
+        web3.codec,
+        {"node": web3.ens.namehash(name)},  # type: ignore [union-attr]
+    )
+
+
+topics: Final = topics_for_name("v2.registry.ychad.eth")
+
+
+def resolve_all_previous() -> list[Contract]:
+    return [
+        Contract(event["newAddress"].hex())  # type: ignore [attr-defined]
+        for event in Events(  # type: ignore [attr-defined]
+            addresses=resolver, topics=topics
+        ).events(chain.height)
+    ]
+
 
 __all__ = ["resolver", "topics"]
