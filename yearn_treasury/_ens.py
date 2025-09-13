@@ -11,6 +11,7 @@ Key Responsibilities:
     - Construct event topic sets for AddressChanged events.
     - Used by vault discovery, analytics, and reporting modules.
 """
+
 # TODO: move this to dao-treasury
 
 from typing import Final, List
