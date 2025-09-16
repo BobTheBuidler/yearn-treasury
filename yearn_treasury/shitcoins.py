@@ -114,6 +114,20 @@ _SHITCOINS: Final = {
         "0x00d0F0250364C431376cC64AADd3aa13c6A8998D",  # SMEGMA
     ),
 }
+"""
+Mapping of blockchain networks to tuples of token addresses that should be
+ignored in Yearn Treasury analytics. These tokens are considered unpricable,
+spam, or otherwise unwanted for reporting and analytics purposes.
+
+Each tuple contains token contract addresses that will be excluded from
+treasury calculations, reports, and dashboards for the corresponding network.
+"""
 
 
 SHITCOINS: Final = {convert.to_address(shitcoin) for shitcoin in _SHITCOINS.get(CHAINID, ())}  # type: ignore [call-overload]
+"""Set of checksummed token addresses to ignore for the current chain.
+
+This set is derived from the _SHITCOINS mapping for the current CHAINID,
+and is used to filter out unpricable, spam, or otherwise unwanted tokens
+from all Yearn Treasury analytics and reporting.
+"""

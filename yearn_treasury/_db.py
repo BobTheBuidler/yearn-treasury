@@ -20,6 +20,14 @@ from yearn_treasury import constants
 
 
 def prepare_db() -> None:
+    """
+    Set up address nicknames in the Yearn Treasury database.
+
+    Maps key Yearn Treasury addresses to human-readable labels for improved
+    clarity in analytics and reporting. This function is typically called
+    during database preparation to ensure wallet addresses are labeled
+    within the DAO Treasury database entity system.
+    """
     chad = {Network.Mainnet: "y", Network.Fantom: "f"}[CHAINID]  # type: ignore [index]
 
     labels = {

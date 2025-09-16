@@ -1,6 +1,13 @@
 # mypy: disable-error-code="list-item"
 """
-This file contains logic for suppressing eth-portfolio error logs where desired.
+Error log suppression utilities for the Yearn Treasury exporter.
+
+This module suppresses noisy or irrelevant eth-portfolio error logs for specific
+token addresses that are known to be deprecated or otherwise unpricable.
+
+To suppress logs for additional tokens, add their addresses to the
+`suppress_logs_for[Network.<chain>]` mapping. The rest will be done
+automatically on package import.
 """
 
 from typing import Dict, Final, List
@@ -23,5 +30,12 @@ suppress_logs_for: Final[Dict[Network, List[HexAddress]]] = {
 
 
 def setup_eth_portfolio_logging() -> None:
+    """
+    Suppress eth-portfolio error logs for specific tokens on the current chain.
+
+    Appends token addresses from the suppress_logs_for mapping (for the current
+    CHAINID) to the SUPPRESS_ERROR_LOGS list, preventing error logs for these
+    tokens from being emitted during analytics and reporting.
+    """
     for token in suppress_logs_for.get(CHAINID, []):  # type: ignore [call-overload]
         SUPPRESS_ERROR_LOGS.append(to_checksum_address(token))
