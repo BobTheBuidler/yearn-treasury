@@ -9,7 +9,7 @@ which contains the logic that prevents these shitcoins from being included in
 any Yearn Treasury outputs.
 
 Since these tokens do nothing but add noise to the outputs, transactions
-involving them are excluded from portfolio calculations, reports, and dashboards.
+involving them are excluded from treasury calculations, reports, and dashboards.
 """
 
 from typing import Final
@@ -109,9 +109,6 @@ _SHITCOINS: Final = {
         "0xBd6555eC87C8A9a2280dCD6df45b9b074fC93Df2",  # Bork by Matt Furie
         # test token
         "0x2F375Ce83EE85e505150d24E85A1742fd03cA593",  # TEST
-        # generally looks like shit (move to eth-portfolio)
-        "0xE8ED1fca5af1c7dd46A3D5bbDFf7e99749D9e0aa",  # Hachi
-        "0x00d0F0250364C431376cC64AADd3aa13c6A8998D",  # SMEGMA
     ),
 }
 """
