@@ -11,6 +11,7 @@ any Yearn Treasury outputs.
 Since these tokens do nothing but add noise to the outputs, transactions
 involving them are excluded from portfolio calculations, reports, and dashboards.
 """
+
 from typing import Final
 
 from y import Network, convert
