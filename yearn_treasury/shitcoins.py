@@ -12,11 +12,13 @@ Since these tokens do nothing but add noise to the outputs, transactions
 involving them are excluded from portfolio calculations, reports, and dashboards.
 """
 
+from typing import Final
+
 from y import Network, convert
 from y.constants import CHAINID
 
 
-_SHITCOINS = {
+_SHITCOINS: Final = {
     Network.Mainnet: (
         "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",  # UNI-V3 NFT, not shitcoin but not pricable
         "0x0329b631464C43f4e8132df7B4ac29a2D89FFdC7",
@@ -98,6 +100,8 @@ _SHITCOINS = {
         "0xa3Efa0929569c15c20f89B591931899Fb05B4663",  # GPT-5
         "0x0A953979fdCfD82B08C77dB29705327BeC39ff13",  # GROK4 AI
         "0xc83377b9eE3CEe4Cc03CCd58AfdE1FB12864aEE3",  # E AI
+        "0x927402ab67c0CDA3c187E9DFE34554AC581441f2",  # SAITABIT
+        "0x691539810DF6e879A377C24CfEE130BBE92708d8",  # NVIDIA AI
         # matt furry spam
         "0x73228b3D33cC71cB721Fc62950577bE63bd9c8C9",  # Maskman by Matt Furie
         "0x7c28e66436C93BB9F657dDF2BA0eeeCf61369b92",  # Bloodboy by Matt Furie
@@ -112,4 +116,4 @@ _SHITCOINS = {
 }
 
 
-SHITCOINS = {convert.to_address(shitcoin) for shitcoin in _SHITCOINS.get(CHAINID, ())}  # type: ignore [call-overload]
+SHITCOINS: Final = {convert.to_address(shitcoin) for shitcoin in _SHITCOINS.get(CHAINID, ())}  # type: ignore [call-overload]
