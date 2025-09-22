@@ -73,9 +73,9 @@
   <h1>Source code for yearn_treasury.rules.ignore.swaps.vaults</h1><div class="highlight"><pre>
 <span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
 
-<span class="kn">from</span><span class="w"> </span><span class="nn">async_lru</span><span class="w"> </span><span class="kn">import</span> <span class="n">alru_cache</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">eth_typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">BlockNumber</span><span class="p">,</span> <span class="n">ChecksumAddress</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">faster_async_lru</span><span class="w"> </span><span class="kn">import</span> <span class="n">alru_cache</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">Network</span>
 <span class="kn">from</span><span class="w"> </span><span class="nn">y.prices.yearn</span><span class="w"> </span><span class="kn">import</span> <span class="n">YearnInspiredVault</span>
 
@@ -244,13 +244,10 @@
 
 
 
-<div class="viewcode-block" id="_get_underlying">
-<a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.vaults._get_underlying">[docs]</a>
 <span class="nd">@alru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
 <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">_get_underlying</span><span class="p">(</span><span class="n">vault</span><span class="p">:</span> <span class="n">Contract</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">ChecksumAddress</span><span class="p">:</span>
     <span class="n">underlying</span> <span class="o">=</span> <span class="k">await</span> <span class="n">YearnInspiredVault</span><span class="p">(</span><span class="n">vault</span><span class="p">,</span> <span class="n">asynchronous</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span><span class="o">.</span><span class="n">underlying</span>
-    <span class="k">return</span> <span class="n">underlying</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [return-value]</span></div>
-
+    <span class="k">return</span> <span class="n">underlying</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [return-value]</span>
 
 
 <div class="viewcode-block" id="is_vault_withdrawal">
