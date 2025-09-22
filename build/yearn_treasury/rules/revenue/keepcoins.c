@@ -4,11 +4,11 @@ PyMODINIT_FUNC
 PyInit_keepcoins(void)
 {
     PyObject *tmp;
-    if (!(tmp = PyImport_ImportModule("ef171ad965439fe9a4a3__mypyc"))) return NULL;
+    if (!(tmp = PyImport_ImportModule("0e100735679f22f49703__mypyc"))) return NULL;
     PyObject *capsule = PyObject_GetAttrString(tmp, "init_yearn_treasury___rules___revenue___keepcoins");
     Py_DECREF(tmp);
     if (capsule == NULL) return NULL;
-    void *init_func = PyCapsule_GetPointer(capsule, "ef171ad965439fe9a4a3__mypyc.init_yearn_treasury___rules___revenue___keepcoins");
+    void *init_func = PyCapsule_GetPointer(capsule, "0e100735679f22f49703__mypyc.init_yearn_treasury___rules___revenue___keepcoins");
     Py_DECREF(capsule);
     if (!init_func) {
         return NULL;
