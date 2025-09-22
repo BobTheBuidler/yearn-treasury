@@ -1,8 +1,9 @@
 import os
 
-_ALRU_ENV_NAME = "ASYNC_LRU_ALLOW_SYNC"
-_ALRU_ENV_VAL = os.environ.get(_ALRU_ENV_NAME)
-os.environ[_ALRU_ENV_NAME] = "1"
+__ALRU_ENV_NAME = "ASYNC_LRU_ALLOW_SYNC"
+__ALRU_ENV_VAL = os.environ.get(__ALRU_ENV_NAME)
+os.environ[__ALRU_ENV_NAME] = "1"
+
 from yearn_treasury.rules.cost_of_revenue import *
 from yearn_treasury.rules.expense import *
 from yearn_treasury.rules.ignore import *
@@ -10,4 +11,10 @@ from yearn_treasury.rules.other_expense import *
 from yearn_treasury.rules.other_income import *
 from yearn_treasury.rules.revenue import *
 
-os.environ[_ALRU_ENV_NAME] = _ALRU_ENV_VAL
+if __ALRU_ENV_VAL is None:
+    os.environ.pop(__ALRU_ENV_NAME)
+else:
+    os.environ[__ALRU_ENV_NAME] = __ALRU_ENV_VAL
+
+del __ALRU_ENV_NAME
+del __ALRU_ENV_VAL
