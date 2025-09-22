@@ -1,8 +1,8 @@
 from typing import Final
 
-from async_lru import alru_cache
 from dao_treasury import TreasuryTx, TreasuryWallet
 from eth_typing import BlockNumber, ChecksumAddress
+from faster_async_lru import alru_cache
 from y import Contract, Network
 from y.prices.yearn import YearnInspiredVault
 

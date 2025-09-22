@@ -1,9 +1,9 @@
 from logging import getLogger
 from typing import Final, Optional
 
-from async_lru import alru_cache
 from dao_treasury import TreasuryTx, revenue
 from eth_typing import ChecksumAddress
+from faster_async_lru import alru_cache
 from y import Contract, Network
 
 from yearn_treasury.vaults import v1, v2
