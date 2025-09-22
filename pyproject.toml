@@ -24,6 +24,7 @@ yearn-treasury = "yearn_treasury.main:main"
 python = ">=3.10,<3.13"
 dao-treasury = ">=0.0.51,<0.1"
 eth-brownie = ">=1.21.0,<1.23"
+faster-async-lru = ">=2.0.5,<3"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "*"

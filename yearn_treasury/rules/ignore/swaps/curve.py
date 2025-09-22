@@ -1,10 +1,10 @@
 from typing import Final
 
-from async_lru import alru_cache
 from brownie.exceptions import EventLookupError
 from brownie.network.event import _EventItem
 from dao_treasury import TreasuryTx, TreasuryWallet
 from eth_typing import ChecksumAddress
+from faster_async_lru import alru_cache
 from y import Contract, Network
 
 from yearn_treasury.constants import CHAINID, ZERO_ADDRESS
