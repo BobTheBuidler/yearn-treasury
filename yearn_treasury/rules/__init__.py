@@ -9,4 +9,5 @@ from yearn_treasury.rules.ignore import *
 from yearn_treasury.rules.other_expense import *
 from yearn_treasury.rules.other_income import *
 from yearn_treasury.rules.revenue import *
+
 os.environ[_ALRU_ENV_NAME] = _ALRU_ENV_VAL
