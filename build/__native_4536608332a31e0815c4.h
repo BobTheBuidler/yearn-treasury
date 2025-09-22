@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_570b9ed5ed83aed17e08_H
-#define MYPYC_NATIVE_570b9ed5ed83aed17e08_H
+#ifndef MYPYC_NATIVE_4536608332a31e0815c4_H
+#define MYPYC_NATIVE_4536608332a31e0815c4_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0
@@ -16,14 +16,6 @@ typedef struct tuple_T3OOO {
     PyObject *f1;
     PyObject *f2;
 } tuple_T3OOO;
-#endif
-
-#ifndef MYPYC_DECLARED_tuple_T2OO
-#define MYPYC_DECLARED_tuple_T2OO
-typedef struct tuple_T2OO {
-    PyObject *f0;
-    PyObject *f1;
-} tuple_T2OO;
 #endif
 
 #ifndef MYPYC_DECLARED_tuple_T5IIIII
@@ -83,6 +75,14 @@ typedef struct tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO {
 } tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO;
 #endif
 
+#ifndef MYPYC_DECLARED_tuple_T2OO
+#define MYPYC_DECLARED_tuple_T2OO
+typedef struct tuple_T2OO {
+    PyObject *f0;
+    PyObject *f1;
+} tuple_T2OO;
+#endif
+
 #ifndef MYPYC_DECLARED_tuple_T4OOOO
 #define MYPYC_DECLARED_tuple_T4OOOO
 typedef struct tuple_T4OOOO {
@@ -107,109 +107,6 @@ typedef struct {
     PyObject *_body;
     PyObject *_labels;
 } yearn_treasury___budget____request___BudgetRequestObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__pool;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_temp__0;
-    tuple_T3OOO ___mypyc_temp__1;
-} yearn_treasury___rules___ignore___swaps___curve____get_lp_token_genObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__tx;
-    PyObject *___mypyc_generator_attribute__pool;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_temp__2;
-    tuple_T3OOO ___mypyc_temp__3;
-    PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___ignore___swaps___curve____is_old_style_genObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__pool;
-    CPyTagged ___mypyc_generator_attribute__index;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_temp__4;
-    tuple_T3OOO ___mypyc_temp__5;
-} yearn_treasury___rules___ignore___swaps___curve____get_coin_at_index_genObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__tx;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_generator_attribute__pool;
-    PyObject *___mypyc_temp__6;
-    PyObject *___mypyc_temp__7;
-    PyObject *___mypyc_generator_attribute__event;
-    PyObject *___mypyc_temp__8;
-    tuple_T3OOO ___mypyc_temp__9;
-    PyObject *___mypyc_temp__10;
-    tuple_T3OOO ___mypyc_temp__11;
-    CPyTagged ___mypyc_temp__12;
-    CPyTagged ___mypyc_generator_attribute__i;
-    PyObject *___mypyc_temp__13;
-    PyObject *___mypyc_temp__14;
-    PyObject *___mypyc_generator_attribute__amount;
-    PyObject *___mypyc_temp__15;
-    tuple_T3OOO ___mypyc_temp__16;
-    PyObject *___mypyc_temp__17;
-    tuple_T3OOO ___mypyc_temp__18;
-    tuple_T3OOO ___mypyc_temp__19;
-    PyObject *___mypyc_generator_attribute__token;
-    CPyTagged ___mypyc_temp__20;
-    PyObject *___mypyc_temp__21;
-    PyObject *___mypyc_temp__22;
-    PyObject *___mypyc_temp__23;
-    tuple_T3OOO ___mypyc_temp__24;
-    PyObject *___mypyc_temp__25;
-    tuple_T3OOO ___mypyc_temp__26;
-    PyObject *___mypyc_temp__2_0;
-    PyObject *___mypyc_temp__2_1;
-} yearn_treasury___rules___ignore___swaps___curve___is_curve_deposit_genObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__tx;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_temp__27;
-    tuple_T3OOO ___mypyc_temp__28;
-} yearn_treasury___rules___ignore___swaps___curve___is_curve_withdrawal_genObject;
-
-typedef struct {
-    PyObject_HEAD
-    CPyVTableItem *vtable;
-    PyObject *___mypyc_generator_attribute__tx;
-    int32_t ___mypyc_next_label__;
-    PyObject *___mypyc_generator_attribute__pool;
-    PyObject *___mypyc_temp__29;
-    PyObject *___mypyc_temp__30;
-    PyObject *___mypyc_generator_attribute__event;
-    PyObject *___mypyc_temp__31;
-    tuple_T3OOO ___mypyc_temp__32;
-    PyObject *___mypyc_temp__33;
-    tuple_T3OOO ___mypyc_temp__34;
-    CPyTagged ___mypyc_temp__35;
-    CPyTagged ___mypyc_generator_attribute__i;
-    PyObject *___mypyc_temp__36;
-    PyObject *___mypyc_temp__37;
-    PyObject *___mypyc_generator_attribute__amount;
-    PyObject *___mypyc_temp__38;
-    tuple_T3OOO ___mypyc_temp__39;
-    PyObject *___mypyc_temp__40;
-    tuple_T3OOO ___mypyc_temp__41;
-    PyObject *___mypyc_generator_attribute__coin;
-    PyObject *___mypyc_temp__42;
-    tuple_T3OOO ___mypyc_temp__43;
-    tuple_T3OOO ___mypyc_temp__44;
-    PyObject *___mypyc_temp__2_0;
-} yearn_treasury___rules___ignore___swaps___curve____is_curve_withdrawal_multi_genObject;
 
 typedef struct {
     PyObject_HEAD
