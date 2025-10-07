@@ -120,7 +120,7 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
             pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
             if await _is_old_style(tx, pool) or _is_new_style(tx, pool):
                 return True
-            print(f"unhandled curve pool: {tx} symbol={tx.symbol} name={tx.token.name}")
+            print(f"unhandled curve pool: {tx} symbol={tx.symbol} name={tx.token.name} address={tx.token.address}")
         # Tokens rec'd
         elif tx.from_address == event.address and TreasuryWallet.check_membership(
             tx.to_address.address, tx.block  # type: ignore [union-attr, arg-type]
