@@ -59,11 +59,14 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
             if buyback_event.address in VYPER_BUYERS and all(  # type: ignore [attr-defined]
                 arg in buyback_event for arg in ("buyer", "yfi", "dai")
             ):
+                # TODO get rid of this rounding once we've swapped out sqlite for postgres
                 buyback_amount = Decimal(buyback_event["yfi"]) / 10**18  # type: ignore [call-overload]
-                if tx.amount == buyback_amount:
+                if round(tx.amount, 15) == round(buyback_amount, 15):
                     return True
                 print(
-                    f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
+                    f"from node: {buyback_amount} "
+                    f"from db: {tx.amount} "
+                    f"diff: {buyback_amount - tx.amount}"
                 )
             else:
                 print("unhandled Buyback event: buyback_event")
