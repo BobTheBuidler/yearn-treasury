@@ -46,21 +46,27 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
             events = tx.events
         except KeyError as e:
             if "components" in str(e):
+                print(f"cannot parse events of possible YFI buyback {tx}")
                 return False
             raise
 
         if "Buyback" in events:
-            buyback_event = events["Buyback"]
-            if buyback_event.address in VYPER_BUYERS and all(
+            buyback_events = events["Buyback"]
+            if len(buyback_events) > 1:
+                print(f"Must code handler for multiple Buyback events in one tx: {tx}")
+                return False
+            buyback_event = buyback_events[0]
+            if buyback_event.address in VYPER_BUYERS and all(  # type: ignore [attr-defined]
                 arg in buyback_event for arg in ("buyer", "yfi", "dai")
             ):
-                buyback_amount = Decimal(buyback_event["yfi"]) / 10**18  # type: ignore [arg-type]
+                buyback_amount = Decimal(buyback_event["yfi"]) / 10**18  # type: ignore [call-overload]
                 if tx.amount == buyback_amount:
                     return True
                 print(
                     f"from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}"
                 )
-                # raise ValueError(f'from node: {buyback_amount} from db: {tx.amount} diff: {buyback_amount - tx.amount}')
+            else:
+                print("unhandled Buyback event: buyback_event")
     return False
 
 
