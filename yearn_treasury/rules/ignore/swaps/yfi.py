@@ -61,7 +61,7 @@ def is_buying_with_buyer(tx: TreasuryTx) -> bool:
             ):
                 # TODO get rid of this rounding once we've swapped out sqlite for postgres
                 buyback_amount = Decimal(buyback_event["yfi"]) / 10**18  # type: ignore [call-overload]
-                if round(tx.amount, 15) == round(buyback_amount, 15):
+                if round(tx.amount, 14) == round(buyback_amount, 14):
                     return True
                 print(
                     f"from node: {buyback_amount} "
