@@ -54,6 +54,9 @@ _SHITCOINS: Final = {
         "0xe2549E429B78458fa60BC7B1b284d4411E1D5105",
         "0xCfdD747d041397bcE08B0Fe6ebF7Ef65E9F46795",
         "0x9745969171a38B40db05c506fe2DA2C36f317627",
+        "0x6051C1354Ccc51b4d561e43b02735DEaE64768B8",
+        "0xf0814d0E47F2390a8082C4a1BD819FDDe50f9bFc",
+        "0x2DBd330bC9B7f3A822a9173aB52172BdDDcAcE2A",
         # just andre tinkering
         "0x5cB5e2d7Ab9Fd32021dF8F1D3E5269bD437Ec3Bf",
         # these arent shitcoins per se but we can't price them and dont expect to in the future, lets save cpu cycles
