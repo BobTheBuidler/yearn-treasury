@@ -1,8 +1,8 @@
-#ifndef MYPYC_NATIVE_INTERNAL_4536608332a31e0815c4_H
-#define MYPYC_NATIVE_INTERNAL_4536608332a31e0815c4_H
+#ifndef MYPYC_NATIVE_INTERNAL_yearn_treasury_H
+#define MYPYC_NATIVE_INTERNAL_yearn_treasury_H
 #include <Python.h>
 #include <CPy.h>
-#include "__native_4536608332a31e0815c4.h"
+#include "__native_yearn_treasury.h"
 
 int CPyGlobalsInit(void);
 
