@@ -104,7 +104,8 @@ def is_buying_with_auction(tx: TreasuryTx) -> bool:
             if tx.from_address != receiver:
                 print(f"Transfer does not match auction taker:  taker={tx.from_address.address}  transfer={receiver}")  # type: ignore [union-attr]
                 continue
-            if amount == event["taken"]:  # type: ignore [call-overload]
+            # TODO get rid of this rounding once we've swapped out sqlite for postgres
+            if round(amount, 14) == round(event["taken"], 14):  # type: ignore [call-overload]
                 return True
             print(f"AuctionTaken: {event} amount does not match Transfer: {transfer}")
     return False
