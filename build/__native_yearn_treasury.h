@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_4536608332a31e0815c4_H
-#define MYPYC_NATIVE_4536608332a31e0815c4_H
+#ifndef MYPYC_NATIVE_yearn_treasury_H
+#define MYPYC_NATIVE_yearn_treasury_H
 #include <Python.h>
 #include <CPy.h>
 #ifndef MYPYC_DECLARED_tuple_T0

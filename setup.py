@@ -48,6 +48,7 @@ else:
             "--disable-error-code=no-any-return",
             "--disable-error-code=misc",  # TODO: drop support for 32bit systems
         ],
+        group_name="yearn_treasury",
     )
 
 
