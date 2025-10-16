@@ -43,22 +43,23 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
                 if (
                     from_address == event["_user"]
                     and await token.contract.underlyingAssetAddress == event["_reserve"]
-                    # TODO get rid of this rounding when we migrate the db to postgres
-                    and round(token.scale_value(event["_amount"]), 14) == round(tx.amount, 14)
                 ):
-                    return True
+                    # TODO get rid of this rounding when we migrate the db to postgres
+                    event_amount = round(token.scale_value(event["_amount"]), 14)
+                    if event_amount == round(tx.amount, 14):
+                        return True
+                    print(f"Aave Withdrawal atoken side does not match: {round(tx.amount, 14)}  {event_amount}")
 
     # Underlying side
     if TreasuryWallet.check_membership(tx.to_address.address, tx.block):  # type: ignore [union-attr, arg-type]
         token = tx.token
         for event in await tx.get_events("RedeemUnderlying", sync=False):
-            if (
-                token == event["_reserve"]
-                and to_address == event["_user"]
+            if token == event["_reserve"] and to_address == event["_user"]:
                 # TODO get rid of this rounding when we migrate the db to postgres
-                and round(token.scale_value(event["_amount"]), 14) == round(tx.amount, 14)
-            ):
-                return True
+                event_amount = round(token.scale_value(event["_amount"]), 14)
+                if event_amount == round(tx.amount, 14):
+                    return True
+                print(f"Aave Withdrawal underlying side does not match: {round(tx.amount, 14)}  {event_amount}")
 
     # TODO: If these end up becoming more frequent, figure out sorting hueristics.
     return tx.hash == "0x36ee5631859a15f57b44e41b8590023cf6f0c7b12d28ea760e9d8f8003f4fc50"
