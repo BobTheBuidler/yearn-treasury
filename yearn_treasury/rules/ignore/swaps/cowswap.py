@@ -40,8 +40,8 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
         ):
             # buy side
             if token_address == trade["buyToken"] and TreasuryWallet.check_membership(
-                tx.to_address.address, block
-            ):  # type: ignore [union-attr, arg-type]
+                tx.to_address.address, block  # type: ignore [union-attr, arg-type]
+            ):
                 # TODO get rid of this rounding when we move to postgres
                 buy_amount = round(token.scale_value(trade["buyAmount"]), 9)
                 if round(amount, 9) == buy_amount:
