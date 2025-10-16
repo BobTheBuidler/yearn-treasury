@@ -244,12 +244,20 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
 
             if tx.token == token0:
                 # TODO: get rid of this rounding when we migrate to postgres
-                if round(tx.token.scale_value(swap["amount0In"]), 14) == round(tx.amount, 14):
+                event_amount = round(tx.token.scale_value(swap["amount0In"]), 14)
+                if event_amount == round(tx.amount, 14):
                     return True
+                print(
+                    f"Uniswap sell token0 amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                )
             elif tx.token == token1:
                 # TODO: get rid of this rounding when we migrate to postgres
-                if round(tx.token.scale_value(swap["amount1In"]), 14) == round(tx.amount, 14):
+                event_amount = round(tx.token.scale_value(swap["amount1In"]), 14)
+                if event_amount == round(tx.amount, 14):
                     return True
+                print(
+                    f"Uniswap sell token1 amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                )
 
         # Buy side
         elif tx.from_address == swap.address and TreasuryWallet._get_instance(
@@ -265,12 +273,20 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
                 continue
             if "amount0Out" in swap and tx.token == token0:
                 # TODO: get rid of this rounding when we migrate to postgres
-                if round(tx.token.scale_value(swap["amount0Out"]), 14) == round(tx.amount, 14):
+                event_amount = round(tx.token.scale_value(swap["amount0In"]), 14)
+                if event_amount == round(tx.amount, 14):
                     return True
+                print(
+                    f"Uniswap buy token0 amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                )
             elif "amount1Out" in swap and tx.token == token1:
                 # TODO: get rid of this rounding when we migrate to postgres
-                if round(tx.token.scale_value(swap["amount1Out"]), 14) == round(tx.amount, 14):
+                event_amount = round(tx.token.scale_value(swap["amount1In"]), 14)
+                if event_amount == round(tx.amount, 14):
                     return True
+                print(
+                    f"Uniswap buy token1 amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                )
     return False
 
 
