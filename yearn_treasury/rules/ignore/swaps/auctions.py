@@ -24,6 +24,8 @@ async def is_auction_proceeds(tx: TreasuryTx) -> bool:
         buy_amount = tx.token.scale_value(trade["buyAmount"])
         if round(buy_amount, 14) == round(tx.amount, 14):
             return True
-        print(f"auction proceeds amount does not match: {round(buy_amount, 14)}  {round(tx.amount, 14)}")
+        print(
+            f"auction proceeds amount does not match: {round(buy_amount, 14)}  {round(tx.amount, 14)}"
+        )
 
     return False

@@ -59,7 +59,9 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
                             return True
                         return True
                 else:
-                    print(f"Curve AddLiquidity sent amount does not match: {round(tx.amount, 14)}  {round(event_amount)}")
+                    print(
+                        f"Curve AddLiquidity sent amount does not match: {round(tx.amount, 14)}  {round(event_amount)}"
+                    )
             except EventLookupError:
                 pass
 
@@ -79,7 +81,9 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
                     if token == await _get_coin_at_index(pool, i):
                         return True
                 else:
-                    print(f"AddLiquidity-3crv amount does not match: {round(tx.amount, 14)}  {round(event_amount)}")
+                    print(
+                        f"AddLiquidity-3crv amount does not match: {round(tx.amount, 14)}  {round(event_amount)}"
+                    )
 
     # TODO: see if we can remove these with latest hueristics
     return CHAINID == Network.Mainnet and tx.hash in (
@@ -121,7 +125,9 @@ def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
         event_amount = tx.token.scale_value(event["coin_amount"])
         if round(tx.amount, 14) == round(event_amount, 14):
             return True
-        print(f"Curve withdrawal one amount does not match: {round(tx.amount, 14)}  {round(event_amount, 14)}")
+        print(
+            f"Curve withdrawal one amount does not match: {round(tx.amount, 14)}  {round(event_amount, 14)}"
+        )
     return False
 
 
@@ -152,7 +158,9 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
                         else:
                             return tx.token == await _get_coin_at_index(pool, i)
                     else:
-                        print(f"Curve withdrawal multi amount does not match: {round(tx.amount, 14)}  {event_amount}")
+                        print(
+                            f"Curve withdrawal multi amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                        )
             except EventLookupError:
                 # some other event has different keys, maybe we need to implement logic to capture these. time will tell.
                 pass

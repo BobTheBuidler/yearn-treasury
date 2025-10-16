@@ -48,7 +48,9 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
                     event_amount = round(token.scale_value(event["_amount"]), 14)
                     if event_amount == round(tx.amount, 14):
                         return True
-                    print(f"Aave Withdrawal atoken side does not match: {round(tx.amount, 14)}  {event_amount}")
+                    print(
+                        f"Aave Withdrawal atoken side does not match: {round(tx.amount, 14)}  {event_amount}"
+                    )
 
     # Underlying side
     if TreasuryWallet.check_membership(tx.to_address.address, tx.block):  # type: ignore [union-attr, arg-type]
@@ -59,7 +61,9 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
                 event_amount = round(token.scale_value(event["_amount"]), 14)
                 if event_amount == round(tx.amount, 14):
                     return True
-                print(f"Aave Withdrawal underlying side does not match: {round(tx.amount, 14)}  {event_amount}")
+                print(
+                    f"Aave Withdrawal underlying side does not match: {round(tx.amount, 14)}  {event_amount}"
+                )
 
     # TODO: If these end up becoming more frequent, figure out sorting hueristics.
     return tx.hash == "0x36ee5631859a15f57b44e41b8590023cf6f0c7b12d28ea760e9d8f8003f4fc50"
