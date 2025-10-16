@@ -10,7 +10,7 @@ from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.rules.ignore.swaps._skip_tokens import SKIP_TOKENS
 
 
-YSWAPS: Final = "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
+COWSWAP: Final = "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
 
 
 @swaps("Cowswap", Network.Mainnet)
@@ -34,23 +34,26 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
 
     for trade in tx.events["Trade"]:
         if (
-            trade.address == YSWAPS
+            trade.address == COWSWAP
             and TreasuryWallet.check_membership(trade["owner"], block)
             and trade["buyToken"] not in SKIP_TOKENS
         ):
             # buy side
-            if (
-                token_address == trade["buyToken"]
-                and TreasuryWallet.check_membership(tx.to_address.address, block)  # type: ignore [union-attr, arg-type]
-                and amount == token.scale_value(trade["buyAmount"])
+            if token_address == trade["buyToken"] and TreasuryWallet.check_membership(
+                tx.to_address.address, block  # type: ignore [union-attr, arg-type]
             ):
-                return True
+                # TODO get rid of this rounding when we move to postgres
+                buy_amount = round(token.scale_value(trade["buyAmount"]), 8)
+                if round(amount, 8) == buy_amount:
+                    return True
+                print(f"Cowswap buy amount does not match: {round(amount, 8)}   {buy_amount}")
             # sell side
-            elif (
-                token_address == trade["sellToken"]
-                and tx.from_address == trade["owner"]
-                and amount == token.scale_value(trade["sellAmount"])
-            ):
+            elif token_address == trade["sellToken"] and tx.from_address == trade["owner"]:
+                # TODO get rid of this rounding when we move to postgres
+                sell_amount = round(token.scale_value(trade["sellAmount"]), 8)
+                if round(amount, 8) != sell_amount:
+                    print(f"Cowswap sell amount does not match: {round(amount, 8)}   {sell_amount}")
+                    continue
                 # Did Yearn actually receive the other side of the trade?
                 for address in TREASURY_WALLETS:
                     if TreasuryWallet.check_membership(address, block):
@@ -59,7 +62,7 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
                             for t in TreasuryTx  # type: ignore [attr-defined]
                             if t.hash == tx.hash
                             and t.token.address.address == trade["buyToken"]
-                            and t.from_address.address == YSWAPS
+                            and t.from_address.address == COWSWAP
                             and t.to_address.address == address
                         )
 

@@ -243,10 +243,12 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
                 continue
 
             if tx.token == token0:
-                if tx.token.scale_value(swap["amount0In"]) == tx.amount:
+                # TODO: get rid of this rounding when we migrate to postgres
+                if round(tx.token.scale_value(swap["amount0In"]), 14) == round(tx.amount, 14):
                     return True
             elif tx.token == token1:
-                if tx.token.scale_value(swap["amount1In"]) == tx.amount:
+                # TODO: get rid of this rounding when we migrate to postgres
+                if round(tx.token.scale_value(swap["amount1In"]), 14) == round(tx.amount, 14):
                     return True
 
         # Buy side
@@ -262,10 +264,12 @@ async def is_uniswap_swap(tx: TreasuryTx) -> bool:
                 # This will be recorded elsewhere
                 continue
             if "amount0Out" in swap and tx.token == token0:
-                if tx.token.scale_value(swap["amount0Out"]) == tx.amount:
+                # TODO: get rid of this rounding when we migrate to postgres
+                if round(tx.token.scale_value(swap["amount0Out"]), 14) == round(tx.amount, 14):
                     return True
             elif "amount1Out" in swap and tx.token == token1:
-                if tx.token.scale_value(swap["amount1Out"]) == tx.amount:
+                # TODO: get rid of this rounding when we migrate to postgres
+                if round(tx.token.scale_value(swap["amount1Out"]), 14) == round(tx.amount, 14):
                     return True
     return False
 

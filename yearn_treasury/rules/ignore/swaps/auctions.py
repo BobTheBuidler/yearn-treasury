@@ -12,21 +12,13 @@ YEARNFI_DUTCH_AUCTIONS: Final = "0x861fE45742f70054917B65bE18904662bD0dBd30"
 
 
 @auctions("Auction Proceeds", Network.Mainnet)
-def is_auction_proceeds(tx: TreasuryTx) -> bool:    
+async def is_auction_proceeds(tx: TreasuryTx) -> bool:
     # NOTE: the other side of these swaps is currently recorded under
     # 'Ignore:Internal Transfer' when it goes to the Generic bucket contract
     if tx.from_nickname != "Contract: GPv2Settlement":
         return False
 
-    try:
-        if "Trade" not in tx.events:
-            return False
-    except KeyError as e:
-        if "components" in str(e):
-            return False
-        raise
-
-    for trade in tx.get_events("Trade"):
+    for trade in await tx.get_events("Trade", sync=False):
         if trade["owner"] != YEARNFI_DUTCH_AUCTIONS or tx.token != trade["buyToken"]:
             continue
         buy_amount = tx.token.scale_value(trade["buyAmount"])

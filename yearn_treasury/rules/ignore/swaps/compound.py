@@ -18,12 +18,16 @@ async def is_compound_deposit(tx: TreasuryTx) -> bool:
             if (
                 tx.token == tx.from_address == event.address
                 and tx.to_address == minter
-                and minted == tx.amount
+                # TODO: get rid of this rounding when we migrate to postgres
+                and round(minted, 14) == round(tx.amount, 14)
             ):
                 return True
             # underlying side
             elif (
-                tx.to_address == event.address and tx.from_address == minter and minted == tx.amount
+                tx.to_address == event.address
+                and tx.from_address == minter
+                # TODO: get rid of this rounding when we migrate to postgres
+                and round(minted, 14) == round(tx.amount, 14)
             ):
                 return True
     return False
@@ -36,13 +40,19 @@ async def is_compound_withdrawal(tx: TreasuryTx) -> bool:
             redeemer = event["redeemer"]
             redeemed = tx.token.scale_value(event["redeemTokens"])
             # cToken side
-            if tx.token == event.address and tx.from_address == redeemer and redeemed == tx.amount:
+            if (
+                tx.token == event.address
+                and tx.from_address == redeemer
+                # TODO: get rid of this rounding when we migrate to postgres
+                and round(redeemed, 14) == round(tx.amount, 14)
+            ):
                 return True
             # underlying side
             elif (
                 tx.to_address == redeemer
                 and tx.from_address == event.address
-                and redeemed == tx.amount
+                # TODO: get rid of this rounding when we migrate to postgres
+                and round(redeemed, 14) == round(tx.amount, 14)
             ):
                 return True
     return False
