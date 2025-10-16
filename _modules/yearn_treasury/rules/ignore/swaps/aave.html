@@ -121,7 +121,8 @@
                 <span class="k">if</span> <span class="p">(</span>
                     <span class="n">from_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;_user&quot;</span><span class="p">]</span>
                     <span class="ow">and</span> <span class="k">await</span> <span class="n">token</span><span class="o">.</span><span class="n">contract</span><span class="o">.</span><span class="n">underlyingAssetAddress</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;_reserve&quot;</span><span class="p">]</span>
-                    <span class="ow">and</span> <span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;_amount&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
+                    <span class="c1"># TODO get rid of this rounding when we migrate the db to postgres</span>
+                    <span class="ow">and</span> <span class="nb">round</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;_amount&quot;</span><span class="p">]),</span> <span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
                 <span class="p">):</span>
                     <span class="k">return</span> <span class="kc">True</span>
 
@@ -132,7 +133,8 @@
             <span class="k">if</span> <span class="p">(</span>
                 <span class="n">token</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;_reserve&quot;</span><span class="p">]</span>
                 <span class="ow">and</span> <span class="n">to_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;_user&quot;</span><span class="p">]</span>
-                <span class="ow">and</span> <span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;_amount&quot;</span><span class="p">])</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span>
+                <span class="c1"># TODO get rid of this rounding when we migrate the db to postgres</span>
+                <span class="ow">and</span> <span class="nb">round</span><span class="p">(</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;_amount&quot;</span><span class="p">]),</span> <span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span>
             <span class="p">):</span>
                 <span class="k">return</span> <span class="kc">True</span>
 

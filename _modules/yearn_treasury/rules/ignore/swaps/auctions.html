@@ -87,21 +87,13 @@
 <div class="viewcode-block" id="is_auction_proceeds">
 <a class="viewcode-back" href="../../../../../source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.auctions.is_auction_proceeds">[docs]</a>
 <span class="nd">@auctions</span><span class="p">(</span><span class="s2">&quot;Auction Proceeds&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
-<span class="k">def</span><span class="w"> </span><span class="nf">is_auction_proceeds</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>    
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">is_auction_proceeds</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
     <span class="c1"># NOTE: the other side of these swaps is currently recorded under</span>
     <span class="c1"># &#39;Ignore:Internal Transfer&#39; when it goes to the Generic bucket contract</span>
     <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_nickname</span> <span class="o">!=</span> <span class="s2">&quot;Contract: GPv2Settlement&quot;</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
 
-    <span class="k">try</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;Trade&quot;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">events</span><span class="p">:</span>
-            <span class="k">return</span> <span class="kc">False</span>
-    <span class="k">except</span> <span class="ne">KeyError</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
-        <span class="k">if</span> <span class="s2">&quot;components&quot;</span> <span class="ow">in</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">):</span>
-            <span class="k">return</span> <span class="kc">False</span>
-        <span class="k">raise</span>
-
-    <span class="k">for</span> <span class="n">trade</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Trade&quot;</span><span class="p">):</span>
+    <span class="k">for</span> <span class="n">trade</span> <span class="ow">in</span> <span class="k">await</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Trade&quot;</span><span class="p">,</span> <span class="n">sync</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
         <span class="k">if</span> <span class="n">trade</span><span class="p">[</span><span class="s2">&quot;owner&quot;</span><span class="p">]</span> <span class="o">!=</span> <span class="n">YEARNFI_DUTCH_AUCTIONS</span> <span class="ow">or</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">!=</span> <span class="n">trade</span><span class="p">[</span><span class="s2">&quot;buyToken&quot;</span><span class="p">]:</span>
             <span class="k">continue</span>
         <span class="n">buy_amount</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">trade</span><span class="p">[</span><span class="s2">&quot;buyAmount&quot;</span><span class="p">])</span>
