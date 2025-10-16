@@ -18,7 +18,7 @@ async def is_auction_proceeds(tx: TreasuryTx) -> bool:
     if tx.from_nickname != "Contract: GPv2Settlement":
         return False
 
-    async for trade in tx.get_events("Trade", sync=False):
+    for trade in await tx.get_events("Trade", sync=False):
         if trade["owner"] != YEARNFI_DUTCH_AUCTIONS or tx.token != trade["buyToken"]:
             continue
         buy_amount = tx.token.scale_value(trade["buyAmount"])
