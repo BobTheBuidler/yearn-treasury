@@ -39,10 +39,9 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
             and trade["buyToken"] not in SKIP_TOKENS
         ):
             # buy side
-            if (
-                token_address == trade["buyToken"]
-                and TreasuryWallet.check_membership(tx.to_address.address, block)  # type: ignore [union-attr, arg-type]
-            ):
+            if token_address == trade["buyToken"] and TreasuryWallet.check_membership(
+                tx.to_address.address, block
+            ):  # type: ignore [union-attr, arg-type]
                 # TODO get rid of this rounding when we move to postgres
                 buy_amount = round(token.scale_value(trade["buyAmount"]), 10)
                 if round(amount, 10) == buy_amount:
@@ -53,7 +52,9 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
                 # TODO get rid of this rounding when we move to postgres
                 sell_amount = round(token.scale_value(trade["sellAmount"]), 10)
                 if round(amount, 10) != sell_amount:
-                    print(f"Cowswap sell amount does not match: {round(amount, 10)}   {sell_amount}")
+                    print(
+                        f"Cowswap sell amount does not match: {round(amount, 10)}   {sell_amount}"
+                    )
                     continue
                 # Did Yearn actually receive the other side of the trade?
                 for address in TREASURY_WALLETS:
