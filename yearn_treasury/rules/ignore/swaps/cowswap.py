@@ -52,9 +52,7 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
                 # TODO get rid of this rounding when we move to postgres
                 sell_amount = round(token.scale_value(trade["sellAmount"]), 9)
                 if round(amount, 9) != sell_amount:
-                    print(
-                        f"Cowswap sell amount does not match: {round(amount, 9)}   {sell_amount}"
-                    )
+                    print(f"Cowswap sell amount does not match: {round(amount, 9)}   {sell_amount}")
                     continue
                 # Did Yearn actually receive the other side of the trade?
                 for address in TREASURY_WALLETS:
