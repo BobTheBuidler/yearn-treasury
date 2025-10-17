@@ -116,7 +116,9 @@ def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
             event_amount = round(tx.token.scale_value(event["token_amount"]), 11)
             if round(tx.amount, 11) == event_amount:
                 return True
-            print(f"Curve withdrawal one curvey amount does not match: {round(tx.amount, 11)}  {event_amount}")
+            print(
+                f"Curve withdrawal one curvey amount does not match: {round(tx.amount, 11)}  {event_amount}"
+            )
         # Tokens rec'd
         if tx.from_address != event.address:
             continue
