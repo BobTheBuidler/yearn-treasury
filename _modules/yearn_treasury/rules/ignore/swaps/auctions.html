@@ -99,6 +99,9 @@
         <span class="n">buy_amount</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">scale_value</span><span class="p">(</span><span class="n">trade</span><span class="p">[</span><span class="s2">&quot;buyAmount&quot;</span><span class="p">])</span>
         <span class="k">if</span> <span class="nb">round</span><span class="p">(</span><span class="n">buy_amount</span><span class="p">,</span> <span class="mi">14</span><span class="p">)</span> <span class="o">==</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">14</span><span class="p">):</span>
             <span class="k">return</span> <span class="kc">True</span>
+        <span class="nb">print</span><span class="p">(</span>
+            <span class="sa">f</span><span class="s2">&quot;auction proceeds amount does not match: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">buy_amount</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="si">}</span><span class="s2">  </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span><span class="w"> </span><span class="mi">14</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span>
+        <span class="p">)</span>
 
     <span class="k">return</span> <span class="kc">False</span></div>
 
