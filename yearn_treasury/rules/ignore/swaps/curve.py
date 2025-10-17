@@ -111,19 +111,20 @@ async def is_curve_withdrawal(tx: TreasuryTx) -> bool:
 def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
     for event in tx.get_events("RemoveLiquidityOne"):
         # LP Token Side
-        if (
-            tx.to_address == ZERO_ADDRESS
-            and _token_is_curvey(tx)
+        if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx):
             # TODO: get rid of this rounding when we migrate to postgres
-            and round(tx.amount, 14) == round(tx.token.scale_value(event["token_amount"]), 14)
-        ):
-            return True
+            event_amount = round(tx.token.scale_value(event["token_amount"]), 11)
+            if round(tx.amount, 11) == event_amount:
+                return True
+            print(
+                f"Curve withdrawal one curvey amount does not match: {round(tx.amount, 11)}  {event_amount}"
+            )
         # Tokens rec'd
-        elif tx.from_address != event.address:
+        if tx.from_address != event.address:
             continue
         # TODO: get rid of this rounding when we migrate to postgres
         event_amount = tx.token.scale_value(event["coin_amount"])
-        if round(tx.amount, 14) == round(event_amount, 14):
+        if round(tx.amount, 10) == round(event_amount, 10):
             return True
         print(
             f"Curve withdrawal one amount does not match: {round(tx.amount, 14)}  {round(event_amount, 14)}"
@@ -149,8 +150,8 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
             try:
                 for i, amount in enumerate(event["token_amounts"]):
                     # TODO: get rid of this rounding when we migrate to postgres
-                    event_amount = round(tx.token.scale_value(amount), 14)
-                    if round(tx.amount, 14) == event_amount:
+                    event_amount = round(tx.token.scale_value(amount), 12)
+                    if round(tx.amount, 12) == event_amount:
                         pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
                         if hasattr(pool, "underlying_coins"):
                             coin: ChecksumAddress = await pool.underlying_coins.coroutine(i)
@@ -159,7 +160,7 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
                             return tx.token == await _get_coin_at_index(pool, i)
                     else:
                         print(
-                            f"Curve withdrawal multi amount does not match: {round(tx.amount, 14)}  {event_amount}"
+                            f"Curve withdrawal multi amount does not match: {round(tx.amount, 12)}  {event_amount}"
                         )
             except EventLookupError:
                 # some other event has different keys, maybe we need to implement logic to capture these. time will tell.

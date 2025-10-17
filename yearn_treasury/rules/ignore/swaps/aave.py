@@ -45,8 +45,8 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
                     and await token.contract.underlyingAssetAddress == event["_reserve"]
                 ):
                     # TODO get rid of this rounding when we migrate the db to postgres
-                    event_amount = round(token.scale_value(event["_amount"]), 14)
-                    if event_amount == round(tx.amount, 14):
+                    event_amount = round(token.scale_value(event["_amount"]), 11)
+                    if event_amount == round(tx.amount, 11):
                         return True
                     print(
                         f"Aave Withdrawal atoken side does not match: {round(tx.amount, 14)}  {event_amount}"
@@ -58,8 +58,8 @@ async def is_aave_withdrawal(tx: TreasuryTx) -> bool:
         for event in await tx.get_events("RedeemUnderlying", sync=False):
             if token == event["_reserve"] and to_address == event["_user"]:
                 # TODO get rid of this rounding when we migrate the db to postgres
-                event_amount = round(token.scale_value(event["_amount"]), 14)
-                if event_amount == round(tx.amount, 14):
+                event_amount = round(token.scale_value(event["_amount"]), 11)
+                if event_amount == round(tx.amount, 11):
                     return True
                 print(
                     f"Aave Withdrawal underlying side does not match: {round(tx.amount, 14)}  {event_amount}"
