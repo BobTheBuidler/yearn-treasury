@@ -57,7 +57,7 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                         if any(
                             tokens[1] == transfer.address
                             and tx.to_address
-                            == transfer.values()[:1]
+                            == transfer.values()[:1]  # type: ignore [index]
                             == [mint["sender"], mint.address]
                             for transfer in transfers
                         ):
@@ -78,7 +78,7 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                         if any(
                             tokens[0] == transfer.address
                             and tx.to_address
-                            == transfer.values()[:1]
+                            == transfer.values()[:1]  # type: ignore [index]
                             == [mint["sender"], mint.address]
                             for transfer in transfers
                         ):
