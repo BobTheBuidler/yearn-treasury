@@ -42,10 +42,10 @@ async def is_compound_withdrawal(tx: TreasuryTx) -> bool:
             # cToken side
             if tx.token == event.address and tx.from_address == redeemer:
                 # TODO: get rid of this rounding when we migrate to postgres
-                if round(redeemed, 14) == round(tx.amount, 14):
+                if round(redeemed, 7) == round(tx.amount, 7):
                     return True
                 print(
-                    f"Compound withdrawal ctoken side does not match: {round(redeemed, 14)}  {round(tx.amount, 14)}"
+                    f"Compound withdrawal ctoken side does not match: {round(redeemed, 7)}  {round(tx.amount, 7)}"
                 )
             # underlying side
             elif tx.to_address == redeemer and tx.from_address == event.address:
