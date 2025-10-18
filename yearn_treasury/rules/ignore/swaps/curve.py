@@ -51,16 +51,16 @@ async def is_curve_deposit(tx: TreasuryTx) -> bool:
         elif tx.to_address == event.address:
             try:
                 for i, amount in enumerate(event["token_amounts"]):
-                    event_amount = tx.token.scale_value(amount)
                     # TODO: get rid of this rounding when we migrate to postgres
-                    if round(tx.amount, 14) == round(event_amount, 14):
+                    event_amount = round(tx.token.scale_value(amount), 12)
+                    if round(tx.amount, 12) == event_amount:
                         pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
                         if tx.token == await _get_coin_at_index(pool, i):
                             return True
                         return True
                 else:
                     print(
-                        f"Curve AddLiquidity sent amount does not match: {round(tx.amount, 14)}  {round(event_amount)}"
+                        f"Curve AddLiquidity sent amount does not match: {round(tx.amount, 12)}  {event_amount}"
                     )
             except EventLookupError:
                 pass
@@ -113,21 +113,21 @@ def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
         # LP Token Side
         if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx):
             # TODO: get rid of this rounding when we migrate to postgres
-            event_amount = round(tx.token.scale_value(event["token_amount"]), 11)
-            if round(tx.amount, 11) == event_amount:
+            event_amount = round(tx.token.scale_value(event["token_amount"]), 10)
+            if round(tx.amount, 10) == event_amount:
                 return True
             print(
-                f"Curve withdrawal one curvey amount does not match: {round(tx.amount, 11)}  {event_amount}"
+                f"Curve withdrawal one curvey amount does not match: {round(tx.amount, 10)}  {event_amount}"
             )
         # Tokens rec'd
         if tx.from_address != event.address:
             continue
         # TODO: get rid of this rounding when we migrate to postgres
         event_amount = tx.token.scale_value(event["coin_amount"])
-        if round(tx.amount, 10) == round(event_amount, 10):
+        if round(tx.amount, 9) == round(event_amount, 9):
             return True
         print(
-            f"Curve withdrawal one amount does not match: {round(tx.amount, 14)}  {round(event_amount, 14)}"
+            f"Curve withdrawal one amount does not match: {round(tx.amount, 9)}  {round(event_amount, 9)}"
         )
     return False
 
