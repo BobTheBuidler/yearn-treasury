@@ -150,8 +150,8 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
             try:
                 for i, amount in enumerate(event["token_amounts"]):
                     # TODO: get rid of this rounding when we migrate to postgres
-                    event_amount = round(tx.token.scale_value(amount), 12)
-                    if round(tx.amount, 12) == event_amount:
+                    event_amount = round(tx.token.scale_value(amount), 9)
+                    if round(tx.amount, 9) == event_amount:
                         pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
                         if hasattr(pool, "underlying_coins"):
                             coin: ChecksumAddress = await pool.underlying_coins.coroutine(i)
