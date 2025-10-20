@@ -1,0 +1,211 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.ignore.staking &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.ignore.staking</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.ignore.staking</h1><div class="highlight"><pre>
+<span></span><span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span><span class="p">,</span> <span class="n">ignore</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Network</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZERO_ADDRESS</span>
+
+
+<span class="n">staking</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;Staking&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_curve_gauge">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.staking.is_curve_gauge">[docs]</a>
+<span class="nd">@staking</span><span class="p">(</span><span class="s2">&quot;Curve Gauges&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_curve_gauge</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ignore DAO staking into Curve gauge contracts on Mainnet.</span>
+
+<span class="sd">    These deposit transactions into Curve gauges are infrequent and are excluded from automatic categorization.</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="k">return</span> <span class="n">tx</span><span class="o">.</span><span class="n">hash</span> <span class="ow">in</span> <span class="p">(</span>
+        <span class="s2">&quot;0xfb9fbe6e6c1d6e3dbeae81f80f0ff7729c556b08afb6ce1fa8ab04d3ecb56788&quot;</span><span class="p">,</span>
+        <span class="s2">&quot;0x832eb508906baf2c00dfec7a2d3f7b856fdee683921a5fff206cf6b0c997cb32&quot;</span><span class="p">,</span>
+    <span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="is_solidex_staking">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.staking.is_solidex_staking">[docs]</a>
+<span class="nd">@staking</span><span class="p">(</span><span class="s2">&quot;Solidex&quot;</span><span class="p">,</span> <span class="n">Network</span><span class="o">.</span><span class="n">Fantom</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">is_solidex_staking</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">&quot;&quot;&quot;Ignore Solidex staking and unstaking lifecycle transactions on Fantom.</span>
+
+<span class="sd">    This rule matches each stage of the Solidex LP flow:</span>
+<span class="sd">    - Stake deposits: DAO wallet deposits tokens into the LP depositor contract (`Deposited` event).</span>
+<span class="sd">    - Reward claims: Claim tokens minted to DAO (`Deposited` event with ZERO_ADDRESS as sender).</span>
+<span class="sd">    - Claim token burns: DAO wallet burns claim tokens to redeem rewards (`Withdrawn` event).</span>
+<span class="sd">    - Unstake withdrawals: DAO wallet receives original LP tokens back (`Withdrawn` event).</span>
+<span class="sd">    &quot;&quot;&quot;</span>
+    <span class="c1"># Solidex Finance: LP Depositor</span>
+    <span class="n">lp_depositor</span> <span class="o">=</span> <span class="s2">&quot;0x26E1A0d851CF28E697870e1b7F053B605C8b060F&quot;</span>
+
+    <span class="c1"># STAKING</span>
+    <span class="c1"># Step 1: Stake your tokens</span>
+    <span class="k">if</span> <span class="p">(</span>
+        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">lp_depositor</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Deposited&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">lp_depositor</span>
+                <span class="ow">and</span> <span class="s2">&quot;user&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="s2">&quot;pool&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;pool&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># CLAIMING</span>
+    <span class="c1"># Step 2: Get your claim tokens</span>
+    <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Deposited&quot;</span><span class="p">):</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">contract</span><span class="o">.</span><span class="n">pool</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">lp_depositor</span>
+                <span class="ow">and</span> <span class="s2">&quot;user&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="s2">&quot;pool&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;pool&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pool</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># UNSTAKING</span>
+    <span class="c1"># Step 3: Burn your claim tokens</span>
+    <span class="k">elif</span> <span class="p">(</span>
+        <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+        <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">ZERO_ADDRESS</span>
+    <span class="p">):</span>
+        <span class="n">token</span> <span class="o">=</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span><span class="o">.</span><span class="n">contract</span>
+        <span class="k">if</span> <span class="nb">hasattr</span><span class="p">(</span><span class="n">token</span><span class="p">,</span> <span class="s2">&quot;pool&quot;</span><span class="p">):</span>
+            <span class="n">pool</span> <span class="o">=</span> <span class="k">await</span> <span class="n">token</span><span class="o">.</span><span class="n">pool</span>
+            <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Withdrawn&quot;</span><span class="p">):</span>
+                <span class="k">if</span> <span class="p">(</span>
+                    <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">lp_depositor</span>
+                    <span class="ow">and</span> <span class="s2">&quot;user&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                    <span class="ow">and</span> <span class="s2">&quot;pool&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                    <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+                    <span class="ow">and</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;pool&quot;</span><span class="p">]</span> <span class="o">==</span> <span class="n">pool</span>
+                <span class="p">):</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="c1"># Step 4: Unstake your tokens</span>
+    <span class="k">elif</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="n">lp_depositor</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">_get_instance</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;Withdrawn&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="p">(</span>
+                <span class="n">event</span><span class="o">.</span><span class="n">address</span> <span class="o">==</span> <span class="n">lp_depositor</span>
+                <span class="ow">and</span> <span class="s2">&quot;user&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="s2">&quot;pool&quot;</span> <span class="ow">in</span> <span class="n">event</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;user&quot;</span><span class="p">]</span>
+                <span class="ow">and</span> <span class="n">tx</span><span class="o">.</span><span class="n">token</span> <span class="o">==</span> <span class="n">event</span><span class="p">[</span><span class="s2">&quot;pool&quot;</span><span class="p">]</span>
+            <span class="p">):</span>
+                <span class="k">return</span> <span class="kc">True</span>
+
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

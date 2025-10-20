@@ -1,0 +1,207 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.rules.ignore.maker &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../../../genindex.html" />
+    <link rel="search" title="Search" href="../../../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../../../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.rules.ignore.maker</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.rules.ignore.maker</h1><div class="highlight"><pre>
+<span></span><span class="sd">&quot;&quot;&quot;</span>
+<span class="sd">Ignore rules for Maker protocol.</span>
+
+<span class="sd">This module defines matching logic for Maker protocol transactions,</span>
+<span class="sd">including DAI minting/burning, DSR deposit/withdrawal, and CDP</span>
+<span class="sd">deposit/withdrawal for YFI and USDC.</span>
+<span class="sd">&quot;&quot;&quot;</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Final</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">dao_treasury</span><span class="w"> </span><span class="kn">import</span> <span class="n">TreasuryTx</span><span class="p">,</span> <span class="n">TreasuryWallet</span><span class="p">,</span> <span class="n">ignore</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.rules.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZERO_ADDRESS</span>
+
+
+<span class="n">DSPROXY</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="s2">&quot;0xd42e1Cb8b98382df7Db43e0F09dFE57365659D16&quot;</span>
+<span class="n">DEPOSIT_EVENT_ARGS</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="s2">&quot;ilk&quot;</span><span class="p">,</span> <span class="s2">&quot;usr&quot;</span><span class="p">,</span> <span class="s2">&quot;wad&quot;</span>
+<span class="n">WITHDRAWAL_EVENT_ARGS</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="s2">&quot;cdp&quot;</span><span class="p">,</span> <span class="s2">&quot;dst&quot;</span><span class="p">,</span> <span class="s2">&quot;wad&quot;</span>
+
+<span class="n">maker</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">ignore</span><span class="p">(</span><span class="s2">&quot;Maker&quot;</span><span class="p">)</span>
+<span class="n">dai</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">maker</span><span class="p">(</span><span class="s2">&quot;DAI&quot;</span><span class="p">)</span>
+<span class="n">dsr</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">maker</span><span class="p">(</span><span class="s2">&quot;DSR&quot;</span><span class="p">)</span>
+<span class="n">cdp</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">maker</span><span class="p">(</span><span class="s2">&quot;CDP&quot;</span><span class="p">)</span>
+
+
+<span class="n">dai</span><span class="p">(</span><span class="s2">&quot;Minting&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="n">from_address</span><span class="o">=</span><span class="n">ZERO_ADDRESS</span><span class="p">)</span>
+<span class="n">dai</span><span class="p">(</span><span class="s2">&quot;Burning&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">symbol</span><span class="o">=</span><span class="s2">&quot;DAI&quot;</span><span class="p">,</span> <span class="n">to_address</span><span class="o">=</span><span class="n">DSPROXY</span><span class="p">)</span>
+
+<span class="c1"># sending DAI to or receiving DAI back from Maker&#39;s DSR module</span>
+<span class="n">dsr</span><span class="p">(</span><span class="s2">&quot;Deposit&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">to_nickname</span><span class="o">=</span><span class="s2">&quot;Contract: DsrManager&quot;</span><span class="p">)</span>
+<span class="n">dsr</span><span class="p">(</span><span class="s2">&quot;Withdrawal&quot;</span><span class="p">)</span><span class="o">.</span><span class="n">match</span><span class="p">(</span><span class="n">from_nickname</span><span class="o">=</span><span class="s2">&quot;Contract: DsrManager&quot;</span><span class="p">)</span>
+
+
+<div class="viewcode-block" id="is_yfi_cdp_deposit">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_yfi_cdp_deposit">[docs]</a>
+<span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;YFI Deposit&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yfi_cdp_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;slip&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">arg</span> <span class="ow">in</span> <span class="n">event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">DEPOSIT_EVENT_ARGS</span><span class="p">):</span>
+                <span class="c1"># TODO: remove this rounding once we move to postgres</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;wad&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="n">rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">rounded</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;yfi cdp deposit amount no match [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">rounded</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_yfi_cdp_withdrawal">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_yfi_cdp_withdrawal">[docs]</a>
+<span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;YFI Withdrawal&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_yfi_cdp_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;YFI&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;flux&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">arg</span> <span class="ow">in</span> <span class="n">event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">WITHDRAWAL_EVENT_ARGS</span><span class="p">):</span>
+                <span class="c1"># TODO: remove this rounding once we move to postgres</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">Decimal</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;wad&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="n">rounded</span> <span class="o">=</span> <span class="nb">round</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">,</span> <span class="mi">12</span><span class="p">)</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">rounded</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;yfi cdp withdrawal amount no match [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">rounded</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_usdc_cdp_deposit">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_usdc_cdp_deposit">[docs]</a>
+<span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;USDC Deposit&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_usdc_cdp_deposit</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;USDC&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;slip&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">arg</span> <span class="ow">in</span> <span class="n">event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">DEPOSIT_EVENT_ARGS</span><span class="p">):</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;wad&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;usdc cdp deposit amount no match [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+
+
+<div class="viewcode-block" id="is_usdc_cdp_withdrawal">
+<a class="viewcode-back" href="../../../../source/yearn_treasury.rules.ignore.html#yearn_treasury.rules.ignore.maker.is_usdc_cdp_withdrawal">[docs]</a>
+<span class="nd">@cdp</span><span class="p">(</span><span class="s2">&quot;USDC Withdrawal&quot;</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">is_usdc_cdp_withdrawal</span><span class="p">(</span><span class="n">tx</span><span class="p">:</span> <span class="n">TreasuryTx</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span><span class="p">:</span>
+    <span class="k">if</span> <span class="n">tx</span><span class="o">.</span><span class="n">symbol</span> <span class="o">==</span> <span class="s2">&quot;USDC&quot;</span> <span class="ow">and</span> <span class="n">TreasuryWallet</span><span class="o">.</span><span class="n">check_membership</span><span class="p">(</span>
+        <span class="n">tx</span><span class="o">.</span><span class="n">to_address</span><span class="o">.</span><span class="n">address</span><span class="p">,</span> <span class="n">tx</span><span class="o">.</span><span class="n">block</span>  <span class="c1"># type: ignore [union-attr, arg-type]</span>
+    <span class="p">):</span>
+        <span class="k">for</span> <span class="n">event</span> <span class="ow">in</span> <span class="n">tx</span><span class="o">.</span><span class="n">get_events</span><span class="p">(</span><span class="s2">&quot;flux&quot;</span><span class="p">):</span>
+            <span class="k">if</span> <span class="nb">all</span><span class="p">(</span><span class="n">arg</span> <span class="ow">in</span> <span class="n">event</span> <span class="k">for</span> <span class="n">arg</span> <span class="ow">in</span> <span class="n">WITHDRAWAL_EVENT_ARGS</span><span class="p">):</span>
+                <span class="n">scaled</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="n">event</span><span class="p">[</span><span class="s2">&quot;wad&quot;</span><span class="p">])</span> <span class="o">/</span> <span class="mi">10</span><span class="o">**</span><span class="mi">18</span>
+                <span class="k">if</span> <span class="n">scaled</span> <span class="o">==</span> <span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="p">:</span>
+                    <span class="k">return</span> <span class="kc">True</span>
+                <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;usdc cdp withdrawal amount no match [</span><span class="si">{</span><span class="n">scaled</span><span class="si">}</span><span class="s2">, </span><span class="si">{</span><span class="n">tx</span><span class="o">.</span><span class="n">amount</span><span class="si">}</span><span class="s2">]&quot;</span><span class="p">)</span>
+    <span class="k">return</span> <span class="kc">False</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>

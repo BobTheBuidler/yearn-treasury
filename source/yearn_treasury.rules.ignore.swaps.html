@@ -52,11 +52,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-constants-module">yearn_treasury.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.constants">yearn_treasury.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-main-module">yearn_treasury.main module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-shitcoins-module">yearn_treasury.shitcoins module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-vaults-module">yearn_treasury.vaults module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.shitcoins">yearn_treasury.shitcoins module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.vaults">yearn_treasury.vaults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -98,59 +98,576 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-aave-module">
-<h2>yearn_treasury.rules.ignore.swaps.aave module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-aave-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.aave">
+<span id="yearn-treasury-rules-ignore-swaps-aave-module"></span><h2>yearn_treasury.rules.ignore.swaps.aave module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.aave" title="Link to this heading"></a></h2>
+<p>Ignore rules for Aave-related transactions.</p>
+<p>This module defines rules for identifying and ignoring Aave-related
+transactions in the Yearn Treasury system. It provides matching logic
+for deposit and withdrawal events, so these transactions can be
+ignored in analytics and reporting.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.aave.is_aave_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.aave.</span></span><span class="sig-name descname"><span class="pre">is_aave_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/aave.html#is_aave_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.aave.is_aave_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.aave.is_aave_withdrawal">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.aave.</span></span><span class="sig-name descname"><span class="pre">is_aave_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/aave.html#is_aave_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.aave.is_aave_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-auctions-module">
-<h2>yearn_treasury.rules.ignore.swaps.auctions module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-auctions-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.auctions">
+<span id="yearn-treasury-rules-ignore-swaps-auctions-module"></span><h2>yearn_treasury.rules.ignore.swaps.auctions module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.auctions" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.auctions.is_auction_proceeds">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.auctions.</span></span><span class="sig-name descname"><span class="pre">is_auction_proceeds</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/auctions.html#is_auction_proceeds"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.auctions.is_auction_proceeds" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-compound-module">
-<h2>yearn_treasury.rules.ignore.swaps.compound module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-compound-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.compound">
+<span id="yearn-treasury-rules-ignore-swaps-compound-module"></span><h2>yearn_treasury.rules.ignore.swaps.compound module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.compound" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.compound.is_compound_deposit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.compound.</span></span><span class="sig-name descname"><span class="pre">is_compound_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/compound.html#is_compound_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.compound.is_compound_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.compound.is_compound_withdrawal">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.compound.</span></span><span class="sig-name descname"><span class="pre">is_compound_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/compound.html#is_compound_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.compound.is_compound_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-conversion-factory-module">
-<h2>yearn_treasury.rules.ignore.swaps.conversion_factory module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-conversion-factory-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.conversion_factory">
+<span id="yearn-treasury-rules-ignore-swaps-conversion-factory-module"></span><h2>yearn_treasury.rules.ignore.swaps.conversion_factory module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.conversion_factory" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.conversion_factory.is_conversion_factory">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.conversion_factory.</span></span><span class="sig-name descname"><span class="pre">is_conversion_factory</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/conversion_factory.html#is_conversion_factory"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.conversion_factory.is_conversion_factory" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-cowswap-module">
-<h2>yearn_treasury.rules.ignore.swaps.cowswap module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-cowswap-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.cowswap">
+<span id="yearn-treasury-rules-ignore-swaps-cowswap-module"></span><h2>yearn_treasury.rules.ignore.swaps.cowswap module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.cowswap" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.cowswap.is_cowswap_swap">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.cowswap.</span></span><span class="sig-name descname"><span class="pre">is_cowswap_swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/cowswap.html#is_cowswap_swap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.cowswap.is_cowswap_swap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-curve-module">
-<h2>yearn_treasury.rules.ignore.swaps.curve module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-curve-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.curve">
+<span id="yearn-treasury-rules-ignore-swaps-curve-module"></span><h2>yearn_treasury.rules.ignore.swaps.curve module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.curve" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_multi">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">_is_curve_withdrawal_multi</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#_is_curve_withdrawal_multi"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_multi" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_one">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">_is_curve_withdrawal_one</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#_is_curve_withdrawal_one"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve._is_curve_withdrawal_one" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve._is_new_style">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">_is_new_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#_is_new_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve._is_new_style" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tx</strong> (<em>TreasuryTx</em>)</p></li>
+<li><p><strong>pool</strong> (<a class="reference external" href="https://bobthebuidler.github.io/ypricemagic/source/y.html#y.contracts.Contract" title="(in ypricemagic)"><em>Contract</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve._is_old_style">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">_is_old_style</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em>, <em class="sig-param"><span class="n"><span class="pre">pool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#_is_old_style"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve._is_old_style" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><ul class="simple">
+<li><p><strong>tx</strong> (<em>TreasuryTx</em>)</p></li>
+<li><p><strong>pool</strong> (<a class="reference external" href="https://bobthebuidler.github.io/ypricemagic/source/y.html#y.contracts.Contract" title="(in ypricemagic)"><em>Contract</em></a>)</p></li>
+</ul>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve._token_is_curvey">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">_token_is_curvey</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#_token_is_curvey"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve._token_is_curvey" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve.is_curve_deposit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">is_curve_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#is_curve_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve.is_curve_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.curve.is_curve_withdrawal">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.curve.</span></span><span class="sig-name descname"><span class="pre">is_curve_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/curve.html#is_curve_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.curve.is_curve_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-gearbox-module">
-<h2>yearn_treasury.rules.ignore.swaps.gearbox module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-gearbox-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.gearbox">
+<span id="yearn-treasury-rules-ignore-swaps-gearbox-module"></span><h2>yearn_treasury.rules.ignore.swaps.gearbox module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.gearbox" title="Link to this heading"></a></h2>
+<p>Ignore rules for Gearbox protocol transactions.</p>
+<p>This module defines matching logic for Gearbox protocol deposit and
+withdrawal swaps, so these transactions can be filtered from analytics
+and reporting.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.gearbox.</span></span><span class="sig-name descname"><span class="pre">is_gearbox_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/gearbox.html#is_gearbox_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.gearbox.</span></span><span class="sig-name descname"><span class="pre">is_gearbox_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/gearbox.html#is_gearbox_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.gearbox.is_gearbox_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-iearn-module">
-<h2>yearn_treasury.rules.ignore.swaps.iearn module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-iearn-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.iearn">
+<span id="yearn-treasury-rules-ignore-swaps-iearn-module"></span><h2>yearn_treasury.rules.ignore.swaps.iearn module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.iearn" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.iearn.is_iearn_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.iearn.</span></span><span class="sig-name descname"><span class="pre">is_iearn_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/iearn.html#is_iearn_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.iearn.is_iearn_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-otc-module">
-<h2>yearn_treasury.rules.ignore.swaps.otc module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-otc-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.otc">
+<span id="yearn-treasury-rules-ignore-swaps-otc-module"></span><h2>yearn_treasury.rules.ignore.swaps.otc module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.otc" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.otc.is_otc_swap">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.otc.</span></span><span class="sig-name descname"><span class="pre">is_otc_swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/otc.html#is_otc_swap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.otc.is_otc_swap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-pooltogether-module">
-<h2>yearn_treasury.rules.ignore.swaps.pooltogether module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-pooltogether-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.pooltogether">
+<span id="yearn-treasury-rules-ignore-swaps-pooltogether-module"></span><h2>yearn_treasury.rules.ignore.swaps.pooltogether module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.pooltogether" title="Link to this heading"></a></h2>
+<p>Ignore rules for PoolTogether protocol transactions.</p>
+<p>This module defines matching logic for PoolTogether deposits swaps,
+as they can be safely ignored in analytics and reporting.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.pooltogether.is_pooltogether_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.pooltogether.</span></span><span class="sig-name descname"><span class="pre">is_pooltogether_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/pooltogether.html#is_pooltogether_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.pooltogether.is_pooltogether_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-synthetix-module">
-<h2>yearn_treasury.rules.ignore.swaps.synthetix module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-synthetix-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.synthetix">
+<span id="yearn-treasury-rules-ignore-swaps-synthetix-module"></span><h2>yearn_treasury.rules.ignore.swaps.synthetix module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.synthetix" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.synthetix.is_synthetix_swap">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.synthetix.</span></span><span class="sig-name descname"><span class="pre">is_synthetix_swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/synthetix.html#is_synthetix_swap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.synthetix.is_synthetix_swap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-uniswap-module">
-<h2>yearn_treasury.rules.ignore.swaps.uniswap module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-uniswap-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.uniswap">
+<span id="yearn-treasury-rules-ignore-swaps-uniswap-module"></span><h2>yearn_treasury.rules.ignore.swaps.uniswap module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.uniswap" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.uniswap.is_pool">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.uniswap.</span></span><span class="sig-name descname"><span class="pre">is_pool</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">pool</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/uniswap.html#is_pool"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.uniswap.is_pool" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>pool</strong> (<a class="reference external" href="https://bobthebuidler.github.io/ypricemagic/source/y.html#y.contracts.Contract" title="(in ypricemagic)"><em>Contract</em></a>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_deposit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.uniswap.</span></span><span class="sig-name descname"><span class="pre">is_uniswap_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/uniswap.html#is_uniswap_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_swap">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.uniswap.</span></span><span class="sig-name descname"><span class="pre">is_uniswap_swap</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/uniswap.html#is_uniswap_swap"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_swap" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_withdrawal">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.uniswap.</span></span><span class="sig-name descname"><span class="pre">is_uniswap_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/uniswap.html#is_uniswap_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.uniswap.is_uniswap_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-unwrapper-module">
-<h2>yearn_treasury.rules.ignore.swaps.unwrapper module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-unwrapper-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.unwrapper">
+<span id="yearn-treasury-rules-ignore-swaps-unwrapper-module"></span><h2>yearn_treasury.rules.ignore.swaps.unwrapper module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.unwrapper" title="Link to this heading"></a></h2>
+<p>Ignore rules for the Unwrapper contract.</p>
+<p>This module defines matching logic for swaps involving the Unwrapper
+contract, so those transactions can be ignored from analytics and
+reporting.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.unwrapper.is_unwrapper">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.unwrapper.</span></span><span class="sig-name descname"><span class="pre">is_unwrapper</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/unwrapper.html#is_unwrapper"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.unwrapper.is_unwrapper" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-vaults-module">
-<h2>yearn_treasury.rules.ignore.swaps.vaults module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-vaults-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.vaults">
+<span id="yearn-treasury-rules-ignore-swaps-vaults-module"></span><h2>yearn_treasury.rules.ignore.swaps.vaults module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.vaults" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_dola_frax_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_dola_frax_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_dola_frax_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_dola_frax_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_dolla_fed_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_dolla_fed_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_dolla_fed_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_dolla_fed_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_v1_or_v2_vault_deposit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_v1_or_v2_vault_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_v1_or_v2_vault_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_v1_or_v2_vault_deposit" title="Link to this definition"></a></dt>
+<dd><p>This code doesn’t validate amounts but so far that’s not been a problem.</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_v3_vault_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_v3_vault_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_v3_vault_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_v3_vault_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_vault_deposit">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_vault_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_vault_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_vault_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.vaults.is_vault_withdrawal">
+<em class="property"><span class="k"><span class="pre">async</span></span><span class="w"> </span></em><span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.vaults.</span></span><span class="sig-name descname"><span class="pre">is_vault_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/vaults.html#is_vault_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.vaults.is_vault_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-woofy-module">
-<h2>yearn_treasury.rules.ignore.swaps.woofy module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-woofy-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.woofy">
+<span id="yearn-treasury-rules-ignore-swaps-woofy-module"></span><h2>yearn_treasury.rules.ignore.swaps.woofy module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.woofy" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.woofy.is_woofy">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.woofy.</span></span><span class="sig-name descname"><span class="pre">is_woofy</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/woofy.html#is_woofy"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.woofy.is_woofy" title="Link to this definition"></a></dt>
+<dd><p>Returns True if the tx involved wrapping or unwrapping WOOFY.</p>
+<p><a class="reference external" href="https://docs.yearn.fi/resources/deprecated/woofy">https://docs.yearn.fi/resources/deprecated/woofy</a></p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-yfi-module">
-<h2>yearn_treasury.rules.ignore.swaps.yfi module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-yfi-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.yfi">
+<span id="yearn-treasury-rules-ignore-swaps-yfi-module"></span><h2>yearn_treasury.rules.ignore.swaps.yfi module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.yfi" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yfi.is_buyer_top_up">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yfi.</span></span><span class="sig-name descname"><span class="pre">is_buyer_top_up</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/yfi.html#is_buyer_top_up"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yfi.is_buyer_top_up" title="Link to this definition"></a></dt>
+<dd><p>The sell side of these transactions is in <a class="reference internal" href="#yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_buyer" title="yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_buyer"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_buying_with_buyer()</span></code></a>.
+The buyer is topped up with DAI regularly and buys YFI at the current chainlink market price.</p>
+<p># TODO: amortize this into a daily expense</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_auction">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yfi.</span></span><span class="sig-name descname"><span class="pre">is_buying_with_auction</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/yfi.html#is_buying_with_auction"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_auction" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_buyer">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yfi.</span></span><span class="sig-name descname"><span class="pre">is_buying_with_buyer</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/yfi.html#is_buying_with_buyer"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yfi.is_buying_with_buyer" title="Link to this definition"></a></dt>
+<dd><p>The buy side of these transactions is in <a class="reference internal" href="#yearn_treasury.rules.ignore.swaps.yfi.is_buyer_top_up" title="yearn_treasury.rules.ignore.swaps.yfi.is_buyer_top_up"><code class="xref py py-func docutils literal notranslate"><span class="pre">is_buyer_top_up()</span></code></a>.
+The buyer is topped up with DAI regularly and buys YFI at the current chainlink market price</p>
+<dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py data">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yfi.VYPER_BUYERS">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yfi.</span></span><span class="sig-name descname"><span class="pre">VYPER_BUYERS</span></span><em class="property"><span class="p"><span class="pre">:</span></span><span class="w"> </span><a class="reference external" href="https://docs.python.org/3/library/typing.html#typing.Final" title="(in Python v3.14)"><span class="pre">Final</span></a></em><em class="property"><span class="w"> </span><span class="p"><span class="pre">=</span></span><span class="w"> </span><span class="pre">('0xdf5e4E54d212F7a01cf94B3986f40933fcfF589F',</span> <span class="pre">'0x6903223578806940bd3ff0C51f87aa43968424c8')</span></em><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yfi.VYPER_BUYERS" title="Link to this definition"></a></dt>
+<dd><p>These contracts, now retired, previously were used to purchase YFI for DAI at the current chainlink market price.</p>
+</dd></dl>
+
 </section>
-<section id="yearn-treasury-rules-ignore-swaps-yla-module">
-<h2>yearn_treasury.rules.ignore.swaps.yla module<a class="headerlink" href="#yearn-treasury-rules-ignore-swaps-yla-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps.yla">
+<span id="yearn-treasury-rules-ignore-swaps-yla-module"></span><h2>yearn_treasury.rules.ignore.swaps.yla module<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps.yla" title="Link to this heading"></a></h2>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yla.is_yla_deposit">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yla.</span></span><span class="sig-name descname"><span class="pre">is_yla_deposit</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/yla.html#is_yla_deposit"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yla.is_yla_deposit" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.ignore.swaps.yla.is_yla_withdrawal">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.ignore.swaps.yla.</span></span><span class="sig-name descname"><span class="pre">is_yla_withdrawal</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/ignore/swaps/yla.html#is_yla_withdrawal"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.ignore.swaps.yla.is_yla_withdrawal" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.ignore.swaps">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yearn_treasury.rules.ignore.swaps" title="Link to this heading"></a></h2>
 </section>
 </section>
 

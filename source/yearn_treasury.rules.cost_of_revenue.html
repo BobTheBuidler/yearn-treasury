@@ -52,11 +52,11 @@
 </ul>
 </li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#submodules">Submodules</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-constants-module">yearn_treasury.constants module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.constants">yearn_treasury.constants module</a></li>
 <li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-main-module">yearn_treasury.main module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-shitcoins-module">yearn_treasury.shitcoins module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#yearn-treasury-vaults-module">yearn_treasury.vaults module</a></li>
-<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-contents">Module contents</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.shitcoins">yearn_treasury.shitcoins module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury.vaults">yearn_treasury.vaults module</a></li>
+<li class="toctree-l3"><a class="reference internal" href="yearn_treasury.html#module-yearn_treasury">Module contents</a></li>
 </ul>
 </li>
 </ul>
@@ -97,11 +97,28 @@
 <section id="submodules">
 <h2>Submodules<a class="headerlink" href="#submodules" title="Link to this heading"></a></h2>
 </section>
-<section id="yearn-treasury-rules-cost-of-revenue-gas-module">
-<h2>yearn_treasury.rules.cost_of_revenue.gas module<a class="headerlink" href="#yearn-treasury-rules-cost-of-revenue-gas-module" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.cost_of_revenue.gas">
+<span id="yearn-treasury-rules-cost-of-revenue-gas-module"></span><h2>yearn_treasury.rules.cost_of_revenue.gas module<a class="headerlink" href="#module-yearn_treasury.rules.cost_of_revenue.gas" title="Link to this heading"></a></h2>
+<p>Gas cost rules for Yearn Treasury.</p>
+<p>This module defines rules and matching logic for classifying gas-related
+transactions as cost of revenue. It includes logic for multisig
+reimbursements, strategist gas, returned gas, and more.</p>
+<dl class="py function">
+<dt class="sig sig-object py" id="yearn_treasury.rules.cost_of_revenue.gas.is_strategist_gas">
+<span class="sig-prename descclassname"><span class="pre">yearn_treasury.rules.cost_of_revenue.gas.</span></span><span class="sig-name descname"><span class="pre">is_strategist_gas</span></span><span class="sig-paren">(</span><em class="sig-param"><span class="n"><span class="pre">tx</span></span></em><span class="sig-paren">)</span><a class="reference internal" href="../_modules/yearn_treasury/rules/cost_of_revenue/gas.html#is_strategist_gas"><span class="viewcode-link"><span class="pre">[source]</span></span></a><a class="headerlink" href="#yearn_treasury.rules.cost_of_revenue.gas.is_strategist_gas" title="Link to this definition"></a></dt>
+<dd><dl class="field-list simple">
+<dt class="field-odd">Parameters<span class="colon">:</span></dt>
+<dd class="field-odd"><p><strong>tx</strong> (<em>TreasuryTx</em>)</p>
+</dd>
+<dt class="field-even">Return type<span class="colon">:</span></dt>
+<dd class="field-even"><p><a class="reference external" href="https://docs.python.org/3/library/functions.html#bool" title="(in Python v3.14)">bool</a></p>
+</dd>
+</dl>
+</dd></dl>
+
 </section>
-<section id="module-contents">
-<h2>Module contents<a class="headerlink" href="#module-contents" title="Link to this heading"></a></h2>
+<section id="module-yearn_treasury.rules.cost_of_revenue">
+<span id="module-contents"></span><h2>Module contents<a class="headerlink" href="#module-yearn_treasury.rules.cost_of_revenue" title="Link to this heading"></a></h2>
 </section>
 </section>
 
