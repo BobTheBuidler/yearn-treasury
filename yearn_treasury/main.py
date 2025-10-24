@@ -2,9 +2,9 @@
 Command-line interface for the Yearn Treasury exporter.
 
 This module provides the `yearn-treasury` CLI, which connects to a Brownie network
-based on the `--network` option (or the `BROWNIE_NETWORK_ID` environment variable),
-periodically snapshots treasury balances via :func:`export_balances`, and
-pushes metrics to Victoria Metrics.
+(based on the `--network` option or the `BROWNIE_NETWORK_ID` environment variable),
+periodically snapshots treasury metrics, and pushes them to Victoria Metrics.
+It also launches Yearn Treasury's Grafana dashboard and an optional renderer for visual reports.
 
 Example:
     Run export every 12 hours on mainnet:
@@ -12,15 +12,24 @@ Example:
     .. code-block:: bash
 
         yearn-treasury run --network mainnet --interval 12h
+
+CLI Options:
+    --network         Brownie network identifier (default: mainnet)
+    --interval        Time interval between datapoints (default: 12h)
+    --concurrency     Max number of historical blocks to export concurrently (default: 30)
+    --daemon          Run as a background daemon (currently unsupported)
+    --grafana-port    Port for the Grafana dashboard (default: 3004)
+    --victoria-port   Port for the Victoria metrics endpoint (default: 8430)
+    --start-renderer  Start the Grafana renderer container for dashboard image export
+    --renderer-port   Port for the renderer service (default: 8080)
 """
 
 import asyncio
 import os
 from argparse import ArgumentParser
-from pathlib import Path
 from typing import Final, final
 
-from eth_portfolio_scripts.balances import export_balances
+from yearn_treasury import yteams
 
 
 parser = ArgumentParser(description="Treasury CLI")
@@ -83,23 +92,19 @@ BROWNIE_NETWORK = os.environ["BROWNIE_NETWORK_ID"]
 # TODO: run forever arg
 def main() -> None:
     """
-    Connect to the configured Brownie network and start the export loop.
+    Connect to the configured Brownie network, clean up the database, and start the export loop.
 
     This function is registered as a console script entrypoint under
-    ``yearn-treasury`` and delegates execution to Brownie's script runner.
-
-    Steps:
+    ``yearn-treasury``. It performs the following steps:
         1. Reads the ``BROWNIE_NETWORK_ID`` environment variable (populated from
            the ``--network`` option or existing env var).
-        2. Connects to that Brownie network.
-        3. Patches the global SHITCOINS mapping with local tokens.
-        4. Constructs a frozen Args subclass to pass CLI parameters to
-           :func:`export_balances`.
-        5. Exports ports for external services into environment variables.
-        6. Runs :func:`eth_portfolio_scripts.balances.export_balances` under asyncio.
-
-    Raises:
-        RuntimeError: If the Brownie network cannot be determined.
+        2. Connects to the specified Brownie network.
+        3. Merges local SHITCOINS into eth_portfolio's config to skip tokens we don't care about.
+        4. Drops any shitcoin transactions that might be in the database.
+        5. Constructs an immutable Args subclass to pass CLI parameters to
+           :func:`dao_treasury.main.export`.
+        6. Exports ports for external services into environment variables.
+        7. Runs both the DAO Treasury export and Yearn team revenue/expenses calculation concurrently under asyncio.
     """
     import dao_treasury.db
     import eth_portfolio
@@ -115,7 +120,10 @@ def main() -> None:
     @final
     class Args(constants.Args):
         """
-        Immutable container of CLI arguments for :func:`~export_balances`.
+        Immutable container of CLI arguments for export and dashboard/renderer configuration.
+
+        Inherits from DAO Treasury's :class:`constants.Args` and is used to pass runtime
+        parameters to the DAO Treasury export and related services.
         """
 
         network: Final[str] = args.network
@@ -149,7 +157,19 @@ def main() -> None:
     os.environ["DAO_TREASURY_RENDERER_PORT"] = str(Args.renderer_port)
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
 
+    async def yearn_wrapper():
+        """
+        Run the DAO Treasury export and Yearn team revenue/expenses calculation concurrently.
+
+        This coroutine gathers:
+            - The main DAO Treasury export process (dao_treasury.main.export)
+            - The Yearn teams' revenue and expenses calculation (yteams.calculate_teams_revenue_expenses)
+        """
+        return await asyncio.gather(
+            dao_treasury.main.export(Args),
+            yteams.calculate_teams_revenue_expenses(),
+        )
     # Start the balance export routine
-    asyncio.get_event_loop().run_until_complete(dao_treasury.main.export(Args))
+    asyncio.get_event_loop().run_until_complete(yearn_wrapper())
 
     rules  # I just put this here so the import isn't flagged as unused

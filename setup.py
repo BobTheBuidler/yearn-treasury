@@ -41,6 +41,7 @@ else:
             "yearn_treasury/_db.py",
             "yearn_treasury/_ens.py",
             "yearn_treasury/_logging.py",
+            "yearn_treasury/yteams.py",
             # "yearn_treasury/vaults.py",  enable with brownie 1.22.0
             "--strict",
             "--pretty",
