@@ -107,7 +107,7 @@
         <span class="k">return</span> <span class="kc">False</span>
 
     <span class="k">try</span><span class="p">:</span>
-        <span class="n">strat</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">address</span><span class="p">)</span>
+        <span class="n">strat</span> <span class="o">=</span> <span class="k">await</span> <span class="n">tx</span><span class="o">.</span><span class="n">from_address</span><span class="o">.</span><span class="n">contract_coro</span>
     <span class="k">except</span> <span class="n">ContractNotVerified</span><span class="p">:</span>
         <span class="k">return</span> <span class="kc">False</span>
     <span class="k">else</span><span class="p">:</span>
