@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[841];
+extern PyObject *CPyStatics[886];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -90,6 +90,10 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___woofy__int
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___woofy;
 extern PyObject *CPyStatic_woofy___globals;
 extern CPyModule *CPyModule_brownie;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yfi__internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yfi;
+extern PyObject *CPyStatic_yfi___globals;
+extern CPyModule *CPyModule_brownie___exceptions;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla__internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___yla;
 extern PyObject *CPyStatic_yla___globals;
@@ -363,6 +367,16 @@ extern PyObject *CPyStatic_woofy___WOOFY_SCALE;
 extern char CPyDef_woofy___is_woofy(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_woofy___is_woofy(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_woofy_____top_level__(void);
+extern PyObject *CPyStatic_yfi___buying_yfi;
+extern tuple_T2OO CPyStatic_yfi___VYPER_BUYERS;
+extern PyObject *CPyStatic_yfi___Decimal;
+extern char CPyDef_yfi___is_buyer_top_up(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_yfi___is_buyer_top_up(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_yfi___is_buying_with_buyer(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_yfi___is_buying_with_buyer(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_yfi___is_buying_with_auction(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_yfi___is_buying_with_auction(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_yfi_____top_level__(void);
 extern PyObject *CPyStatic_yla___yla;
 extern char CPyDef_yla___is_yla_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_yla___is_yla_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
