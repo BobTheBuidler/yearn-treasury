@@ -29,7 +29,7 @@ async def is_robovault_share(tx: TreasuryTx) -> bool:
         return False
 
     try:
-        strat = await Contract.coroutine(tx.from_address.address)
+        strat = await tx.from_address.contract_coro
     except ContractNotVerified:
         return False
     else:
