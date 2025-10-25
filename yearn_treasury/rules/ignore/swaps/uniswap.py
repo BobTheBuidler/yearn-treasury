@@ -56,42 +56,42 @@ async def is_uniswap_deposit(tx: TreasuryTx) -> bool:
                     if tokens[0] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[1] == transfer.address
-                            and tx.to_address
-                            == transfer.values()[:1]  # type: ignore [index]
-                            == [mint["sender"], mint.address]
+                            and tx.to_address == (sender := mint["sender"])
+                            and transfer.values()[:1] == [sender, mint.address]  # type: ignore [index]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                                 if (
-                                    tx.to_address == int_tx["from"] == mint["sender"]
+                                    tx.to_address == int_tx["from"] == sender
                                     and int_tx["to"] in ROUTERS
                                 ):
+                                    int_tx_value = int_tx["value"]
                                     for transfer in transfers:
                                         if (
                                             transfer[0] == WRAPPED_GAS_COIN == transfer.address
                                             and tx.token == transfer[1]
-                                            and transfer[2] == int_tx["value"]
+                                            and transfer[2] == int_tx_value
                                         ):
                                             return True
 
                     elif tokens[1] == WRAPPED_GAS_COIN:
                         if any(
                             tokens[0] == transfer.address
-                            and tx.to_address
-                            == transfer.values()[:1]  # type: ignore [index]
-                            == [mint["sender"], mint.address]
+                            and tx.to_address == (sender := mint["sender"])
+                            and transfer.values()[:1] == [sender, mint.address]  # type: ignore [index]
                             for transfer in transfers
                         ):
                             for int_tx in chain.get_transaction(tx.hash).internal_transfers:
                                 if (
-                                    tx.to_address == int_tx["from"] == mint["sender"]
+                                    tx.to_address == int_tx["from"] == sender
                                     and int_tx["to"] in ROUTERS
                                 ):
+                                    int_tx_value = int_tx["value"]
                                     for transfer in transfers:
                                         if (
                                             transfer[0] == WRAPPED_GAS_COIN == transfer.address
                                             and tx.token == transfer[1]
-                                            and transfer[2] == int_tx["value"]
+                                            and transfer[2] == int_tx_value
                                         ):
                                             return True
 
