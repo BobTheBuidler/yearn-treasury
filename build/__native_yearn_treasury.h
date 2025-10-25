@@ -18,6 +18,14 @@ typedef struct tuple_T3OOO {
 } tuple_T3OOO;
 #endif
 
+#ifndef MYPYC_DECLARED_tuple_T2OO
+#define MYPYC_DECLARED_tuple_T2OO
+typedef struct tuple_T2OO {
+    PyObject *f0;
+    PyObject *f1;
+} tuple_T2OO;
+#endif
+
 #ifndef MYPYC_DECLARED_tuple_T5IIIII
 #define MYPYC_DECLARED_tuple_T5IIIII
 typedef struct tuple_T5IIIII {
@@ -75,14 +83,6 @@ typedef struct tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO {
 } tuple_T16OOOOOOOOOT2OT5IIIIIOOOT2OT2IIOO;
 #endif
 
-#ifndef MYPYC_DECLARED_tuple_T2OO
-#define MYPYC_DECLARED_tuple_T2OO
-typedef struct tuple_T2OO {
-    PyObject *f0;
-    PyObject *f1;
-} tuple_T2OO;
-#endif
-
 #ifndef MYPYC_DECLARED_tuple_T4OOOO
 #define MYPYC_DECLARED_tuple_T4OOOO
 typedef struct tuple_T4OOOO {
@@ -107,6 +107,19 @@ typedef struct {
     PyObject *_body;
     PyObject *_labels;
 } yearn_treasury___budget____request___BudgetRequestObject;
+
+typedef struct {
+    PyObject_HEAD
+    CPyVTableItem *vtable;
+    PyObject *___mypyc_generator_attribute__tx;
+    int32_t ___mypyc_next_label__;
+    PyObject *___mypyc_temp__0;
+    tuple_T3OOO ___mypyc_temp__1;
+    PyObject *___mypyc_temp__2;
+    PyObject *___mypyc_temp__3;
+    PyObject *___mypyc_generator_attribute__trade;
+    PyObject *___mypyc_generator_attribute__buy_amount;
+} yearn_treasury___rules___ignore___swaps___auctions___is_auction_proceeds_genObject;
 
 typedef struct {
     PyObject_HEAD
