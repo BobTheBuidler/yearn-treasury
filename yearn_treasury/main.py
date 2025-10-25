@@ -169,6 +169,7 @@ def main() -> None:
             dao_treasury.main.export(Args),
             yteams.calculate_teams_revenue_expenses(),
         )
+
     # Start the balance export routine
     asyncio.get_event_loop().run_until_complete(yearn_wrapper())
 
