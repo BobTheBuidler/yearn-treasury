@@ -79,6 +79,7 @@
  | <a href="#C"><strong>C</strong></a>
  | <a href="#E"><strong>E</strong></a>
  | <a href="#F"><strong>F</strong></a>
+ | <a href="#G"><strong>G</strong></a>
  | <a href="#I"><strong>I</strong></a>
  | <a href="#L"><strong>L</strong></a>
  | <a href="#M"><strong>M</strong></a>
@@ -104,15 +105,17 @@
 </li>
       <li><a href="source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_new_style">_is_new_style() (in module yearn_treasury.rules.ignore.swaps.curve)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.rules.ignore.swaps.html#yearn_treasury.rules.ignore.swaps.curve._is_old_style">_is_old_style() (in module yearn_treasury.rules.ignore.swaps.curve)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults._is_single_sided">_is_single_sided() (in module yearn_treasury.rules.revenue.vaults)</a>
 </li>
       <li><a href="source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults._is_y3crv">_is_y3crv() (in module yearn_treasury.rules.revenue.vaults)</a>
 </li>
       <li><a href="source/yearn_treasury.rules.revenue.html#yearn_treasury.rules.revenue.vaults._is_ypool">_is_ypool() (in module yearn_treasury.rules.revenue.vaults)</a>
+</li>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams._known_tokens_without_prices">_known_tokens_without_prices (in module yearn_treasury.yteams)</a>
 </li>
       <li><a href="source/yearn_treasury.html#yearn_treasury.shitcoins._SHITCOINS">_SHITCOINS (in module yearn_treasury.shitcoins)</a>
 </li>
@@ -144,10 +147,12 @@
 <h2 id="C">C</h2>
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
-      <li><a href="source/yearn_treasury.budget.html#yearn_treasury.budget.BudgetRequest.closed_at">closed_at (yearn_treasury.budget.BudgetRequest attribute)</a>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.calculate_teams_revenue_expenses">calculate_teams_revenue_expenses() (in module yearn_treasury.yteams)</a>
 </li>
   </ul></td>
   <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/yearn_treasury.budget.html#yearn_treasury.budget.BudgetRequest.closed_at">closed_at (yearn_treasury.budget.BudgetRequest attribute)</a>
+</li>
       <li><a href="source/yearn_treasury.budget.html#yearn_treasury.budget.BudgetRequest.created_at">created_at (yearn_treasury.budget.BudgetRequest attribute)</a>
 </li>
   </ul></td>
@@ -165,6 +170,14 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.html#yearn_treasury.constants.Args.first_tx_block">first_tx_block (yearn_treasury.constants.Args attribute)</a>
+</li>
+  </ul></td>
+</tr></table>
+
+<h2 id="G">G</h2>
+<table style="width: 100%" class="indextable genindextable"><tr>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.get_timestamps_for_report">get_timestamps_for_report() (in module yearn_treasury.yteams)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -570,6 +583,8 @@
 </li>
         <li><a href="source/yearn_treasury.html#module-yearn_treasury.vaults">yearn_treasury.vaults</a>
 </li>
+        <li><a href="source/yearn_treasury.html#module-yearn_treasury.yteams">yearn_treasury.yteams</a>
+</li>
       </ul></li>
   </ul></td>
 </tr></table>
@@ -591,11 +606,15 @@
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.html#yearn_treasury.shitcoins.SHITCOINS">SHITCOINS (in module yearn_treasury.shitcoins)</a>
 </li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.html#yearn_treasury.constants.Args.sort_rules">sort_rules (yearn_treasury.constants.Args attribute)</a>
 </li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.budget.html#yearn_treasury.budget.BudgetRequest.state">state (yearn_treasury.budget.BudgetRequest attribute)</a>
+</li>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.sum_grants_received">sum_grants_received() (in module yearn_treasury.yteams)</a>
+</li>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.sum_revenue_transfers">sum_revenue_transfers() (in module yearn_treasury.yteams)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -604,6 +623,12 @@
 <table style="width: 100%" class="indextable genindextable"><tr>
   <td style="width: 33%; vertical-align: top;"><ul>
       <li><a href="source/yearn_treasury.budget.html#yearn_treasury.budget.BudgetRequest.title">title (yearn_treasury.budget.BudgetRequest attribute)</a>
+</li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.total">total() (in module yearn_treasury.yteams)</a>
+</li>
+      <li><a href="source/yearn_treasury.html#yearn_treasury.yteams.transfers_for">transfers_for() (in module yearn_treasury.yteams)</a>
 </li>
   </ul></td>
 </tr></table>
@@ -848,8 +873,6 @@
         <li><a href="source/yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps.synthetix">module</a>
 </li>
       </ul></li>
-  </ul></td>
-  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yearn_treasury.rules.ignore.swaps.uniswap
 
@@ -857,6 +880,8 @@
         <li><a href="source/yearn_treasury.rules.ignore.swaps.html#module-yearn_treasury.rules.ignore.swaps.uniswap">module</a>
 </li>
       </ul></li>
+  </ul></td>
+  <td style="width: 33%; vertical-align: top;"><ul>
       <li>
     yearn_treasury.rules.ignore.swaps.unwrapper
 
@@ -1051,6 +1076,13 @@
 
       <ul>
         <li><a href="source/yearn_treasury.html#module-yearn_treasury.vaults">module</a>
+</li>
+      </ul></li>
+      <li>
+    yearn_treasury.yteams
+
+      <ul>
+        <li><a href="source/yearn_treasury.html#module-yearn_treasury.yteams">module</a>
 </li>
       </ul></li>
   </ul></td>

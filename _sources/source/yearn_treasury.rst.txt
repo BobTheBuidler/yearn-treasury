@@ -45,6 +45,14 @@ yearn\_treasury.vaults module
    :undoc-members:
    :show-inheritance:
 
+yearn\_treasury.yteams module
+-----------------------------
+
+.. automodule:: yearn_treasury.yteams
+   :members:
+   :undoc-members:
+   :show-inheritance:
+
 Module contents
 ---------------
 

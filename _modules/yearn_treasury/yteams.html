@@ -1,0 +1,283 @@
+
+
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" data-content_root="../../">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>yearn_treasury.yteams &mdash; yearn-treasury  documentation</title>
+      <link rel="stylesheet" type="text/css" href="../../_static/pygments.css?v=b86133f3" />
+      <link rel="stylesheet" type="text/css" href="../../_static/css/theme.css?v=e59714d7" />
+
+  
+      <script src="../../_static/jquery.js?v=5d32c60e"></script>
+      <script src="../../_static/_sphinx_javascript_frameworks_compat.js?v=2cd50e6c"></script>
+      <script src="../../_static/documentation_options.js?v=5929fcd5"></script>
+      <script src="../../_static/doctools.js?v=9bcbadda"></script>
+      <script src="../../_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="../../_static/js/theme.js"></script>
+    <link rel="index" title="Index" href="../../genindex.html" />
+    <link rel="search" title="Search" href="../../search.html" /> 
+</head>
+
+<body class="wy-body-for-nav"> 
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side">
+      <div class="wy-side-scroll">
+        <div class="wy-side-nav-search" >
+
+          
+          
+          <a href="../../index.html" class="icon icon-home">
+            yearn-treasury
+          </a>
+<div role="search">
+  <form id="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" />
+    <input type="hidden" name="check_keywords" value="yes" />
+    <input type="hidden" name="area" value="default" />
+  </form>
+</div>
+        </div><div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <p class="caption" role="heading"><span class="caption-text">Contents:</span></p>
+<ul>
+<li class="toctree-l1"><a class="reference internal" href="../../source/modules.html">yearn_treasury</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../transactions.html">Transactions Dashboard</a></li>
+<li class="toctree-l1"><a class="reference internal" href="../../contributing.html">Contributing to Yearn Treasury</a></li>
+</ul>
+
+        </div>
+      </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap"><nav class="wy-nav-top" aria-label="Mobile navigation menu" >
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../../index.html">yearn-treasury</a>
+      </nav>
+
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="Page navigation">
+  <ul class="wy-breadcrumbs">
+      <li><a href="../../index.html" class="icon icon-home" aria-label="Home"></a></li>
+          <li class="breadcrumb-item"><a href="../index.html">Module code</a></li>
+      <li class="breadcrumb-item active">yearn_treasury.yteams</li>
+      <li class="wy-breadcrumbs-aside">
+      </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+           <div itemprop="articleBody">
+             
+  <h1>Source code for yearn_treasury.yteams</h1><div class="highlight"><pre>
+<span></span><span class="c1"># This is a loose copy of an old script and will not likely be refactored into something pretty</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">timedelta</span><span class="p">,</span> <span class="n">timezone</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">decimal</span><span class="w"> </span><span class="kn">import</span> <span class="n">Decimal</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">functools</span><span class="w"> </span><span class="kn">import</span> <span class="n">lru_cache</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">logging</span><span class="w"> </span><span class="kn">import</span> <span class="n">getLogger</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">typing</span><span class="w"> </span><span class="kn">import</span> <span class="n">Any</span><span class="p">,</span> <span class="n">Dict</span><span class="p">,</span> <span class="n">Final</span><span class="p">,</span> <span class="n">List</span><span class="p">,</span> <span class="n">Set</span><span class="p">,</span> <span class="n">Tuple</span>
+
+<span class="kn">import</span><span class="w"> </span><span class="nn">a_sync</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">brownie</span><span class="w"> </span><span class="kn">import</span> <span class="n">chain</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">eth_portfolio.structs</span><span class="w"> </span><span class="kn">import</span> <span class="n">TokenTransfer</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">eth_portfolio._ydb.token_transfers</span><span class="w"> </span><span class="kn">import</span> <span class="n">InboundTokenTransfers</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">DataFrame</span><span class="p">,</span> <span class="n">MultiIndex</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y</span><span class="w"> </span><span class="kn">import</span> <span class="n">Contract</span><span class="p">,</span> <span class="n">Network</span><span class="p">,</span> <span class="n">get_block_at_timestamp</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">y.exceptions</span><span class="w"> </span><span class="kn">import</span> <span class="n">ContractNotVerified</span>
+
+<span class="kn">from</span><span class="w"> </span><span class="nn">yearn_treasury.constants</span><span class="w"> </span><span class="kn">import</span> <span class="n">ZERO_ADDRESS</span>
+
+
+<span class="n">DATA_FOLDER</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;.&#39;</span><span class="p">,</span> <span class="s1">&#39;data&#39;</span><span class="p">)</span>
+<span class="n">OUTPUT_FILE</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">,</span> <span class="sa">f</span><span class="s1">&#39;teams_revenue_</span><span class="si">{</span><span class="n">chain</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s1">.csv&#39;</span><span class="p">)</span>
+<span class="n">NUMBER_OF_MONTHS_TO_INCLUDE_IN_REPORT</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="mi">36</span>
+
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">):</span>
+    <span class="n">os</span><span class="o">.</span><span class="n">makedirs</span><span class="p">(</span><span class="n">DATA_FOLDER</span><span class="p">)</span>
+
+
+<span class="c1"># TODO: maybe move this into constants for reuse</span>
+<span class="n">yteams_addresses</span> <span class="o">=</span> <span class="p">{</span>
+    <span class="n">Network</span><span class="o">.</span><span class="n">Mainnet</span><span class="p">:</span> <span class="p">{</span>
+        <span class="s2">&quot;v3&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x33333333D5eFb92f19a5F94a43456b3cec2797AE&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0x2A12CAA2c13Af03c117D836CA3811a5Ca946133B&quot;</span><span class="p">:</span><span class="mf">12.5</span><span class="p">}},</span>
+        <span class="s2">&quot;dinobots&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x2C01B4AD51a67E2d8F02208F54dF9aC4c0B778B6&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0xC4f238633A85A854C4702d2c66264771D1fa7904&quot;</span><span class="p">:</span><span class="mf">17.5</span><span class="p">}},</span>
+        <span class="s2">&quot;ylockers&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x4444AAAACDBa5580282365e25b16309Bd770ce4a&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0xac580302548FCCBBf00020de20C3A8AA516821AD&quot;</span><span class="p">:</span><span class="mf">2.5</span><span class="p">,</span><span class="s2">&quot;0x794f80E899c772de9E326eC83cCfD8D94e208B49&quot;</span><span class="p">:</span><span class="mf">6.25</span><span class="p">,</span> <span class="s2">&quot;0x5FF0f87b05806ce89967638CA727Af8309d92A89&quot;</span><span class="p">:</span><span class="mf">12.5</span><span class="p">,</span> <span class="s2">&quot;0x5A7575368797695BefD785f546C6b8B7e9D37f8c&quot;</span><span class="p">:</span><span class="mf">15.625</span><span class="p">}},</span>
+        <span class="c1"># &quot;ylockers others&quot;: {&quot;ms&quot;: &quot;0x4444AAAACDBa5580282365e25b16309Bd770ce4a&quot;,&quot;splits&quot;:{&quot;0x5FF0f87b05806ce89967638CA727Af8309d92A89&quot;:12.5, &quot;0x5A7575368797695BefD785f546C6b8B7e9D37f8c&quot;:15.625}},</span>
+        <span class="s2">&quot;yaudit&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x8973B848775a87a0D5bcf262C555859b87E6F7dA&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0xd7A1DBe236A38528D54317415a530b2326068373&quot;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="s2">&quot;0xF104F38592287e25868BD8C3dcCCa1a311916f88&quot;</span><span class="p">:</span><span class="mi">35</span><span class="p">,</span><span class="s2">&quot;0x1a9D272C3b7fE427639702A332D51348213B0bC1&quot;</span><span class="p">:</span><span class="mi">20</span><span class="p">}},</span>
+        <span class="s2">&quot;yeth&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0xeEEEEeeeEe274C3CCe13f77C85d8eBd9F7fd4479&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0x14EFe6390C6758E3fE4379A14e3B329274b1b072&quot;</span><span class="p">:</span><span class="mi">25</span><span class="p">}},</span>
+        <span class="s2">&quot;yfarm&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x55157997cb324a374cCd7c40914ff879Fd9D515C&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0x0B3cCe59E038373F6008D9266B6D6eB4d21689b1&quot;</span><span class="p">:</span><span class="mi">50</span><span class="p">}},</span>
+        <span class="s2">&quot;sms&quot;</span><span class="p">:</span> <span class="p">{</span><span class="s2">&quot;ms&quot;</span><span class="p">:</span> <span class="s2">&quot;0x16388463d60FFE0661Cf7F1f31a7D658aC790ff7&quot;</span><span class="p">,</span><span class="s2">&quot;splits&quot;</span><span class="p">:{</span><span class="s2">&quot;0xd6748776CF06a80EbE36cd83D325B31bb916bf54&quot;</span><span class="p">:</span><span class="mi">25</span><span class="p">}},</span>
+    <span class="p">}</span>
+<span class="p">}[</span><span class="n">Network</span><span class="p">(</span><span class="n">chain</span><span class="o">.</span><span class="n">id</span><span class="p">)]</span>
+
+
+<span class="n">logger</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="n">getLogger</span><span class="p">(</span><span class="vm">__name__</span><span class="p">)</span>
+
+<span class="n">_not_verified</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+<span class="n">_warned</span><span class="p">:</span> <span class="n">Final</span><span class="p">[</span><span class="n">Set</span><span class="p">[</span><span class="n">TokenTransfer</span><span class="p">]]</span> <span class="o">=</span> <span class="nb">set</span><span class="p">()</span>
+
+<span class="n">_known_tokens_without_prices</span><span class="p">:</span> <span class="n">Final</span> <span class="o">=</span> <span class="nb">frozenset</span><span class="p">({</span><span class="s2">&quot;SAFE&quot;</span><span class="p">,</span> <span class="s2">&quot;vCOW&quot;</span><span class="p">})</span>
+<span class="sd">&quot;&quot;&quot;When there is a PriceError for these tokens, no logs will be emitted.&quot;&quot;&quot;</span>
+
+
+<div class="viewcode-block" id="transfers_for">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.transfers_for">[docs]</a>
+<span class="nd">@lru_cache</span><span class="p">(</span><span class="n">maxsize</span><span class="o">=</span><span class="kc">None</span><span class="p">)</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">transfers_for</span><span class="p">(</span><span class="n">wallet</span><span class="p">:</span> <span class="nb">str</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">InboundTokenTransfers</span><span class="p">:</span>
+    <span class="k">return</span> <span class="n">InboundTokenTransfers</span><span class="p">(</span><span class="n">wallet</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="n">load_prices</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>  <span class="c1"># type: ignore [arg-type]</span></div>
+
+
+
+<div class="viewcode-block" id="calculate_teams_revenue_expenses">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.calculate_teams_revenue_expenses">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">calculate_teams_revenue_expenses</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s2">&quot;Starting process to calculate teams revenues and expenses&quot;</span><span class="p">)</span>
+    <span class="n">timestamps</span> <span class="o">=</span> <span class="n">get_timestamps_for_report</span><span class="p">()</span>
+
+    <span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">get_coros_for_timestamp</span><span class="p">(</span><span class="n">dt</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">]]:</span>
+        <span class="k">return</span> <span class="k">await</span> <span class="n">a_sync</span><span class="o">.</span><span class="n">gather</span><span class="p">({</span>
+            <span class="n">label</span><span class="p">:</span> <span class="n">total</span><span class="p">(</span><span class="n">label</span><span class="p">,</span> <span class="n">wallet_info</span><span class="p">,</span> <span class="n">dt</span><span class="p">)</span> 
+            <span class="k">for</span> <span class="n">label</span><span class="p">,</span> <span class="n">wallet_info</span> <span class="ow">in</span> <span class="n">yteams_addresses</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+        <span class="p">})</span>
+
+    <span class="n">all_data</span> <span class="o">=</span> <span class="k">await</span> <span class="n">a_sync</span><span class="o">.</span><span class="n">gather</span><span class="p">({</span><span class="n">dt</span><span class="p">:</span> <span class="n">get_coros_for_timestamp</span><span class="p">(</span><span class="n">dt</span><span class="p">)</span> <span class="k">for</span> <span class="n">dt</span> <span class="ow">in</span> <span class="n">timestamps</span><span class="p">})</span>
+
+    <span class="n">result</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="p">(</span><span class="n">dt</span><span class="p">,</span> <span class="n">teams</span><span class="p">,</span> <span class="n">movement</span><span class="p">):</span> <span class="n">values</span> 
+        <span class="k">for</span> <span class="n">dt</span><span class="p">,</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">all_data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+        <span class="k">for</span> <span class="n">teams</span><span class="p">,</span> <span class="n">info</span> <span class="ow">in</span> <span class="n">data</span><span class="o">.</span><span class="n">items</span><span class="p">()</span> 
+        <span class="k">for</span> <span class="n">movement</span><span class="p">,</span> <span class="n">values</span> <span class="ow">in</span> <span class="n">info</span><span class="o">.</span><span class="n">items</span><span class="p">()</span>
+    <span class="p">}</span>
+    <span class="n">df</span> <span class="o">=</span> <span class="n">DataFrame</span><span class="o">.</span><span class="n">from_dict</span><span class="p">(</span><span class="n">result</span><span class="p">,</span> <span class="n">orient</span><span class="o">=</span><span class="s1">&#39;index&#39;</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;------------&quot;</span><span class="p">)</span>
+    <span class="c1">#print(df.index)</span>
+    <span class="c1"># print(df.head(10))</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">index</span> <span class="o">=</span> <span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">df</span><span class="o">.</span><span class="n">index</span><span class="p">)</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;********&quot;</span><span class="p">)</span>
+    <span class="c1">#print(df.index)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">columns</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;datetime&#39;</span><span class="p">,</span><span class="s1">&#39;team&#39;</span><span class="p">,</span><span class="s1">&#39;label&#39;</span><span class="p">,</span><span class="s1">&#39;value&#39;</span><span class="p">]</span>
+    <span class="n">df</span><span class="o">.</span><span class="n">to_csv</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span>
+    <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;Finished processing yteams calculations and saved file to </span><span class="si">{</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">abspath</span><span class="p">(</span><span class="n">OUTPUT_FILE</span><span class="p">)</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="get_timestamps_for_report">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.get_timestamps_for_report">[docs]</a>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_timestamps_for_report</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="n">List</span><span class="p">[</span><span class="n">datetime</span><span class="p">]:</span>
+    <span class="n">now</span> <span class="o">=</span> <span class="n">datetime</span><span class="o">.</span><span class="n">now</span><span class="p">(</span><span class="n">tz</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span>
+    <span class="n">prev_month_end</span> <span class="o">=</span> <span class="n">datetime</span><span class="p">(</span><span class="n">year</span><span class="o">=</span><span class="n">now</span><span class="o">.</span><span class="n">year</span><span class="p">,</span> <span class="n">month</span><span class="o">=</span><span class="n">now</span><span class="o">.</span><span class="n">month</span><span class="p">,</span> <span class="n">day</span><span class="o">=</span><span class="mi">1</span><span class="p">,</span> <span class="n">hour</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">minute</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">second</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">microsecond</span><span class="o">=</span><span class="mi">0</span><span class="p">,</span> <span class="n">tzinfo</span><span class="o">=</span><span class="n">timezone</span><span class="o">.</span><span class="n">utc</span><span class="p">)</span> <span class="o">-</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">microseconds</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+    <span class="n">datetimes</span> <span class="o">=</span> <span class="p">[]</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s2">&quot;Exporting report for timestamps:&quot;</span><span class="p">)</span>
+    <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">NUMBER_OF_MONTHS_TO_INCLUDE_IN_REPORT</span><span class="p">):</span>
+        <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot; - </span><span class="si">{</span><span class="n">prev_month_end</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+        <span class="n">datetimes</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">prev_month_end</span><span class="p">)</span>
+        <span class="n">prev_month_end</span> <span class="o">-=</span> <span class="n">timedelta</span><span class="p">(</span><span class="n">days</span><span class="o">=</span><span class="n">prev_month_end</span><span class="o">.</span><span class="n">day</span><span class="p">)</span>
+    <span class="k">return</span> <span class="n">datetimes</span></div>
+
+
+<div class="viewcode-block" id="total">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.total">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">total</span><span class="p">(</span><span class="n">label</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">wallet_info</span><span class="p">:</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">],</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">]:</span>
+    <span class="n">rev</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sum_revenue_transfers</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">wallet_info</span><span class="p">[</span><span class="s1">&#39;splits&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">items</span><span class="p">(),</span> <span class="n">timestamp</span><span class="o">=</span><span class="n">timestamp</span><span class="p">)</span>
+    <span class="n">grants</span> <span class="o">=</span> <span class="k">await</span> <span class="n">sum_grants_received</span><span class="p">(</span><span class="n">wallet_info</span><span class="p">[</span><span class="s1">&#39;ms&#39;</span><span class="p">],</span> <span class="n">timestamp</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">rev</span> <span class="o">&gt;</span> <span class="mi">10_000_000</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">rev</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">grants</span> <span class="o">&gt;</span> <span class="mi">10_000_000</span><span class="p">:</span>
+        <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="n">grants</span><span class="p">)</span>
+    <span class="n">net</span> <span class="o">=</span> <span class="n">rev</span> <span class="o">-</span> <span class="n">grants</span>
+    <span class="k">if</span> <span class="n">label</span> <span class="o">==</span> <span class="s2">&quot;yaudit&quot;</span><span class="p">:</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;--- </span><span class="si">%s</span><span class="s1"> thru </span><span class="si">%s</span><span class="s1"> ---&#39;</span><span class="p">,</span> <span class="n">label</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;inbound  </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">rev</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;grants  -</span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">grants</span><span class="p">)</span>
+        <span class="n">logger</span><span class="o">.</span><span class="n">info</span><span class="p">(</span><span class="s1">&#39;net      </span><span class="si">%s</span><span class="s1">&#39;</span><span class="p">,</span> <span class="n">net</span><span class="p">)</span>
+    <span class="k">return</span> <span class="p">{</span><span class="s1">&#39;revenue&#39;</span><span class="p">:</span> <span class="n">rev</span><span class="p">,</span> <span class="s1">&#39;grants&#39;</span><span class="p">:</span> <span class="n">grants</span><span class="p">,</span> <span class="s1">&#39;total&#39;</span><span class="p">:</span> <span class="n">net</span><span class="p">}</span></div>
+
+
+<div class="viewcode-block" id="sum_revenue_transfers">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.sum_revenue_transfers">[docs]</a>
+<span class="nd">@a_sync</span><span class="o">.</span><span class="n">a_sync</span><span class="p">(</span><span class="n">default</span><span class="o">=</span><span class="s1">&#39;async&#39;</span><span class="p">)</span>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">sum_revenue_transfers</span><span class="p">(</span><span class="n">params</span><span class="p">:</span> <span class="n">Tuple</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Decimal</span><span class="p">],</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Decimal</span><span class="p">:</span>
+    <span class="n">wallet</span><span class="p">,</span> <span class="n">rev_share</span> <span class="o">=</span> <span class="n">params</span>
+    <span class="n">block</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_block_at_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+    <span class="n">total</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="n">transfers_for</span><span class="p">(</span><span class="n">wallet</span><span class="p">)</span><span class="o">.</span><span class="n">yield_thru_block</span><span class="p">(</span><span class="n">block</span><span class="p">):</span>
+        <span class="n">transfer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">transfer</span>
+        <span class="k">if</span> <span class="n">transfer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># failed to decode, probably shitcoin</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">transfer</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="c1"># zero value transfer</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">price</span><span class="p">:</span>
+            <span class="n">total</span> <span class="o">+=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">transfer</span><span class="o">.</span><span class="n">price</span>
+        <span class="k">elif</span> <span class="n">transfer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_warned</span> <span class="ow">and</span> <span class="n">transfer</span><span class="o">.</span><span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_known_tokens_without_prices</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;BAD: </span><span class="si">{</span><span class="n">transfer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">_warned</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">total</span><span class="o">*</span><span class="n">Decimal</span><span class="p">((</span><span class="mi">100</span><span class="o">-</span><span class="n">rev_share</span><span class="p">)</span><span class="o">/</span><span class="mi">100</span><span class="p">),</span> <span class="mi">8</span><span class="p">)</span></div>
+
+
+
+<div class="viewcode-block" id="sum_grants_received">
+<a class="viewcode-back" href="../../source/yearn_treasury.html#yearn_treasury.yteams.sum_grants_received">[docs]</a>
+<span class="k">async</span> <span class="k">def</span><span class="w"> </span><span class="nf">sum_grants_received</span><span class="p">(</span><span class="n">wallet</span><span class="p">:</span> <span class="nb">str</span><span class="p">,</span> <span class="n">timestamp</span><span class="p">:</span> <span class="n">datetime</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">Decimal</span><span class="p">:</span>
+    <span class="n">grants</span> <span class="o">=</span> <span class="n">Decimal</span><span class="p">(</span><span class="mi">0</span><span class="p">)</span>
+    <span class="n">block</span> <span class="o">=</span> <span class="k">await</span> <span class="n">get_block_at_timestamp</span><span class="p">(</span><span class="n">timestamp</span><span class="p">)</span>
+    <span class="k">async</span> <span class="k">for</span> <span class="n">transfer</span> <span class="ow">in</span> <span class="n">transfers_for</span><span class="p">(</span><span class="n">wallet</span><span class="p">)</span><span class="o">.</span><span class="n">yield_thru_block</span><span class="p">(</span><span class="n">block</span><span class="p">):</span>
+        <span class="n">transfer</span> <span class="o">=</span> <span class="k">await</span> <span class="n">transfer</span>
+        <span class="k">if</span> <span class="n">transfer</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
+            <span class="c1"># failed to decode, probably shitcoin</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="ow">not</span> <span class="n">transfer</span><span class="o">.</span><span class="n">value</span><span class="p">:</span>
+            <span class="c1"># zero value transfer</span>
+            <span class="k">continue</span>
+        <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">price</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">transfer</span><span class="o">.</span><span class="n">from_address</span> <span class="o">!=</span> <span class="n">ZERO_ADDRESS</span><span class="p">:</span>
+                <span class="k">try</span><span class="p">:</span>
+                    <span class="n">contract</span> <span class="o">=</span> <span class="k">await</span> <span class="n">Contract</span><span class="o">.</span><span class="n">coroutine</span><span class="p">(</span><span class="n">transfer</span><span class="o">.</span><span class="n">from_address</span><span class="p">)</span>
+                    <span class="k">if</span> <span class="p">(</span><span class="nb">hasattr</span><span class="p">(</span><span class="n">contract</span><span class="p">,</span> <span class="s1">&#39;recipient&#39;</span><span class="p">)</span> <span class="ow">and</span> <span class="k">await</span> <span class="n">contract</span><span class="o">.</span><span class="n">recipient</span> <span class="o">==</span> <span class="n">wallet</span><span class="p">)</span> \
+                        <span class="ow">or</span> <span class="n">transfer</span><span class="o">.</span><span class="n">from_address</span> <span class="o">==</span> <span class="s2">&quot;0xFEB4acf3df3cDEA7399794D0869ef76A6EfAff52&quot;</span><span class="p">:</span>
+                        <span class="n">grants</span> <span class="o">+=</span> <span class="n">transfer</span><span class="o">.</span><span class="n">value</span> <span class="o">*</span> <span class="n">transfer</span><span class="o">.</span><span class="n">price</span>
+                <span class="k">except</span> <span class="n">ContractNotVerified</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="k">if</span> <span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">)</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_not_verified</span><span class="p">:</span>
+                        <span class="n">_not_verified</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">e</span><span class="p">))</span>
+                        <span class="n">logger</span><span class="o">.</span><span class="n">debug</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+                <span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+                    <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;</span><span class="si">{</span><span class="n">e</span><span class="o">.</span><span class="vm">__class__</span><span class="o">.</span><span class="vm">__name__</span><span class="si">}</span><span class="s1">: </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+        <span class="k">elif</span> <span class="n">transfer</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_warned</span> <span class="ow">and</span> <span class="n">transfer</span><span class="o">.</span><span class="n">token</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">_known_tokens_without_prices</span><span class="p">:</span>
+            <span class="n">logger</span><span class="o">.</span><span class="n">warning</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;BAD: </span><span class="si">{</span><span class="n">transfer</span><span class="si">}</span><span class="s1">&#39;</span><span class="p">)</span>
+            <span class="n">_warned</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">transfer</span><span class="p">)</span>
+    <span class="k">return</span> <span class="nb">round</span><span class="p">(</span><span class="n">grants</span><span class="p">,</span> <span class="mi">8</span><span class="p">)</span></div>
+
+</pre></div>
+
+           </div>
+          </div>
+          <footer>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <p>&#169; Copyright 2025, BobTheBuidler.</p>
+  </div>
+
+  Built with <a href="https://www.sphinx-doc.org/">Sphinx</a> using a
+    <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a>
+    provided by <a href="https://readthedocs.org">Read the Docs</a>.
+   
+
+</footer>
+        </div>
+      </div>
+    </section>
+  </div>
+  <script>
+      jQuery(function () {
+          SphinxRtdTheme.Navigation.enable(true);
+      });
+  </script> 
+
+</body>
+</html>
