@@ -12,7 +12,7 @@ Key Responsibilities:
     - Provide lookup tables for use in vault deposit/withdrawal sort rules.
 """
 
-from typing import Dict, Final, List
+from typing import Dict, Final
 
 from brownie import chain
 from eth_typing import ChecksumAddress
@@ -41,11 +41,11 @@ if chain.id == Network.Mainnet:
 
     # TODO: make resolve_ens util in eth-port and refactor this out
     v2_registries = [
-        event["newAddress"].hex()  # type: ignore [attr-defined]
+        event["newAddress"].hex()
         for event in Events(addresses=resolver, topics=topics).events(now)
     ]
 
     for event in Events(addresses=list(map(str, v2_registries))).events(now):
         if event.name == "NewVault":
             vault_address = event["vault"]
-            v2[vault_address] = Contract(vault_address)  # type: ignore [index]
+            v2[vault_address] = Contract(vault_address)

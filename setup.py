@@ -41,7 +41,7 @@ else:
             "yearn_treasury/_db.py",
             "yearn_treasury/_ens.py",
             "yearn_treasury/_logging.py",
-            # "yearn_treasury/vaults.py",  enable with brownie 1.22.0
+            "yearn_treasury/vaults.py",
             "--strict",
             "--pretty",
             "--disable-error-code=unused-ignore",
