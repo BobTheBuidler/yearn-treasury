@@ -58,7 +58,7 @@ async def calculate_teams_revenue_expenses() -> None:
     logger.info("Starting process to calculate teams revenues and expenses")
     timestamps = get_timestamps_for_report()
 
-    async def get_coros_for_timestamp(dt: datetime) -> Dict[str, Decimal]:
+    async def get_coros_for_timestamp(dt: datetime) -> Dict[str, Dict[str, Decimal]]:
         return await a_sync.gather({
             label: total(label, wallet_info, dt) 
             for label, wallet_info in yteams_addresses.items()
