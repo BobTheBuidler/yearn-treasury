@@ -41,8 +41,7 @@ if chain.id == Network.Mainnet:
 
     # TODO: make resolve_ens util in eth-port and refactor this out
     v2_registries = [
-        event["newAddress"].hex()
-        for event in Events(addresses=resolver, topics=topics).events(now)
+        event["newAddress"].hex() for event in Events(addresses=resolver, topics=topics).events(now)
     ]
 
     for event in Events(addresses=list(map(str, v2_registries))).events(now):
