@@ -14,7 +14,7 @@ else:
             "yearn_treasury/rules/expense",
             # "yearn_treasury/rules/ignore",
             "yearn_treasury/rules/ignore/swaps/conversion_factory.py",
-            # "yearn_treasury/rules/ignore/swaps/auctions.py",  enable with brownie 1.22.0
+            "yearn_treasury/rules/ignore/swaps/auctions.py",
             # "yearn_treasury/rules/ignore/swaps/curve.py",  enable with brownie 1.22.0
             "yearn_treasury/rules/ignore/swaps/gearbox.py",
             "yearn_treasury/rules/ignore/swaps/iearn.py",
