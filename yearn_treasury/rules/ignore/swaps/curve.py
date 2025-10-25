@@ -138,7 +138,7 @@ async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
     for event in tx.get_events("RemoveLiquidity"):
         # LP Token side
         if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx):
-            pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
+            pool: Contract = await Contract.coroutine(event.address)
             if await _is_old_style(tx, pool) or _is_new_style(tx, pool):
                 return True
             print(
