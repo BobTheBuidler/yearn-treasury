@@ -11,7 +11,8 @@ from brownie import chain
 from eth_portfolio.structs import TokenTransfer
 from eth_portfolio._ydb.token_transfers import InboundTokenTransfers
 from pandas import DataFrame, MultiIndex
-from y import Contract, ContractNotVerified, Network, get_block_at_timestamp
+from y import Contract, Network, get_block_at_timestamp
+from y.exceptions import ContractNotVerified
 
 from yearn_treasury.constants import ZERO_ADDRESS
 
@@ -36,7 +37,7 @@ yteams_addresses = {
         "yfarm": {"ms": "0x55157997cb324a374cCd7c40914ff879Fd9D515C","splits":{"0x0B3cCe59E038373F6008D9266B6D6eB4d21689b1":50}},
         "sms": {"ms": "0x16388463d60FFE0661Cf7F1f31a7D658aC790ff7","splits":{"0xd6748776CF06a80EbE36cd83D325B31bb916bf54":25}},
     }
-}[chain.id]
+}[Network(chain.id)]
 
 
 logger: Final = getLogger(__name__)
@@ -50,17 +51,18 @@ _known_tokens_without_prices: Final = frozenset({"SAFE", "vCOW"})
 
 @lru_cache(maxsize=None)
 def transfers_for(wallet: str) -> InboundTokenTransfers:
-    return InboundTokenTransfers(wallet, 0, load_prices=True)
+    return InboundTokenTransfers(wallet, 0, load_prices=True)  # type: ignore [arg-type]
 
 
-async def calculate_teams_revenue_expenses():
+async def calculate_teams_revenue_expenses() -> None:
     logger.info("Starting process to calculate teams revenues and expenses")
     timestamps = get_timestamps_for_report()
 
-    get_coros_for_timestamp = lambda dt: a_sync.gather({
-        label: total(label, wallet_info, dt) 
-        for label, wallet_info in yteams_addresses.items()
-    })
+    async def get_coros_for_timestamp(dt: datetime) -> Dict[str, Decimal]:
+        return await a_sync.gather({
+            label: total(label, wallet_info, dt) 
+            for label, wallet_info in yteams_addresses.items()
+        })
 
     all_data = await a_sync.gather({dt: get_coros_for_timestamp(dt) for dt in timestamps})
 
@@ -94,8 +96,8 @@ def get_timestamps_for_report() -> List[datetime]:
         prev_month_end -= timedelta(days=prev_month_end.day)
     return datetimes
 
-async def total(label: str, wallet_info: Dict[str, Any], timestamp: datetime) -> Decimal:
-    rev = await sum_revenue_transfers.sum(wallet_info['splits'].items(), timestamp=timestamp),
+async def total(label: str, wallet_info: Dict[str, Any], timestamp: datetime) -> Dict[str, Decimal]:
+    rev = await sum_revenue_transfers.sum(wallet_info['splits'].items(), timestamp=timestamp)
     grants = await sum_grants_received(wallet_info['ms'], timestamp)
     if rev > 10_000_000:
         raise ValueError(rev)
