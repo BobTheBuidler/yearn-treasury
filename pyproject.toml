@@ -12,7 +12,7 @@ requires = [
     "mypy[mypyc]==1.18.2",
     "tomli>=2.0.0; python_version < '3.11'",
     "types-requests",
-    "dao-treasury==0.0.62; platform_system == 'Linux'",
+    "dao-treasury==0.0.64; platform_system == 'Linux'",
     "eth-brownie==1.22.0.dev0",
     "eth-typing==5.2.1",
 ]
