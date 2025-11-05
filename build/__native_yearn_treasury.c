@@ -50628,7 +50628,7 @@ CPyL8: ;
     if (likely(PyList_Check(cpy_r_r13)))
         cpy_r_r14 = cpy_r_r13;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/_logging.py", "setup_eth_portfolio_logging", 41, CPyStatic__logging___globals, "list", cpy_r_r13);
+        CPy_TypeErrorTraceback("yearn_treasury/_logging.py", "setup_eth_portfolio_logging", 43, CPyStatic__logging___globals, "list", cpy_r_r13);
         goto CPyL20;
     }
     cpy_r_r15 = CPyStatic__logging___globals;
@@ -50650,7 +50650,7 @@ CPyL8: ;
     if (likely(PyUnicode_Check(cpy_r_r20)))
         cpy_r_r21 = cpy_r_r20;
     else {
-        CPy_TypeErrorTraceback("yearn_treasury/_logging.py", "setup_eth_portfolio_logging", 41, CPyStatic__logging___globals, "str", cpy_r_r20);
+        CPy_TypeErrorTraceback("yearn_treasury/_logging.py", "setup_eth_portfolio_logging", 43, CPyStatic__logging___globals, "str", cpy_r_r20);
         goto CPyL22;
     }
     cpy_r_r22 = PyList_Append(cpy_r_r14, cpy_r_r21);
@@ -50753,16 +50753,20 @@ char CPyDef__logging_____top_level__(void) {
     PyObject *cpy_r_r35;
     PyObject *cpy_r_r36;
     PyObject *cpy_r_r37;
-    CPyPtr cpy_r_r38;
-    CPyPtr cpy_r_r39;
+    PyObject *cpy_r_r38;
+    PyObject *cpy_r_r39;
     CPyPtr cpy_r_r40;
     CPyPtr cpy_r_r41;
-    PyObject *cpy_r_r42;
-    PyObject *cpy_r_r43;
-    PyObject *cpy_r_r44;
-    int32_t cpy_r_r45;
-    char cpy_r_r46;
-    char cpy_r_r47;
+    CPyPtr cpy_r_r42;
+    CPyPtr cpy_r_r43;
+    CPyPtr cpy_r_r44;
+    CPyPtr cpy_r_r45;
+    PyObject *cpy_r_r46;
+    PyObject *cpy_r_r47;
+    PyObject *cpy_r_r48;
+    int32_t cpy_r_r49;
+    char cpy_r_r50;
+    char cpy_r_r51;
     cpy_r_r0 = CPyModule_builtins;
     cpy_r_r1 = (PyObject *)&_Py_NoneStruct;
     cpy_r_r2 = cpy_r_r0 != cpy_r_r1;
@@ -50860,43 +50864,51 @@ CPyL3: ;
     cpy_r_r34 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '0xBF7AA989192b020a8d3e1C65a558e123834325cA' */
     cpy_r_r35 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '0x5aFE3855358E112B5647B952709E6165e1c1eEEe' */
     cpy_r_r36 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D' */
-    cpy_r_r37 = PyList_New(3);
-    if (unlikely(cpy_r_r37 == NULL)) {
+    cpy_r_r37 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '0x3819f64f282bf135d62168C1e513280dAF905e06' */
+    cpy_r_r38 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* '0x5fAa989Af96Af85384b8a938c2EdE4A7378D9875' */
+    cpy_r_r39 = PyList_New(5);
+    if (unlikely(cpy_r_r39 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_logging.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic__logging___globals);
         goto CPyL16;
     }
-    cpy_r_r38 = (CPyPtr)&((PyListObject *)cpy_r_r37)->ob_item;
-    cpy_r_r39 = *(CPyPtr *)cpy_r_r38;
+    cpy_r_r40 = (CPyPtr)&((PyListObject *)cpy_r_r39)->ob_item;
+    cpy_r_r41 = *(CPyPtr *)cpy_r_r40;
     CPy_INCREF(cpy_r_r34);
-    *(PyObject * *)cpy_r_r39 = cpy_r_r34;
+    *(PyObject * *)cpy_r_r41 = cpy_r_r34;
     CPy_INCREF(cpy_r_r35);
-    cpy_r_r40 = cpy_r_r39 + 8;
-    *(PyObject * *)cpy_r_r40 = cpy_r_r35;
+    cpy_r_r42 = cpy_r_r41 + 8;
+    *(PyObject * *)cpy_r_r42 = cpy_r_r35;
     CPy_INCREF(cpy_r_r36);
-    cpy_r_r41 = cpy_r_r39 + 16;
-    *(PyObject * *)cpy_r_r41 = cpy_r_r36;
-    cpy_r_r42 = CPyDict_Build(1, cpy_r_r33, cpy_r_r37);
+    cpy_r_r43 = cpy_r_r41 + 16;
+    *(PyObject * *)cpy_r_r43 = cpy_r_r36;
+    CPy_INCREF(cpy_r_r37);
+    cpy_r_r44 = cpy_r_r41 + 24;
+    *(PyObject * *)cpy_r_r44 = cpy_r_r37;
+    CPy_INCREF(cpy_r_r38);
+    cpy_r_r45 = cpy_r_r41 + 32;
+    *(PyObject * *)cpy_r_r45 = cpy_r_r38;
+    cpy_r_r46 = CPyDict_Build(1, cpy_r_r33, cpy_r_r39);
     CPy_DECREF(cpy_r_r33);
-    CPy_DECREF_NO_IMM(cpy_r_r37);
-    if (unlikely(cpy_r_r42 == NULL)) {
+    CPy_DECREF_NO_IMM(cpy_r_r39);
+    if (unlikely(cpy_r_r46 == NULL)) {
         CPy_AddTraceback("yearn_treasury/_logging.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic__logging___globals);
         goto CPyL15;
     }
-    CPyStatic__logging___suppress_logs_for = cpy_r_r42;
+    CPyStatic__logging___suppress_logs_for = cpy_r_r46;
     CPy_INCREF(CPyStatic__logging___suppress_logs_for);
-    cpy_r_r43 = CPyStatic__logging___globals;
-    cpy_r_r44 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'suppress_logs_for' */
-    cpy_r_r45 = CPyDict_SetItem(cpy_r_r43, cpy_r_r44, cpy_r_r42);
-    CPy_DECREF(cpy_r_r42);
-    cpy_r_r46 = cpy_r_r45 >= 0;
-    if (unlikely(!cpy_r_r46)) {
+    cpy_r_r47 = CPyStatic__logging___globals;
+    cpy_r_r48 = CPyStatics[DIFFCHECK_PLACEHOLDER]; /* 'suppress_logs_for' */
+    cpy_r_r49 = CPyDict_SetItem(cpy_r_r47, cpy_r_r48, cpy_r_r46);
+    CPy_DECREF(cpy_r_r46);
+    cpy_r_r50 = cpy_r_r49 >= 0;
+    if (unlikely(!cpy_r_r50)) {
         CPy_AddTraceback("yearn_treasury/_logging.py", "<module>", DIFFCHECK_PLACEHOLDER, CPyStatic__logging___globals);
         goto CPyL15;
     }
     return 1;
 CPyL15: ;
-    cpy_r_r47 = 2;
-    return cpy_r_r47;
+    cpy_r_r51 = 2;
+    return cpy_r_r51;
 CPyL16: ;
     CPy_DecRef(cpy_r_r33);
     goto CPyL15;
@@ -52305,10 +52317,10 @@ const char * const CPyLit_Str[] = {
     "\002%yearn_treasury.rules.expense.security\vto_nickname",
     "\005\031Yearn Strategist Multisig\003DAI\aDecimal\adecimal\aexpense",
     "\003\033is_sms_discretionary_budget\030SMS Discretionary Budget\bnetworks",
-    "\001B0xc269f6fb016a48fe150f689231a73532b631877d1376608df639dad79514904b",
     "\001B0x0c59e87027bcdcaa718e322a28bc436106d73ae8623071930437bdb0706c4d65",
-    "\001B0x47035f156d4e6144c144b2ac5e91497e353c9a4e23133587bbf3da2f9d7da596",
     "\001B0x40352e7166bf5196aa1160302cfcc157facf99731af0e11741b8729dd84e131c",
+    "\001B0x47035f156d4e6144c144b2ac5e91497e353c9a4e23133587bbf3da2f9d7da596",
+    "\001B0xc269f6fb016a48fe150f689231a73532b631877d1376608df639dad79514904b",
     "\001B0x08ef1aacdf7d0f16be5e6fd0a64ebd0ba3b0c3dd0a7884a9a470aa89a7fe1a06",
     "\001B0xeb51cb5a3b4ae618be75bf3e23c2d8e333d93d5e81e869eca7f9612a30079822",
     "\001B0x3e75d22250d87c183824c3b77ddb9cb11935db2061ce7f34df4f024d0646fcfb",
@@ -52319,22 +52331,22 @@ const char * const CPyLit_Str[] = {
     "\002*0xF6060cE3fC3df2640F72E42441355f50F195D96a\017Wonderland Jobs",
     "\002*0x8bA72884984f669aBBc9a5a7b441AD8E3D9a4fD3\020is_generic_infra",
     "\002\021Unspecified Infra\005yvYFI",
-    "\001B0xa121fd9717d0fb4ac72a223db638f4e59094547ddee253e5ba011a5bb0c67126",
-    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
-    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
-    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
-    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
-    "\001B0xb3aab771a5581df5b1c8e6faefedcc88d91b8820c5ae5eaf9c9283014288dda2",
     "\001B0x2a7c60bb7dd6c15a6d0351e6a2b9f01e51fa6e7df9d1e5f02a3759640211ee56",
     "\001B0x371b6a601da36382067a20236d41f540fc77dc793d64d24fc1bdbcd2c666db2b",
-    "\001B0x514591e6f8dcac50b6deeabce8a819540cc7caecc182c39dfb93280abb34d3d6",
-    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
-    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
-    "\001B0x8ed57eff8f4a61cd40d109223c5054f87e35a6f0a5c85b65b1a7afe5b6e308da",
     "\001B0x38201edb06e8fd3b9aa9d4142594d28cb73768770fdcb68a4da24d8cb0742cfc",
+    "\001B0x8ed57eff8f4a61cd40d109223c5054f87e35a6f0a5c85b65b1a7afe5b6e308da",
+    "\001B0x8226b3705657f34216483f5091f8bd3eeea385a64b6da458eeaff78521596c28",
+    "\001B0x5cf6a4c70ec2de7cd25a627213344deae28f11ba9814d5cc1b00946f356ed5bf",
+    "\001B0xb3aab771a5581df5b1c8e6faefedcc88d91b8820c5ae5eaf9c9283014288dda2",
+    "\001B0x1391d6de1f0b5469627da1e23ddd0f892bf7d182780bc2fb807b6bf1e2d0acf1",
+    "\001B0x4d404a04bf46b80721f03ad6b821c6d82312c53331d8e7425fb68100116d8b98",
+    "\001B0xf401d432dcaaea39e1b593379d3d63dcdc82f5f694d83b098bb6110eaa19bbde",
+    "\001B0xa121fd9717d0fb4ac72a223db638f4e59094547ddee253e5ba011a5bb0c67126",
+    "\001B0x514591e6f8dcac50b6deeabce8a819540cc7caecc182c39dfb93280abb34d3d6",
     "\001B0x0b7159645e66c3b460efeb3e1e3c32d5e4eb845a2f2230b28b388ad34a36fcc3",
     "\001B0xb23d189ac94acb68d457e5a21b765fd0affd73ac1cd5afbe9fb57db8c3f95c30",
-    "\001B0x4d404a04bf46b80721f03ad6b821c6d82312c53331d8e7425fb68100116d8b98",
+    "\001B0x0a9e0f2cadb5dc3209bad74ada2fe71f2cbc0e9e2f16a4de1a29ea663e325798",
+    "\001B0xa3627513c8c3e838feaf9ab1076be01df11c5be5a83597626950c3ac38124bba",
     "\002\017Contract: yGift\027yyDAI+yUSDC+yUSDT+yTUSD",
     "\001B0xd35c30664f3241ea2ec3df1c70261086247025eb72c2bc919108dfef9b08a450",
     "\002\aaddress*0x35a83D4C1305451E0448fbCa96cAb29A7cCD0811",
@@ -52352,10 +52364,10 @@ const char * const CPyLit_Str[] = {
     "\001B0xd0fa31ccf6bf7577a533366955bb528d6d17c928bba1ff13ab273487a27d9602",
     "\001B0xcb79cbe5b68d04a1a3feab3360734277020ee0536380843a8c9db3e8356b81d6",
     "\001B0xca61496c32806ba34f0deb331c32969eda11c947fdd6235173e6fa13d9a1c288",
-    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
     "\001B0x7df5566cc9ff8ed0aafe126b74ad0e3957e62d530d007565ee32bd1303bcec32",
     "\001B0x5e95d5b0773eefaef9c7187d5e9187a89717d269f48e5dcf707acfe1a7e55cb9",
     "\001B0x70cdcffa444f70754a1df2d80a1adf9c432dfe678381e05ac78ab50b9de9d393",
+    "\001B0x9cfd1098c5459002a90ffa23931f7bbec430b3f2ec0ef2d3a641cef574eb0817",
     "\001B0x70ecc34da6c461a0bb9dadfbc4d082a8486e742cbb454f0f67b2df384fb9bffc",
     "\001B0x4df2eee567ebf2a41b555fca3fed41300b12ff2dc3c79ffaee8b7bdf262f9303",
     "\001B0x3e045ced19590db8905d8a69c2f0fd0acd4f90301cf6356742e735cd7caa0964",
@@ -52481,26 +52493,26 @@ const char * const CPyLit_Str[] = {
     "\002+yearn_treasury.rules.other_expense.revshare\030CRV Buyer Contract (DAI)",
     "\002\003CRV\031CRV Buyer Contract (USDT)",
     "\001*0x3D71d79C224998E608d03C5Ec9B405E7a38505F0",
-    "\001B0x7c365f0afa683727163ee627e5cdab607be70e1c6beee3e3d0c2e35b0e366bde",
-    "\001B0xf0a946524c4b244b626bdddb9ef07051a3252dfa18caac7a8e66ec365655a15f",
-    "\001B0x2367da0c38d9c5b7fb0e422ce364ae9c8fbb74567a96f94078c58d9f9e0809ac",
-    "\001B0x54e88407a9a7161bc259b1d9193a0cec8152c976cf985ccdd9ab1c23e80ce112",
-    "\001B0xb87eb568fb662b28b61bfb4fa477d6db59e8c5c0eb8107cb5f7aa6ad0be4292c",
-    "\001B0x6fd9d2da32a1b5b4b9e61a1659900ebb54c45b2a6254d79d84cb8cd9fe06c474",
     "\001B0xe2d6420b3eae91634e6b06f4c1d2d7e25e5277f7f945c98731daccb005513f11",
-    "\001B0x2ebb191b54e7b2d9916d36462a211e416781a873bac630c32c5e771192410e14",
-    "\001B0x000f6a0140da4a5c70e671523c8b8406ee8353c973b700dcc575ca1f347628af",
-    "\001B0xc945264eef9e494251bdc3c23147fa7fde7c4115f94c8feae9826bc06dd0338c",
-    "\001B0xd5b506d20d35daf583350d5f7cfbf8f827cbe78326d36dbf02bbbbede7bbb0b2",
-    "\001B0x4a8a8ddbca5b4debdc298c3ed39149f8933b79b937aa71b9e8d969c5fd691865",
-    "\001B0x2391a566b567528ad838169804c77b67ee9724acd174ae6d8a5ebbb715870c35",
     "\001B0xf5aa2466338bb9d134c7a7dfe9a42aefa4348684ce2fab3ce655acf5925da8fe",
+    "\001B0xc945264eef9e494251bdc3c23147fa7fde7c4115f94c8feae9826bc06dd0338c",
+    "\001B0x2367da0c38d9c5b7fb0e422ce364ae9c8fbb74567a96f94078c58d9f9e0809ac",
     "\001B0xcf2f0cfe8c5a1b848b57d5cebd5375335ae889f2075373e23f50a3c65a03b2b2",
-    "\001B0x8d7e61b2c6b4e3554258c0f383baee9afc26f60a01d5cdc4a178840f9b506cce",
-    "\001B0x2f5c5e6ba0633d097c99d0bf64e4a96f5f440c6eab2197565e83435f96473ed1",
+    "\001B0x6fd9d2da32a1b5b4b9e61a1659900ebb54c45b2a6254d79d84cb8cd9fe06c474",
     "\001B0xd04e5b2b19b2e88d72426d08cb04a54b64d788309787caacfcdb0a4bd440503f",
+    "\001B0x7c365f0afa683727163ee627e5cdab607be70e1c6beee3e3d0c2e35b0e366bde",
+    "\001B0x2f5c5e6ba0633d097c99d0bf64e4a96f5f440c6eab2197565e83435f96473ed1",
+    "\001B0xf0a946524c4b244b626bdddb9ef07051a3252dfa18caac7a8e66ec365655a15f",
     "\001B0x3fa631fe04338ffd71d07c05d5a6d93c4f8c6bbe435a0af17bf819e43d31f8b3",
+    "\001B0xb87eb568fb662b28b61bfb4fa477d6db59e8c5c0eb8107cb5f7aa6ad0be4292c",
+    "\001B0x54e88407a9a7161bc259b1d9193a0cec8152c976cf985ccdd9ab1c23e80ce112",
     "\001B0xc8ac7d1ec0631723846e170fb22aab5881c15ccf4fdae15dbe283cd38d782ea7",
+    "\001B0x8d7e61b2c6b4e3554258c0f383baee9afc26f60a01d5cdc4a178840f9b506cce",
+    "\001B0x000f6a0140da4a5c70e671523c8b8406ee8353c973b700dcc575ca1f347628af",
+    "\001B0x2391a566b567528ad838169804c77b67ee9724acd174ae6d8a5ebbb715870c35",
+    "\001B0x4a8a8ddbca5b4debdc298c3ed39149f8933b79b937aa71b9e8d969c5fd691865",
+    "\001B0x2ebb191b54e7b2d9916d36462a211e416781a873bac630c32c5e771192410e14",
+    "\001B0xd5b506d20d35daf583350d5f7cfbf8f827cbe78326d36dbf02bbbbede7bbb0b2",
     "\003\rother_expense\027is_buying_crv_for_boost\027Buying CRV For Boosties",
     "\001B0x4ce0c829fb46fc1ea03e434599a68af4c6f65f80aff7e934a008c0fe63e9da3f",
     "\001B0x90b54bf0d35621160b5094c263a2684f8e7b37fc6467c8c1ce6a53e2e7acbfa1",
@@ -52547,11 +52559,11 @@ const char * const CPyLit_Str[] = {
     "\001B0x038aeb3351b762bc92c5e4274c01520ae08dc314e2282ececc2a19a033d994a8",
     "\001*yearn_treasury.rules.other_income.airdrops",
     "\002&yearn_treasury.rules.other_income.misc\004SAFE",
-    "\001B0x44f7d3b2030799ea45932baf6049528a059aabd6387f3128993d646d01c8e877",
-    "\001B0x8079e9cae847da196dc5507561bc9d1434f765f05045bc1a82df735ec83bc6ec",
-    "\001B0xf2dbe58dffd3bc1476755e9f74e2ae07531579d0a3ea9e2aaac2ef902e080c2a",
     "\001B0x7c086a82b43b2f49db93b76a0698cf86a9c620b3bf924f0003175b04a17455ad",
+    "\001B0x44f7d3b2030799ea45932baf6049528a059aabd6387f3128993d646d01c8e877",
+    "\001B0xf2dbe58dffd3bc1476755e9f74e2ae07531579d0a3ea9e2aaac2ef902e080c2a",
     "\001B0x327684dab9e3ce61d125b36fe0b59cbfbc8aa5ac7a5b051125ab7cac3b93b90b",
+    "\001B0x8079e9cae847da196dc5507561bc9d1434f765f05045bc1a82df735ec83bc6ec",
     "\001B0xc12ded505ea158717890e4ae6e7ab5eb5cb61edbc13dfd125dd0e6f9b1af9477",
     "\003\fother_income\aAirdrop\aairdrop",
     "\001*0xA0b937D5c8E32a80E3a8ed4227CD020221544ee6",
@@ -52609,7 +52621,9 @@ const char * const CPyLit_Str[] = {
     "\002\024eth_portfolio._utils\nHexAddress",
     "\001*0xBF7AA989192b020a8d3e1C65a558e123834325cA",
     "\001*0x5aFE3855358E112B5647B952709E6165e1c1eEEe",
-    "\003*0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D\021suppress_logs_for\005chain",
+    "\001*0x718AbE90777F5B778B52D553a5aBaa148DD0dc5D",
+    "\001*0x3819f64f282bf135d62168C1e513280dAF905e06",
+    "\003*0x5fAa989Af96Af85384b8a938c2EdE4A7378D9875\021suppress_logs_for\005chain",
     "\002\023yearn_treasury._ens*0x9be19Ee7Bc4099D62737a7255f5c227fBcd6dB93",
     "\003\026_v1_addresses_provider\035ADDRESSES_GENERATOR_V1_VAULTS\vaddressById",
     "\005\036_addresses_generator_v1_vaults\017assetsAddresses\003map\006height\003now",
@@ -52629,18 +52643,18 @@ const double CPyLit_Float[] = {0};
 const double CPyLit_Complex[] = {0};
 const int CPyLit_Tuple[] = {
     78, 1, 4, 3, 6, 7, 8, 1, 16, 1, 18, 4, 20, 21, 22, 23, 1, 42, 2, 53,
-    54, 3, 66, 66, 66, 3, 67, 67, 67, 3, 68, 68, 68, 3, 847, 848, 849, 4,
+    54, 3, 66, 66, 66, 3, 67, 67, 67, 3, 68, 68, 68, 3, 849, 850, 851, 4,
     71, 72, 20, 73, 1, 20, 1, 81, 1, 83, 2, 20, 22, 3, 105, 106, 106, 1,
-    856, 2, 108, 109, 1, 111, 2, 102, 100, 2, 102, 123, 1, 144, 2, 108,
+    858, 2, 108, 109, 1, 111, 2, 102, 100, 2, 102, 123, 1, 144, 2, 108,
     146, 1, 149, 2, 98, 123, 2, 102, 160, 1, 108, 1, 259, 1, 270, 2, 72,
     20, 1, 297, 2, 298, 81, 1, 88, 1, 379, 2, 108, 366, 2, 389, 297, 1,
     390, 1, 378, 2, 83, 393, 2, 395, 396, 1, 404, 1, 97, 3, 145, 145, 145,
-    1, 883, 1, 435, 2, 440, 81, 1, 422, 2, 108, 472, 3, 82, 82, 82, 1,
-    889, 3, 108, 366, 472, 2, 86, 88, 2, 108, 534, 1, 115, 2, 102, 98, 1,
+    1, 885, 1, 435, 2, 440, 81, 1, 422, 2, 108, 472, 3, 82, 82, 82, 1,
+    891, 3, 108, 366, 472, 2, 86, 88, 2, 108, 534, 1, 115, 2, 102, 98, 1,
     534, 2, 108, 618, 1, 636, 2, 20, 21, 4, 298, 633, 639, 81, 2, 108,
     665, 2, 20, 712, 1, 749, 1, 743, 1, 753, 1, 754, 1, 756, 1, 298, 3,
-    72, 20, 73, 1, 769, 1, 768, 1, 772, 1, 777, 3, 298, 588, 81, 2, 759,
-    767, 2, 788, 767, 1, 788
+    72, 20, 73, 1, 769, 1, 768, 1, 772, 1, 779, 3, 298, 588, 81, 2, 759,
+    767, 2, 790, 767, 1, 790
 };
 const int CPyLit_FrozenSet[] = {
     5, 4, 150, 151, 152, 153, 16, 171, 172, 173, 174, 175, 176, 177,
