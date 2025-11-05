@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[909];
+extern PyObject *CPyStatics[923];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -61,6 +61,9 @@ extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___conversion
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___conversion_factory;
 extern PyObject *CPyStatic_conversion_factory___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___auctions__internal;
+extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___auctions;
+extern PyObject *CPyStatic_auctions___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox__internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___gearbox;
 extern PyObject *CPyStatic_gearbox___globals;
@@ -257,6 +260,26 @@ extern char CPyDef_security_____top_level__(void);
 extern char CPyDef_conversion_factory___is_conversion_factory(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_conversion_factory___is_conversion_factory(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_conversion_factory_____top_level__(void);
+extern PyObject *CPyStatic_auctions___auctions;
+extern PyTypeObject *CPyType_auctions___is_auction_proceeds_gen;
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen(void);
+extern CPyThreadLocal yearn_treasury___rules___ignore___swaps___auctions___is_auction_proceeds_genObject *auctions___is_auction_proceeds_gen_free_instance;
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen_____mypyc_generator_helper__(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback, PyObject *cpy_r_arg, PyObject **cpy_r_stop_iter_ptr);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen_____next__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen_____next__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen___send(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_arg);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen___send(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen_____iter__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen_____iter__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen___throw(PyObject *cpy_r___mypyc_self__, PyObject *cpy_r_type, PyObject *cpy_r_value, PyObject *cpy_r_traceback);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen___throw(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen___close(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen___close(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds_gen_____await__(PyObject *cpy_r___mypyc_self__);
+extern PyObject *CPyPy_auctions___is_auction_proceeds_gen_____await__(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern PyObject *CPyDef_auctions___is_auction_proceeds(PyObject *cpy_r_tx);
+extern PyObject *CPyPy_auctions___is_auction_proceeds(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
+extern char CPyDef_auctions_____top_level__(void);
 extern char CPyDef_gearbox___is_gearbox_deposit(PyObject *cpy_r_tx);
 extern PyObject *CPyPy_gearbox___is_gearbox_deposit(PyObject *self, PyObject *const *args, size_t nargs, PyObject *kwnames);
 extern char CPyDef_gearbox___is_gearbox_withdrawal(PyObject *cpy_r_tx);
