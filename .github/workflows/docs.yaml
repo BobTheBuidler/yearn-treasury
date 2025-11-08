@@ -29,8 +29,6 @@ permissions:
 jobs:
   deploy-docs:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
     steps:
       - name: Check out code
         uses: actions/checkout@v5
@@ -72,6 +70,8 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: ${{ github.event_name == 'push' }}
+        environment:
+          name: github-pages
         uses: peaceiris/actions-gh-pages@v4
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
@@ -94,5 +94,7 @@ jobs:
 
       - name: Deploy to GitHub Pages
         if: ${{ github.event_name == 'push' }}
+        environment:
+          name: github-pages
         id: deployment
         uses: actions/deploy-pages@v4
