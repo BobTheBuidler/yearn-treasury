@@ -1,5 +1,6 @@
+from decimal import Decimal
 from logging import getLogger
-from typing import Final, Optional
+from typing import Final, Optional, cast
 
 from dao_treasury import TreasuryTx, revenue
 from eth_typing import ChecksumAddress
@@ -55,7 +56,7 @@ async def _get_controller(vault: Contract) -> Contract:
 
 @fees("Vaults V1", Network.Mainnet)
 async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
-    token = tx.token.address.address
+    token = tx.token_address
 
     # Fees from single-sided strategies are not denominated in `vault.token` but everything else is
     is_single_sided = _is_single_sided(tx)
@@ -85,7 +86,7 @@ async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
     return False
 
 
-def is_inverse_fees_from_stash_contract(from_address: str, to_nickname: str) -> bool:
+def is_inverse_fees_from_stash_contract(from_address: ChecksumAddress, to_nickname: str | None) -> bool:
     return (
         from_address == "0xE376e8e8E3B0793CD61C6F1283bA18548b726C2e"
         and to_nickname == "Token: Curve stETH Pool yVault"
@@ -94,18 +95,19 @@ def is_inverse_fees_from_stash_contract(from_address: str, to_nickname: str) -> 
 
 @fees("Vaults V2")
 async def is_v2_vault_fees(tx: TreasuryTx) -> bool:
-    token = tx.token.address.address
-    from_address = tx.from_address.address
+    token = tx.token_address
+    from_address = cast(ChecksumAddress, tx.from_address.address)
     if (
         from_address == token
-        and (vault := v2.get(from_address))  # type: ignore [arg-type]
+        and (vault := v2.get(from_address))
         and tx.to_address == await vault.rewards.coroutine(block_identifier=tx.block)
     ):
         return True
 
-    if is_inverse_fees_from_stash_contract(from_address, tx.to_nickname):  # type: ignore [arg-type]
-        if tx.value_usd > 0:  # type: ignore [operator]
-            tx.value_usd *= -1  # type: ignore [operator]
+    if is_inverse_fees_from_stash_contract(from_address, tx.to_nickname):
+        value_usd = cast(Decimal, tx.value_usd)
+        if value_usd > 0:
+            tx.value_usd = -value_usd
         return True
 
     return False
