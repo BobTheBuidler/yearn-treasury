@@ -27,7 +27,7 @@ permissions:
   pages: write
 
 jobs:
-  deploy-docs:
+  build-docs:
     runs-on: ubuntu-latest
     steps:
       - name: Check out code
@@ -68,16 +68,19 @@ jobs:
           cd docs
           make html
 
-      - name: Deploy to GitHub Pages
-        if: ${{ github.event_name == 'push' }}
-        environment:
-          name: github-pages
-        uses: peaceiris/actions-gh-pages@v4
+      - name: Upload artifact
+        uses: actions/upload-pages-artifact@v4
         with:
-          github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./docs/_build/html
+          path: '.'
 
-      - name: Checkout
+  deploy-docs:
+    if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
+    needs: build-docs
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+    steps:
+      - name: Checkout gh-pages
         uses: actions/checkout@v5
         with:
           ref: gh-pages
@@ -86,15 +89,18 @@ jobs:
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
-      - name: Upload artifact
-        uses: actions/upload-pages-artifact@v4
+      - name: Download artifact
+        uses: actions/download-artifact@v4
         with:
-          # Upload entire repository
+          name: github-pages
           path: '.'
 
-      - name: Deploy to GitHub Pages
-        if: ${{ github.event_name == 'push' }}
-        environment:
-          name: github-pages
+      - name: Deploy to GitHub Pages (peaceiris)
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./docs/_build/html
+
+      - name: Deploy to GitHub Pages (official)
         id: deployment
         uses: actions/deploy-pages@v4
