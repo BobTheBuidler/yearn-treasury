@@ -86,7 +86,9 @@ async def is_v1_vault_fees(tx: TreasuryTx) -> bool:
     return False
 
 
-def is_inverse_fees_from_stash_contract(from_address: ChecksumAddress, to_nickname: str | None) -> bool:
+def is_inverse_fees_from_stash_contract(
+    from_address: ChecksumAddress, to_nickname: str | None
+) -> bool:
     return (
         from_address == "0xE376e8e8E3B0793CD61C6F1283bA18548b726C2e"
         and to_nickname == "Token: Curve stETH Pool yVault"

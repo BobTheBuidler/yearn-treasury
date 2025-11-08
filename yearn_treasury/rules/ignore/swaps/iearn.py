@@ -38,6 +38,6 @@ def is_iearn_withdrawal(tx: TreasuryTx) -> bool:
     if tx.to_address == ZERO_ADDRESS:
         return tx.token_address in POOLS
     # Token side
-    from_address = cast(ChecksumAddress,  tx.from_address.address)
+    from_address = cast(ChecksumAddress, tx.from_address.address)
     token_address = tx.token_address
     return POOL_TO_UNDERLYING.get(from_address) == token_address
