@@ -10,11 +10,6 @@ on:
       - pyproject.toml
       - poetry.lock
   workflow_dispatch:
-    inputs:
-      deploy:
-        description: 'Docs Deploy dry-run'
-        required: false
-        default: 'true'
 
 concurrency:
   group: ${{ github.workflow }}-${{ github.ref }}
