@@ -61,8 +61,16 @@ jobs:
             echo "changes_detected=false" >> $GITHUB_ENV
           fi
 
+      - name: Check if branch still exists on remote
+        run: |
+          if git ls-remote --exit-code --heads origin "$GITHUB_HEAD_REF"; then
+            echo "branch_exists=true" >> $GITHUB_ENV
+          else
+            echo "branch_exists=false" >> $GITHUB_ENV
+          fi
+
       - name: Commit changes
-        if: env.changes_detected == 'true'
+        if: env.changes_detected == 'true' && env.branch_exists == 'true'
         run: |
           git config --local user.name "github-actions[bot]"
           git config --local user.email "github-actions[bot]@users.noreply.github.com"
