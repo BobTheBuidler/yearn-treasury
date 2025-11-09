@@ -19,10 +19,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout code
+        id: checkout
         uses: actions/checkout@v5
         with:
           # Check out the PR branch
           ref: ${{ github.head_ref }}
+        continue-on-error: true
+
+      - name: Branch no longer exists on GitHub
+        if: failure() && steps.checkout.outcome == 'failure'
+        run: |
+          echo "The branch ${{ github.head_ref }} no longer exists on GitHub"
+          exit 0
 
       - name: Set up Python 3.12
         uses: actions/setup-python@v6
