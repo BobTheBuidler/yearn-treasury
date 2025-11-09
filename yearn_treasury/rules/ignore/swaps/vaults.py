@@ -1,6 +1,7 @@
-from typing import Final
+from typing import Final, cast
 
 from dao_treasury import TreasuryTx, TreasuryWallet
+from dao_treasury.db import Address
 from eth_typing import BlockNumber, ChecksumAddress
 from faster_async_lru import alru_cache
 from y import Contract, Network
@@ -51,9 +52,9 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
 
     transfer_events = tx.events["Transfer"]
 
-    tx_token = tx.token.address.address
+    tx_token = tx.token_address
 
-    block: BlockNumber = tx.block  # type: ignore [assignment]
+    block = BlockNumber(tx.block)
     sender: ChecksumAddress
     receiver: ChecksumAddress
     underlying_address: ChecksumAddress
@@ -147,7 +148,7 @@ def is_v3_vault_deposit(tx: TreasuryTx) -> bool:
 
         # Token side
         elif deposits := [d for d in deposits if to_address == d.address]:
-            from_address = tx.from_address.address  # type: ignore [union-attr]
+            from_address = cast(Address, tx.from_address).address
             for deposit in deposits:
                 if from_address != deposit["sender"]:
                     print("sender doesnt match")
@@ -170,7 +171,7 @@ async def _get_underlying(vault: Contract) -> ChecksumAddress:
 
 @vaults("Withdrawal")
 async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
-    to_address = tx.to_address.address  # type: ignore [union-attr]
+    to_address = cast(Address, tx.to_address).address
     if to_address not in TREASURY_AND_ZERO:
         return False
 
@@ -185,8 +186,8 @@ async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
     transfer_events = tx.events["Transfer"]
 
     token = tx.token
-    token_address: ChecksumAddress = token.address.address  # type: ignore [assignment]
-    block: BlockNumber = tx.block  # type: ignore [assignment]
+    token_address = cast(ChecksumAddress, token.address.address)
+    block = BlockNumber(tx.block)
 
     underlying: ChecksumAddress
 

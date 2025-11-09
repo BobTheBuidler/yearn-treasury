@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[925];
+extern PyObject *CPyStatics[929];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -86,6 +86,7 @@ extern PyObject *CPyStatic_unwrapper___globals;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults__internal;
 extern CPyModule *CPyModule_yearn_treasury___rules___ignore___swaps___vaults;
 extern PyObject *CPyStatic_swaps___vaults___globals;
+extern CPyModule *CPyModule_dao_treasury___db;
 extern CPyModule *CPyModule_faster_async_lru;
 extern CPyModule *CPyModule_y___prices___yearn;
 extern CPyModule *CPyModule_yearn_treasury___vaults__internal;
@@ -164,7 +165,6 @@ extern PyObject *CPyStatic_yteams___globals;
 extern CPyModule *CPyModule_yearn_treasury____db__internal;
 extern CPyModule *CPyModule_yearn_treasury____db;
 extern PyObject *CPyStatic__db___globals;
-extern CPyModule *CPyModule_dao_treasury___db;
 extern CPyModule *CPyModule_yearn_treasury;
 extern CPyModule *CPyModule_yearn_treasury____ens__internal;
 extern CPyModule *CPyModule_yearn_treasury____ens;

@@ -1,5 +1,5 @@
 # mypy: disable-error-code=dict-item
-from typing import Dict, Final
+from typing import Dict, Final, cast
 
 from dao_treasury import TreasuryTx
 from eth_typing import ChecksumAddress
@@ -36,8 +36,8 @@ POOL_TO_UNDERLYING: Final[Dict[ChecksumAddress, ChecksumAddress]] = {
 def is_iearn_withdrawal(tx: TreasuryTx) -> bool:
     # Vault side
     if tx.to_address == ZERO_ADDRESS:
-        return tx.token.address.address in POOLS
+        return tx.token_address in POOLS
     # Token side
-    from_address: ChecksumAddress = tx.from_address.address  # type: ignore [union-attr, assignment]
-    token_address = tx.token.address.address
+    from_address = cast(ChecksumAddress, tx.from_address.address)
+    token_address = tx.token_address
     return POOL_TO_UNDERLYING.get(from_address) == token_address
