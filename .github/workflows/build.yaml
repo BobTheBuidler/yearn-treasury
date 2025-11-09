@@ -27,7 +27,7 @@ jobs:
         continue-on-error: true
 
       - name: Branch no longer exists on GitHub
-        if: failure() && steps.checkout.outcome == 'failure'
+        if: failure()
         run: |
           echo "The branch ${{ github.head_ref }} no longer exists on GitHub"
           exit 0
