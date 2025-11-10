@@ -87,3 +87,6 @@ class Args:
 
     nicknames: Final[Path] = _YEARN_TREASURY_ROOT_DIR / "address_labels.yaml"
     """The path where yearn-treasury's address nicknames are defined."""
+
+    custom_bucket: Final[list[str]] = [f"{YFI}:Other long term assets"]
+    """Custom bucket mapping for token addresses, tells DAO Treasury to categorize YFI as 'Other long term assets'."""
