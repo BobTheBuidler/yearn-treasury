@@ -12,7 +12,10 @@ for improved data clarity and prettification of reports.
 """
 
 # mypy: disable-error-code="arg-type"
-from dao_treasury.db import Address
+import time
+
+import dao_treasury._docker
+from dao_treasury.db import Address, init_db
 from y import Network
 from y.constants import CHAINID
 
@@ -28,6 +31,13 @@ def prepare_db() -> None:
     during database preparation to ensure wallet addresses are labeled
     within the DAO Treasury database entity system.
     """
+    # We need to start the postgres container earlier than dao-treasury does
+    dao_treasury._docker.up("postgres")
+
+    time.sleep(5)
+
+    init_db()
+
     chad = {Network.Mainnet: "y", Network.Fantom: "f"}[CHAINID]  # type: ignore [index]
 
     labels = {
