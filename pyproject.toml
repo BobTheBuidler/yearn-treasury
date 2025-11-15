@@ -23,7 +23,7 @@ yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-dao-treasury = "==0.0.73"
+dao-treasury = "==0.1.0"
 faster-async-lru = ">=2.0.5,<3"
 
 [tool.poetry.group.dev.dependencies]
