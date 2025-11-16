@@ -12,7 +12,7 @@ requires = [
     "mypy[mypyc]==1.18.2",
     "tomli>=2.0.0; python_version < '3.11'",
     "types-requests",
-    "dao-treasury==0.1.0; platform_system == 'Linux' and platform_machine != 'i686'",
+    "dao-treasury==0.1.1; platform_system == 'Linux' and platform_machine != 'i686'",
     "eth-brownie==1.22.0.dev0; platform_system == 'Linux'",
     "eth-typing==5.2.1",
 ]
@@ -23,7 +23,7 @@ yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-dao-treasury = "==0.1.0"
+dao-treasury = "==0.1.1"
 faster-async-lru = ">=2.0.5,<3"
 
 [tool.poetry.group.dev.dependencies]
