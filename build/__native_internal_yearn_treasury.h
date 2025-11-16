@@ -6,7 +6,7 @@
 
 int CPyGlobalsInit(void);
 
-extern PyObject *CPyStatics[929];
+extern PyObject *CPyStatics[938];
 extern const char * const CPyLit_Str[];
 extern const char * const CPyLit_Bytes[];
 extern const char * const CPyLit_Int[];
@@ -165,6 +165,7 @@ extern PyObject *CPyStatic_yteams___globals;
 extern CPyModule *CPyModule_yearn_treasury____db__internal;
 extern CPyModule *CPyModule_yearn_treasury____db;
 extern PyObject *CPyStatic__db___globals;
+extern CPyModule *CPyModule_dao_treasury____docker;
 extern CPyModule *CPyModule_yearn_treasury;
 extern CPyModule *CPyModule_yearn_treasury____ens__internal;
 extern CPyModule *CPyModule_yearn_treasury____ens;
