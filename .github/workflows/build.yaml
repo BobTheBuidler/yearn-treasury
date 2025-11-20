@@ -33,7 +33,7 @@ jobs:
           exit 0
 
       - name: Mypycify
-        uses: BobTheBuidler/mypycify@master
+        uses: BobTheBuidler/mypycify@0.2.3
         with:
           python-version: "3.12"
           hash-key: |
