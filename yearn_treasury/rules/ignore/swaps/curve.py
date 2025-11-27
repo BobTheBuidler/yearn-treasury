@@ -135,14 +135,20 @@ def _is_curve_withdrawal_one(tx: TreasuryTx) -> bool:
 
 async def _is_curve_withdrawal_multi(tx: TreasuryTx) -> bool:
     pool: Contract
-    for event in tx.get_events("RemoveLiquidity"):
+
+    for i, event in enumerate(tx.get_events("RemoveLiquidity")):
+        print(f"checking {tx.hash} RemoveLiquidity event {i+1}: {event}")
         # LP Token side
         if tx.to_address == ZERO_ADDRESS and _token_is_curvey(tx):
             pool = await Contract.coroutine(event.address)  # type: ignore [assignment]
             if await _is_old_style(tx, pool) or _is_new_style(tx, pool):
                 return True
             print(
-                f"unhandled curve pool: {tx} symbol={tx.symbol} name={tx.token.name} address={tx.token_address}"
+                f"curve pool no match: {tx}\n"
+                f"symbol={tx.symbol}\n"
+                f"name={tx.token.name}\n"
+                f"token_address={tx.token_address}\n"
+                f"event_address={pool.address}"
             )
         # Tokens rec'd
         elif tx.from_address == event.address and TreasuryWallet.check_membership(
