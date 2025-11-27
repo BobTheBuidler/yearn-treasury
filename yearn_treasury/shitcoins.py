@@ -57,6 +57,7 @@ _SHITCOINS: Final = {
         "0x6051C1354Ccc51b4d561e43b02735DEaE64768B8",
         "0xf0814d0E47F2390a8082C4a1BD819FDDe50f9bFc",
         "0x2DBd330bC9B7f3A822a9173aB52172BdDDcAcE2A",
+        "0x1368452Bfb5Cd127971C8DE22C58fBE89D35A6BF",  # JNTR/e
         # just andre tinkering
         "0x5cB5e2d7Ab9Fd32021dF8F1D3E5269bD437Ec3Bf",
         # these arent shitcoins per se but we can't price them and dont expect to in the future, lets save cpu cycles
