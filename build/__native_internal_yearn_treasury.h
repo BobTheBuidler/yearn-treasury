@@ -1,5 +1,5 @@
-#ifndef MYPYC_NATIVE_INTERNAL_yearn_treasury_H
-#define MYPYC_NATIVE_INTERNAL_yearn_treasury_H
+#ifndef MYPYC_LIBRT_INTERNAL_yearn_treasury_H
+#define MYPYC_LIBRT_INTERNAL_yearn_treasury_H
 #include <Python.h>
 #include <CPy.h>
 #include "__native_yearn_treasury.h"
