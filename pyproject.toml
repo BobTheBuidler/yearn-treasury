@@ -9,7 +9,7 @@ packages = [{ include = "yearn_treasury/*" }]
 requires = [
     "setuptools",
     "wheel",
-    "mypy[mypyc]==1.18.2",
+    "mypy[mypyc]==1.19.0",
     "tomli>=2.0.0; python_version < '3.11'",
     "types-requests",
     "dao-treasury==0.1.6; platform_system == 'Linux' and platform_machine != 'i686'",
@@ -27,7 +27,7 @@ dao-treasury = "==0.1.6"
 faster-async-lru = ">=2.0.5,<3"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "1.18.2"
+mypy = "1.19.0"
 types-requests = "*"
 
 [tool.poetry.group.docs.dependencies]
