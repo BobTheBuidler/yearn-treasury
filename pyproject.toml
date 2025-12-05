@@ -22,7 +22,7 @@ build-backend = "setuptools.build_meta"
 yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
-python = ">=3.10,<3.13"
+python = ">=3.14,<3.15"
 dao-treasury = "==0.1.6"
 faster-async-lru = ">=2.0.5,<3"
 
