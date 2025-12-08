@@ -32,7 +32,7 @@ types-pony = "0.7.0.20250822"
 types-requests = "*"
 
 [tool.poetry.group.docs.dependencies]
-sphinx = ">=8,<9"
+sphinx = ">=9,<10"
 sphinx-rtd-theme = "*"
 myst-parser = "*"
 
