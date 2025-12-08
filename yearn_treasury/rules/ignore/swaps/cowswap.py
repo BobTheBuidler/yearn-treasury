@@ -57,7 +57,7 @@ def is_cowswap_swap(tx: TreasuryTx) -> bool:
                 # Did Yearn actually receive the other side of the trade?
                 for address in TREASURY_WALLETS:
                     if TreasuryWallet.check_membership(address, block):
-                        other_side_query = select(
+                        other_side_query = select(  # type: ignore [no-untyped-call]
                             t
                             for t in TreasuryTx  # type: ignore [attr-defined]
                             if t.hash == tx.hash

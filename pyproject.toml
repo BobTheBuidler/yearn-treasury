@@ -12,6 +12,7 @@ requires = [
     "mypy[mypyc]==1.19.0",
     "tomli>=2.0.0; python_version < '3.11'",
     "types-requests",
+    "types-pony==0.7.0.20250822",
     "dao-treasury==0.1.7; platform_system == 'Linux' and platform_machine != 'i686'",
     "eth-brownie==1.22.0.dev0; platform_system == 'Linux'",
     "eth-typing==5.2.1",
@@ -27,6 +28,7 @@ dao-treasury = "==0.1.7"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.19.0"
+types-pony = "0.7.0.20250822"
 types-requests = "*"
 
 [tool.poetry.group.docs.dependencies]
