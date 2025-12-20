@@ -8,7 +8,7 @@ rejection, streaming, vesting, and payment status.
 
 from dataclasses import dataclass
 from logging import getLogger
-from typing import Final, Optional, final
+from typing import Final, final
 
 
 logger: Final = getLogger(__name__)
