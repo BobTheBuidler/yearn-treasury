@@ -23,7 +23,7 @@ _TOKEN: Final = os.environ.get("GITHUB_TOKEN")
 _HEADERS: Final = {"Authorization": f"token {_TOKEN}"} if _TOKEN else {}
 
 
-def fetch_brs() -> List[BudgetRequest]:
+def fetch_brs() -> list[BudgetRequest]:
     # Use parameters to fetch issues in all states, up to 100 per page.
     current_page = 1
     params = {"state": "all", "per_page": 100, "page": current_page}
@@ -33,7 +33,7 @@ def fetch_brs() -> List[BudgetRequest]:
     while True:
         response = _make_get_request(params=params)
 
-        data: List[dict] = response.json()  # type: ignore [type-arg]
+        data: list[dict] = response.json()  # type: ignore [type-arg]
         if not data:  # If the current page is empty, we are done.
             break
 
@@ -44,7 +44,7 @@ def fetch_brs() -> List[BudgetRequest]:
 
             # TODO labels table in db (also dataclass) with the descriptions included
             # Extract the label names (tags) from the "labels" key.
-            label_objs: List[dict] = item.get("labels", [])  # type: ignore [type-arg]
+            label_objs: list[dict] = item.get("labels", [])  # type: ignore [type-arg]
             labels = {label.get("name") for label in label_objs}
 
             if "budget request" not in labels:
@@ -71,7 +71,7 @@ def fetch_brs() -> List[BudgetRequest]:
     return brs
 
 
-def _make_get_request(params: Dict[str, Any]) -> Any:
+def _make_get_request(params: dict[str, Any]) -> Any:
     retries = 0
     while True:
         try:

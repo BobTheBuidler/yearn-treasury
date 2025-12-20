@@ -26,7 +26,7 @@ class BudgetRequest:
     updated_at: str
     closed_at: Optional[str]
     body: Optional[str]
-    labels: Set[str]
+    labels: set[str]
 
     def is_approved(self) -> bool:
         return "approved" in self.labels
