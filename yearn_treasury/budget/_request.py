@@ -8,7 +8,7 @@ rejection, streaming, vesting, and payment status.
 
 from dataclasses import dataclass
 from logging import getLogger
-from typing import Final, Optional, Set, final
+from typing import Final, Optional, final
 
 
 logger: Final = getLogger(__name__)
@@ -26,7 +26,7 @@ class BudgetRequest:
     updated_at: str
     closed_at: Optional[str]
     body: Optional[str]
-    labels: Set[str]
+    labels: set[str]
 
     def is_approved(self) -> bool:
         return "approved" in self.labels
