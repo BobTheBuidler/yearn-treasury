@@ -9,7 +9,7 @@ requests.
 import os
 import time
 import requests
-from typing import Any, Dict, Final, List
+from typing import Any, Final
 
 from yearn_treasury.budget._request import BudgetRequest
 
