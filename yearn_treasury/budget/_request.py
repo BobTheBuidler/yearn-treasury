@@ -24,8 +24,8 @@ class BudgetRequest:
     url: str
     created_at: str
     updated_at: str
-    closed_at: Optional[str]
-    body: Optional[str]
+    closed_at: str | None
+    body: str | None
     labels: set[str]
 
     def is_approved(self) -> bool:
