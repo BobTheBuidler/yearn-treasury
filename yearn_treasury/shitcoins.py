@@ -86,6 +86,7 @@ _SHITCOINS: Final = {
         "0x84F7D2f6FB447Bb11d3E7Ce64D83e1c02c2F3078",  # VIRTUAL
         "0x5C6Ed14E1017cf75C237A4A4b93Ce1D2f83EB002",  # GRVT
         "0xf76E6eFf109258fd5F52823d9F9feE7c90C97251",  # wkeyDAO
+        "0x1BA4b447d0dF64DA64024e5Ec47dA94458C1e97f",  # Hegic V8888 Options Token
         # test token?
         "0x372d5d02c6b4075bd58892f80300cA590e92d29E",  # tOUSG
         # dETH? don't think this is needed
