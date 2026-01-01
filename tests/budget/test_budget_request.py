@@ -1,6 +1,5 @@
 import pytest
 from dataclasses import FrozenInstanceError
-from typing import Optional, List
 from unittest.mock import patch
 
 from yearn_treasury.budget._request import BudgetRequest

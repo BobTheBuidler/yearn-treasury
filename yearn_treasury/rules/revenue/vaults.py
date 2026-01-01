@@ -1,6 +1,6 @@
 from decimal import Decimal
 from logging import getLogger
-from typing import Final, Optional, cast
+from typing import Final, cast
 
 from dao_treasury import TreasuryTx, revenue
 from eth_typing import ChecksumAddress
@@ -40,7 +40,7 @@ def _is_ypool(symbol: str, from_nickname: str) -> bool:
 
 
 @alru_cache(maxsize=1000)
-async def _get_rewards(controller: Contract, block: int) -> Optional[ChecksumAddress]:
+async def _get_rewards(controller: Contract, block: int) -> ChecksumAddress | None:
     try:
         return await controller.rewards.coroutine(block_identifier=block)  # type: ignore [no-any-return]
     except ValueError as e:

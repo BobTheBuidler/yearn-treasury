@@ -10,7 +10,7 @@ To suppress logs for additional tokens, add their addresses to the
 automatically on package import.
 """
 
-from typing import Dict, Final, List
+from typing import Final
 
 from cchecksum import to_checksum_address
 from eth_portfolio._utils import SUPPRESS_ERROR_LOGS
@@ -20,7 +20,7 @@ from y import Network
 from yearn_treasury.constants import CHAINID
 
 
-suppress_logs_for: Final[Dict[Network, List[HexAddress]]] = {
+suppress_logs_for: Final[dict[Network, list[HexAddress]]] = {
     Network.Mainnet: [
         "0xBF7AA989192b020a8d3e1C65a558e123834325cA",  # unpriceable yvWBTC - This vault had a bug and does not have a pricePerShare
         "0x5aFE3855358E112B5647B952709E6165e1c1eEEe",  # SAFE - This was not tradeable at the time of the first airdrops

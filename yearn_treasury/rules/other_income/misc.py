@@ -1,6 +1,6 @@
 # mypy: disable-error-code="union-attr"
 from decimal import Decimal
-from typing import Final, Optional
+from typing import Final
 
 from dao_treasury import TreasuryTx, other_income
 from y import Contract, ContractNotVerified, ERC20, Network  # type: ignore [attr-defined]
@@ -33,7 +33,7 @@ async def is_robovault_share(tx: TreasuryTx) -> bool:
     except ContractNotVerified:
         return False
     else:
-        vault: Optional[Contract] = getattr(strat, "vault", None)
+        vault: Contract | None = getattr(strat, "vault", None)
 
     if vault is None:
         return False

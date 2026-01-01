@@ -1,5 +1,5 @@
 from decimal import Decimal
-from typing import Final, Tuple
+from typing import Final
 
 from dao_treasury import TreasuryTx, TreasuryWallet, ignore
 from eth_typing import BlockNumber, ChecksumAddress
@@ -196,7 +196,7 @@ def is_curve_bribe(tx: TreasuryTx) -> bool:
     return tx.hash == "0xce45da7e3a7616ed0c0d356d6dfa8a784606c9a8034bae9faa40abf7b52be114"
 
 
-_pass_thru_hashes: Tuple[str, ...] = {
+_pass_thru_hashes: tuple[str, ...] = {
     Network.Mainnet: ("0xf662c68817c56a64b801181a3175c8a7e7a5add45f8242990c695d418651e50d",),
     Network.Fantom: (
         "0x411d0aff42c3862d06a0b04b5ffd91f4593a9a8b2685d554fe1fbe5dc7e4fc04",

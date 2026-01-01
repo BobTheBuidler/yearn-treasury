@@ -7,7 +7,7 @@ reimbursements, strategist gas, returned gas, and more.
 """
 
 # mypy: disable-error-code="call-overload"
-from typing import Final, Set
+from typing import Final
 
 import pony.orm
 from dao_treasury import TreasuryTx, cost_of_revenue
@@ -33,9 +33,9 @@ gas("Other Gas").match(
 )
 
 
-_STRATEGIST_GAS_HASHES: Final[Set[HexStr]] = {}.get(CHAINID, set())
+_STRATEGIST_GAS_HASHES: Final[set[HexStr]] = {}.get(CHAINID, set())
 
-_RETURNED_GAS_HASHES: Final[Set[HexStr]] = {  # type: ignore [assignment]
+_RETURNED_GAS_HASHES: Final[set[HexStr]] = {  # type: ignore [assignment]
     Network.Mainnet: {
         "0x86fee63ec8efb0e7320a6d48ac3890b1089b77a3d9ed74cade389f512471c299",
         "0xa77c4f7596968fef96565a0025cc6f9881622f62cc4c823232f9c9000ba5f981",

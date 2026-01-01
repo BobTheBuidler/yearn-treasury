@@ -1,5 +1,5 @@
 # mypy: disable-error-code=dict-item
-from typing import Dict, Final, cast
+from typing import Final, cast
 
 from dao_treasury import TreasuryTx
 from eth_typing import ChecksumAddress
@@ -9,7 +9,7 @@ from yearn_treasury.constants import ZERO_ADDRESS
 from yearn_treasury.rules.ignore.swaps import swaps
 
 
-IEARN: Final[Dict[str, ChecksumAddress]] = {
+IEARN: Final[dict[str, ChecksumAddress]] = {
     # v1 - deprecated
     # v2
     "yDAIv2": "0x16de59092dAE5CcF4A1E6439D611fd0653f0Bd01",
@@ -27,7 +27,7 @@ IEARN: Final[Dict[str, ChecksumAddress]] = {
 
 POOLS: Final = set(IEARN.values())
 
-POOL_TO_UNDERLYING: Final[Dict[ChecksumAddress, ChecksumAddress]] = {
+POOL_TO_UNDERLYING: Final[dict[ChecksumAddress, ChecksumAddress]] = {
     pool: ChecksumAddress(Contract(pool).token()) for pool in POOLS
 }
 

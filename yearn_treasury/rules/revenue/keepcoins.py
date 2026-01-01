@@ -1,5 +1,5 @@
 # keepCOINS: excludes keepCRV as the CRV are locked forever.
-from typing import Final, Tuple
+from typing import Final
 
 from y import Network
 from y.constants import CHAINID
@@ -9,7 +9,7 @@ from dao_treasury import TreasuryTx, revenue
 
 keepcoins: Final = revenue("keepCOINS")
 
-angle_strats_with_non_specific_names: Final[Tuple[str, ...]] = {  # type: ignore [call-overload]
+angle_strats_with_non_specific_names: Final[tuple[str, ...]] = {  # type: ignore [call-overload]
     Network.Mainnet: (
         "0x2CB390212b0e5091a3c0D0331669c1419165CF80",
         "0x7C2b9DB2Ae5aCC6fAC2Fd6cE9b01A5EB4bDD1309",
