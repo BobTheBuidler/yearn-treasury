@@ -12,7 +12,7 @@ Key Responsibilities:
     - Provide lookup tables for use in vault deposit/withdrawal sort rules.
 """
 
-from typing import Dict, Final
+from typing import Final
 
 from brownie import chain
 from eth_typing import ChecksumAddress

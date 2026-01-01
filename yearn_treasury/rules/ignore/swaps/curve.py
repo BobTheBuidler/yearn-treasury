@@ -1,7 +1,6 @@
 from typing import Final
 
 from brownie.exceptions import EventLookupError
-from brownie.network.event import _EventItem
 from dao_treasury import TreasuryTx, TreasuryWallet
 from eth_typing import ChecksumAddress
 from faster_async_lru import alru_cache

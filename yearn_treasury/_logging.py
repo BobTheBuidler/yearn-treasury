@@ -10,7 +10,7 @@ To suppress logs for additional tokens, add their addresses to the
 automatically on package import.
 """
 
-from typing import Dict, Final, List
+from typing import Final
 
 from cchecksum import to_checksum_address
 from eth_portfolio._utils import SUPPRESS_ERROR_LOGS

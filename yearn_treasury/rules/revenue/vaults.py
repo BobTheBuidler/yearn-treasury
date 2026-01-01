@@ -1,6 +1,6 @@
 from decimal import Decimal
 from logging import getLogger
-from typing import Final, Optional, cast
+from typing import Final, cast
 
 from dao_treasury import TreasuryTx, revenue
 from eth_typing import ChecksumAddress

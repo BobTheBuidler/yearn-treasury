@@ -1,5 +1,5 @@
 # keepCOINS: excludes keepCRV as the CRV are locked forever.
-from typing import Final, Tuple
+from typing import Final
 
 from y import Network
 from y.constants import CHAINID

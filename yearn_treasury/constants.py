@@ -1,8 +1,8 @@
 from pathlib import Path
-from typing import Final, Set
+from typing import Final
 
 import y.constants
-from eth_typing import BlockNumber, ChecksumAddress
+from eth_typing import BlockNumber
 from y import Network, convert
 
 

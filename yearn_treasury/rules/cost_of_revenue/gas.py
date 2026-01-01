@@ -7,7 +7,7 @@ reimbursements, strategist gas, returned gas, and more.
 """
 
 # mypy: disable-error-code="call-overload"
-from typing import Final, Set
+from typing import Final
 
 import pony.orm
 from dao_treasury import TreasuryTx, cost_of_revenue

@@ -1,5 +1,5 @@
 # mypy: disable-error-code=dict-item
-from typing import Dict, Final, cast
+from typing import Final, cast
 
 from dao_treasury import TreasuryTx
 from eth_typing import ChecksumAddress

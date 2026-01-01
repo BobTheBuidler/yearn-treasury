@@ -1,5 +1,5 @@
 from decimal import Decimal
-from typing import Final, Tuple
+from typing import Final
 
 from dao_treasury import TreasuryTx, TreasuryWallet, ignore
 from eth_typing import BlockNumber, ChecksumAddress

@@ -1,6 +1,6 @@
 # mypy: disable-error-code="union-attr"
 from decimal import Decimal
-from typing import Final, Optional
+from typing import Final
 
 from dao_treasury import TreasuryTx, other_income
 from y import Contract, ContractNotVerified, ERC20, Network  # type: ignore [attr-defined]
