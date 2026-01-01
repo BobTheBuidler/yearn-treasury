@@ -33,7 +33,7 @@ async def is_robovault_share(tx: TreasuryTx) -> bool:
     except ContractNotVerified:
         return False
     else:
-        vault: Optional[Contract] = getattr(strat, "vault", None)
+        vault: Contract | None = getattr(strat, "vault", None)
 
     if vault is None:
         return False

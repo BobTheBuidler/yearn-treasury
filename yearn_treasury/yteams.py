@@ -72,8 +72,8 @@ yteams_addresses = {
 
 logger: Final = getLogger(__name__)
 
-_not_verified: Final[Set[str]] = set()
-_warned: Final[Set[TokenTransfer]] = set()
+_not_verified: Final[set[str]] = set()
+_warned: Final[set[TokenTransfer]] = set()
 
 _known_tokens_without_prices: Final = frozenset({"SAFE", "vCOW"})
 """When there is a PriceError for these tokens, no logs will be emitted."""
@@ -88,7 +88,7 @@ async def calculate_teams_revenue_expenses() -> None:
     logger.info("Starting process to calculate teams revenues and expenses")
     timestamps = get_timestamps_for_report()
 
-    async def get_coros_for_timestamp(dt: datetime) -> Dict[str, Dict[str, Decimal]]:
+    async def get_coros_for_timestamp(dt: datetime) -> dict[str, dict[str, Decimal]]:
         return await a_sync.gather(
             {
                 label: total(label, wallet_info, dt)
@@ -119,7 +119,7 @@ async def calculate_teams_revenue_expenses() -> None:
     )
 
 
-def get_timestamps_for_report() -> List[datetime]:
+def get_timestamps_for_report() -> list[datetime]:
     now = datetime.now(tz=timezone.utc)
     prev_month_end = datetime(
         year=now.year,
@@ -140,7 +140,7 @@ def get_timestamps_for_report() -> List[datetime]:
     return datetimes
 
 
-async def total(label: str, wallet_info: Dict[str, Any], timestamp: datetime) -> Dict[str, Decimal]:
+async def total(label: str, wallet_info: dict[str, Any], timestamp: datetime) -> dict[str, Decimal]:
     rev = await sum_revenue_transfers.sum(wallet_info["splits"].items(), timestamp=timestamp)
     grants = await sum_grants_received(wallet_info["ms"], timestamp)
     if rev > 10_000_000:
@@ -157,7 +157,7 @@ async def total(label: str, wallet_info: Dict[str, Any], timestamp: datetime) ->
 
 
 @a_sync.a_sync(default="async")
-async def sum_revenue_transfers(params: Tuple[str, Decimal], timestamp: datetime) -> Decimal:
+async def sum_revenue_transfers(params: tuple[str, Decimal], timestamp: datetime) -> Decimal:
     wallet, rev_share = params
     block = await get_block_at_timestamp(timestamp)
     total = Decimal(0)

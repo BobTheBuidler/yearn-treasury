@@ -21,10 +21,10 @@ from y import Contract, Events, Network
 from yearn_treasury._ens import resolver, topics
 
 
-v1: Final[Dict[Contract, ChecksumAddress]] = {}
+v1: Final[dict[Contract, ChecksumAddress]] = {}
 """Vault contract -> underlying address"""
 
-v2: Final[Dict[ChecksumAddress, Contract]] = {}
+v2: Final[dict[ChecksumAddress, Contract]] = {}
 """Vault address -> vault contract"""
 
 
