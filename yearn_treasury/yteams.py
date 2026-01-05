@@ -201,7 +201,7 @@ async def sum_grants_received(wallet: str, timestamp: datetime) -> Decimal:
                         _not_verified.add(str(e))
                         logger.debug(f"{e.__class__.__name__}: {e}")
                 except Exception as e:
-                    logger.warning(f"{e.__class__.__name__}: {e}")
+                    logger.exception("Exception for yTeam transfer: %s", transfer)
         elif transfer not in _warned and transfer.token not in _known_tokens_without_prices:
             logger.warning(f"BAD: {transfer}")
             _warned.add(transfer)
