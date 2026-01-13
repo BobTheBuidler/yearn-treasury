@@ -14,7 +14,6 @@ from eth_typing import ChecksumAddress
 
 from yearn_treasury.rules.constants import EEE_ADDRESS, ZERO_ADDRESS
 
-
 weth: Final[ChecksumAddress] = y.weth.address  # type: ignore [assignment]
 
 

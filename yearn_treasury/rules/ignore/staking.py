@@ -5,7 +5,6 @@ from y import Network
 
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 
-
 staking: Final = ignore("Staking")
 
 

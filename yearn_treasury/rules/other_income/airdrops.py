@@ -3,7 +3,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, other_income
 from y import Network
 
-
 airdrop: Final = other_income("Airdrop")
 
 _SAFE_AIRDROP_CONTRACTS: Final = (

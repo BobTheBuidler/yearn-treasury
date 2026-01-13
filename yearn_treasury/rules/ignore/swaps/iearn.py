@@ -8,7 +8,6 @@ from y import Contract, Network
 from yearn_treasury.constants import ZERO_ADDRESS
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 IEARN: Final[dict[str, ChecksumAddress]] = {
     # v1 - deprecated
     # v2

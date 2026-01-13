@@ -8,11 +8,11 @@ requests.
 
 import os
 import time
-import requests
 from typing import Any, Final
 
-from yearn_treasury.budget._request import BudgetRequest
+import requests
 
+from yearn_treasury.budget._request import BudgetRequest
 
 API_URL: Final = "https://api.github.com/repos/yearn/budget/issues"
 """URL to fetch issues from the repo."""

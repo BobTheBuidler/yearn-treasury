@@ -8,7 +8,6 @@ from y import Network
 from yearn_treasury.constants import YFI
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 WOOFY: Final = "0xD0660cD418a64a1d44E9214ad8e459324D8157f1"
 
 YFI_SCALE: Final = Decimal(10**18)

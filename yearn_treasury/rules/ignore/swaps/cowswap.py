@@ -9,7 +9,6 @@ from yearn_treasury.constants import TREASURY_WALLETS
 from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.rules.ignore.swaps._skip_tokens import SKIP_TOKENS
 
-
 COWSWAP: Final = "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"
 
 

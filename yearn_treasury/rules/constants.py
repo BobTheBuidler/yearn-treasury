@@ -4,7 +4,6 @@ from typing import Final
 from y import Network
 from y.constants import CHAINID
 
-
 EEE_ADDRESS: Final = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"
 ZERO_ADDRESS: Final = "0x0000000000000000000000000000000000000000"
 

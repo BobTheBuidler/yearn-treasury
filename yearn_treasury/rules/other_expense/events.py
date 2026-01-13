@@ -3,7 +3,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, other_expense
 from y import Network
 
-
 events: Final = other_expense("Events")
 
 

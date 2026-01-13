@@ -10,7 +10,6 @@ from dataclasses import dataclass
 from logging import getLogger
 from typing import Final, final
 
-
 logger: Final = getLogger(__name__)
 
 

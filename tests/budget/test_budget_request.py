@@ -1,6 +1,7 @@
-import pytest
 from dataclasses import FrozenInstanceError
 from unittest.mock import patch
+
+import pytest
 
 from yearn_treasury.budget._request import BudgetRequest
 

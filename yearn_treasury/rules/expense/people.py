@@ -2,7 +2,6 @@ from typing import Final
 
 from dao_treasury import TreasuryTx, expense
 
-
 grants: Final = expense("Grants")
 website: Final = grants("Website")
 ux: Final = website("UX")

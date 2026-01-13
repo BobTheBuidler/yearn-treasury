@@ -5,7 +5,6 @@ from y import Contract, Network
 
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 
-
 farming: Final = revenue("Treasury Farming")
 
 
