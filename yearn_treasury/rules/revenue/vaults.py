@@ -9,7 +9,6 @@ from y import Contract, Network
 
 from yearn_treasury.vaults import v1, v2
 
-
 logger: Final = getLogger(__name__)
 
 fees: Final = revenue("Fees")

@@ -11,7 +11,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, other_expense
 from y import Network
 
-
 donations: Final = other_expense("Donations")
 
 gitcoin: Final = "0xde21F729137C5Af1b01d73aF1dC21eFfa2B8a0d6"

@@ -9,7 +9,6 @@ from y import Contract, Network
 from yearn_treasury.constants import CHAINID, ZERO_ADDRESS
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 curve: Final = swaps("Curve")
 
 

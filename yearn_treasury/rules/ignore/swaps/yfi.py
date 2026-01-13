@@ -8,7 +8,6 @@ from y import WRAPPED_GAS_COIN, Network
 from yearn_treasury.constants import YCHAD_MULTISIG
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 buying_yfi: Final = swaps("Buying YFI")
 
 VYPER_BUYERS: Final = (

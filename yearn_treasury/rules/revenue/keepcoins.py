@@ -1,11 +1,9 @@
 # keepCOINS: excludes keepCRV as the CRV are locked forever.
 from typing import Final
 
+from dao_treasury import TreasuryTx, revenue
 from y import Network
 from y.constants import CHAINID
-
-from dao_treasury import TreasuryTx, revenue
-
 
 keepcoins: Final = revenue("keepCOINS")
 

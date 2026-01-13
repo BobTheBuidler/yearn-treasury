@@ -8,10 +8,9 @@ from y import Contract, Network
 from y.prices.yearn import YearnInspiredVault
 
 from yearn_treasury.constants import CHAINID, TREASURY_WALLETS
-from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.rules.constants import ZERO_ADDRESS
+from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.vaults import v1, v2
-
 
 vaults: Final = swaps("Vaults")
 

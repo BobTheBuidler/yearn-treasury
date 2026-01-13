@@ -20,7 +20,6 @@ from y import Contract, Events, Network
 
 from yearn_treasury._ens import resolver, topics
 
-
 v1: Final[dict[Contract, ChecksumAddress]] = {}
 """Vault contract -> underlying address"""
 

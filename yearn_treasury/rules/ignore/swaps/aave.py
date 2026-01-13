@@ -15,7 +15,6 @@ from eth_typing import ChecksumAddress
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 aave: Final = swaps("Aave")
 
 

@@ -12,7 +12,6 @@ from y import Network
 
 from yearn_treasury.constants import ZERO_ADDRESS
 
-
 UNIT_XYZ_VAULT: Final = "0xb1cFF81b9305166ff1EFc49A129ad2AfCd7BCf19"
 
 unit: Final = ignore("Unit.xyz")

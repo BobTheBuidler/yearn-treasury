@@ -13,7 +13,6 @@ from dao_treasury import TreasuryTx, TreasuryWallet, ignore
 
 from yearn_treasury.rules.constants import ZERO_ADDRESS
 
-
 DSPROXY: Final = "0xd42e1Cb8b98382df7Db43e0F09dFE57365659D16"
 DEPOSIT_EVENT_ARGS: Final = "ilk", "usr", "wad"
 WITHDRAWAL_EVENT_ARGS: Final = "cdp", "dst", "wad"

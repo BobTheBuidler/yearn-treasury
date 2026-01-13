@@ -2,7 +2,6 @@ from typing import Final
 
 from dao_treasury import TreasuryTx, revenue
 
-
 bribes: Final = revenue("Bribes")
 
 

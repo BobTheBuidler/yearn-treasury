@@ -19,7 +19,6 @@ from y import Network
 
 from yearn_treasury.constants import CHAINID
 
-
 suppress_logs_for: Final[dict[Network, list[HexAddress]]] = {
     Network.Mainnet: [
         "0xBF7AA989192b020a8d3e1C65a558e123834325cA",  # unpriceable yvWBTC - This vault had a bug and does not have a pricePerShare

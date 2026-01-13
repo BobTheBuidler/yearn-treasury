@@ -9,7 +9,6 @@ from typing import Final
 
 from dao_treasury import TreasuryTx, expense
 
-
 infrastructure: Final = expense("Infrastructure")
 
 

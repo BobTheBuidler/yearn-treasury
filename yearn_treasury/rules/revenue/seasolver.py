@@ -1,7 +1,7 @@
 from typing import Final
+
 from dao_treasury import TreasuryTx, revenue
 from y import Network
-
 
 seasolver: Final = revenue("Seasolver", Network.Mainnet)
 

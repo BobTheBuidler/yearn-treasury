@@ -11,7 +11,6 @@ from y import Network
 
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 gearbox = swaps("Gearbox")
 
 

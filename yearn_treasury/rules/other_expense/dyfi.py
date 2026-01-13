@@ -4,7 +4,6 @@ from dao_treasury import TreasuryTx, other_expense
 from pony.orm import commit
 from y import Network
 
-
 dyfi: Final = other_expense("dYFI")
 
 

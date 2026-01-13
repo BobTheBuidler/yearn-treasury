@@ -2,7 +2,6 @@ from typing import Final
 
 from dao_treasury import IgnoreSortRule, SortRuleFactory, ignore
 
-
 swaps: Final[SortRuleFactory[IgnoreSortRule]] = ignore("Swaps")
 
 

@@ -8,14 +8,13 @@ from typing import Any, Final
 
 import a_sync
 from brownie import chain
-from eth_portfolio.structs import TokenTransfer
 from eth_portfolio._ydb.token_transfers import InboundTokenTransfers
+from eth_portfolio.structs import TokenTransfer
 from pandas import DataFrame, MultiIndex
 from y import Contract, Network, get_block_at_timestamp
 from y.exceptions import ContractNotVerified
 
 from yearn_treasury.constants import ZERO_ADDRESS
-
 
 DATA_FOLDER: Final = os.path.join(".", "data")
 OUTPUT_FILE: Final = os.path.join(DATA_FOLDER, f"teams_revenue_{chain.id}.csv")

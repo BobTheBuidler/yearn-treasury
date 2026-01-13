@@ -9,7 +9,6 @@ it will end up in here.
 from dao_treasury import TreasuryTx, other_expense
 from y import Network
 
-
 other_expense("veYFI Launch", Network.Mainnet).match(
     hash="0x51202f9e8a9afa84a9a0c37831ca9a18508810175cb95ab7c52691bbe69a56d5",
     symbol="YFI",

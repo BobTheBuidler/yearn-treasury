@@ -4,7 +4,6 @@ from dao_treasury import TreasuryTx
 
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 compound: Final = swaps("Compound")
 
 

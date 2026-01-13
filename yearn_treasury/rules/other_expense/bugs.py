@@ -1,7 +1,6 @@
 from dao_treasury import TreasuryTx, other_expense
 from y import Network
 
-
 bugs = other_expense("Bug Reimbursements")
 
 

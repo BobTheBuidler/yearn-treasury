@@ -2,12 +2,11 @@ from typing import Final
 
 from brownie import ZERO_ADDRESS, chain
 from dao_treasury import TreasuryTx, TreasuryWallet
-from y import Network, Contract
+from y import Contract, Network
 from y.constants import CHAINID, WRAPPED_GAS_COIN
 
 from yearn_treasury.rules.ignore.swaps import swaps
 from yearn_treasury.rules.ignore.swaps._skip_tokens import SKIP_TOKENS
-
 
 uniswap: Final = swaps("Uniswap")
 

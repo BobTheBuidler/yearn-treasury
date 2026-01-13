@@ -5,7 +5,6 @@ import y.constants
 from eth_typing import BlockNumber
 from y import Network, convert
 
-
 CHAINID: Final = y.constants.CHAINID
 
 EEE_ADDRESS: Final = "0xEeeeeEeeeEeEeeEeEeEeeEEEeeeeEeeeeeeeEEeE"

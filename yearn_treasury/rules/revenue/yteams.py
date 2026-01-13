@@ -3,7 +3,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, revenue
 from y import Network
 
-
 OXSPLIT_CONTRACT: Final = "0x2ed6c4B5dA6378c7897AC67Ba9e43102Feb694EE"
 SPLITS_WAREHOUSE_CONTRACT: Final = "0x8fb66F38cF86A3d5e8768f8F1754A24A6c661Fb8"
 
