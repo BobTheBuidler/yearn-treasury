@@ -31,7 +31,6 @@ from typing import Final, final
 
 from yearn_treasury import yteams
 
-
 parser = ArgumentParser(description="Treasury CLI")
 subparsers = parser.add_subparsers(dest="command", required=True)
 

@@ -5,7 +5,6 @@ from y import Network
 
 from yearn_treasury.rules.ignore.swaps import swaps
 
-
 auctions: Final = swaps("Auctions")
 
 YEARNFI_DUTCH_AUCTIONS: Final = "0x861fE45742f70054917B65bE18904662bD0dBd30"

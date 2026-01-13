@@ -15,7 +15,6 @@ from eth_typing import HexStr
 from y import Network
 from y.constants import CHAINID
 
-
 gas: Final = cost_of_revenue("Gas")
 
 commit: Final = pony.orm.commit

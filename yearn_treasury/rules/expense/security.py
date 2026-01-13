@@ -11,7 +11,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, expense
 from y import Network
 
-
 security: Final = expense("Security")
 audits: Final = security("Audits")
 grants: Final = security("Grants")

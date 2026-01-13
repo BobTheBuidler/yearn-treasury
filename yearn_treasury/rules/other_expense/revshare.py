@@ -5,7 +5,6 @@ from typing import Final
 from dao_treasury import other_expense
 from y import Network
 
-
 revshare: Final = other_expense("Revshare")
 
 

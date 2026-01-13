@@ -17,7 +17,6 @@ from typing import Final
 from y import Network, convert
 from y.constants import CHAINID
 
-
 _SHITCOINS: Final = {
     Network.Mainnet: (
         "0xC36442b4a4522E871399CD717aBDD847Ab11FE88",  # UNI-V3 NFT, not shitcoin but not pricable

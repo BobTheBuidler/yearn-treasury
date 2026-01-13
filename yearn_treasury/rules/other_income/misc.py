@@ -3,10 +3,9 @@ from decimal import Decimal
 from typing import Final
 
 from dao_treasury import TreasuryTx, other_income
-from y import Contract, ContractNotVerified, ERC20, Network  # type: ignore [attr-defined]
+from y import ERC20, Contract, ContractNotVerified, Network  # type: ignore [attr-defined]
 
 from yearn_treasury.rules.constants import ZERO_ADDRESS
-
 
 _POINT_ONE: Final = Decimal("0.1")
 

@@ -7,7 +7,6 @@ from y import Network
 
 from yearn_treasury.constants import CHAINID, YSWAP_MULTISIG, ZERO_ADDRESS
 
-
 passthru: Final = ignore("Pass-Thru")
 
 cowswap_router: Final = "0x9008D19f58AAbD9eD0D60971565AA8510560ab41"

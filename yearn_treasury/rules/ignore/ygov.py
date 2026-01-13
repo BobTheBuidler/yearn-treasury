@@ -3,7 +3,6 @@ from typing import Final
 from dao_treasury import TreasuryTx, ignore
 from y import Network
 
-
 YGOV: Final = "0xBa37B002AbaFDd8E89a1995dA52740bbC013D992"
 
 
