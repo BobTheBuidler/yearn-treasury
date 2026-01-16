@@ -26,6 +26,9 @@ This WIP library runs the [dao-treasury](https://github.com/BobTheBuidler/dao-tr
 - You will need an auth token for [Etherscan](https://etherscan.io/)'s API. Follow their [guide](https://docs.etherscan.io/etherscan-v2/getting-an-api-key) to get your key, and set env var `ETHERSCAN_TOKEN` with its value.
 - You'll also need [Docker](https://www.docker.com/get-started/) installed on your system. If on MacOS, you will need to leave Docker Desktop open while Yearn Treasury is running.
 
+## Debug logging
+Yearn Treasury relies on ypricemagic for price lookups via dao-treasury/eth-portfolio. If you need to spot long-running price calls, enable the `y.stuck?` logger at DEBUG. Details: [y.stuck? logger](CONTRIBUTING.md#y-stuck-logger).
+
 ## Usage
 
 Run the treasury export tool:

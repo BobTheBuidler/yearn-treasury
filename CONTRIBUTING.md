@@ -18,6 +18,18 @@ Yearn Treasury is implemented on top of [DAO Treasury](https://github.com/BobThe
 
 This project defines dashboards using JSON definitions located in the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury/tree/master/dao_treasury/.grafana/provisioning) repo. Community contributors can update existing dashboard visuals or create new ones by using Grafana's intuitive UI.
 
+## y.stuck? logger
+
+Yearn Treasury relies on ypricemagic for price lookups. ypricemagic wraps long-running async calls with a DEBUG logger named `y.stuck?`. It only emits when the logger is enabled for DEBUG, and logs "module.function still executing after Xm with args ... kwargs ..." every 5 minutes until completion.
+
+Enable it locally when debugging slow price calls:
+```python
+import logging
+
+logging.basicConfig(level=logging.INFO)
+logging.getLogger("y.stuck?").setLevel(logging.DEBUG)
+```
+
 ---
 
 ## Creating a New Dashboard
