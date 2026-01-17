@@ -3,7 +3,6 @@ __pycache__/
 cache/
 dist/
 .env
-.worktrees
 env/
 *.o
 *.so
@@ -14,3 +13,4 @@ build/**/*.yaml
 ops.txt
 build/setup.py
 yearn_treasury.egg-info/
+.worktrees/
