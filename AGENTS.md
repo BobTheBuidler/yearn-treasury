@@ -15,5 +15,9 @@ All agents must follow these rules:
 9) If you touch ypricemagic-driven price lookups or related docs, keep the `y.stuck?` logger guidance accurate (DEBUG-only, 5-minute interval) so long-running calls can be diagnosed.
 10) If the repo uses mypyc, verify tests run against compiled extensions (not interpreted Python) and note how you confirmed.
 11) If the branch you're assigned to work on tracks a remote (ie origin/master or upstream/awesome-feature), fetch and pull from that remote before you begin so you're working from the latest commits (eg `git fetch <remote> && git pull <remote> <branch>`).
+12) Maximize the use of caching in GitHub workflow files to minimize run duration.
+13) Use one of `paths` or `paths-ignore` in every workflow file to make sure workflows only run when required.
+14) All mypy configuration (flags, overrides, per-module ignores, and file targets) should go in pyproject.toml. Do not split config across CLI args, mypy.ini, setup.cfg, or workflow steps.
+15) Centralize pytest settings (flags, markers, ignore patterns, and targets) in pyproject.toml, pytest.ini, setup.cfg, or tox.ini; workflows/hooks should call pytest without inline args.
 
 Reference: https://www.conventionalcommits.org/en/v1.0.0/
