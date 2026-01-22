@@ -13,7 +13,7 @@ docs:
 	poetry run sphinx-apidoc -o ./docs/source ./yearn_treasury
 
 mypy:
-	poetry run mypy .
+	poetry run mypy
 
 # Update the TaskStart hook submodule and commit the change
 hooks:

@@ -39,6 +39,7 @@ myst-parser = "*"
 
 [tool.mypy]
 exclude = ["build/","cache/","env/", "tests/", "setup.py"]
+files = ["."]
 ignore_missing_imports = true
 check_untyped_defs = true
 
