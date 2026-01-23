@@ -4,11 +4,23 @@ on:
   push:
     branches:
       - master
+    paths:
+      - ./.github/workflows/docs.yaml
+      - docs/**
+      - '**.py'
+      - pyproject.toml
+      - poetry.lock
+      - Makefile
+      - README.md
   pull_request:
     paths:
       - ./.github/workflows/docs.yaml
+      - docs/**
+      - '**.py'
       - pyproject.toml
       - poetry.lock
+      - Makefile
+      - README.md
   workflow_dispatch:
 
 concurrency:
