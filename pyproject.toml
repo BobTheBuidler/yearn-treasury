@@ -17,6 +17,7 @@ requires = [
     "dao-treasury==0.1.7; platform_system == 'Linux' and platform_machine != 'i686'",
     "eth-brownie==1.22.0.dev0; platform_system == 'Linux'",
     "eth-typing==5.2.1",
+    "typed-envs==0.2.4",
 ]
 build-backend = "setuptools.build_meta"
 
@@ -38,8 +39,9 @@ sphinx-rtd-theme = "*"
 myst-parser = "*"
 
 [tool.mypy]
-exclude = ["build/","cache/","env/", "tests/", "setup.py"]
 files = ["."]
+plugins = ["typed_envs.mypy_plugin"]
+exclude = ["build/","cache/","env/", "tests/", "setup.py"]
 ignore_missing_imports = true
 check_untyped_defs = true
 
