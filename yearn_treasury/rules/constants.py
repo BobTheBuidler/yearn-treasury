@@ -1,4 +1,3 @@
-# mypy: disable-error-code="index"
 from typing import Final
 
 from y import Network

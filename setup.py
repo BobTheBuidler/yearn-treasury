@@ -43,13 +43,6 @@ else:
             "yearn_treasury/_ens.py",
             "yearn_treasury/_logging.py",
             "yearn_treasury/vaults.py",
-            "--strict",
-            "--pretty",
-            "--disable-error-code=unused-ignore",
-            "--disable-error-code=union-attr",
-            "--disable-error-code=no-any-return",
-            "--disable-error-code=untyped-decorator",
-            "--disable-error-code=misc",  # TODO: drop support for 32bit systems
         ],
         group_name="yearn_treasury",
     )

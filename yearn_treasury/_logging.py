@@ -1,4 +1,3 @@
-# mypy: disable-error-code="list-item"
 """
 Error log suppression utilities for the Yearn Treasury exporter.
 

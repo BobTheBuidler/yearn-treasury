@@ -44,6 +44,40 @@ plugins = ["typed_envs.mypy_plugin"]
 exclude = ["build/","cache/","env/", "tests/", "setup.py"]
 ignore_missing_imports = true
 check_untyped_defs = true
+pretty = true
+strict = true
+disable_error_code = [
+    "unused-ignore",
+    "type-arg",
+    "union-attr",
+    "no-any-return",
+    "untyped-decorator",
+    "misc",
+]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.rules.cost_of_revenue.gas"
+disable_error_code = ["call-overload"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.rules.ignore.swaps.iearn"
+disable_error_code = ["dict-item"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.rules.constants"
+disable_error_code = ["index"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.rules.other_income.misc"
+disable_error_code = ["union-attr"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury._logging"
+disable_error_code = ["list-item"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury._db"
+disable_error_code = ["arg-type"]
 
 [tool.black]
 line-length = 100
