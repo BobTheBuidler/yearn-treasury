@@ -11,7 +11,6 @@ to descriptive nicknames within the DAO Treasury database entity system
 for improved data clarity and prettification of reports.
 """
 
-# mypy: disable-error-code="arg-type"
 import time
 
 import dao_treasury._docker

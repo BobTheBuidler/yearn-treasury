@@ -1,4 +1,3 @@
-# mypy: disable-error-code=dict-item
 from typing import Final, cast
 
 from dao_treasury import TreasuryTx

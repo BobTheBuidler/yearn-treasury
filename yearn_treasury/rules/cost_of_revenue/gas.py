@@ -6,7 +6,6 @@ transactions as cost of revenue. It includes logic for multisig
 reimbursements, strategist gas, returned gas, and more.
 """
 
-# mypy: disable-error-code="call-overload"
 from typing import Final
 
 import pony.orm
