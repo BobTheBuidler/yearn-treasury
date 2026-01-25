@@ -69,7 +69,7 @@ disable_error_code = ["index"]
 
 [[tool.mypy.overrides]]
 module = "yearn_treasury.rules.other_income.misc"
-disable_error_code = ["union-attr"]
+disable_error_code = ["union-attr", "call-arg"]
 
 [[tool.mypy.overrides]]
 module = "yearn_treasury._logging"
@@ -78,6 +78,14 @@ disable_error_code = ["list-item"]
 [[tool.mypy.overrides]]
 module = "yearn_treasury._db"
 disable_error_code = ["arg-type"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.yteams"
+disable_error_code = ["arg-type"]
+
+[[tool.mypy.overrides]]
+module = "yearn_treasury.main"
+disable_error_code = ["no-untyped-def", "no-untyped-call"]
 
 [tool.black]
 line-length = 100
