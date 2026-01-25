@@ -171,7 +171,7 @@ async def sum_revenue_transfers(params: tuple[str, Decimal], timestamp: datetime
         if transfer.price:
             total += transfer.value * transfer.price
         elif transfer not in _warned and transfer.token not in _known_tokens_without_prices:
-            logger.warning(f"NULL PRICE: {transfer}")
+            logger.warning(f"PRICE ZERO: {transfer}")
             _warned.add(transfer)
     return round(total * Decimal((100 - rev_share) / 100), 8)
 
@@ -202,6 +202,6 @@ async def sum_grants_received(wallet: str, timestamp: datetime) -> Decimal:
                 except Exception as e:
                     logger.exception("Exception for yTeam transfer: %s", transfer)
         elif transfer not in _warned and transfer.token not in _known_tokens_without_prices:
-            logger.warning(f"NULL PRICE: {transfer}")
+            logger.warning(f"PRICE ZERO: {transfer}")
             _warned.add(transfer)
     return round(grants, 8)
