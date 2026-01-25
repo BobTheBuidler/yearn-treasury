@@ -26,7 +26,7 @@ yearn-treasury = "yearn_treasury.main:main"
 
 [tool.poetry.dependencies]
 python = ">=3.10,<3.13"
-dao-treasury = "==0.1.10"
+dao-treasury = "==0.1.12"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.19.1"
