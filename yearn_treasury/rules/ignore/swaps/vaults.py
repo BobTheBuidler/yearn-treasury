@@ -17,6 +17,19 @@ vaults: Final = swaps("Vaults")
 TREASURY_AND_ZERO: Final = {*TREASURY_WALLETS, ZERO_ADDRESS}
 
 all_vaults: Final = tuple(v1.keys()) + tuple(v2.values())
+vault_by_address: Final = {vault.address: vault for vault in all_vaults}
+all_vault_addresses: Final = frozenset(vault_by_address)
+
+_vaults_by_underlying: dict[ChecksumAddress, list[Contract]] = {}
+
+for _vault, _underlying in v1.items():
+    _vaults_by_underlying.setdefault(_underlying, []).append(_vault)
+
+
+def _index_vault_underlying(vault: Contract, underlying: ChecksumAddress) -> None:
+    vaults = _vaults_by_underlying.setdefault(underlying, [])
+    if vault not in vaults:
+        vaults.append(vault)
 
 
 @vaults("Deposit")
@@ -50,6 +63,9 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
         raise
 
     transfer_events = tx.events["Transfer"]
+    transfer_events_by_address: dict[ChecksumAddress, list] = {}
+    for event in transfer_events:
+        transfer_events_by_address.setdefault(event.address, []).append(event)
 
     tx_token = tx.token_address
 
@@ -59,51 +75,52 @@ async def is_v1_or_v2_vault_deposit(tx: TreasuryTx) -> bool:
     underlying_address: ChecksumAddress
 
     # vault side
-    for vault in all_vaults:
-        if tx_token == vault.address:
-            for event in transfer_events:
-                if tx_token == event.address:
-                    event_pos = event.pos
-                    sender, receiver, value = event.values()
-                    if sender == ZERO_ADDRESS and TreasuryWallet.check_membership(receiver, block):
-                        tx_to_address = tx.to_address
-                        underlying_address = await _get_underlying(vault)
-                        for _event in transfer_events:
-                            _sender, _receiver, _value = _event.values()
-                            if (
-                                _event.address == underlying_address
-                                and tx_to_address == _sender
-                                and tx_token == _receiver
-                            ):
-                                # v1
-                                if _event.pos < event_pos:
-                                    return True
-                                # v2
-                                if event_pos < _event.pos:
-                                    return True
+    vault = vault_by_address.get(tx_token)
+    if vault is not None:
+        vault_events = transfer_events_by_address.get(tx_token, [])
+        underlying_events = None
+        tx_to_address = tx.to_address
+        for event in vault_events:
+            event_pos = event.pos
+            sender, receiver, value = event.values()
+            if sender == ZERO_ADDRESS and TreasuryWallet.check_membership(receiver, block):
+                if underlying_events is None:
+                    underlying_address = await _get_underlying_indexed(vault)
+                    underlying_events = transfer_events_by_address.get(underlying_address, [])
+                for _event in underlying_events:
+                    _sender, _receiver, _value = _event.values()
+                    if tx_to_address == _sender and tx_token == _receiver:
+                        # v1
+                        if _event.pos < event_pos:
+                            return True
+                        # v2
+                        if event_pos < _event.pos:
+                            return True
 
     # token side
-    for vault in all_vaults:
-        if tx_token == await _get_underlying(vault):
-            for event in transfer_events:
-                if tx_token == event.address:
-                    vault_address = vault.address
-                    event_pos = event.pos
-                    sender, receiver, value = event.values()
-                    if TreasuryWallet.check_membership(sender, block) and receiver == vault_address:
-                        for _event in transfer_events:
-                            _sender, _receiver, _value = _event.values()
-                            if (
-                                _event.address == vault_address
-                                and _sender == ZERO_ADDRESS
-                                and TreasuryWallet.check_membership(_receiver, block)
-                            ):
-                                # v1?
-                                if event_pos < _event.pos:
-                                    return True
-                                # v2
-                                if _event.pos < event_pos:
-                                    return True
+    token_events = transfer_events_by_address.get(tx_token, [])
+    if token_events:
+        known_vaults = _vaults_by_underlying.get(tx_token, [])
+        for vault_address in all_vault_addresses.intersection(transfer_events_by_address):
+            vault = vault_by_address[vault_address]
+            if vault not in known_vaults:
+                underlying_address = await _get_underlying_indexed(vault)
+                if underlying_address != tx_token:
+                    continue
+            vault_events = transfer_events_by_address.get(vault_address, [])
+            for event in token_events:
+                event_pos = event.pos
+                sender, receiver, value = event.values()
+                if TreasuryWallet.check_membership(sender, block) and receiver == vault_address:
+                    for _event in vault_events:
+                        _sender, _receiver, _value = _event.values()
+                        if _sender == ZERO_ADDRESS and TreasuryWallet.check_membership(_receiver, block):
+                            # v1?
+                            if event_pos < _event.pos:
+                                return True
+                            # v2
+                            if _event.pos < event_pos:
+                                return True
     return False
 
 
@@ -168,6 +185,14 @@ async def _get_underlying(vault: Contract) -> ChecksumAddress:
     return underlying.address  # type: ignore [return-value]
 
 
+async def _get_underlying_indexed(vault: Contract) -> ChecksumAddress:
+    underlying = v1.get(vault)
+    if underlying is None:
+        underlying = await _get_underlying(vault)
+    _index_vault_underlying(vault, underlying)
+    return underlying
+
+
 @vaults("Withdrawal")
 async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
     to_address = cast(Address, tx.to_address).address
@@ -183,6 +208,9 @@ async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
         raise
 
     transfer_events = tx.events["Transfer"]
+    transfer_events_by_address: dict[ChecksumAddress, list] = {}
+    for event in transfer_events:
+        transfer_events_by_address.setdefault(event.address, []).append(event)
 
     token = tx.token
     token_address = cast(ChecksumAddress, token.address.address)
@@ -191,43 +219,51 @@ async def is_vault_withdrawal(tx: TreasuryTx) -> bool:
     underlying: ChecksumAddress
 
     # vault side
-    if any(token_address == vault.address for vault in all_vaults):
-        for event in transfer_events:
-            if token_address == event.address:
+    vault = vault_by_address.get(token_address)
+    if vault is not None:
+        vault_events = transfer_events_by_address.get(token_address, [])
+        underlying_events = None
+        for event in vault_events:
+            sender, receiver, value = event.values()
+            if (
+                to_address == ZERO_ADDRESS == receiver
+                and TreasuryWallet.check_membership(sender, block)
+                and tx.from_address == sender
+            ):
+                if underlying_events is None:
+                    underlying = await _get_underlying_indexed(vault)
+                    underlying_events = transfer_events_by_address.get(underlying, [])
+                for _event in underlying_events:
+                    _sender, _receiver, _value = _event.values()
+                    if (
+                        tx.from_address == _receiver
+                        and event.pos < _event.pos
+                        and token_address == _sender
+                    ):
+                        return True
+    # token side
+    token_events = transfer_events_by_address.get(token_address, [])
+    if token_events:
+        known_vaults = _vaults_by_underlying.get(token_address, [])
+        for vault_address in all_vault_addresses.intersection(transfer_events_by_address):
+            vault = vault_by_address[vault_address]
+            if vault not in known_vaults:
+                underlying = await _get_underlying_indexed(vault)
+                if underlying != token_address:
+                    continue
+            vault_events = transfer_events_by_address.get(vault_address, [])
+            for event in token_events:
                 sender, receiver, value = event.values()
-                if (
-                    to_address == ZERO_ADDRESS == receiver
-                    and TreasuryWallet.check_membership(sender, block)
-                    and tx.from_address == sender
-                ):
-                    underlying = await _get_underlying(token_address)
-                    for _event in transfer_events:
+                if tx.from_address == vault_address == sender and to_address == receiver:
+                    for _event in vault_events:
                         _sender, _receiver, _value = _event.values()
                         if (
-                            _event.address == underlying
-                            and tx.from_address == _receiver
-                            and event.pos < _event.pos
-                            and token_address == _sender
+                            _receiver == ZERO_ADDRESS
+                            and TreasuryWallet.check_membership(_sender, block)
+                            and to_address == _sender
+                            and _event.pos < event.pos
                         ):
                             return True
-    # token side
-    for vault in all_vaults:
-        if token_address == await _get_underlying(vault):
-            vault_address = vault.address
-            for event in transfer_events:
-                if token_address == event.address:
-                    sender, receiver, value = event.values()
-                    if tx.from_address == vault_address == sender and to_address == receiver:
-                        for _event in transfer_events:
-                            _sender, _receiver, _value = _event.values()
-                            if (
-                                _event.address == vault_address
-                                and _receiver == ZERO_ADDRESS
-                                and TreasuryWallet.check_membership(_sender, block)
-                                and to_address == _sender
-                                and _event.pos < event.pos
-                            ):
-                                return True
     return False
 
 
