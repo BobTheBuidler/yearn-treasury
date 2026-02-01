@@ -32,12 +32,12 @@ Run the treasury export tool:
 
 ```bash
 # For pip installations:
-yearn-treasury --network mainnet --interval 12h
+GF_SECURITY_ADMIN_USER=admin GF_SECURITY_ADMIN_PASSWORD=... yearn-treasury --network mainnet --interval 12h
 ```
 
 For local development (from source installation), use:
 ```bash
-poetry run yearn-treasury --network mainnet --interval 12h
+GF_SECURITY_ADMIN_USER=admin GF_SECURITY_ADMIN_PASSWORD=... poetry run yearn-treasury --network mainnet --interval 12h
 ```
 
 **CLI Options:**
@@ -48,8 +48,12 @@ poetry run yearn-treasury --network mainnet --interval 12h
 - `--renderer-port`: Set the port for the report rendering service (default: 8080)
 - `--victoria-port`: Set the port for the Victoria metrics reporting endpoint (default: 8430)
 
+**Grafana Auth:**
+- Requires `GF_SECURITY_ADMIN_USER` and `GF_SECURITY_ADMIN_PASSWORD`.
+- Optional anonymous access via `DAO_TREASURY_GRAFANA_ANON_ENABLED=true`.
+
 After running the command, the export script will run continuously until you close your terminal.
-To access the dashboard, open your browser and navigate to [http://localhost:3004](http://localhost:3004) for the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury) dashboard.
+To access the dashboard, open your browser and navigate to [http://localhost:3004](http://localhost:3004) for the [dao-treasury](https://github.com/BobTheBuidler/dao-treasury) dashboard and log in with your Grafana admin credentials.
 
 Enjoy!
 

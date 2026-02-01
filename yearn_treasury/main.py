@@ -11,7 +11,8 @@ Example:
 
     .. code-block:: bash
 
-        yearn-treasury run --network mainnet --interval 12h
+        GF_SECURITY_ADMIN_USER=admin GF_SECURITY_ADMIN_PASSWORD=... \\
+          yearn-treasury run --network mainnet --interval 12h
 
 CLI Options:
     --network         Brownie network identifier (default: mainnet)
@@ -22,6 +23,8 @@ CLI Options:
     --victoria-port   Port for the Victoria metrics endpoint (default: 8430)
     --start-renderer  Start the Grafana renderer container for dashboard image export
     --renderer-port   Port for the renderer service (default: 8080)
+    Grafana auth      Requires GF_SECURITY_ADMIN_USER/GF_SECURITY_ADMIN_PASSWORD.
+                      Optional anonymous access via DAO_TREASURY_GRAFANA_ANON_ENABLED=true.
 """
 
 import asyncio
@@ -30,6 +33,7 @@ from argparse import ArgumentParser
 from typing import Final, final
 
 from yearn_treasury import yteams
+from yearn_treasury._grafana import require_grafana_admin_env
 
 parser = ArgumentParser(description="Treasury CLI")
 subparsers = parser.add_subparsers(dest="command", required=True)
@@ -155,6 +159,9 @@ def main() -> None:
     os.environ["DAO_TREASURY_GRAFANA_PORT"] = str(Args.grafana_port)
     os.environ["DAO_TREASURY_RENDERER_PORT"] = str(Args.renderer_port)
     os.environ["VICTORIA_PORT"] = str(Args.victoria_port)
+
+    # Ensure Grafana admin credentials are provided before starting containers.
+    require_grafana_admin_env()
 
     async def yearn_wrapper():
         """
