@@ -3,6 +3,10 @@ Transactions Dashboard
 
 This dashboard provides a real-time view of the transactions in yearn-treasury's database, displaying columns such as timestamp, block, hash, token, addresses, and associated metadata (address nicknames, amount, price, and value in USD).
 
+Access Note:
+- Grafana requires admin credentials set via `GF_SECURITY_ADMIN_USER` and `GF_SECURITY_ADMIN_PASSWORD`.
+- Optional anonymous access can be enabled with `DAO_TREASURY_GRAFANA_ANON_ENABLED=true`.
+
 Key Features
 ------------
 

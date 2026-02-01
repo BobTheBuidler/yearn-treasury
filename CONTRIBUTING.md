@@ -24,7 +24,7 @@ This project defines dashboards using JSON definitions located in the [dao-treas
 
 1. **Access the Grafana UI**  
    - Open Grafana in your web browser.
-   - You can login to your local deployment as an administrator with username: `admin` and password: `admin`
+   - Set `GF_SECURITY_ADMIN_USER` and `GF_SECURITY_ADMIN_PASSWORD`, then login with those credentials.
   
 2. **Build Your Dashboard**  
    - Click on the **"+"** icon in the sidebar and choose **Dashboard**.
@@ -53,7 +53,7 @@ This project defines dashboards using JSON definitions located in the [dao-treas
 
 1. **Access the Existing Dashboard**  
    - Open Grafana in your web browser.
-   - Login to your local deployment as an administrator with username: `admin` and password: `admin`.
+   - Login to your local deployment using the Grafana admin credentials you set.
    - Navigate to the existing dashboard you wish to modify.
    - Open the dashboard and click **Edit** to modify panels, queries, or visual styles.
 
