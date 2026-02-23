@@ -30,7 +30,7 @@ dao-treasury = "==1.0.1"
 
 [tool.poetry.group.dev.dependencies]
 mypy = "1.19.1"
-types-pony = "0.7.0.20250822"
+types-pony = "0.7.0.20260223"
 types-requests = "*"
 
 [tool.poetry.group.docs.dependencies]
