@@ -29,7 +29,7 @@ python = ">=3.10,<3.13"
 dao-treasury = "==1.1.2"
 
 [tool.poetry.group.dev.dependencies]
-mypy = "1.19.1"
+mypy = "1.20.0"
 types-pony = "0.7.0.20250822"
 types-requests = "*"
 
